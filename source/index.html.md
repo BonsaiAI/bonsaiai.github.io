@@ -1,5 +1,5 @@
 ---
-title: Getting Started with Anaconda
+title: Bonsai Documentation
 
 language_tabs:
   - shell

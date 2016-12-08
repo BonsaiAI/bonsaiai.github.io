@@ -29,8 +29,9 @@ I've set up a draft of the following pages to show off the new format. These are
 The listed endpoints reflect the site map available at [Coggle](https://coggle.it/diagram/V_RLZO99g4VT4gaT/e87816a3386a4dcf961fcd2df53621233acaf8c1f3c0e2c735189ae0b0d4c90c)
 
 "Classic" style pages reflect the original ordering. "New" style is the concatenated Details/Reference page.
-Page | Status | Style
--------------- | -------------- | --------------
+
+| Page     | Status        | Style |
+|----------|---------------|-------|
 [Getting Started][1] | Second Draft | Modular
 [Inkling Classic][2] | Zeroth Draft | Modular
 -- [Overview][7] | Zeroth Draft | Modular

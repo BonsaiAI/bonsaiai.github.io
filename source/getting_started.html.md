@@ -12,7 +12,7 @@ toc_footers:
 
 includes:
   - getting-started/introduction.html.md
-  - getting-started/concepts.html.md
+  - getting-started/background-faq.html.md
   - getting-started/lets-get-started.html.md
   - getting-started/whats-next.html.md
 search: true

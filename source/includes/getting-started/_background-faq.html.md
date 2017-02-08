@@ -95,7 +95,7 @@ Your BRAIN Dashboard contains all of your BRAINs. The BRAIN Dashboard is also wh
 
 There is a BRAIN Details page for each of your BRAINs. Each page shows that BRAIN's status, training graph, and commands you can use in the CLI specifically for this BRAIN.
 
-[1]: https://daks2k3a4ib2z.cloudfront.net/57bf257ce45825764c5cb54b/57e5bb2cab226c7d49d033f5_bonsai_infographic_2x_1024.png
+[1]: ../images/bonsai_infographic_1024.png
 [2]: ./inkling.html
 [3]: ./reference.html#cli-reference
 [4]: https://beta.bons.ai

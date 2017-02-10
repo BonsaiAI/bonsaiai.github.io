@@ -11,9 +11,8 @@ toc_footers:
 
 
 includes:
-  - getting-started/introduction.html.md
-  - getting-started/background-faq.html.md
-  - getting-started/lets-get-started.html.md
+  - getting-started/overview-and-faq.html.md
+  - getting-started/install.html.md
   - getting-started/whats-next.html.md
 search: true
 ---

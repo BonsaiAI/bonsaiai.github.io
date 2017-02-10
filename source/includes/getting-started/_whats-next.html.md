@@ -13,7 +13,7 @@ It contains all of the concepts and components of our unique programming languag
 And we have these other resources that will enable you to maximize your AI development experience:
 
 * [CLI Reference][2]
-* [HTTP API Reference][3]
+* [API Reference][3]
 * [Bonsai Blog][4]
 * [Bonsai Forums][5]
 

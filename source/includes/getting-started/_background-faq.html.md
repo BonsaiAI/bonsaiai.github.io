@@ -1,8 +1,16 @@
-# Background FAQ
+# Overview and FAQ
 
 [//]: # (If any commented statements become false, change prior text)
 
-There are some things you might want to know before you get started. In this section, we're going to walk you through the Bonsai Platform components and some of the fundamental ideas of the Bonsai Platform that are frequently asked questions. Let's jump right in!
+Hello new Bonsai developer!
+
+There are some things you might want to know before you get started. In this section, we're going to walk you through the Bonsai Platform components and some of the fundamental ideas of the Bonsai Platform that are frequently asked questions. Next, we'll guide you through installing the necessary tools, connecting a simulator, training a BRAIN, and finally using a BRAIN!
+
+At the end of this guide we'll link you to resources that give you the tools to keep going, like our [Inkling Guide][2] and [CLI Reference][3]. You can also check out our [examples][7] and tutorials (coming soon!).
+
+[//]: # (You can only link to one specific example, there are no tutorials)
+
+**If you're not interested in the background, and want to jump right into the action, you can skip down to our [Install Prerequisites][6] section.**
 
 ## What are the components of the Bonsai Platform?
 
@@ -100,3 +108,5 @@ There is a BRAIN Details page for each of your BRAINs. Each page shows that BRAI
 [3]: ./reference.html#cli-reference
 [4]: https://beta.bons.ai
 [5]: http://yann.lecun.com/exdb/mnist/
+[6]: ./getting_started.html#install-prerequisites
+[7]: ./inkling.html#example-cart-pole

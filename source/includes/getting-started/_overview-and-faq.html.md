@@ -4,7 +4,7 @@
 
 Hello new Bonsai developer!
 
-There are some things you might want to know before you get started. In this section, we're going to walk you through the Bonsai Platform components and some of the fundamental ideas of the Bonsai Platform that are frequently asked questions. Next, we'll guide you through installing the necessary tools, connecting a simulator, training a BRAIN, and finally using a BRAIN!
+There are some things you might want to know before you get started. In this section, we're going to walk you through the Bonsai Platform components and some of the fundamental ideas of the Bonsai Platform that are frequently asked questions. Next, we'll guide you through installing the necessary tools, connecting a simulator, training your BRAIN, and finally using your BRAIN!
 
 At the end of this guide we'll link you to resources that give you the tools to keep going, like our [Inkling Guide][2] and [CLI Reference][3]. You can also check out our [examples][7] and tutorials (coming soon!).
 
@@ -26,7 +26,9 @@ This image displays all the components of Bonsai's Platform. The Platform enable
 * **Generators:** are a training source. They produce labeled data programmatically. This data is effectively infinite. A generator could, for example, produce a random (but known) integer, set of line segments, etc.
 * **Data:** is also a training source. It is information related to the scenario being trained and can also be used to test and evaluate how well the training is implemented. Data could be a collection of images and labels or the rows of a spreadsheet. An example of a data set you could train with is the [MNIST database][5], which is a collection of handwritten digits used for training image processing systems and other machine learning systems.
 
-**Note:** Currently, during our private beta, you can only use simulators as your training source.
+<aside class="notice">
+Currently, during our private beta, you can only use simulators as your training source.
+</aside> 
 
 [//]: # (Simulators are the only training source, beta.bons.ai is current website instead of brains.bons.ai)
 

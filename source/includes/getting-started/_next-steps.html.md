@@ -1,8 +1,8 @@
-# What's Next
+# Next Steps
 
 Now that you've completed this guide, you can:
 
-**Check out our [Inkling Documentation][1].**
+**Check out our [Inkling Guide][1].**
 
 It contains all of the concepts and components of our unique programming language. You'll learn:
 

@@ -112,7 +112,7 @@ conda install pip
 
 ### Windows
 
-* **Git**: Download and install Git from [Git for Windows][11]. 
+* **Git**: You can install git via conda using the command shown on the right.
 
 ### Mac
 

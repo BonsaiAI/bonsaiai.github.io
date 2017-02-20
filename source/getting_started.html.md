@@ -2,8 +2,8 @@
 title: Getting Started - Bonsai
 
 language_tabs:
-  - shell: Python 2
-  - powershell: Python 3
+    - powershell: Windows
+    - shell: Mac
 
 toc_footers:
   - <a href='https://bons.ai/sign-up'>Sign Up for our Private Beta!</a>

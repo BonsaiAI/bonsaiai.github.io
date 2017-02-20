@@ -13,11 +13,11 @@ We highly recommend Mac users use <a href="http://brew.sh/">Homebrew</a> or down
 **There are three sets of install instructions to follow, please pick the one that suits your situation:**
 
 1. If you have **Anaconda** installed on your system, skip down to [Install with Anaconda][9].
-2. If you have **Chocolatey (Windows)** or **Homebrew (Mac)** installed on your system, skip down to [Install with Chocolatey/Homebrew][18].
-3. If you *do not* have Chocolatey/Homebrew/Anaconda installed on your system continue to follow our **Manual Install** intructions below.
+2. If you have **Chocolatey (Windows)** or **Homebrew (Mac)** installed on your system, skip down to [Install with Chocolatey or Homebrew][18].
+3. If you *do not* have Chocolatey, Homebrew, or Anaconda installed on your system continue to follow our **Manual Install** intructions below.
 
 <aside class="notice">
-The two tabs to the right allow you to follow this guide either using Python 2 or Python 3. Instructions vary slightly between the two versions (tested on 2.7 and 3.6).
+The two tabs to the right allow you to follow this guide as a Mac or Windows user. Instructions also vary slightly between Python 2 and Python 3 so please be sure to follow your version's instructions.
 </aside>
 
 ## Manual Install
@@ -53,19 +53,28 @@ We highly recommend Mac users download Python directly so you can follow this gu
 
 **Great!** Now that you have Git, Python, and Pip installed, you can skip down to [Setup the Bonsai CLI][2]. 
 
-## Install with Chocolatey/Homebrew
+## Install with Chocolatey or Homebrew
 
 If you *do not* have Chocolatey or Homebrew installed on your system, please skip this section.
 
-> Chocolatey (Windows)
+> Python 2
 
-```shell
+```powershell
 choco install git
 choco install python2
 ```
+```shell
+brew install python
+```
+
+> Python 3
+
 ```powershell
 choco install git
 choco install python
+```
+```shell
+brew install python3
 ```
 
 ### Windows
@@ -76,15 +85,6 @@ choco install python
 Please remember to run choco commands in administrator powershell/command prompt.
 </aside>
 
-> Homebrew (Mac)
-
-```shell
-brew install python
-```
-```powershell
-brew install python3
-```
-
 ### Mac
 
 **If you're already familiar with [Homebrew][6], you can follow the commands shown to the right instead of installing manually.**
@@ -94,47 +94,29 @@ brew install python3
 
 ## Install with Anaconda
 
-If you *do not* have Anaconda installed on your system, please skip this section.
-
-conda is a tool for installing and managing Python and R dependencies. For more information, refer to the [Anaconda website][10].
-
-> Windows
-
 ```
 conda install git
 ```
 
-> Mac
+If you *do not* have Anaconda installed on your system, please skip this section.
 
-```
-conda install pip
-```
-
-### Windows
-
-* **Git**: You can install git via conda using the command shown on the right.
-
-### Mac
-
-* **Git**: Git is more than likely already installed on your computer if you have Xcode, but if not, run `git` from your command prompt.
+conda is a tool for installing and managing Python and R dependencies. Anaconda includes Python and pip, so all you need to do is install git if you haven't already. For more information, refer to the [Anaconda website][10].
 
 # Setup the Bonsai CLI
 
-> Windows
+> Python 2 and Anaconda
 
 ```
 pip install bonsai-cli
 bonsai configure
 ```
 
-> Mac
-
-```shell
-pip install bonsai-cli
-bonsai configure
-```
+> Python 3
 
 ```powershell
+# same as above
+```
+```shell
 pip3 install bonsai-cli
 bonsai configure
 ```
@@ -151,26 +133,23 @@ git clone https://github.com/BonsaiAI/gym-mountaincar-sample
 
 ## Install requirements
 
-Enter into the Mountain Car folder and then install the Mountain Car requirements from OpenAI Gym.
-
-> Windows
+> Python 2 and Anaconda
 
 ```
 cd gym-mountaincar-sample
 pip install -r requirements.txt
 ```
-
-> Mac
-
-```shell
-cd gym-mountaincar-sample
-pip install -r requirements.txt
-```
+> Python 3
 
 ```powershell
+# same as above
+```
+```shell
 cd gym-mountaincar-sample
 pip3 install -r requirements.txt
 ```
+
+Enter into the Mountain Car folder and then install the Mountain Car requirements from OpenAI Gym.
 
 # Create your BRAIN
 
@@ -209,22 +188,21 @@ Almost there! Time to tell the AI engine to prepare a new BRAIN version for trai
 
 ## Connect the simulator for training
 
-> Windows
+> Python 2
 
 ```
 python mountaincar_simulator.py --train-brain=myMountainCarBrain --headless
 ```
-> Mac
-
-```shell
-python mountaincar_simulator.py --train-brain=myMountainCarBrain --headless
-```
+> Python 3
 
 ```powershell
+# same as above
+```
+```shell
 python3 mountaincar_simulator.py --train-brain=myMountainCarBrain --headless
 ```
 
-Everything is in place, it's time to start the simulator and test things out. To do this, call Python and then the simulator file. Training will begin automatically and if the simulator gets disconnected, training resumes from the same point when the simulator is reconnected if it's within an hour of the disconnect. Remember, as mentioned in [2.3 What is a simulator?][7] if you want your training to take place overnight, make sure that your computer won't go to sleep and disconnect for more than an hour or that training time will be lost!
+Everything is in place, it's time to start the simulator and test things out. To do this, call Python and then the simulator file. Training will begin automatically and if the simulator gets disconnected, training resumes from the same point when the simulator is reconnected if it's within an hour of the disconnect. Remember, as mentioned in [What is a simulator?][7] if you want your training to take place overnight, make sure that your computer won't go to sleep and disconnect for more than an hour or that training time will be lost!
 
 <aside class="notice">
 We use headless here to indicate we don't need to see a graphical display from the simulator; if you'd like to see it and watch the simulator learn, omit this option.
@@ -250,18 +228,17 @@ Once we've gotten to this level of performance (or sooner if you prefer), CTRL-C
 
 # Use your BRAIN
 
-> Windows
+> Python 2
 
 ```
 python mountaincar_simulator.py --predict-brain=myMountainCarBrain --predict-version=latest
 ```
-> Mac
-
-```shell
-python mountaincar_simulator.py --predict-brain=myMountainCarBrain --predict-version=latest
-```
+> Python 3
 
 ```powershell
+# same as above
+```
+```shell
 python3 mountaincar_simulator.py --predict-brain=myMountainCarBrain --predict-version=latest
 ```
 

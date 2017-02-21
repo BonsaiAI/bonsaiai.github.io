@@ -3,7 +3,7 @@ title: Getting Started - Bonsai
 
 language_tabs:
     - powershell: Windows
-    - shell: Mac
+    - shell: macOS
 
 toc_footers:
   - <a href='https://bons.ai/sign-up'>Sign Up for our Private Beta!</a>

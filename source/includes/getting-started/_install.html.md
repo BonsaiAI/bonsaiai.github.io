@@ -125,7 +125,7 @@ From your command prompt, install the Bonsai Command Line Interface tool and con
 
 ## Clone a sample project
 
-Clone a sample simulation project with `git clone`. For this guide we'll be walking you through [OpenAI Gym's][4] Mountain Car environment, one of the supported Bonsai simulators.
+Clone a sample simulation project with `git clone`. For this guide we'll be walking you through [OpenAI Gym's Mountain Car][4] environment, one of the supported Bonsai simulators.
 
 ```
 git clone https://github.com/BonsaiAI/gym-mountaincar-sample
@@ -257,7 +257,7 @@ After your BRAIN is finished training it can play the Mountain Car game. How wel
 [10]: https://www.continuum.io/anaconda-overview
 [11]: https://git-for-windows.github.io/
 [12]: https://pip.pypa.io/en/stable/installing/
-[13]: https://github.com/macOSPython/wiki/wiki/Which-Python
+[13]: https://github.com/MacPython/wiki/wiki/Which-Python
 [14]: https://chocolatey.org/
 [15]: ../images/no_brains_image.png
 [16]: ../images/fully_trained_brain.png

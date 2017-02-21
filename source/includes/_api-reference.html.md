@@ -1,8 +1,8 @@
-# HTTP API Reference
+# API Reference
 
-The Bonsai AI Engine provides programmers and data scientists with a new way of building sophisticated ML and AI applications. This HTTP API is at the core of how programmers interact with the AI engine.
+The Bonsai AI Engine provides programmers and data scientists with a new way of building sophisticated ML and AI applications. This API is at the core of how programmers interact with the AI engine.
 
- The Bonsai BRAIN HTTP API has several features:
+ The Bonsai BRAIN API has several features:
 
 * Managing BRAINS on the AI engine.
 * Connecting simulators for training and use.
@@ -31,7 +31,7 @@ GET /v1/userName HTTP/1.1
 
 Uses the GET request method to get a list of assets owned by the user (or organization).
 
-###### Example Response
+### Example Response
 
 This example response is for BRAIN assets:
 
@@ -72,7 +72,7 @@ GET /v1/megan/myBrain HTTP/1.1
 
 Uses the GET request method to get information about a BRAIN (`brainName`) created by a user (`userName`).
 
-###### Example Response
+### Example Response
 
 This is an example response for getting BRAIN information for a specific brain:
 
@@ -103,7 +103,7 @@ GET /v1/megan/myBrain/brainVersion/ink HTTP/1.1
 
 Uses the GET request method to get the Inkling code for a version (`brainVersion`) of a BRAIN (`brainName`) created by a user (`userName`). The `brainVersion` is a number.
 
-###### Example Response
+### Example Response
 
 This is an example response to a request for Inkling code for a specific BRAIN.
 
@@ -123,7 +123,7 @@ Uses the POST request method to post a new version of the Inkling code for a BRA
 POST /v1/megan/myBrain/ink HTTP/1.1
 ```
 
-###### Example Request
+### Example Request
 
 This is an example request for posting new Inkling for a BRAIN that is not currently training.
 
@@ -135,7 +135,7 @@ concept foo follow input, feeds output
 ...
 ```
 
-###### Example Response
+### Example Response
 
 This is an example response to posting new Inkling for a BRAIN that is not training.
 
@@ -153,7 +153,7 @@ GET /userName/brainName/sims HTTP/1.1
 
 Uses the GET request method to get the simulator information for a simulator connected to a BRAIN.
 
-###### Example Response
+### Example Response
 
 This is an example response for getting simulator information.
 
@@ -178,7 +178,7 @@ GET /V1/userName/brainName/sims/ws HTTP/1.1
 
 Uses the GET request method to update the simulator.
 
-###### Example Response
+### Example Response
 
 This is an example response for updating the simulator.
 
@@ -199,7 +199,7 @@ PUT /v1/userName/brainName/train HTTP/1.1
 
 Uses the PUT request method to start training mode or stop training mode.
 
-###### Example Response
+### Example Response
 
 This is an example response to using PUT to stop or start training mode.
 

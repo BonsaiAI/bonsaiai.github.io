@@ -1,4 +1,4 @@
-## Schemas, Inkling Types, and Type Constraints
+## Schema
 
 Reference for the keyword **schema**. Also definitions and discussion of Inkling types and type constraints (which are both used in schema declarations).
 
@@ -12,7 +12,7 @@ Schemas describe the structure of data in Inkling  streams, such as the predefin
 
 ### How do I use it?
 
-A sample schema declaration and use:
+A sample schema declaration and use is shown to the right.
 
 ```inkling
 schema MySchema                   # declare
@@ -90,7 +90,7 @@ Double | Float64 | Float32 | Int8 | Int16 | Int32 |
 Int64 | UInt8 | UInt16 | UInt32  | UInt64 | Bool | String
 ```
 
-###### Inkling Structured types
+###### Inkling Structured Types
 
 Inkling supports the types Matrix and Luminance (more to come).
 
@@ -157,6 +157,14 @@ end
 ```
 ‍
 
+###### Constrained Type Rules
+
+###  For numeric ranges:
+
+* For colon range, step can be  a floating point number.
+* For colon range, the step size can be negative only if stop < start.
+* For dot range, number of steps (numSteps) is a positive integer.
+
 ###### Constrained Type Syntax
 
 > constrainedType :=
@@ -175,14 +183,6 @@ numericType
 ```c
 Double | Float64 | Float32 | Int8 | Int16 | Int32 |  Int64 | UInt8 | UInt16 | UInt32  | UInt64
 ```
-
-###### Constrained Type Rules
-
-###  For numeric ranges:
-
-* For colon range, step can be  a floating point number.
-* For colon range, the step size can be negative only if stop < start.
-* For dot range, number of steps (numSteps) is a positive integer.
 
 ### Schema Examples:
 

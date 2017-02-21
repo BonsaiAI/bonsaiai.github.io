@@ -1,4 +1,4 @@
-## Commands
+# Commands
 
 [//]: # (How do we want to standardize shell output vs. input? Either could go right/left pane.)
 [//]: # (The help text and the description text are currently super redundant.)
@@ -25,7 +25,7 @@ Commands:
 
 Use `bonsai COMMAND --help` to get information about a specific command. You can use `bonsai --help` to view a list of options for COMMAND.
 
-###### bonsai configure
+## bonsai configure
 
 ```
 $ bonsai configure
@@ -46,7 +46,7 @@ Options:
   --help      Show this message and exit.
 ```
 
-###### bonsai create
+## bonsai create
 
 ```
 $ bonsai create brainName
@@ -74,7 +74,7 @@ BRAIN names may include:
 
 It is case insensitive, but case aware.
 
-###### bonsai brain create
+## bonsai brain create
 
 ```
 $ bonsai brain create brainName
@@ -96,7 +96,7 @@ Options:
 [//]: # (There is no bonsai brain delete yet - CLI v2)
 
 
-###### bonsai load
+## bonsai load
 
 ```
 $ bonsai load
@@ -104,7 +104,7 @@ $ bonsai load
 
 `bonsai load` loads an Inkling file into the current brain.  The project file in the current directory (`bonsai_brain.bproj`) determines which inkling file to load.  You can specify `--brain brainName`, or `--project /brain/project` to use another brain.
 
-###### bonsai train
+## bonsai train
 
 ```
 $ bonsai train --help
@@ -122,7 +122,7 @@ Commands:
   stop    Stops training on the specified BRAIN.
 ```
 
-###### bonsai train start
+## bonsai train start
 
 ```
 $ bonsai train start
@@ -142,7 +142,7 @@ Options:
   --help          Show this message and exit.
 ```
 
-###### bonsai train stop
+## bonsai train stop
 
 ```
 $ bonsai train stop
@@ -162,7 +162,7 @@ Options:
   --help          Show this message and exit.
 ‍```
 
-###### bonsai train status
+## bonsai train status
 
 ```
 $ bonsai train status
@@ -182,7 +182,7 @@ Options:
   --help          Show this message and exit.
 ```
 
-###### bonsai list
+## bonsai list
 
 ```
 $ bonsai list
@@ -201,7 +201,7 @@ Options:
   --help  Show this message and exit.
 ```
 
-###### bonsai sims list
+## bonsai sims list
 
 ```
 $ bonsai sims list

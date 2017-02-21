@@ -1,8 +1,8 @@
-## Installation
+# Installation
 
 [//]: # (This is all placeholder text for now during heirarchy update.)
 
-###### Install
+## Install
 
 > Python 2 and Anaconda
 
@@ -21,7 +21,7 @@ pip3 install bonsai-cli
 
 The Bonsai CLI uses pip, the PyPA recommended tool for installing Python packages. Note that macOS running Python 3 requires the use of `pip3` instead of `pip`.
 
-###### Update
+## Update
 
 > Python 2 and Anaconda
 

@@ -1,4 +1,4 @@
-## Concept
+# Concept
 
 Reference for the keyword **concept**. Also, describes the keywords: **predicts**, **input**, **output**, **is**, **follows**, **end**, and **feeds**.
 
@@ -28,7 +28,7 @@ concept conceptName
 end
 ```
 
-###### Concept Rules
+## Concept Rules
 
 * The concept must be named after the `concept` keyword.
 * The `is` keyword specifies the kind of prediction the trained concept will produce. For example, a concept can specify is classifier. This means that the trained concept will categorize its input. Email, for example, can be classified as spam or not spam. Another option with this keyword is estimator.
@@ -39,7 +39,7 @@ end
 * The input keyword cannot not appear in the feeds list and the output keyword cannot appear in the follows list.
 * The concept statement is terminated by the `end` keyword.
 
-###### Concept Statement Syntax
+## Concept Statement Syntax
 
 > conceptStmt :=
 
@@ -71,7 +71,7 @@ end
   output | <name>                    // concept or stream name
 ```
 
-###### Concept Examples
+## Concept Examples
 
 > Concept get_high_score:
 

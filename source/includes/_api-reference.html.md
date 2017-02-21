@@ -1,4 +1,4 @@
-# API Reference
+# Overview
 
 The Bonsai AI Engine provides programmers and data scientists with a new way of building sophisticated ML and AI applications. This API is at the core of how programmers interact with the AI engine.
 
@@ -9,7 +9,7 @@ The Bonsai AI Engine provides programmers and data scientists with a new way of 
 * Storing and reusing data sets.
 * Getting predictions in both class request/response and streaming manner.
 
-## URL Template
+# URL Template
 
 ```
 requestMethod /v1/userName/assetName/assetVersion
@@ -21,9 +21,9 @@ requestMethod /v1/userName/assetName/assetVersion
 * **assetName:** Name of the asset. This could be a BRAIN (`brainName`), `dataset` (`datasetName`), etc.
 * **assetVersion:** Version number of the asset.
 
-## User and BRAIN status
+# User and BRAIN status
 
-###### GET User status
+## GET User status
 
 ```http
 GET /v1/userName HTTP/1.1
@@ -64,7 +64,7 @@ Content-Type: text/javascript
 }
 ```
 ‍
-###### GET BRAIN status
+## GET BRAIN status
 
 ```http
 GET /v1/megan/myBrain HTTP/1.1
@@ -93,9 +93,9 @@ Content‐Type: text/javascript
 }
 ```
 
-## Inkling
+# Inkling
 ‍
-###### GET Inkling
+## GET Inkling
 
 ```http
 GET /v1/megan/myBrain/brainVersion/ink HTTP/1.1
@@ -115,7 +115,7 @@ concept foo follow input, feeds output
 ...
 ```
 ‍
-###### POST Inkling
+## POST Inkling
 
 Uses the POST request method to post a new version of the Inkling code for a BRAIN. You cannot POST new Inkling while a BRAIN is training.
 
@@ -143,9 +143,9 @@ This is an example response to posting new Inkling for a BRAIN that is not train
 HTTP/1.1 201 CreatedLocation: http://api.bons.ai/v1/megan/mybrain/11
 ```
 ‍
-## Simulators
+# Simulators
 
-###### GET Simulator Information
+## GET Simulator Information
 
 ```http
 GET /userName/brainName/sims HTTP/1.1
@@ -170,7 +170,7 @@ Content‐Type: text/javascript{
 }
 ```
 ‍
-###### GET Update Simulator
+## GET Update Simulator
 
 ```http
 GET /V1/userName/brainName/sims/ws HTTP/1.1
@@ -189,9 +189,9 @@ Upgrade:  "Websocket"
 Connection:  upgrade
 ```
 ‍
-## Training Mode
+# Training Mode
 
-###### PUT Training Mode
+## PUT Training Mode
 
 ```http
 PUT /v1/userName/brainName/train HTTP/1.1
@@ -208,9 +208,9 @@ HTTP/1.1 201 Created
 Location: http://api.bons.ai/v1/megan/mybrain/11
 ```
 
-## BRAIN Versions and Modes
+# BRAIN Versions and Modes
 
-###### BRAIN Versions
+## BRAIN Versions
 
 **BRAIN versions numerically count up as new code is uploaded to the server (and successfully compiled) or as BRAINs are trained.**
 
@@ -220,7 +220,7 @@ Location: http://api.bons.ai/v1/megan/mybrain/11
 * The BRAIN begins in an uninitialized state (aka version 0) which it permanently leaves after the first Inkling is uploaded. version 0 cannot make predictions (it has no schema).
 * For private beta only the most recent version of a BRAIN may be used for prediction this version can be referred to with the special version latest
 
-###### BRAIN Modes
+## BRAIN Modes
 
 **BRAIN versions have the following modes:**
 

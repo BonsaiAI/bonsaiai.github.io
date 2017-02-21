@@ -1,4 +1,4 @@
-## Lesson
+# Lesson
 
 Reference for the keyword **lesson**. Also, describes the keywords: **follows**, **configure**, **constrain**, **until**, **minimize**, **maximize**, **configure**, **with**, and **end.**
 
@@ -79,7 +79,7 @@ Note that the **constrain** name in the example above specifies a field in the c
 
 You can find more discussion of type constraint rules in the [schema][1] section. (Schema declarations can also use type constraints.)
 
-###### Lesson Clause Table
+## Lesson Clause Table
 
 Lesson clauses have defaults so if a clause is not specified the default will be assumed. Also in certain circumstances not all clauses are available. This table specifies the rules. Recall that the trainingSpecifier appears after the keyword **with** in the curriculum.
 
@@ -99,7 +99,7 @@ Table for Lesson Clauses
 * Lessons appear after the objective clause in curriculums.
 * Lessons can be ordered, using the **follows** clause. Note that this ordering is a suggestion to the instructor, not a hard and fast rule.
 
-###### Lesson Syntax
+## Lesson Syntax
 
 > lessonStatement :=
 
@@ -144,7 +144,7 @@ Double | Float64 | Float32 | Int8 | Int16 | Int32 |  Int64 | UInt8 | UInt16 | UI
 
 The testClause and the trainClause have identical syntax except for their keyword (**train** or **test**).  However they both vary depending on the trainingSpecifier in the curriculum. The **expect** is only available in those cases that have known expected values, and that occurs when the trainingSpecifier is **data** or **generator**.
 
-###### Lesson Train/Test Clause Syntax
+## Lesson Train/Test Clause Syntax
 
 > trainClause :=
 
@@ -204,7 +204,7 @@ This means train until the curriculum objective (ball_location_distance) is mini
 
 ‍
 
-###### Lesson Until Clause Syntax
+## Lesson Until Clause Syntax
 
 > untilClause :=
 

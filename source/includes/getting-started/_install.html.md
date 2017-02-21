@@ -2,22 +2,22 @@
 
 [//]: # (If any commented statements become false, change prior text)
 
-Before you begin, you will need to have access to our Beta. If you don't have access yet, request access at [bons.ai][1] and then come visit us in the [Forums][17] and let us know why you're excited to try out Bonsai!
+Before you begin, you will need to have access to our Beta. If you don't have access yet, request access at [bons.ai][1].
 
-The next section walks you through how to install Git, Python, and Pip, but if you're already ahead of the curve and **have them all installed**, skip down to [Setup the Bonsai CLI][2]. 
+The next section walks you through how to install Git, Python, and pip, but if you're already ahead of the curve and **have them all installed**, skip down to [Setup the Bonsai CLI][2]. 
 
 <aside class="notice">
-We highly recommend Mac users use <a href="http://brew.sh/">Homebrew</a> or download Python directly in the Manual Install instructions so you can perform the following steps on user-land Python rather than <a href="https://github.com/MacPython/wiki/wiki/Which-Python">system Python</a>.
+We highly recommend macOS users download Python directly in the Manual Install instructions or use <a href="http://brew.sh/">Homebrew</a> so you can perform the following steps on user-land Python rather than <a href="https://github.com/macOSPython/wiki/wiki/Which-Python">system Python</a>.
 </aside>
 
-**There are three sets of install instructions to follow, please pick the one that suits your situation:**
+**There are three sets of install instructions, please pick the one that suits your situation:**
 
 1. If you have **Anaconda** installed on your system, skip down to [Install with Anaconda][9].
-2. If you have **Chocolatey (Windows)** or **Homebrew (Mac)** installed on your system, skip down to [Install with Chocolatey or Homebrew][18].
+2. If you have **Chocolatey (Windows)** or **Homebrew (macOS)** installed on your system, skip down to [Install with Chocolatey or Homebrew][17].
 3. If you *do not* have Chocolatey, Homebrew, or Anaconda installed on your system continue to follow our **Manual Install** intructions below.
 
 <aside class="notice">
-The two tabs to the right allow you to follow this guide as a Mac or Windows user. Instructions also vary slightly between Python 2 and Python 3 so please be sure to follow your version's instructions.
+The two tabs to the right allow you to follow this guide as a macOS or Windows user. Instructions also vary slightly between Python 2 and Python 3 so please be sure to follow your version's instructions.
 </aside>
 
 ## Manual Install
@@ -28,34 +28,34 @@ The two tabs to the right allow you to follow this guide as a Mac or Windows use
 * **Python**: Download and install Python (3.6 or 2.7) from [python.org][3].
 
 <aside class="warning">
-For users installing <b>Python 2.7</b>: Make sure to include adding python to your PATH when customizing your install on the third screen. <br>
-For users installing <b>Python 3.6</b>: Make sure to check the box on the first screen of the install to add python to your PATH.
+For users installing <b>Python 2.7</b>: Make sure to include adding Python to your PATH when customizing your install on the third screen. <br>
+For users installing <b>Python 3.6</b>: Make sure to check the box on the first screen of the install to add Python to your PATH.
 </aside>
 
-* **Pip**: Python version 2.7.9 and greater come with pip, but if for some reason you need to use a different version of python please follow [these instructions][12].
+* **pip**: Python version 2.7.9 and greater come with pip, but if for some reason you need to use a different version of Python please follow [these instructions][12].
 
 <aside class="notice">
 Please remember to reboot your computer after installing Python and Git to make sure all install settings take effect.
 </aside>
 
-**Great!** Now that you have Git, Python, and Pip installed, you can skip down to [Setup the Bonsai CLI][2]. 
+**Great!** Now that you have Git, Python, and pip installed, you can skip down to [Setup the Bonsai CLI][2]. 
 
-### Mac
+### macOS
 
-* **Git**: Git is more than likely already installed on your computer if you have Xcode, but if not, run `git` from your command prompt.
+* **Git**: Git is more than likely already installed on your computer if you have Xcode, but if not, run `git` from your command prompt and the system will prompt you to install.
 * **Python**: Download and install Python (3.6 or 2.7) from [python.org][3].
 
 <aside class="notice">
-We highly recommend Mac users download Python directly so you can follow this guide on user-land Python rather than <a href="https://github.com/MacPython/wiki/wiki/Which-Python">system Python</a>.
+We highly recommend macOS users download Python directly so you can follow this guide on user-land Python rather than <a href="https://github.com/macOSPython/wiki/wiki/Which-Python">system Python</a>.
 </aside>
 
-* **Pip**: Python version 2.7.9 and greater come with pip (or pip3 for version 3+), but if for some reason you need to use a different version of python please follow [these instructions][12].
+* **pip**: Python version 2.7.9 and greater come with pip (or pip3 for version 3+), but if for some reason you need to use a different version of Python please follow [these instructions][12].
 
-**Great!** Now that you have Git, Python, and Pip installed, you can skip down to [Setup the Bonsai CLI][2]. 
+**Great!** Now that you have Git, Python, and pip installed, you can skip down to [Setup the Bonsai CLI][2]. 
 
 ## Install with Chocolatey or Homebrew
 
-If you *do not* have Chocolatey or Homebrew installed on your system, please skip this section.
+If you *do not* have Chocolatey or Homebrew installed on your system, please go to the [Manual Install][18] or [Install with Anaconda][9] instructions.
 
 > Python 2
 
@@ -79,18 +79,18 @@ brew install python3
 
 ### Windows
 
-**If you're already familiar with [Chocolatey][14], you can follow the commands shown to the right instead of installing manually.**
+**If you're already familiar with [Chocolatey][14], follow these instructions.**
 
 <aside class="notice">
-Please remember to run choco commands in administrator powershell/command prompt.
+Please remember to run choco commands in administrator powershell or command prompt.
 </aside>
 
-### Mac
+### macOS
 
-**If you're already familiar with [Homebrew][6], you can follow the commands shown to the right instead of installing manually.**
+**If you're already familiar with [Homebrew][6], follow these instructions.**
 
-* **Git**: Git is more than likely already installed on your computer if you have Xcode, but if not, run `git` from your command prompt.
-* **Python**: Run the install command on the tab to the right to install the brew python version of your choice.
+* **Git**: Git is more than likely already installed on your computer if you have Xcode, but if not, run `git` from your command prompt and the system will prompt you to install.
+* **Python**: Run the install command on the tab to the right to `brew install` the Python version of your choice.
 
 ## Install with Anaconda
 
@@ -98,9 +98,9 @@ Please remember to run choco commands in administrator powershell/command prompt
 conda install git
 ```
 
-If you *do not* have Anaconda installed on your system, please skip this section.
+If you *do not* have Anaconda installed on your system, please go to the [Manual Install][18] or [Install with Chocolatey or Homebrew][17] instructions.
 
-conda is a tool for installing and managing Python and R dependencies. Anaconda includes Python and pip, so all you need to do is install git if you haven't already. For more information, refer to the [Anaconda website][10].
+`conda` is a tool for installing and managing Python and R dependencies. Anaconda includes Python and pip, so all you need to do is install Git if you haven't already. For more information, refer to the [Anaconda website][10].
 
 # Setup the Bonsai CLI
 
@@ -125,7 +125,7 @@ From your command prompt, install the Bonsai Command Line Interface tool and con
 
 ## Clone a sample project
 
-Clone a sample simulation project with git. For this guide we'll be walking you through [OpenAI Gym's][4] Mountain Car environment, one of the supported Bonsai simulators.
+Clone a sample simulation project with `git clone`. For this guide we'll be walking you through [OpenAI Gym's][4] Mountain Car environment, one of the supported Bonsai simulators.
 
 ```
 git clone https://github.com/BonsaiAI/gym-mountaincar-sample
@@ -166,7 +166,7 @@ The dashboard has a NEW BRAIN button, pictured above. Click on it to start the B
 ```
 bonsai create myMountainCarBrain
 ```
-You may give your brain a name with `bonsai create brainName` but there is no option for a description with this method.
+You may give your brain a name with `bonsai create brainName` but there is no option for a description with this method but after you create your BRAIN, you can change its description from the web on the BRAIN Details page.
 
 # Train your BRAIN
 
@@ -257,9 +257,9 @@ After your BRAIN is finished training it can play the Mountain Car game. How wel
 [10]: https://www.continuum.io/anaconda-overview
 [11]: https://git-for-windows.github.io/
 [12]: https://pip.pypa.io/en/stable/installing/
-[13]: https://github.com/MacPython/wiki/wiki/Which-Python
+[13]: https://github.com/macOSPython/wiki/wiki/Which-Python
 [14]: https://chocolatey.org/
 [15]: ../images/no_brains_image.png
 [16]: ../images/fully_trained_brain.png
-[17]: http://forums.bons.ai/
-[18]: #install-with-chocolatey-homebrew
+[17]: #install-with-chocolatey-or-homebrew
+[18]: #manual-install

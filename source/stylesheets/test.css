@@ -90,7 +90,7 @@ li.tocify-item {line-height:1.4em !important;}
 ////////////////////////////////////////////////////////////////////////////////*/
 
 
-	#primary-nav a {font-size: 93%;margin-right: 17px !important;text-decoration:none;color: #564e1e;}
+	#primary-nav a {font-size: 101%;margin-right: 35px !important;text-decoration:none;color: #564e1e;}
 	#primary-nav a:hover{text-decoration:underline;}
 	#primary-nav a:last-of-type {margin-right:0;}
 	 .bonsai-logo{height: 22px;}
@@ -220,7 +220,7 @@ nav ul li ul li a {
 	#primary-nav #___gcse_0 .gsc-search-button .gsc-search-button-v2 {height:50px !important;padding: 16px;/* margin-right: 13px; */}
 	
 	
-	#primary-nav #___gcse_0 {width:auto !important;margin-left: 0 !important;/* padding-top: 5px !important; *//* padding-bottom: 5px !important; *//* margin-top: 17px !important; *//* margin-bottom: 40px !important; */margin-bottom: -3px !important;}
+	#primary-nav #___gcse_0 {width:auto !important;margin-left: 0 !important;/* padding-top: 5px !important; */padding-bottom: 35px !important;/* margin-top: 17px !important; *//* margin-bottom: 40px !important; */margin-bottom: -3px !important;background-color: #fffdf0;}
   .nav-mobile {
     display: block;
   }
@@ -234,18 +234,20 @@ nav ul li ul li a {
     margin-top: 54px;
     /* margin: 0 auto; */
     margin: 0 auto;
-    width: 100vw;
+    /* width: 100vw; */
     /* padding-top: 50px; */
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
     flex-direction: column;
     display: none;
-    /* padding-bottom: 55px; */
+    padding-bottom: 28px;
+    background-color: #fffdf0;
   }
   nav ul li {
     float: none;
     text-align: center;
+    padding: 10px 0;
   }
   
     ul.nav-list li {-ms-flex-order: 2;order: 2;}
@@ -257,7 +259,7 @@ nav ul li ul li a {
     line-height: 20px;
   }
   nav ul li ul li a {
-    padding-left: 30px;
+    /* padding-left: 30px; */
   }
 
   .nav-dropdown {
@@ -277,6 +279,7 @@ nav ul li ul li a {
     padding-right: 0 !important;
     -ms-flex-direction: column;
     /* flex-direction: column; */
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     line-height: 18px !important;
   }
@@ -378,7 +381,7 @@ article {
 
 #gs_tti50 #gsc-i-id1 {background-image:none !important;text-indent: 0 !important;}
 #gsc-i-id2 {background-image:none !important}
-.gsc-control-cse {background-color:transparent !important;border:none !important;max-width: 730px;}	
+.gsc-control-cse {background-color:transparent !important;border:none !important;/* max-width: 730px; */}	
 .gsc-wrapper > div:first-of-type {display:none !important;}
 .gcsc-branding {display: none !important;}
 #___gcse_1{width: 60Vw;margin: 0 auto;padding: 10px 0;margin-bottom: 85px;margin-top: 16px;}
@@ -541,7 +544,7 @@ nav a {
 
 #primary-nav  ul li ul li a {margin-right:0!important;}
 
-nav ul li ul li:hover { background: #000000; }
+nav ul li ul li:hover {/* background: #000000; */}
 
 /* Background color change on Hover */
 nav a:hover {
@@ -564,7 +567,7 @@ nav ul li:hover > ul {
 	
 /* Fisrt Tier Dropdown */
 nav ul ul li {
-	width:170px;
+	width: 176px;
 	float:none;
 	display:list-item;
 	position: relative;
@@ -583,14 +586,17 @@ nav ul ul ul li {
 
 	
 /* Change ' +' in order to change the Dropdown symbol */
-li > a:after { content:  ' +'; }
-li > a:only-child:after { content: ''; }
+li > a:after {content:  ' +';}
+li > a:only-child:after {content: '';}
 
 
 /* Media Queries
 --------------------------------------------- */
 
-@media all and (max-width : 768px) {
+@media all and (max-width : 800px) {
+
+#primary-nav  ul li ul li a {margin-right:0!important;background-color: hsl(52, 48%, 94%);box-shadow: inset 0px 2px 5px -2px rgba(179,179,179,1);}
+
 
 	#logo {
 		/* display: block; */
@@ -624,12 +630,14 @@ li > a:only-child:after { content: ''; }
 	}
 
 	.toggle:hover {
-		background-color: #000000;
+		/* background-color: #000000; */
 	}
 
 	/* Display Dropdown when clicked on Parent Lable */
 	[id^=drop]:checked + ul {
+		display: -ms-flexbox;
 		display: flex;
+		-ms-flex-direction: column-reverse;
 		flex-direction: column-reverse;
 		margin-top: 16px;
 	}
@@ -682,6 +690,7 @@ li > a:only-child:after { content: ''; }
 		color: #ffffff;
 		/* has to be the same number as the "line-height" of "nav a" */
 		margin-top: 0 !important;
+		padding-bottom: 0;
 	}
 		
 	/* Hide menus on hover */
@@ -694,6 +703,7 @@ li > a:only-child:after { content: ''; }
 	nav ul ul li {
 		display: block;
 		width: 100%;
+		/* padding: 0 !important; */
 	}
 
 	nav ul ul ul li {

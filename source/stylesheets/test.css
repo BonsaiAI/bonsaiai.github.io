@@ -613,7 +613,7 @@ li > a:only-child:after {content: '';}
 
 @media all and (max-width : 800px) {
 
-	.menu-ham {width:26px;}
+	.menu-ham {width:26px;padding-right: 20px;}
 #primary-nav  ul li ul li a {margin-right:0!important;background-color: hsl(52, 48%, 94%);}
 #references  li:last-of-type a  {box-shadow: inset 0px 2px 5px -2px rgba(179,179,179,1);} 
 
@@ -646,7 +646,7 @@ li > a:only-child:after {content: '';}
 		font-size:17px;
 		text-decoration:none;
 		border:none;
-		padding-right: 20px;
+		/* padding-right: 20px; */
 	}
 
 	.toggle:hover {

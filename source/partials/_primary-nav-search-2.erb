@@ -30,26 +30,35 @@
 
  -->
 
+
+
+
         <nav id="primary-nav">
+			
+			 
+			
         <div id="logo"> <% link_to '.' do %><img class="bonsai-logo" src="https://dl.dropboxusercontent.com/s/d37ndmizplio8mw/bonsai-logo-color-docs.svg?dl=0"><% end %></div>
 
-        <label for="drop" class="toggle">Menu</label>
+        <label for="drop" class="toggle"><img class="menu-ham" src="images/menu.svg"></label>
         <input type="checkbox" id="drop" />
-            <ul class="menu">
+            
+			<ul class="menu">
                 
 				<li class="header_menu_item <%= is_page_selected("/getting-started.html") %>"> <%= link_to 'Getting Started', '/getting-started.html' %></li>
 		
-				<li class="header_menu_item <%= is_page_selected("/inkling.html") %>">    <%= link_to 'Inkling', '/inkling.html' %>  </li>
-		
-				
+				<li class="header_menu_item <%= is_page_selected("/inkling.html") %>">    <%= link_to 'Inkling Guide', '/inkling.html' %>  </li>
+			
       
-        <li>
+        		<li >
             <!-- First Tier Drop Down -->
             <label for="drop-1" class="toggle">References +</label>
             <a href="#">References</a>
             <input type="checkbox" id="drop-1"/>
-            <ul>
-                <li> <%= link_to 'Inkling', '/inkling-reference.html' %>  </li>
+            <ul id="references">
+                <li class="<%= is_page_selected("/inkling-reference.html") %>"> <%= link_to 'Inkling', '/inkling-reference.html' %>  </li>
+				<li class="<%= is_page_selected("/api-reference.html") %>"> <%= link_to 'API', '/api-reference.html' %>  </li>
+				<li class="<%= is_page_selected("/cli-reference.html") %>"> <%= link_to 'CLI', '/cli-reference.html' %>  </li>
+				
                 
             </ul> 
 
@@ -60,5 +69,8 @@
 				
 				
             </ul>
+			
         </nav>
+		
+		
 

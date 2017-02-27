@@ -46,7 +46,7 @@ Please remember to reboot your computer after installing Python and Git to make 
 * **Python**: Download and install Python (3.6 or 2.7) from [python.org][3].
 
 <aside class="notice">
-We highly recommend macOS users download Python directly so you can follow this guide on user-land Python rather than <a href="https://github.com/mMacPython/wiki/wiki/Which-Python">system Python</a>.
+We highly recommend macOS users download Python directly so you can follow this guide on user-land Python rather than <a href="https://github.com/MacPython/wiki/wiki/Which-Python">system Python</a>.
 </aside>
 
 * **pip**: Python version 2.7.9 and greater come with pip (or pip3 for version 3+), but if for some reason you need to use a different version of Python please follow [these instructions][12].

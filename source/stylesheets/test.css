@@ -747,6 +747,17 @@ li > a:only-child:after {content: '';}
 }
 
 
+/*mobile slider*/
+
+@media screen and (max-width: 870px) {
+
+	.tocify-wrapper.open {
+	    top: 0 !important;
+		z-index: 99999;
+		
+	}
+
+}
 
 
 

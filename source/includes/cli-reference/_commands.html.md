@@ -33,7 +33,7 @@ $ bonsai configure
 
 `configure` sets up authentication between you (as a user) and the server. This enables the server to verify that you are allowed to write Inkling code to a specific BRAIN.
 
-You can find your access key in your [account settings][1].
+You can find your access key at [https://beta.bons.ai/accounts/key](https://beta.bons.ai/accounts/key).
 
 ```
 $ bonsai configure --help
@@ -160,13 +160,14 @@ Options:
   --brain TEXT    Override to target another BRAIN.
   --project TEXT  Override to target another project directory.
   --help          Show this message and exit.
-‍```
+```
 
 ## bonsai train status
 
 ```
 $ bonsai train status
 ```
+
 `bonsai train status` is used to see the current training status of your BRAIN.
 
 ```
@@ -220,5 +221,3 @@ Options:
   --project TEXT  Override to target another project directory.
   --help          Show this message and exit.
 ```
-
-[1]: https://beta.bons.ai/accounts/settings

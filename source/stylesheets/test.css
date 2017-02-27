@@ -392,7 +392,7 @@ article {
 /* SEARCH */
 
 #gs_tti50 #gsc-i-id1 {background-image:none !important;text-indent: 0 !important;}
-#gsc-i-id2 {background-image:none !important}
+#gsc-i-id2 {background-image:none !important;text-indent: 0 !important;}
 .gsc-control-cse {background-color:transparent !important;border:none !important;/* max-width: 730px; */}	
 .gsc-wrapper > div:first-of-type {display:none !important;}
 .gcsc-branding {display: none !important;}

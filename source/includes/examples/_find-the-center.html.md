@@ -83,6 +83,7 @@ import bonsai
 import sys
 from bonsai.simulator import SimState
 from random import randint
+from __future__ import print_function
 
 """ If you would like to debug your code add this back in.
 def debug(*args):
@@ -100,7 +101,7 @@ class BasicSimulator(bonsai.Simulator):
     goal = 1
 
     def __init__(self):
-        super(self.__class__, self).__init__()
+        super(BasicSimulator, self).__init__()
         self.goal_count = 0
         self.value = randint(self.min, self.max)
         self.old_value = self.min

@@ -1,8 +1,8 @@
 # Find the Center Example
 
-In this example, we'll walk you through the various statements that are part of the Find the Center project, including the simulator file and the Inkling file. Find the Middle was created as a very basic example of Inkling and how to connect to a simulator.
+In this example, we'll walk you through the various statements that are part of the *Find the Center* game, including the simulator file and the Inkling file. This is a very basic example of Inkling and how to connect to a simulator.
 
-The general premise of Find the Center is that the computer (via Inkling) takes a step (move) of -1, 0, or 1, and gets rewarded for staying in the center (1) for each round. The max is 2 and the min is 0.
+*Find the Center* is a simple game where the AI seeks the average value between two numbers. In this game, the AI begins at a random value of 0, 1, or 2. The AI then can move to a lower number by outputing -1, a higher number by outputing +1, or staying on the same number by outputing 0. The goal of *Find the Center* is to remain in the center of 0 and 2 (the number 1).
 
 ## Inkling File
 
@@ -14,7 +14,7 @@ schema GameState
 end
 ```
 
-The `GameState` schema has one record, `value`, assigned the constrained type of Int32.
+The `GameState` schema has one field, `value`, with type `Int32`.
 
 ```inkling
 schema PlayerMove
@@ -22,7 +22,7 @@ schema PlayerMove
 end
 ```
 
-The `PlayerMove` schema has one record, `delta`, assigned the constrained type of Int32 to allow for negative and positive values.
+The `PlayerMove` schema has one field, `delta`, with type `Int32`. The `Int32` type is constrained to three possible values: -1, 0, and 1.
 
 ```inkling
 schema SimConfig
@@ -30,7 +30,7 @@ schema SimConfig
 end
 ```
 
-The `SimConfig` schema has one record, `dummy`, because there is no configuration needed in this particular example.
+The `SimConfig` schema has one field, `dummy`, because there is no configuration needed in this particular example.
 
 ###### Concept
 
@@ -43,7 +43,7 @@ concept find_the_center
 end
 ```
 
-This concept is named `find_the_center`, and it takes input from the simulator about the state of the game (`GameState` schema). It outputs to the `PlayerMove` schema. This is the AI's next move in the simulation.
+This concept is named `find_the_center`. `find_the_center` expects input about the state of the game (defined by the `GameState` schema) and replies with output defined by the `PlayerMove` schema. This is the AI's next move in the simulation.
 
 ###### Simulator
 
@@ -54,7 +54,7 @@ simulator find_the_center_sim(SimConfig)
 end
 ```
 
-The `simulator` is called `find_the_center_sim` (shown in #simulator-file) and takes the schema input of `SimConfig` (even though it isn't configuring anything, it's required by the simulator). The simulator is going to output the `action` and the `state` of the simulator which is sent to the lesson.
+The `simulator` is called `find_the_center_sim` (shown in #simulator-file) and takes the schema input of `SimConfig` (even though it isn't configuring anything, it's required by the simulator). The `find_the_center` concept will be trained using the `find_the_center_sim` simulator. To define the training relationship between the simulator and the concept we must begin by defining the simulator. `find_the_center_sim` expects an action defined in the `PlayerMove` schema as input and replies with a state defined in the `GameState` schema as output.
 
 ###### Curriculum
 
@@ -106,7 +106,7 @@ class BasicSimulator(bonsai.Simulator):
         self.old_value = self.min
 
     def get_terminal(self):
-        """ Function to restart the simulation if the Inkling move was out of bounds.
+        """ Restarts the simulation if the AI moved out of bounds.
         """
         if (self.value < self.min or self.value > self.max):
             # (self.value == self.goal and self.old_value == self.goal)):
@@ -118,8 +118,8 @@ class BasicSimulator(bonsai.Simulator):
             return False
 
     def start(self):
-        """ Function to start the episode by guessing a random integer between
-        the min and max.
+        """ Start the episode by initializing value to a random number
+        between the min and max.
         """
         # debug("start")
         self.goal_count = 0
@@ -127,13 +127,14 @@ class BasicSimulator(bonsai.Simulator):
         self.value = randint(self.min, self.max)
 
     def stop(self):
-        """ Function to stop the simulator.
+        """ Stop is called after a training session is complete.
+        This simple game requires no cleanup after training.
         """
         # debug("stop")
         pass
 
     def reset(self):
-        """ Function to reset the simulation variables.
+        """ Reset is called to reset simulator state before the next training session.
         """
         # debug("reset")
         self.goal_count = 0
@@ -141,8 +142,8 @@ class BasicSimulator(bonsai.Simulator):
         self.value = randint(self.min, self.max)
 
     def advance(self, actions):
-        """ Function to make a move based on input from Inkling file and
-        if in the center, increases the total goal count by 1.
+        """ Function to make a move based on output from the BRAIN as
+        defined in the Inkling file.
         """
         # debug("advance", actions["delta"])
         self.value += actions["delta"]
@@ -150,20 +151,14 @@ class BasicSimulator(bonsai.Simulator):
             self.goal_count += 1
 
     def get_state(self):
-        """ Gets the state of the simulator, whether it be a valid value or terminal.
+        """ Gets the state of the simulator, whether it be a valid value or
+        terminal ("game over") state.
         """
         # debug("get_state")
         # debug("state", self.value)
         self.old_value = self.value
         return SimState(state={"value": self.value},
                         is_terminal=self.get_terminal())
-
-    def distance_from_goal(self):
-        """ Function to determine how far away the move is from the center.
-        """
-        dist = abs(self.goal - self.value)
-        # debug("dist", dist)
-        return -1*dist
 
     def time_at_goal(self):
         """ Function to return how long the simulation has maintained the goal.

@@ -1,5 +1,5 @@
 ---
-title: Inkling Documentation - Bonsai
+title: Inkling Guide - Bonsai
 
 language_tabs:
 

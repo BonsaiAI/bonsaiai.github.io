@@ -79,11 +79,11 @@ The lesson trains until the AI has maximized the objective `time_at_goal`.
 ## Simulator File
 
 ```python
+from __future__ import print_function
 import bonsai
 import sys
 from bonsai.simulator import SimState
 from random import randint
-from __future__ import print_function
 
 """ If you would like to debug your code add this back in.
 def debug(*args):

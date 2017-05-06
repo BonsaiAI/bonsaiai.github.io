@@ -9,7 +9,7 @@
 
 	<ul class="menu">
 
-		<li class="header_menu_item <%= is_page_selected("/guides/getting-started.html") %>"> <%= link_to 'Getting Started', '/guides/getting-started.html' %></li>
+		<li class="header_menu_item <%= is_page_selected("/guides/getting-started.html") %>"> <%= link_to 'Quick Start', '/guides/getting-started.html' %></li>
 
 	
 		<li class="header_menu_item"> <!-- First Tier Drop Down --> <label for="drop-1" class="toggle">Guides +</label><a  href="#">Guides</a>			
@@ -17,7 +17,6 @@
 			<ul id="guides">
 				<li class="<%= is_page_selected("/guides/ai-engine-guide.html") %>"> <%= link_to 'AI Engine Guide', '/guides/ai-engine-guide.html' %>  </li>
 				<li class="<%= is_page_selected("/guides/cli-guide.html") %>"> <%= link_to 'CLI Guide', '/guides/cli-guide.html' %>  </li>
-				<li class="<%= is_page_selected("/guides/getting-started.html") %>"> <%= link_to 'Getting Started', '/guides/getting-started.html' %>  </li>
 				<li class="<%= is_page_selected("/guides/inkling-guide.html") %>"> <%= link_to 'Inkling Guide', '/guides/inkling-guide.html' %>  </li>
 			</ul> 
 		</li>

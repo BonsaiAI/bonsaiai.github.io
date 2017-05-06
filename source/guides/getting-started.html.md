@@ -1,5 +1,5 @@
 ---
-title: Getting Started - Bonsai
+title: Quick Start - Bonsai
 
 toc_footers:
   - <a href='https://bons.ai/sign-up'>Sign Up for our Private Beta!</a>
@@ -9,7 +9,8 @@ toc_footers:
 
 
 includes:
-  - getting-started/overview-and-faq.html.md
+  - getting-started/overview.html.md
+  - getting-started/quick-start.html.md
   - getting-started/next-steps.html.md
   
 search: true

@@ -8,5 +8,5 @@ Inkling is a programming language specifically designed for artificial intellige
 
 If you're interesting in finding out more about what's going on under the hood of the AI engine, check out the [AI Engine Guide][2].
 
-[1]: ./getting-started.html#overview-and-faq
+[1]: ./getting-started.html#the-bonsai-platform
 [2]: ./ai-engine-guide.html#under-the-hood

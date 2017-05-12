@@ -8,6 +8,8 @@ There are some things you might want to know before you get started. In this sec
 
 If you're the type of developer who wants to dive right in and see the Bonsai Platform working however, **skip down to [Create Your BRAIN][1]** below. We'll guide you through setting up your first BRAIN with the Cartpole template, how to get that BRAIN training, and then explain what to do with it!
 
+If you'd prefer not to use our web interface, head to our [CLI Guide][7] to follow a similar guide to this one on your local computer.
+
 ## The Bonsai Platform
 
 > ![The Bonsai Platform][2]

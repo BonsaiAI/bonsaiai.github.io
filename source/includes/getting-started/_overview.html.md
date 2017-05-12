@@ -5,7 +5,7 @@
 Hello new Bonsai developer!
 
 There are some things you might want to know before you get started. In this section, we're going
-to walk you through the Bonsai Platform components and some of the fundamental ideas of the Bonsai
+to walk you through the components and fundamental ideas of the Bonsai
 Platform. Read through the Quick Start guide to learn how to get set up with Bonsai’s platform and what you can do with it.
 
 If you're the type of developer who wants to dive right in and see the Bonsai Platform working,
@@ -14,7 +14,7 @@ first BRAIN with the Cartpole template, how to get that BRAIN training, and then
 to do with it!
 
 If you'd prefer not to use our web interface, head to our [CLI Guide][7] to follow a similar guide
-to this one on your local computer.
+using tools on your local computer.
 
 ## The Bonsai Platform
 
@@ -29,12 +29,12 @@ Interface and is not covered in this guide. See the [CLI Guide][7] if you prefer
 BRAINs stored in the Bonsai AI Engine. You can also visualize the BRAIN's training on this page.
 This is what we will use for this Quick Start guide because you can get up and running on the
 Bonsai Platform in just a few clicks!
-* **Simulators:** are often a complex interactive virtual environment. but for this project you'll
-be using a simple simulator from OpenAI. They usually have state, which is a representation of the
-world inside the virtual environment.
+* **Simulators:** are often a complex interactive virtual environment. For this project, you'll
+be using a simple simulator from OpenAI. Simulators usually have state, which is a representation of the
+world inside the virtual environment and receive actions which change that state.
 
 <aside class="notice">
-Currently, during our private beta, you can only use simulators as your training source. Generators
+Currently, during our beta, you can only use simulators as your training source. Generators
 and Data sources will be released at a future time.
 </aside> 
 

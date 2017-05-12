@@ -6,10 +6,9 @@ Hello new Bonsai developer!
 
 There are some things you might want to know before you get started. In this section, we're going
 to walk you through the Bonsai Platform components and some of the fundamental ideas of the Bonsai
-Platform. It maybe help you understand what you are achieving in this Quick Start guide by reading
-the following materials.
+Platform. Read through the Quick Start guide to learn how to get set up with Bonsai’s platform and what you can do with it.
 
-If you're the type of developer who wants to dive right in and see the Bonsai Platform working
+If you're the type of developer who wants to dive right in and see the Bonsai Platform working,
 however, **skip down to [Create Your BRAIN][1]** below. We'll guide you through setting up your
 first BRAIN with the Cartpole template, how to get that BRAIN training, and then explain what
 to do with it!

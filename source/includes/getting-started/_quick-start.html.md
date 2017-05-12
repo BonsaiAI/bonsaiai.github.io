@@ -6,29 +6,29 @@
 Before you begin, you will need to have access to our private beta. If you don't have access yet,
 request access at [bons.ai][1].
 
-For this quick start guide, we'll be walking you through how to create a BRAIN to train the
-[OpenAI Gym][4] environment for Cartpole, a simple balance control problem. The walkthrough of the
-Inkling code and simulator interface can be found in our [Examples][2] and the full source code for
-you to take a look at is on [Bonsai's GitHub][3].
+In this guide, we’ll walk you through creating a BRAIN to train the [OpenAI Gym][4] environment for
+Cartpole, a simple balance control problem. The walkthrough of the Inkling code and simulator
+interface can be found in our [Examples][2] and the full source code for you to take a look at
+is on [Bonsai's GitHub][3].
 
 If you'd prefer not to use our web interface, head to our [CLI Guide][11] to follow a similar guide
 to this one on your local computer.
 
-## BRAINs Dashboard Page
+## BRAIN Dashboard
 
-> ![No BRAINs Dashboard][5]
+> ![No BRAIN Dashboard][5]
 
-The dashboard has a NEW BRAIN button, pictured above. Click on it to start the BRAIN creation
-process, where you’re provided a form to give your brain a name and description.
+The dashboard has a New BRAIN button as pictured. Click on it to create a BRAIN.
 
 > ![Setup Cartpole BRAIN][6]
 
-Then select "Cartpole" from the list of template BRAINs. This is one of the simulations that can be
-managed on Bonsai's servers, so you don't need to run anything locally on your computer to train this simulation.
+Select ‘Cartpole’ from the set of BRAIN templates. The Cartpole simulation can be managed on Bonsai’s
+servers, so you don't need to run anything locally on your computer to train this simulation. At
+this time, you will also be asked to give your BRAIN a name and a description.
 
-Click on the "Create" button which will take you to the BRAIN's Details page.
+Click on the "Create" button which will take you to the BRAIN Details page.
 
-## BRAIN Details Page
+## BRAIN Details
 
 > BRAIN Graph
 > ![Untrained BRAIN graph][7]
@@ -49,13 +49,14 @@ of each file if you click on them on the left.
 
 Your code will automatically compile (if it's Inkling) and save every few seconds while you are
 editing. You never need to edit code in the browser if you don't want to. Check out our
-[CLI Guide][11] to install the Bonsai CLI locally, download these files, and run the rest of this guide locally if you want.
+[CLI Guide][11] to install the Bonsai CLI locally, download these files, and run the rest of this
+guide locally if you want.
 
 
 
 # Train Your BRAIN
 
-> ![Start training BRAIN][8]
+> ![Start Training BRAIN][8]
 
 > ![Trained BRAIN][10]
 
@@ -67,10 +68,12 @@ What this is going to do is spin up a container for the [AI Engine][14], connect
 
 Training Cartpole for ~2,000 episodes is ideal, and might take between 15-30 minutes depending on
 how well your BRAIN is performing. You can see in the images that it only took about a minute for
-the first ~1,000 episodes but the second half took 14 minutes. Your graphs will vary greatly so don't worry if they don't look like these.
+the first ~1,000 episodes but the second half took 14 minutes. Your graphs will vary greatly so
+don't worry if they don't look like these.
 
-There is an automatic end to training that the server determines based on the accuracy but you'll
-most likely want to stop the training before that happens. You can play around with training for
+The server will automatically end training once the BRAIN reaches past a certain accuracy, but you
+will most likely want to stop training before it gets there because there will be diminishing returns
+for training past about 2,000 episodes. You can play around with training for
 15 mins, 30 mins, or even 1 hour and use your BRAIN to see how well it plays each time!
 
 
@@ -131,7 +134,7 @@ The `cartpole_simulator.py` simulator file that you need to run is one of the pr
 server created when you made your BRAIN. You can download these project files locally with the
 `download` command, and then `cd` into that folder to look around.
 
-You'll also want to run the `requirements.txt` file to make sure the packages your simulator needs are installed.
+You'll also want to run the `requirements.txt` file which contains all of the packages your simulator needs to run. This `pip` command will make sure all of them are installed, and if not, install them for you.
 
 > Use Your BRAIN
 
@@ -153,7 +156,7 @@ file, in predict mode, and `--predict-version=latest` will use the latest traini
 [3]: https://github.com/BonsaiAI/gym-cartpole-sample
 [4]: https://gym.openai.com/envs/CartPole-v1
 [5]: ../../images/no_brains_image.png
-[6]: ../../images/quick-start-new-brain.png
+[6]: ../../images/quick-start-create-brain.png
 [7]: ../../images/quick-start-no-training.png
 [8]: ../../images/quick-start-start-training.png
 [9]: ../../images/quick-start-code-editor.png

@@ -18,9 +18,11 @@ to this one on your local computer.
 
 > ![No BRAIN Dashboard][5]
 
+> ![Setup Cartpole BRAIN][6]
+
 The dashboard has a New BRAIN button as pictured. Click on it to create a BRAIN.
 
-> ![Setup Cartpole BRAIN][6]
+### Create New BRAIN
 
 Select ‘Cartpole’ from the set of BRAIN templates. The Cartpole simulation can be managed on Bonsai’s
 servers, so you don't need to run anything locally on your computer to train this simulation. At
@@ -105,8 +107,7 @@ pip3 install bonsai-cli
 
 The Bonsai Command Line Interface (CLI) is a command line tool that enables you to configure the
 Bonsai AI Engine. The CLI is especially useful for automation and connection to other tools.
-Currently, there are some actions that can only be performed using the CLI, such as loading your
-Inkling file and connecting your simulator.
+Currently, there are some actions that can only be performed using the CLI, such as simulator prediction.
 
 If you already **have python installed** you should be able to run the python package manager `pip`
 to install the Bonsai CLI. Otherwise, check out the [CLI Guide Install Prerequisites][13] section

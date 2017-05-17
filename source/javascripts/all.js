@@ -4,3 +4,4 @@
 //= require ./app/_nav
 //= require ./app/_darkbox.js
 //= require ./app/_svg-fills
+// //= require ./app/_pikachu

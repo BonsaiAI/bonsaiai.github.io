@@ -23,17 +23,17 @@
 	<%= javascript_include_tag  "all_nosearch" %>
 	<% end %>
 	<%= partial "partials/google-gtm" %>
-	
+
 </head>
-	  	
+
 <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
-	
-		  
+
+
 	<%= partial "partials/hide-gtm" %>
 
-	<div id="flex-container">	  
+	<div id="flex-container">
 
-		<%= partial "partials/primary-nav" %>	
+		<%= partial "partials/primary-nav" %>
 
 		<div id="main-wrapper">
 
@@ -58,9 +58,9 @@
 				<span id="browse-divs">
 
 					<div>
-						
+
 						<p class="p2">Guides</p>
-						
+
 						<ul>
 							<li> <a href="/guides/cli-install-guide.html">Install the CLI</a></li>
 							<li> <a href="/guides/inkling-guide.html">Learn the Inkling Language</a> </li>
@@ -68,40 +68,41 @@
 							<li> <a href="/guides/ai-engine-guide.html">Understand AI Engine Components</a> </li>
 							<li> <a href="/guides/web-graphs-guide.html">Understand BRAIN Graphs</a> </li>
 							<li> <a href="/guides/jupyter-api-guide.html">Use Bonsai's API with Jupyter</a> </li>
+							<li> <a href="/guides/simulation-guide.html">Simulator requirements</a> </li>
 						</ul>
-					
+
 					</div>
 
 					<div>
-						
+
 						<p class="p2">References</p>
-						
+
 						<ul>
 							<li> <a href="/references/api-reference.html">API Reference</a> </li>
 							<li> <a href="/references/cli-reference.html">CLI Reference</a> </li>
 							<li> <a href="/references/inkling-reference.html">Inkling Reference</a> </li>
 							<li> <a href="/references/library-reference.html">Library Reference</a> </li>
-						
+
 					</div>
 
 					<div>
-						
+
 						<p class="p2">Examples</p>
-						
+
 						<ul>
 							<li> <a href="/examples.html#basic-simulator-find-the-center">Basic Python Simulator</a></li>
 							<li> <a href="/examples.html#openai-gym-cart-pole">OpenAI Gym's Cart Pole Balance</a></li>
-							<li> <a href="/examples.html#openai-gym-mountain-car">OpenAI Gym's Mountain Car Control</a></li> 
-							<li> <a href="/examples.html#energyplus-hvac-optimization">EnergyPlus HVAC Optimization</a></li> 
-							<li> <a href="/examples.html#gazebo-turtlebot">Gazebo Simulated Turtlebot</a></li>
+							<li> <a href="/examples.html#openai-gym-mountain-car">OpenAI Gym's Mountain Car Control</a></li>
+							<li> <a href="/examples.html#energyplus-hvac-optimization">EnergyPlus HVAC Optimization</a></li>
+							<li> <a href="/examples.html#simulink-examples">Simulink Examples</a></li>
 						</ul>
-						
+
 					</div>
-					
+
 				</span>
 
 			</div>
-			
+
 			<div id ="help" class="light-background ">
 
 				<div class="flex-desktop-center-column more-padding-1">
@@ -113,13 +114,13 @@
 					<a href="http://bons.ai/"><img src="/images/tree.svg">Bonsai Home</a>
 					<a href="https://bons.ai/blog"><img src="/images/forums.svg">Bonsai Blog</a>
 					<a href="https://bons.ai/contact-us#contact-page-form"><img src="/images/email.svg">Contact Us</a>
-					
-					</div> 
+
+					</div>
 
 				</div>
 
 			</div>
-			
+
 			<div id="bottom" class="more-help-padding border-top-ccc">
 
 				<div >
@@ -129,21 +130,21 @@
 						<a href="http://pages.bons.ai/apply.html">Apply for Bonsai Platform Preview</a>
 						<a href="https://github.com/BonsaiAI/slate">Contribute to the Docs on GitHub</a>
 
-						
+
 						<a class="home-cc-icon" href='https://creativecommons.org/licenses/by-sa/4.0/' >
-							
-				
-		
-						
+
+
+
+
 						CC-BY-SA </a>
-						
-						
+
+
 
 					</div>
 
 				</div>
 
-			</div>	
+			</div>
 
 		</div>
 

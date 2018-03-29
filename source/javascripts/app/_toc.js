@@ -46,9 +46,8 @@
   }
 
   $(function() {
-    setupLanguages($('body').data('languages'));
-
     makeToc();
+    setupLanguages($('body').data('languages'));
     if (global.toc) {
       animate();
       $('.content').imagesLoaded( function() {

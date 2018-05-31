@@ -16,6 +16,7 @@ includes:
 - examples/mountain-car.html.md
 - examples/energyplus.html.md
 - examples/simulink.html.md
+- examples/tic-tac-toe.html.md
 
 search: true
 ---

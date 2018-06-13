@@ -9,6 +9,7 @@ If you have any suggestions of examples you'd like to see us implement please [c
 ### Custom Simulator Examples
 * **Basic Python/C++ Simulation**: A project called *Find the Center* which walks you through how to create a simple Inkling file that connects to a basic Python or C++ simulator.
 * **SimPy Elevator Simulation**: A basic example of how to use SimPy to simulate a scenario. This one is an elevator dropping people off on 3 floors.
+* **Tic-tac-toe**: A simple implementation of pixel manipulation through the Luminance schema type for a tic-tac-toe board. Also showcases the use of an algorithm schema.
 
 ### OpenAI Gym Examples
 * **Cartpole**: A simple control problem where a cart must make a simple move to keep a pole balanced on top.
@@ -22,7 +23,7 @@ If you have any suggestions of examples you'd like to see us implement please [c
 * **Simulink Househeat**: The compiled Simulink version of an HVAC system taking into account the outdoor environment, the thermal characteristics of the house, and the house heating system.
 
 ### Luminance Example
-* **Tic-tac-toe**: A simple implementation of pixel manipulation through the Luminance schema type for a tic-tac-toe board.
+
 
 [1]: https://github.com/BonsaiAI
 [2]: https://bons.ai/contact-us#contact-page-form

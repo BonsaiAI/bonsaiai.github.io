@@ -1,4 +1,4 @@
-# Tic-tac-toe Example
+# Luminance tic-tac-toe
 
 > ![Tic-Tac-Toe](../images/Tic-Tac-Toe.gif)
 
@@ -10,7 +10,7 @@ To demonstrate the use of Luminance in The Bonsai Platform this example will wal
 letters = {"X": [[1, 0, 1], [0, 1, 0], [1, 0, 1]],
            "O": [[0, 1, 0], [1, 0, 1], [0, 1, 0]],
            " ": [[0, 0, 0], [0, 0, 0], [0, 0, 0]]}
-           ```
+```
 
 This example will train a BRAIN using a 9x9 pixel grid (an input matrix) to represent the tic-tac-toe board. The representation of each letter, X, O, and a blank space, each are represented by a 3x3 matrix as shown in the code panel. There are 9 options for movement to correspond with the 9 spaces on the board.
 

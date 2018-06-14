@@ -190,8 +190,7 @@ others in the future.
 schema. If given a small image, as in `Luminance(9, 9)` then likely one
 convolutional layer will be built. In the Breakout example, a larger image of `Luminance( 84, 336)`
 will cause the AI Engine to build multiple layers and stack them to
-aggressively reduce the dimensionality of the output and could also be read
-as `Luminance(84, 84, 4)` for 4 layers of an 84x84 image. You can configure
+aggressively reduce the dimensionality of the output. You can configure
 these convolutional layers and filters yourself by using the advanced
 [algorithm clause][6].
 

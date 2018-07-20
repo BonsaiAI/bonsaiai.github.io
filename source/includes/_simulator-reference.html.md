@@ -54,16 +54,16 @@ Note that config in __main__ is the brain configuration and remains the same thr
 ```
 $ python <simulator_file>.py --help
 usage: <simulator_file>.py [-h] [--accesskey ACCESSKEY] [--username USERNAME]
-                      [--url URL] [--proxy PROXY] [--brain BRAIN]
-                      [--predict [PREDICT]] [--verbose VERBOSE]
-                      [--performance PERFORMANCE]
+                 [--url URL] [--proxy PROXY] [--brain BRAIN]
+                 [--predict [PREDICT]] [--verbose] [--performance]
+                 [--log LOG [LOG ...]] [--record RECORD]
 
 optional arguments:
   -h, --help            show this help message and exit
   --accesskey ACCESSKEY
                         The access key to use when connecting to the BRAIN
                         server. If specified, it will be used instead of any
-                        access key information stored in a bonsai config file.
+                        access keyinformation stored in a bonsai config file.
   --username USERNAME   Bonsai username.
   --url URL             Bonsai server URL. The URL should be of the form
                         "https://api.bons.ai"
@@ -74,9 +74,16 @@ optional arguments:
                         specified version. May be a positive integer number or
                         'latest' for the most recent version. For example:
                         --predict=latest or --predict=3
-  --verbose VERBOSE     Enables logging. Alias for --log=all
-  --performance PERFORMANCE
-                        Enables time delta logging. Alias for --log=perf.all
+  --verbose             Enables logging. Alias for --log=all
+  --performance         Enables time delta logging. Alias for --log=perf.all
+  --log LOG [LOG ...]   Enable logging. Parameters are a list of log domains.
+                        Using --log=all will enable all domains. Using
+                        --log=none will disable logging.
+  --record RECORD       Enable record simulation data to a file (current) or
+                        external service (not yet implemented). Parameter is
+                        the target file for recorded data. Data format will be
+                        inferred from the file extension. Currently supports
+                        ".json" and ".csv".
 ```
 
 Currently, all connectors use a Python program to bootstrap the simulation and connect it to the Bonsai AI Engine. To run any simulation, you call a Python program (shown in the code panel).
@@ -84,6 +91,8 @@ Currently, all connectors use a Python program to bootstrap the simulation and c
 During development, you will need to iterate efficiently on your simulation, reward function, and lesson plans. You may also need to connect a debugger, or do additional logging to help you get your simulation ready to train.
 
 During the course of normal operation, one should only need to specify the prediction/training mode on the command line. The rest of the options will be read from configuration files.
+
+The following sections explain further how to use the `--proxy`, `--predict`, and `--record` command line options.
 
 To speed up training, you can run multiple simulators in parallel. See [Running Simulations in Parallel][5] below.
 
@@ -147,6 +156,39 @@ Python <simulator_file>.py --predict=1
 
 After your BRAIN is finished training it can be used to "predict" or perform in the simulation. How well it does depends on how long you let it train! Using your BRAIN involves running your simulator file as you did when training, but now in prediction mode with `--predict`. The default is `--predict=latest` which will use the version of the latest training session that you just ran. You can use a different version of your BRAIN if you have trained it multiple times by replacing `latest` with the version number.
 
+## Recording Data to File
+
+> Record file example
+
+```python
+# Excerpt of find_the_center_sim.py
+
+if __name__ == "__main__":
+    config = bonsai_ai.Config()
+    
+    config->set_record_enabled(true);
+    config->set_record_file("find_the_center.json");
+
+    brain = bonsai_ai.Brain(config)
+    sim = BasicSimulator(brain, "find_the_center_sim")
+    sim.enable_keys(["delta_t", "goal_count"], "ftc")
+
+    print('starting...')
+    last = clock() * 10000000
+    while sim.run():
+        now = clock() * 1000000
+        sim.record_append(
+            {"delta_t": now - last}, "ftc")
+        last = clock() * 1000000
+        continue
+```
+
+The full code for how to use this feature within an example can be found in the [find-the-center example][14].
+
+Analytics recording can be enabled in code (shown in the code panel) or at the command line. The code example shown has the same effect as invoking this script with `--record=find_the_center.json`. Alternatively, invoking with `--record=find_the_center.csv` enables recording to CSV.
+
+The syntax for how to use this feature within the SDK libraries see [`record_file`][12] for Python and [`record_file()`][13] for C++.
+
 # Cloud Hosted Simulators
 
 The Bonsai Platform can run several simulators for you in our cloud environment. This means you can start and stop training all from the web interface, without needing to download and install the Bonsai CLI or SDK. You will still need to run the simulator locally using the CLI to obtain predictions, however.
@@ -182,3 +224,6 @@ Running simulations in parallel is currently only supported either when running 
 [9]: ./library-reference.html#proxy
 [10]: https://quay.io/repository/bonsai/bonsai-ai
 [11]: ../../examples.html#inkling-file
+[12]: ./library-reference.html#record_file
+[13]: ./cpp-library-reference.html#record_file
+[14]: ../examples.html#simulator-file

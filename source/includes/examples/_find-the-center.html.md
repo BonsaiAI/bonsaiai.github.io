@@ -91,6 +91,7 @@ It can be used in this case to find the center between two numbers.
 """
 import bonsai_ai
 from random import randint
+from time import clock
 
 
 class BasicSimulator(bonsai_ai.Simulator):
@@ -129,6 +130,7 @@ class BasicSimulator(bonsai_ai.Simulator):
         if self.value == self.goal:
             self.goal_count += 1
 
+        self.record_append({"goal_count": self.goal_count}, "ftc")
         # is this episode finished?
         terminal = (self.value < self.min or
                     self.value > self.max or
@@ -137,16 +139,36 @@ class BasicSimulator(bonsai_ai.Simulator):
         reward = self.goal_count
         return (state, reward, terminal)
 
+    def episode_finish(self):
+        print('Episode', self.episode_count,
+              'reward:', self.episode_reward,
+              'eps:', self.episode_rate,
+              'ips:', self.iteration_rate,
+              'iters:', self.iteration_count)
+
 
 if __name__ == "__main__":
     config = bonsai_ai.Config()
+    # Analytics recording can be enabled in code or at the command line.
+    # The commented lines would have the same effect as invoking this
+    # script with "--record=find_the_center.json".
+    # Alternatively, invoking with "--record=find_the_center.csv" enables
+    # recording to CSV.
+    # config->set_record_enabled(true);
+    # config->set_record_file("find_the_center.json");
+
     brain = bonsai_ai.Brain(config)
     sim = BasicSimulator(brain, "find_the_center_sim")
+    sim.enable_keys(["delta_t", "goal_count"], "ftc")
 
     print('starting...')
+    last = clock() * 10000000
     while sim.run():
+        now = clock() * 1000000
+        sim.record_append(
+            {"delta_t": now - last}, "ftc")
+        last = clock() * 1000000
         continue
-
 ```
 
 ```cpp
@@ -156,8 +178,9 @@ if __name__ == "__main__":
 #include <memory>
 #include <string>
 #include <random>
+#include <chrono>
 
-#include "bonsai/bonsai.hpp"
+#include "bonsai.hpp"
 
 // std
 using std::cout;
@@ -166,6 +189,9 @@ using std::make_shared;
 using std::move;
 using std::shared_ptr;
 using std::string;
+using std::chrono::high_resolution_clock;
+using std::chrono::duration_cast;
+using std::chrono::microseconds;
 
 using std::random_device;
 using std::mt19937;
@@ -231,6 +257,7 @@ void BasicSimulator::simulate(
 
     // output
     state.set_int8("value", _value);
+    record_append<size_t>("goal_count", _goal_count, "ftc");
     terminal = _value < _min || _value > _max || _goal_count > 3;
     reward = _goal_count;
 }
@@ -238,13 +265,31 @@ void BasicSimulator::simulate(
 
 int main(int argc, char** argv) {
     auto config = make_shared<Config>(argc, argv);
-    auto brain = make_shared<Brain>(config);
 
+
+    // Analytics recording can be enabled in code or at the command line.
+    // The commented lines have the same effect as invoking this simulator with
+    // "--record=find_the_center.json".
+    // Alternatively, invoking with "--record=find_the_center.csv" enables recording
+    // to CSV.
+    // config->set_record_enabled(true);
+    // config->set_record_file("find_the_center.json");
+
+    auto brain = make_shared<Brain>(config);
     BasicSimulator sim(brain, "find_the_center_sim");
 
+    // enable the specified keys, prepending each with "ftc" in the final log line
+    sim.enable_keys({"delta_t", "goal_count"}, "ftc");
+
     cout << "starting..." << endl;
-    while ( sim.run() ) {
-        continue;
+    auto last = high_resolution_clock::now();
+    while (sim.run()) {
+        // You can add data to the currently active record from your top level run loop.
+        // You can also add data to the record in your Simulator callbacks (see above).
+        // The record gets flushed to disk at the end of each call to Simulator::run.
+        auto millis = duration_cast<microseconds>(high_resolution_clock::now() - last).count();
+        sim.record_append<int64_t>("delta_t", millis, "ftc");
+        last = high_resolution_clock::now();
     }
 
     return 0;
@@ -253,7 +298,10 @@ int main(int argc, char** argv) {
 
 This is a basic simulator for learning the simulator library. In this case it is used to find the center between two numbers, 0 and 2. The goal, as outlined in the Inkling file, is to reach 1. The moves that the simulator is able to make are sent from the Inkling file to the simulator and the state of the simulator is sent back to Inkling.
 
+This example also includes a demonstration of how to use the record data file functionality. Analytics recording can be enabled in code or at the command line. Usage is explained in the [Recording Data to File][3] section of the Simulator Reference.
+
 The [README file][2] contained in the project has instructions for running this simulator in either Python or C++.
 
 [1]: https://github.com/BonsaiAI/bonsai-sdk/blob/master/samples/find-the-center-py
 [2]: https://github.com/BonsaiAI/bonsai-sdk/blob/master/samples/find-the-center-py/README.md
+[3]: ../references/simulator-reference.html#recording-data-to-file

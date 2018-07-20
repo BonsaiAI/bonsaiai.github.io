@@ -63,7 +63,7 @@ optional arguments:
   --accesskey ACCESSKEY
                         The access key to use when connecting to the BRAIN
                         server. If specified, it will be used instead of any
-                        access keyinformation stored in a bonsai config file.
+                        access key information stored in a bonsai config file.
   --username USERNAME   Bonsai username.
   --url URL             Bonsai server URL. The URL should be of the form
                         "https://api.bons.ai"

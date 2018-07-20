@@ -164,10 +164,10 @@ if __name__ == "__main__":
     print('starting...')
     last = clock() * 10000000
     while sim.run():
-        now = clock() * 1000000
+        now = clock() * 10000000
         sim.record_append(
             {"delta_t": now - last}, "ftc")
-        last = clock() * 1000000
+        last = clock() * 10000000
         continue
 ```
 

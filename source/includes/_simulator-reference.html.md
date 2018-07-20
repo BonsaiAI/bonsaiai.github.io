@@ -174,7 +174,7 @@ if __name__ == "__main__":
     sim.enable_keys(["delta_t", "goal_count"], "ftc")
 
     print('starting...')
-    last = clock() * 10000000
+    last = clock() * 1000000
     while sim.run():
         now = clock() * 1000000
         sim.record_append(

@@ -19,7 +19,11 @@ If you have any suggestions of examples you'd like to see us implement please [c
 * **Event Driven Cartpole**: Using the same Inkling as original Cartpole, but using the Event class to drive the simulation.
 
 ### Real World Example
-* **HVAC with EnergyPlus**: An example of climate control machine teaching using EnergyPlus and BCVTB for simulation.
+* **HVAC with EnergyPlus**: An example of climate control machine teaching using EnergyPlus and BCVTB for simulation. 
+
+### Simulink Examples
+* **Simulink Cartpole**: The compiled Simulink version of a pole balancing on a cart.
+* **Simulink Househeat**: The compiled Simulink version of an HVAC system taking into account the outdoor environment, the thermal characteristics of the house, and the house heating system.
 
 
 [1]: https://github.com/BonsaiAI/bonsai-sdk/tree/master/samples

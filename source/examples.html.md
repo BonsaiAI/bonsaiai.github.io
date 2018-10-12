@@ -19,6 +19,7 @@ includes:
 - examples/predictor-cartpole.html.md
 - examples/event-cartpole.html.md
 - examples/energyplus.html.md
+- examples/simulink.html.md
 
 search: true
 ---

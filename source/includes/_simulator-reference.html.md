@@ -6,7 +6,7 @@ This reference gives you the information you’ll need to train a BRAIN on The B
 
 Currently, The Bonsai Platform depends on simulators as a source of training data for applied deep reinforcement learning (DRL). For more background on applied DRL with simulations read our blog post on [simulations as a training environment][6].
 
-The Bonsai Platform includes client libraries for Python & C++, two common languages used in systems modeling. We also have samples showing how to connect to OpenAI Gym Environments and EnergyPlus models. To learn more about connecting your simulator, refer to our [Library Reference][4].
+The Bonsai Platform includes client libraries for Python & C++, two common languages used in systems modeling. We also have samples showing how to connect to OpenAI Gym Environments, Simulink models, and EnergyPlus models. To learn more about connecting your simulator, refer to our [Library Reference][4].
 
 ## What is a simulator?
 
@@ -21,6 +21,9 @@ To be effective, training a BRAIN needs to be done using DRL against a simulated
 The Bonsai Platform supports an API and two client libraries written in Python or C++. The platform also includes connectors built on top of these libraries. Currently available connectors:
 
 * OpenAI Gym Environments (bonsai-gym)
+* Simulink Universal Coordinator
+    - Coder
+    - Interactive
 * EnergyPlus (via BCVTB)
 
 A list of examples using these are on the [Examples][7] page.

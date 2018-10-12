@@ -21,9 +21,7 @@ To be effective, training a BRAIN needs to be done using DRL against a simulated
 The Bonsai Platform supports an API and two client libraries written in Python or C++. The platform also includes connectors built on top of these libraries. Currently available connectors:
 
 * OpenAI Gym Environments (bonsai-gym)
-* Simulink Universal Coordinator
-    - Coder
-    - Interactive
+* Simulink Toolbox
 * EnergyPlus (via BCVTB)
 
 A list of examples using these are on the [Examples][7] page.

@@ -66,9 +66,6 @@ Make sure you have the following pre-requisites before you start:
 -   Git (if you want to use one of Bonsai’s simulations)
 
 ## Your worksheet
-Copy this table to a file and capture names and other information that you’ve
- picked during the process. You will need to use these at later steps.
-
 ```
 | Item                      | Placeholder           | Your data           |
 | ------------------------- | --------------------- | ------------------- |
@@ -85,6 +82,10 @@ Copy this table to a file and capture names and other information that you’ve
 | Bonsai BRAIN              | <bonsai_brain_name>   |                     |
 | Bonsai URL                | <bonsai_url>          | https://api.bons.ai |
 ```
+Copy this table to a file and capture names and other information that you’ve
+ picked during the process. You will need to use these at later steps.
+
+
 # Bonsai example
 
 Step-by-step instructions for training a Bonsai BRAIN using a docker
@@ -133,22 +134,18 @@ Offer: ubuntu-server-container (*specific to running Linux containers*) 
 
 Sku: 16-04-lts (*specific to running Linux containers*) 
 
+Node Size: Standard A1
+
 Container settings: Custom
 
-Scale settings: 1 node
+Scale settings: Fixed, 1 node
 
-For getting your workflow set up correctly, start with a single node and
-increase scale over time once you’ve validated that everything works.
+Max tasks per node: 1
 
-## Create a docker for your Simulation
+For getting your workflow set up correctly, start with a "single node/single task"
+ and increase scale over time once you’ve validated that everything works.
 
-This step assumes you’re familiar with docker fundamentals. Please review
-<https://docs.docker.com/get-started/> if you have not used docker before.
-
-We’re using a command line interface for the next steps (“cmd” on Windows,
-“terminal.app” on macOS and your preferred shell on Linux).
-
-### Azure Sign-In
+## Azure Sign-In
 >Login to ACR
 
 ```
@@ -162,18 +159,30 @@ az acr login --resource-group <your-resource-group> --name <your-acr> 
 Use the Azure CLI to log into your Azure Container Registry. You need your
 Azure Subscription-ID, Azure Resource-Group and ACR-ID at this point.
 
+## Create a docker for your Simulation
+
+This step assumes you’re familiar with docker fundamentals. Please review
+<https://docs.docker.com/get-started/> if you have not used docker before.
+
+We’re using a command line interface for the next steps (“cmd” on Windows,
+“terminal.app” on macOS and your preferred shell on Linux).
+
+###Create Docker Image
+> Navigate to your simulation directory
+
 ```
 cd <~/your-simulation/>
 ```
-
-###Create Docker Image
 
 >Copy and paste the following into your Dockerfile
 
 ```
 FROM ubuntu:16.04  
 
-ADD /simulation/<first-file>
+# Set the working directory to /<your-working-directory>
+WORKDIR <your-working-directory>
+
+ADD /<first-file> /<your working directory>
 
 ADD <second-file…>
 
@@ -200,20 +209,31 @@ are added. Point to the correct directories to match your local directory struct
 
 Now go back to your command line interface and build the docker image.
 
->Build docker image and assign ID
+>Build docker image and assign ID (macOS, Linux)
 
 ```
 IMAGE_ID=$(docker build -q --no-cache --network=host . 2>/dev/null | awk 'sha256:{print $NF}') 
 
 echo $IMAGE_ID 
 ```
-
->Tag the image and assign a version
+>Tag the image and assign a version (macOS, Linux)
 
 ```
 docker tag $IMAGE_ID <your-acr>.azurecr.io/<your-simulation>:1.0
 ```
 
+>Build docker image and assign ID (Windows)
+
+```
+docker build -q --no-cache --network=host .
+
+docker images
+```
+> Copy IMAGE ID from output and use with docker tag command (Windows)
+
+```
+docker tag <IMAGE ID> <your-acr>.azurecr.io/<your-simulation>:1.0
+```
 >Push the image to ACR  
 
 ```
@@ -234,7 +254,7 @@ Start your BRAIN training by using <http://beta.bons.ai> or the Bonsai CLI.
 
 This guide assumes you’re experienced with using the Bonsai platform using a
 local machine for running simulations. Please visit <http://docs.bons.ai> for
-further information
+further information.
 
 At this point, your simulation model should run in the docker container and send
 the correct output to standard out.

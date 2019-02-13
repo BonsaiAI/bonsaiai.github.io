@@ -529,29 +529,8 @@ the pool(s) every time.</p>
 
 <p>Max tasks per node: 1</p>
 
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-We’re using a command line interface for the next steps (“cmd” on Windows,</p>
-
-<h1 id="terminal-app-on-macos-and-your-preferred-shell-on-linux">“terminal.app” on macOS and your preferred shell on Linux).</h1>
-
 <p>For getting your workflow set up correctly, start with a &ldquo;single node/single task&rdquo;
  and increase scale over time once you’ve validated that everything works.</p>
-
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>aa73341e18111852a1ba55a48286336aa7966b0a</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 
 <h2 id="azure-sign-in">Azure Sign-In</h2>
 
@@ -564,6 +543,9 @@ az account set -subscription -s &lt;Azure-SubId&gt; 
 
 az acr login --resource-group &lt;your-resource-group&gt; --name &lt;your-acr&gt; 
 </code></pre>
+<p>We’re using a command line interface for the next steps (“cmd” on Windows,
+“terminal.app” on macOS and your preferred shell on Linux).</p>
+
 <p>Use the Azure CLI to log into your Azure Container Registry. You need your
 Azure Subscription-ID, Azure Resource-Group and ACR-ID at this point.</p>
 
@@ -571,9 +553,6 @@ Azure Subscription-ID, Azure Resource-Group and ACR-ID at this point.</p>
 
 <p>This step assumes you’re familiar with docker fundamentals. Please review
 <a href="https://docs.docker.com/get-started/">https://docs.docker.com/get-started/</a> if you have not used docker before.</p>
-
-<p>We’re using a command line interface for the next steps (“cmd” on Windows,
-“terminal.app” on macOS and your preferred shell on Linux).</p>
 
 <h3 id="create-docker-image">Create Docker Image</h3>
 

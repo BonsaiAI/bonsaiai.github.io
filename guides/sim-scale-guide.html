@@ -1,0 +1,800 @@
+
+
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Scale Simulation runs with Azure Batch - Bonsai</title>
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js" type="text/javascript"></script>
+    <script type="text/javascript">WebFont.load({  google: {    families: ["Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic"]  }});</script>
+    <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
+	  <link href="../stylesheets/test.css" rel="stylesheet" media="screen" />
+    <link href="../favicon.ico" rel="icon" type="image/ico" />
+      <script src="../javascripts/all.js"></script>
+      <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WVB6MG2');</script>
+<!-- End Google Tag Manager -->
+      <!-- start Mixpanel -->
+<script type="text/javascript">(function(e,a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,
+0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
+mixpanel.init("91fbf7b68fb2356f91916026f221ddd5", {
+    loaded: function(mixpanel) {
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        distinct_id = getParameterByName('refUserId');
+        if (distinct_id) {
+          mixpanel.identify(distinct_id);
+        }
+    }
+});</script>
+<!-- end Mixpanel -->
+
+  </head>
+
+  <body class="guides guides_sim-scale-guide" data-languages="[]">
+
+
+	  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVB6MG2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) --> 
+
+  <div id="flex-container">
+
+	<nav id="primary-nav">
+
+
+
+	<div id="logo"> <a href="../"><img class="bonsai-logo" src="../images/bonsai-logo.svg"></a></div>
+
+	<label for="drop" class="toggle"><img class="menu-ham" src="../images/menu.svg"></label>
+	<input type="checkbox" id="drop" />
+
+	<ul class="menu">
+
+		<li class="header_menu_item "> <a href="getting-started.html">Quick Start</a></li>
+
+		<li class="header_menu_item"> <!-- First Tier Drop Down --> <label for="drop-1" class="toggle">Tutorials +</label><a  href="#">Tutorials</a>
+			<input type="checkbox" id="drop-1"/>
+			<ul id="tutorials">
+				<li class=""> <a href="cli-install-guide.html">Install the CLI</a>  </li>
+				<li class=""> <a href="local-dev-guide.html">Use the CLI for Training</a>  </li>
+				<li class=""> <a href="sdk-install-guide.html">Install the SDK</a>  </li>
+				<li class=""> <a href="../tutorials/tutorial1.html">Running Simulations and Writing Inkling</a>  </li>
+				<li class=""> <a href="../tutorials/simulink.html">Train a Simulink Model with Bonsai</a>  </li>
+				<li class=""> <a href="jupyter-api-guide.html">Use Bonsai's API with Jupyter</a>  </li>
+			</ul>
+		</li>
+
+		<li class="header_menu_item"> <!-- First Tier Drop Down --> <label for="drop-2" class="toggle">Guides +</label><a  href="#">Guides</a>
+			<input type="checkbox" id="drop-2"/>
+			<ul id="guides">
+				<li class=""> <a href="simulation-guide.html">Learn About Simulation Requirements</a>  </li>
+				<li class=""> <a href="inkling-guide.html">Learn the Inkling Language</a>  </li>
+				<li class=""> <a href="machine-teaching.html">Programming Machine Teaching</a>  </li>
+				<li class=""> <a href="ai-engine-guide.html">Understand AI Engine Components</a>  </li>
+				<li class=""> <a href="web-graphs-guide.html">Understand BRAIN Graphs</a>  </li>
+				<li class="selected"> <a href="sim-scale-guide.html">Scale Simulation runs with Azure Batch</a>  </li>
+			</ul>
+		</li>
+
+		<li class="header_menu_item"> <!-- First Tier Drop Down --> <label for="drop-3" class="toggle">References +</label><a  href="#">References</a>
+			<input type="checkbox" id="drop-3"/>
+			<ul id="references">
+				<li class=""> <a href="../references/api-reference.html">API Reference</a>  </li>
+				<li class=""> <a href="../references/cli-reference.html">CLI Reference</a>  </li>
+				<li class=""> <a href="../references/inkling-reference.html">Inkling Reference</a>  </li>
+				<li class=""> <a href="../references/simulator-reference.html">Simulator Reference</a>
+				<li class=""> <a href="../references/library-reference.html">Python Library</a>  </li>
+				<li class=""> <a href="../references/cpp-library-reference.html">C++ Library</a>  </li>
+
+			</ul>
+		</li>
+
+		<li class="header_menu_item "> <a href="../examples.html">Examples</a></li>
+
+		<li>
+			<input type="search" id="docs-search" placeholder="Search Bonsai Docs">
+		</li>
+
+
+	</ul>
+
+</nav>
+
+
+	<div id="main-wrapper">
+
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div class="page-title">Scale Simulation runs with Azure Batch</div>
+      <div id="toc">
+      </div>
+
+			 
+<ul class="toc-footer">
+
+<li><a href='https://bons.ai'>Bonsai Home</a></li>
+<li><a href='https://beta.bons.ai'>BRAIN Dashboard</a></li>
+<li><a href='https://github.com/BonsaiAI/slate'>Contribute to the Docs</a></li>
+<li><a href='https://bons.ai/get-started'>Apply for Bonsai Platform Preview</a></li>
+<li><a href="/releases.html">Product Release Notes</a></li>
+<li><a href="/system-reqs.html">Official System Requirements</a></li>
+<li><a href='https://bons.ai/contact-us#contact-page-form'>Contact Us</a></li>
+
+</ul>
+
+
+	   <div class="cc-bottom">
+	
+	<div class="toc-footer bottom cc-info">
+
+		<a href='https://creativecommons.org/licenses/by-sa/4.0/' class="cc-icon-width" >
+			<svg class="cc" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+			viewBox="0 0 70.7 13.4" style="enable-background:new 0 0 70.7 13.4;" xml:space="preserve">
+
+				<g>
+
+				<g>
+				<circle class="st0" cx="6.8" cy="6.7" r="6.1"/>
+				<path d="M6.7,0c1.9,0,3.5,0.7,4.8,2c0.6,0.6,1.1,1.4,1.4,2.2c0.3,0.8,0.5,1.7,0.5,2.6c0,0.9-0.2,1.8-0.5,2.6
+				c-0.3,0.8-0.8,1.5-1.4,2.1c-0.7,0.6-1.4,1.1-2.2,1.5c-0.8,0.3-1.7,0.5-2.6,0.5S5,13.3,4.2,12.9c-0.8-0.3-1.5-0.8-2.2-1.5
+				s-1.1-1.4-1.5-2.2S0,7.6,0,6.7C0,5.8,0.2,5,0.5,4.2S1.3,2.6,2,2C3.3,0.7,4.8,0,6.7,0z M6.7,1.2c-1.5,0-2.8,0.5-3.9,1.6
+				C2.3,3.4,1.9,4,1.6,4.6C1.4,5.3,1.2,6,1.2,6.7c0,0.7,0.1,1.4,0.4,2.1c0.3,0.7,0.7,1.3,1.2,1.8c0.5,0.5,1.1,0.9,1.8,1.2
+				c0.7,0.3,1.4,0.4,2.1,0.4c0.7,0,1.4-0.1,2.1-0.4c0.7-0.3,1.3-0.7,1.8-1.2c1-1,1.6-2.3,1.6-3.9c0-0.7-0.1-1.4-0.4-2.1
+				c-0.3-0.7-0.7-1.3-1.2-1.8C9.5,1.8,8.2,1.2,6.7,1.2z M6.6,5.6L5.7,6.1C5.6,5.9,5.5,5.7,5.4,5.6C5.3,5.6,5.1,5.5,5,5.5
+				c-0.6,0-0.9,0.4-0.9,1.2c0,0.4,0.1,0.6,0.2,0.9C4.5,7.8,4.7,7.9,5,7.9c0.4,0,0.7-0.2,0.8-0.6l0.8,0.4C6.5,8.1,6.2,8.3,5.9,8.5
+				c-0.3,0.2-0.7,0.3-1,0.3c-0.6,0-1.1-0.2-1.5-0.6C3.1,7.9,2.9,7.4,2.9,6.7c0-0.6,0.2-1.1,0.6-1.5c0.4-0.4,0.8-0.6,1.4-0.6
+				C5.7,4.6,6.3,5,6.6,5.6z M10.5,5.6L9.6,6.1C9.5,5.9,9.4,5.7,9.3,5.6C9.1,5.6,9,5.5,8.9,5.5C8.3,5.5,8,5.9,8,6.7
+				c0,0.4,0.1,0.6,0.2,0.9c0.2,0.2,0.4,0.3,0.7,0.3c0.4,0,0.7-0.2,0.8-0.6l0.8,0.4c-0.2,0.3-0.4,0.6-0.7,0.8c-0.3,0.2-0.7,0.3-1,0.3
+				c-0.6,0-1.1-0.2-1.5-0.6C7,7.9,6.8,7.4,6.8,6.7c0-0.6,0.2-1.1,0.6-1.5c0.4-0.4,0.8-0.6,1.4-0.6C9.6,4.6,10.2,5,10.5,5.6z"/>
+				</g>
+
+				</g>
+			</svg>
+		</a>
+		
+		<a href='https://creativecommons.org/licenses/by-sa/4.0/'>Content:
+		CC-BY-SA </a>
+		
+	</div>
+
+</div>
+
+    </div>
+
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        
+          <h1 id="overview">Overview</h1>
+
+<p>Training a Bonsai BRAIN can take some time depending on how long your simulation
+model needs to run a single iteration. One way to speed up training is to run
+more than a single simulation at a time. This step-by-step guide describes how
+to use docker containers and Azure Batch to run as many simulations in parallel
+as needed.</p>
+
+<h3 id="azure-batch"><a href="https://azure.microsoft.com/en-us/services/batch/">Azure Batch</a></h3>
+
+<p>Azure Batch creates and manages a pool of compute nodes (virtual machines),
+installs the applications you want to run, and schedules jobs to run on the
+nodes. There is no cluster or job scheduler software to install, manage, or
+scale. Instead, you use <a href="https://docs.microsoft.com/en-us/azure/batch/batch-apis-tools">Batch APIs and tools</a>, command-line scripts, or
+the Azure portal to configure, manage, and monitor your jobs.</p>
+
+<h3 id="what-is-a-pool">What is a Pool?</h3>
+
+<p>Pool nodes are the VMs that execute your tasks. Specify properties such as the
+number and size of the nodes, a Windows or Linux VM image, and an application to
+install when the nodes join the pool. Manage the cost and size of the pool by
+using <a href="https://docs.microsoft.com/en-us/azure/batch/batch-low-pri-vms">low-priority VMs</a> or <a href="https://docs.microsoft.com/en-us/azure/batch/batch-automatic-scaling">automatically scaling</a> the number of nodes as the workload changes. </p>
+
+<h3 id="what-is-a-job">What is a Job?</h3>
+
+<p>A Batch job is a logical group for one or more tasks. A job includes settings
+common to the tasks, such as priority and the pool to run tasks on. Initially
+the job has no tasks.</p>
+
+<h3 id="what-is-a-task">What is a Task?</h3>
+
+<p>A task is the actual description of the workload you want to run on the pool.
+When you add tasks to a job, the Batch service automatically schedules the tasks
+for execution on the compute nodes in the pool. Each task uses the application
+that you uploaded to process the input files.</p>
+
+<h3 id="docker-container"><a href="https://www.docker.com/">Docker Container</a></h3>
+
+<p>A container is a standard unit of software that packages up code and all its
+dependencies, so the application runs quickly and reliably from one computing
+environment to another. A Docker container image is a lightweight, standalone,
+executable package of software that includes everything needed to run an
+application: code, runtime, system tools, system libraries and settings. In this
+example, we’re using a Linux based docker container to run a python-based
+simulation with the Bonsai platform but there is no reason it wouldn’t run with
+a Windows based docker container.</p>
+
+<h3 id="azure-container-registry-acr"><a href="https://azure.microsoft.com/en-us/services/container-registry/">Azure Container Registry (ACR)</a></h3>
+
+<p>Azure Container Registry allows you to store images for all types of container
+deployments including Docker. This is the location where your packed docker
+container needs to reside, so tasks can access it as needed.</p>
+
+<h2 id="before-you-start">Before you start</h2>
+
+<p>Make sure you have the following pre-requisites before you start:</p>
+
+<ul>
+<li>  Bonsai Platform account</li>
+<li>  Bonsai CLI installed on your local machine</li>
+<li>  A python-based simulation that is set-up to work with the Bonsai platform
+and runs on Linux. All needed files should reside in one directory</li>
+<li>  Docker installed</li>
+<li>  Azure account</li>
+<li>  <a href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest">Azure CLI installed</a></li>
+<li>  Local user account with administrator privileges</li>
+<li>  Git (if you want to use one of Bonsai’s simulations)</li>
+</ul>
+
+<h2 id="your-worksheet">Your worksheet</h2>
+<pre class="highlight plaintext"><code>| Item                      | Placeholder           | Your data           |
+| ------------------------- | --------------------- | ------------------- |
+| Azure-Subscription ID     | &lt;Azure-SubId&gt;         |                     |
+| Resource Group:           | &lt;your-resource-group&gt; |                     |
+| ACR name:                 | &lt;your-ACR&gt;            |                     |
+| ACR URL:                  | &lt;your-ACR&gt;.azurecr.io |                     |
+| Azure batch account name: | &lt;your-batch-account&gt;  |                     |
+| Batch pool ID:            | &lt;your-pool-id&gt;        |                     |
+| Pool job name             | &lt;your-job-name&gt;       |                     |
+| Simulation name:          | &lt;your-simulation&gt;     |                     |
+| Bonsai username           | &lt;bonsai_username&gt;     |                     |
+| Bonsai access key         | &lt;bonsai_accesskey&gt;    |                     |
+| Bonsai BRAIN              | &lt;bonsai_brain_name&gt;   |                     |
+| Bonsai URL                | &lt;bonsai_url&gt;          | https://api.bons.ai |
+</code></pre>
+<p>Copy this table to a file and capture names and other information that you’ve
+ picked during the process. You will need to use these at later steps.</p>
+
+<h1 id="bonsai-example">Bonsai example</h1>
+
+<p>Step-by-step instructions for training a Bonsai BRAIN using a docker
+container and Azure Batch.</p>
+
+<h2 id="create-an-azure-container-registry-acr">Create an Azure Container Registry (ACR)</h2>
+
+<p>Use an existing ACR or create a new one. The Azure Container Registry must have
+&ldquo;Admin user&rdquo; setting enabled to generate credentials which will be used by Azure
+Batch Pool to pull the container images of the simulations. </p>
+
+<p>Create ACR via Azure CLI or via Azure Portal </p>
+
+<ul>
+<li><p><a href="https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-azure-cli">https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-azure-cli</a>  </p></li>
+<li><p><a href="https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal">https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal</a> </p></li>
+</ul>
+
+<h2 id="create-an-azure-batch-account-batch-service">Create an Azure Batch account (Batch Service)</h2>
+
+<p>Create Azure Batch Account with &ldquo;Pool Allocation Mode&rdquo; as &ldquo;Batch Service&rdquo;. </p>
+
+<p><a href="https://docs.microsoft.com/en-us/azure/batch/batch-account-create-portal">https://docs.microsoft.com/en-us/azure/batch/batch-account-create-portal</a> </p>
+
+<p><img src="../images/simscale-batch.png" alt="Batch Account" /></p>
+
+<p>Capture your batch account name in the worksheet above.</p>
+
+<h2 id="create-a-pool">Create a Pool</h2>
+
+<p>We’re using a single pool with for this example. You can create multiple pools
+to create dedicated pools for each of your simulations or re-use a single pool
+for different simulations. Either way, you don’t need to shut down and re-create
+the pool(s) every time.</p>
+
+<p><img src="../images/simscale-pool.png" alt="Batch Account" /></p>
+
+<p>PoolId: <em>&lt;your-pool-id&gt;</em></p>
+
+<p>Select Image settings: </p>
+
+<p>Image Type: Marketplace </p>
+
+<p>Publisher: microsoft-azure-batch (<em>specific to running Linux containers</em>) </p>
+
+<p>Offer: ubuntu-server-container (<em>specific to running Linux containers</em>) </p>
+
+<p>Sku: 16-04-lts (<em>specific to running Linux containers</em>) </p>
+
+<p>Node Size: Standard A1</p>
+
+<p>Container settings: Custom</p>
+
+<p>Scale settings: Fixed, 1 node</p>
+
+<p>Max tasks per node: 1</p>
+
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+We’re using a command line interface for the next steps (“cmd” on Windows,</p>
+
+<h1 id="terminal-app-on-macos-and-your-preferred-shell-on-linux">“terminal.app” on macOS and your preferred shell on Linux).</h1>
+
+<p>For getting your workflow set up correctly, start with a &ldquo;single node/single task&rdquo;
+ and increase scale over time once you’ve validated that everything works.</p>
+
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>aa73341e18111852a1ba55a48286336aa7966b0a</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+
+<h2 id="azure-sign-in">Azure Sign-In</h2>
+
+<blockquote>
+<p>Login to ACR</p>
+</blockquote>
+<pre class="highlight plaintext"><code>az login 
+
+az account set -subscription -s &lt;Azure-SubId&gt; 
+
+az acr login --resource-group &lt;your-resource-group&gt; --name &lt;your-acr&gt; 
+</code></pre>
+<p>Use the Azure CLI to log into your Azure Container Registry. You need your
+Azure Subscription-ID, Azure Resource-Group and ACR-ID at this point.</p>
+
+<h2 id="create-a-docker-for-your-simulation">Create a docker for your Simulation</h2>
+
+<p>This step assumes you’re familiar with docker fundamentals. Please review
+<a href="https://docs.docker.com/get-started/">https://docs.docker.com/get-started/</a> if you have not used docker before.</p>
+
+<p>We’re using a command line interface for the next steps (“cmd” on Windows,
+“terminal.app” on macOS and your preferred shell on Linux).</p>
+
+<h3 id="create-docker-image">Create Docker Image</h3>
+
+<blockquote>
+<p>Navigate to your simulation directory</p>
+</blockquote>
+<pre class="highlight plaintext"><code>cd &lt;~/your-simulation/&gt;
+</code></pre>
+<blockquote>
+<p>Copy and paste the following into your Dockerfile</p>
+</blockquote>
+<pre class="highlight plaintext"><code>FROM ubuntu:16.04  
+
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+ADD /simulation/&lt;first-file&gt;
+=======
+# Set the working directory to /&lt;your-working-directory&gt;
+WORKDIR &lt;your-working-directory&gt;
+
+ADD /&lt;first-file&gt; /&lt;your working directory&gt;
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; aa73341e18111852a1ba55a48286336aa7966b0a
+
+ADD &lt;second-file…&gt;
+
+RUN apt-get update &amp;&amp; apt-get install -y --no-install-recommends &amp;&amp; apt-get upgrade -y 
+RUN apt-get install python3 python3-pip -y --no-install-recommends 
+RUN pip3 install setuptools wheel 
+RUN pip3 install -r /&lt;path-to-requirements&gt;/requirements.txt 
+</code></pre>
+<p>Navigate to the simulation you want to use for training. If you don’t have one,
+there are a number of examples on the Bonsai <a href="https://github.com/BonsaiAI">github</a>.
+Clone your selection and enter the directory.</p>
+
+<p>Use your preferred editor for creating a Dockerfile:</p>
+
+<p>You need to add all needed simulation files including bonsai related files into
+the docker container by using the “ADD” command. It’s advised to not add the
+.bonsai file as it includes your private access key that you should keep
+secret.</p>
+
+<p>Create your Dockerfile and use additional ADD statements until all needed files
+are added. Point to the correct directories to match your local directory structure.</p>
+
+<p>Now go back to your command line interface and build the docker image.</p>
+
+<blockquote>
+<p>Build docker image and assign ID (macOS, Linux)</p>
+</blockquote>
+<pre class="highlight plaintext"><code>IMAGE_ID=$(docker build -q --no-cache --network=host . 2&gt;/dev/null | awk 'sha256:{print $NF}') 
+
+echo $IMAGE_ID 
+</code></pre>
+<blockquote>
+<p>Tag the image and assign a version (macOS, Linux)</p>
+</blockquote>
+<pre class="highlight plaintext"><code>docker tag $IMAGE_ID &lt;your-acr&gt;.azurecr.io/&lt;your-simulation&gt;:1.0
+</code></pre>
+<blockquote>
+<p>Build docker image and assign ID (Windows)</p>
+</blockquote>
+<pre class="highlight plaintext"><code>docker build -q --no-cache --network=host .
+
+docker images
+</code></pre>
+<blockquote>
+<p>Copy IMAGE ID from output and use with docker tag command (Windows)</p>
+</blockquote>
+<pre class="highlight plaintext"><code>docker tag &lt;IMAGE ID&gt; &lt;your-acr&gt;.azurecr.io/&lt;your-simulation&gt;:1.0
+</code></pre>
+<blockquote>
+<p>Push the image to ACR  </p>
+</blockquote>
+<pre class="highlight plaintext"><code>docker push &lt;your-acr&gt;.azurecr.io/&lt;your-simulation&gt;:1.0 
+</code></pre>
+<p>Note: Use version numbers as you see fit.</p>
+
+<h2 id="start-training-your-bonsai-brain-locally">Start training your Bonsai BRAIN locally</h2>
+
+<blockquote>
+<p>Pull Image and test it</p>
+</blockquote>
+<pre class="highlight plaintext"><code>docker pull &lt;your-acr&gt;.azurecr.io/&lt;your-simulation&gt;:1.0 
+
+docker run --rm -it &lt;your-acr&gt;.azurecr.io/&lt;your-simulation&gt;:1.0 python3 &lt;your-sim-start&gt;.py --brain &lt;bonsai_brain_name&gt; - url &lt;bonsai_url&gt; --username &lt;bonsai_username&gt; --accesskey &lt;bonsai_accesskey&gt;  
+</code></pre>
+<p>Start your BRAIN training by using <a href="http://beta.bons.ai">http://beta.bons.ai</a> or the Bonsai CLI.</p>
+
+<p>This guide assumes you’re experienced with using the Bonsai platform using a
+local machine for running simulations. Please visit <a href="http://docs.bons.ai">http://docs.bons.ai</a> for
+further information.</p>
+
+<p>At this point, your simulation model should run in the docker container and send
+the correct output to standard out.</p>
+
+<h2 id="simulation-deployment">Simulation Deployment</h2>
+
+<blockquote>
+<p>Login to Azure Batch Account </p>
+</blockquote>
+<pre class="highlight plaintext"><code>az batch account login --resource-group &lt;your-resource-group&gt; --name &lt;your-batch-account&gt;
+</code></pre>
+<p>First, login into your Azure account, then deploy your simulation on Azure and
+start training using jobs &amp; tasks.</p>
+
+<blockquote>
+<p>Create a Job and run it on your pool</p>
+</blockquote>
+<pre class="highlight plaintext"><code>az batch job create --id &lt;your-job-name&gt; --pool-id &lt;your-pool-id&gt;
+</code></pre>
+<h3 id="create-a-job">Create a job</h3>
+
+<p>Jobs are containing multiple tasks and run on your pool.</p>
+
+<blockquote>
+<p>Copy and Paste into task.json</p>
+</blockquote>
+<pre class="highlight plaintext"><code>[ 
+
+         { 
+
+         "id": "simulation-task-1", 
+
+         "displayName": "Simulation", 
+
+         "commandLine": "python3 /simulation/&lt;your-sim-start&gt; --url &lt;bonsai_url&gt; --username &lt;bonsai_username&gt; --accesskey &lt;bonsai_accesskey&gt;", 
+
+         "constraints": { 
+
+             "maxTaskRetryCount": 0, 
+
+             "maxWallClockTime": "P10D" 
+
+         }, 
+
+         "containerSettings": { 
+
+             "containerRunOptions": null, 
+
+             "imageName": "&lt;your-acr&gt;.azurecr.io/&lt;your-simulation&gt;:1.0", 
+
+             "registry": null 
+
+         }, 
+
+         "environmentSettings":[] 
+
+     } 
+
+ ]
+</code></pre>
+<p> </p>
+
+<h3 id="create-tour-first-task">Create tour first task</h3>
+<pre class="highlight plaintext"><code>az batch task create --job-id &lt;your-job-name&gt; --json-file ./task.json 
+</code></pre>
+<p>Use your preferred editor and create a file named “task.json”. This allows you
+to simplify managing parameters when creating tasks. Please copy and paste the
+ content to the right into your editor and update &lt;your-sim-start&gt;,&lt;bonsai_url&gt;,
+  &lt;bonsai_username&gt;,&lt;bonsai_accesskey,&lt;your-sim-start&gt;,&lt;your-acr&gt;.</p>
+
+<p>Run the <code class="prettyprint">az batch</code> command, it will create a task with the id “simulation-task-1”.</p>
+
+<p>Create additional tasks by modifying the task.json file as needed.</p>
+
+<p>More background on jobs and tasks can be found here:
+<a href="https://docs.microsoft.com/en-us/azure/batch/scripts/batch-cli-sample-run-job">https://docs.microsoft.com/en-us/azure/batch/scripts/batch-cli-sample-run-job</a></p>
+
+<p>You can create additional jobs using the “Create Job” step with a different
+“job-id” and then use the “az batch task create …” command to assign a task to
+that newly created job. This could be useful if you want to associate jobs with
+differently configured pools.</p>
+
+<h2 id="view-progress-of-your-training">View progress of your training</h2>
+
+<p>Visit <a href="https://beta.bons.ai">https://beta.bons.ai</a>, go to your dashboard and select the BRAIN you are
+currently training. It’s recommended to validate that data from the simulator is
+being fed into the Brain by monitoring the simulation tab of the training graph.
+At this point, training status should have changed to “Simulator: Connected”.</p>
+
+<h2 id="check-log-files">Check log files</h2>
+
+<p>If the simulator won’t connect and no data is arriving at the BRAIN, please
+review the log files associated with your Azure Batch pool. Go to
+<a href="https://portal.azure.com">https://portal.azure.com</a> and navigate to your Azure Batch Pool. Select the
+node in your pool and enter the “files” section. If anything went wrong, error
+files should show up at this location and provide more details of the problem.
+This assumes that your locally executed container worked, and you’ve created a
+pool based on a single node.<br>
+On <a href="http://beta.bons.ai">http://beta.bons.ai</a> you will see standard out from one of the simulators
+when training is running and a simulator is connected. It should show the same
+standard console output that you expect when running the docker container
+manually on your local machine.</p>
+
+<h2 id="clean-up">Clean-up</h2>
+
+<blockquote>
+<p>Terminate completed jobs</p>
+</blockquote>
+<pre class="highlight plaintext"><code>az batch job set --job-id &lt;you-job-id&gt; --on-all-tasks-complete terminatejob
+</code></pre>
+<p>If you plan to use a single pool to run multiple simulation jobs, we recommend
+shutting down the individual jobs unless you’ve created a single pool for a
+dedicated simulator. In that case, you can also shut down the pool itself. This
+command terminates your job once all tasks have been completed.</p>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+
+    </div>
+
+  </div>
+  <!-- at the end of the BODY -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+  apiKey: '49fa6f01d7ff94a85b9b7434b1c2b7cf',
+  indexName: 'bon-sai',
+  inputSelector: '#docs-search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+  });
+  </script>
+  </body>
+</html>

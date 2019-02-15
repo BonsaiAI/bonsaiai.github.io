@@ -11,190 +11,87 @@
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
-.highlight .gh {
-  color: #999999;
-}
-.highlight .sr {
-  color: #f6aa11;
-}
-.highlight .go {
-  color: #888888;
-}
-.highlight .gp {
-  color: #555555;
-}
-.highlight .gs {
-}
-.highlight .gu {
-  color: #aaaaaa;
-}
-.highlight .nb {
-  color: #f6aa11;
-}
-.highlight .cm {
-  color: #75715e;
-}
-.highlight .cp {
-  color: #75715e;
-}
-.highlight .c1 {
-  color: #75715e;
-}
-.highlight .cs {
-  color: #75715e;
-}
-.highlight .c, .highlight .cd {
-  color: #75715e;
+.highlight, .highlight .w {
+  color: #ffffff;
+  background-color: #272822;
 }
 .highlight .err {
-  color: #960050;
+  color: #272822;
+  background-color: #f92672;
 }
-.highlight .gr {
-  color: #960050;
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #ffc33e;
 }
-.highlight .gt {
-  color: #960050;
-}
-.highlight .gd {
-  color: #49483e;
-}
-.highlight .gi {
-  color: #49483e;
-}
-.highlight .ge {
-  color: #49483e;
-}
-.highlight .kc {
-  color: #66d9ef;
-}
-.highlight .kd {
-  color: #66d9ef;
-}
-.highlight .kr {
-  color: #66d9ef;
-}
-.highlight .no {
-  color: #66d9ef;
-}
-.highlight .kt {
-  color: #66d9ef;
-}
-.highlight .mf {
-  color: #ae81ff;
-}
-.highlight .mh {
-  color: #ae81ff;
-}
-.highlight .il {
-  color: #ae81ff;
-}
-.highlight .mi {
-  color: #ae81ff;
-}
-.highlight .mo {
-  color: #ae81ff;
-}
-.highlight .m, .highlight .mb, .highlight .mx {
-  color: #ae81ff;
-}
-.highlight .sc {
-  color: #ae81ff;
-}
-.highlight .se {
-  color: #ae81ff;
-}
-.highlight .ss {
-  color: #ae81ff;
-}
-.highlight .sd {
-  color: #e6db74;
-}
-.highlight .s2 {
-  color: #e6db74;
-}
-.highlight .sb {
-  color: #e6db74;
-}
-.highlight .sh {
-  color: #e6db74;
-}
-.highlight .si {
-  color: #e6db74;
-}
-.highlight .sx {
-  color: #e6db74;
-}
-.highlight .s1 {
-  color: #e6db74;
-}
-.highlight .s {
-  color: #e6db74;
-}
-.highlight .na {
-  color: #a6e22e;
-}
-.highlight .nc {
-  color: #a6e22e;
-}
-.highlight .nd {
-  color: #a6e22e;
-}
-.highlight .ne {
-  color: #a6e22e;
-}
-.highlight .nf {
-  color: #a6e22e;
-}
-.highlight .vc {
-  color: #ffffff;
-}
-.highlight .nn {
-  color: #ffffff;
-}
-.highlight .nl {
-  color: #ffffff;
-}
-.highlight .ni {
-  color: #ffffff;
-}
-.highlight .bp {
-  color: #ffffff;
-}
-.highlight .vg {
-  color: #ffffff;
-}
-.highlight .vi {
-  color: #ffffff;
-}
-.highlight .nv {
-  color: #ffffff;
-}
-.highlight .w {
-  color: #ffffff;
-}
-.highlight {
-  color: #ffffff;
-}
-.highlight .n, .highlight .py, .highlight .nx {
-  color: #ffffff;
-}
-.highlight .ow {
-  color: #f92672;
+.highlight .cp {
+  color: #ffc33e;
 }
 .highlight .nt {
+  color: #ffc33e;
+}
+.highlight .o, .highlight .ow {
+  color: #ffffff;
+}
+.highlight .p, .highlight .pi {
+  color: #ffffff;
+}
+.highlight .gi {
+  color: #ffffff;
+}
+.highlight .gd {
   color: #f92672;
 }
-.highlight .k, .highlight .kv {
-  color: #f92672;
+.highlight .gh {
+  color: #66d9ef;
+  background-color: #272822;
+  font-weight: bold;
 }
-.highlight .kn {
-  color: #f92672;
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #51beff;
 }
-.highlight .kp {
-  color: #f92672;
+.highlight .kc {
+  color: #4af065;
 }
-.highlight .o {
-  color: #f92672;
+.highlight .kt {
+  color: #4af065;
+}
+.highlight .kd {
+  color: #4af065;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #ffffff;
+}
+.highlight .sr {
+  color: #a1efe4;
+}
+.highlight .si {
+  color: #cc6633;
+}
+.highlight .se {
+  color: #cc6633;
+}
+.highlight .nn {
+  color: #ffc33e;
+}
+.highlight .nc {
+  color: #ffc33e;
+}
+.highlight .no {
+  color: #ffc33e;
+}
+.highlight .nx {
+  color: #4af065;
+}
+.highlight .nb, .highlight .bp {
+  color: #4af065;
+}
+.highlight .na {
+  color: #66d9ef;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #ffffff;
+}
+.highlight .ss {
+  color: #ffffff;
 }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
@@ -277,7 +174,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<input type="checkbox" id="drop-2"/>
 			<ul id="guides">
 				<li class=""> <a href="simulation-guide.html">Learn About Simulation Requirements</a>  </li>
-				<li class=""> <a href="inkling-guide.html">Learn the Inkling Language</a>  </li>
+				<li class=""> <a href="inkling2-guide.html">Learn the Inkling Language</a>  </li>
 				<li class=""> <a href="machine-teaching.html">Programming Machine Teaching</a>  </li>
 				<li class=""> <a href="ai-engine-guide.html">Understand AI Engine Components</a>  </li>
 				<li class=""> <a href="web-graphs-guide.html">Understand BRAIN Graphs</a>  </li>
@@ -290,7 +187,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<ul id="references">
 				<li class=""> <a href="../references/api-reference.html">API Reference</a>  </li>
 				<li class=""> <a href="../references/cli-reference.html">CLI Reference</a>  </li>
-				<li class=""> <a href="../references/inkling-reference.html">Inkling Reference</a>  </li>
+				<li class=""> <a href="../references/inkling2-reference.html">Inkling Reference</a>  </li>
 				<li class=""> <a href="../references/simulator-reference.html">Simulator Reference</a>
 				<li class=""> <a href="../references/library-reference.html">Python Library</a>  </li>
 				<li class=""> <a href="../references/cpp-library-reference.html">C++ Library</a>  </li>
@@ -543,9 +440,6 @@ az account set -subscription -s &lt;Azure-SubId&gt; 
 
 az acr login --resource-group &lt;your-resource-group&gt; --name &lt;your-acr&gt; 
 </code></pre>
-<p>We’re using a command line interface for the next steps (“cmd” on Windows,
-“terminal.app” on macOS and your preferred shell on Linux).</p>
-
 <p>Use the Azure CLI to log into your Azure Container Registry. You need your
 Azure Subscription-ID, Azure Resource-Group and ACR-ID at this point.</p>
 
@@ -553,6 +447,9 @@ Azure Subscription-ID, Azure Resource-Group and ACR-ID at this point.</p>
 
 <p>This step assumes you’re familiar with docker fundamentals. Please review
 <a href="https://docs.docker.com/get-started/">https://docs.docker.com/get-started/</a> if you have not used docker before.</p>
+
+<p>We’re using a command line interface for the next steps (“cmd” on Windows,
+“terminal.app” on macOS and your preferred shell on Linux).</p>
 
 <h3 id="create-docker-image">Create Docker Image</h3>
 
@@ -566,14 +463,10 @@ Azure Subscription-ID, Azure Resource-Group and ACR-ID at this point.</p>
 </blockquote>
 <pre class="highlight plaintext"><code>FROM ubuntu:16.04  
 
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-ADD /simulation/&lt;first-file&gt;
-=======
 # Set the working directory to /&lt;your-working-directory&gt;
 WORKDIR &lt;your-working-directory&gt;
 
 ADD /&lt;first-file&gt; /&lt;your working directory&gt;
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; aa73341e18111852a1ba55a48286336aa7966b0a
 
 ADD &lt;second-file…&gt;
 
@@ -740,7 +633,11 @@ review the log files associated with your Azure Batch pool. Go to
 node in your pool and enter the “files” section. If anything went wrong, error
 files should show up at this location and provide more details of the problem.
 This assumes that your locally executed container worked, and you’ve created a
-pool based on a single node.  </p>
+pool based on a single node.<br>
+On <a href="http://beta.bons.ai">http://beta.bons.ai</a> you will see standard out from one of the simulators
+when training is running and a simulator is connected. It should show the same
+standard console output that you expect when running the docker container
+manually on your local machine.</p>
 
 <h2 id="clean-up">Clean-up</h2>
 

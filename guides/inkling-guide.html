@@ -11,190 +11,87 @@
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
-.highlight .gh {
-  color: #999999;
-}
-.highlight .sr {
-  color: #f6aa11;
-}
-.highlight .go {
-  color: #888888;
-}
-.highlight .gp {
-  color: #555555;
-}
-.highlight .gs {
-}
-.highlight .gu {
-  color: #aaaaaa;
-}
-.highlight .nb {
-  color: #f6aa11;
-}
-.highlight .cm {
-  color: #75715e;
-}
-.highlight .cp {
-  color: #75715e;
-}
-.highlight .c1 {
-  color: #75715e;
-}
-.highlight .cs {
-  color: #75715e;
-}
-.highlight .c, .highlight .cd {
-  color: #75715e;
+.highlight, .highlight .w {
+  color: #ffffff;
+  background-color: #272822;
 }
 .highlight .err {
-  color: #960050;
+  color: #272822;
+  background-color: #f92672;
 }
-.highlight .gr {
-  color: #960050;
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #ffc33e;
 }
-.highlight .gt {
-  color: #960050;
-}
-.highlight .gd {
-  color: #49483e;
-}
-.highlight .gi {
-  color: #49483e;
-}
-.highlight .ge {
-  color: #49483e;
-}
-.highlight .kc {
-  color: #66d9ef;
-}
-.highlight .kd {
-  color: #66d9ef;
-}
-.highlight .kr {
-  color: #66d9ef;
-}
-.highlight .no {
-  color: #66d9ef;
-}
-.highlight .kt {
-  color: #66d9ef;
-}
-.highlight .mf {
-  color: #ae81ff;
-}
-.highlight .mh {
-  color: #ae81ff;
-}
-.highlight .il {
-  color: #ae81ff;
-}
-.highlight .mi {
-  color: #ae81ff;
-}
-.highlight .mo {
-  color: #ae81ff;
-}
-.highlight .m, .highlight .mb, .highlight .mx {
-  color: #ae81ff;
-}
-.highlight .sc {
-  color: #ae81ff;
-}
-.highlight .se {
-  color: #ae81ff;
-}
-.highlight .ss {
-  color: #ae81ff;
-}
-.highlight .sd {
-  color: #e6db74;
-}
-.highlight .s2 {
-  color: #e6db74;
-}
-.highlight .sb {
-  color: #e6db74;
-}
-.highlight .sh {
-  color: #e6db74;
-}
-.highlight .si {
-  color: #e6db74;
-}
-.highlight .sx {
-  color: #e6db74;
-}
-.highlight .s1 {
-  color: #e6db74;
-}
-.highlight .s {
-  color: #e6db74;
-}
-.highlight .na {
-  color: #a6e22e;
-}
-.highlight .nc {
-  color: #a6e22e;
-}
-.highlight .nd {
-  color: #a6e22e;
-}
-.highlight .ne {
-  color: #a6e22e;
-}
-.highlight .nf {
-  color: #a6e22e;
-}
-.highlight .vc {
-  color: #ffffff;
-}
-.highlight .nn {
-  color: #ffffff;
-}
-.highlight .nl {
-  color: #ffffff;
-}
-.highlight .ni {
-  color: #ffffff;
-}
-.highlight .bp {
-  color: #ffffff;
-}
-.highlight .vg {
-  color: #ffffff;
-}
-.highlight .vi {
-  color: #ffffff;
-}
-.highlight .nv {
-  color: #ffffff;
-}
-.highlight .w {
-  color: #ffffff;
-}
-.highlight {
-  color: #ffffff;
-}
-.highlight .n, .highlight .py, .highlight .nx {
-  color: #ffffff;
-}
-.highlight .ow {
-  color: #f92672;
+.highlight .cp {
+  color: #ffc33e;
 }
 .highlight .nt {
+  color: #ffc33e;
+}
+.highlight .o, .highlight .ow {
+  color: #ffffff;
+}
+.highlight .p, .highlight .pi {
+  color: #ffffff;
+}
+.highlight .gi {
+  color: #ffffff;
+}
+.highlight .gd {
   color: #f92672;
 }
-.highlight .k, .highlight .kv {
-  color: #f92672;
+.highlight .gh {
+  color: #66d9ef;
+  background-color: #272822;
+  font-weight: bold;
 }
-.highlight .kn {
-  color: #f92672;
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #51beff;
 }
-.highlight .kp {
-  color: #f92672;
+.highlight .kc {
+  color: #4af065;
 }
-.highlight .o {
-  color: #f92672;
+.highlight .kt {
+  color: #4af065;
+}
+.highlight .kd {
+  color: #4af065;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #ffffff;
+}
+.highlight .sr {
+  color: #a1efe4;
+}
+.highlight .si {
+  color: #cc6633;
+}
+.highlight .se {
+  color: #cc6633;
+}
+.highlight .nn {
+  color: #ffc33e;
+}
+.highlight .nc {
+  color: #ffc33e;
+}
+.highlight .no {
+  color: #ffc33e;
+}
+.highlight .nx {
+  color: #4af065;
+}
+.highlight .nb, .highlight .bp {
+  color: #4af065;
+}
+.highlight .na {
+  color: #66d9ef;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #ffffff;
+}
+.highlight .ss {
+  color: #ffffff;
 }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
@@ -204,7 +101,7 @@
     <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
 	  <link href="../stylesheets/test.css" rel="stylesheet" media="screen" />
     <link href="../favicon.ico" rel="icon" type="image/ico" />
-      <script src="../javascripts/all.js"></script>
+      <script src="../javascripts/all_nosearch.js"></script>
       <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -277,7 +174,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<input type="checkbox" id="drop-2"/>
 			<ul id="guides">
 				<li class=""> <a href="simulation-guide.html">Learn About Simulation Requirements</a>  </li>
-				<li class="selected"> <a href="inkling-guide.html">Learn the Inkling Language</a>  </li>
+				<li class=""> <a href="inkling2-guide.html">Learn the Inkling Language</a>  </li>
 				<li class=""> <a href="machine-teaching.html">Programming Machine Teaching</a>  </li>
 				<li class=""> <a href="ai-engine-guide.html">Understand AI Engine Components</a>  </li>
 				<li class=""> <a href="web-graphs-guide.html">Understand BRAIN Graphs</a>  </li>
@@ -290,7 +187,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<ul id="references">
 				<li class=""> <a href="../references/api-reference.html">API Reference</a>  </li>
 				<li class=""> <a href="../references/cli-reference.html">CLI Reference</a>  </li>
-				<li class=""> <a href="../references/inkling-reference.html">Inkling Reference</a>  </li>
+				<li class=""> <a href="../references/inkling2-reference.html">Inkling Reference</a>  </li>
 				<li class=""> <a href="../references/simulator-reference.html">Simulator Reference</a>
 				<li class=""> <a href="../references/library-reference.html">Python Library</a>  </li>
 				<li class=""> <a href="../references/cpp-library-reference.html">C++ Library</a>  </li>
@@ -320,10 +217,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </a>
     <div class="tocify-wrapper">
 
-        <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-        <ul class="search-results"></ul>
       <div class="page-title">Learn the Inkling Language</div>
       <div id="toc">
       </div>
@@ -394,10 +287,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p>Inkling is a declarative, strongly typed programming language specifically designed for artificial intelligence (AI). It abstracts away the vast world of dynamic AI algorithms that require expertise in machine learning and enables more developers to program AI. An Inkling file contains the concepts &ndash; what you want to teach the AI &ndash; and the curriculum, &ndash; how you want to teach the concepts &ndash; necessary to train your BRAIN. Before you read through this section about the Inkling language, you should familiarize yourself with the various components of the Bonsai Artificial Intelligence Engine, which you can read about in our <a href="getting-started.html#the-bonsai-platform">Getting Started Guide</a>.</p>
 
-<aside class="notice">
-EMACS USERS: There is an inkling-mode for local development found on <a href="https://github.com/BonsaiAI/inkling-mode">Bonsai&rsquo;s GitHub</a>
-</aside>
-
 <p>If you&rsquo;re interesting in finding out more about what&rsquo;s going on under the hood of the Bonsai AI Engine, check out <a href="ai-engine-guide.html">Understand AI Engine Components</a>.</p>
 
 <h2 id="inkling-a-new-language">Inkling: A New Language</h2>
@@ -405,6 +294,8 @@ EMACS USERS: There is an inkling-mode for local development found on <a href="ht
 <h3 id="what-kind-of-language-is-inkling">What kind of language is Inkling?</h3>
 
 <p>Inkling is a special purpose language for writing AI programs. The language has a blend of declarative and functional styles; it&rsquo;s modeled after ideas in SQL and python. We like to describe Inkling as the world&rsquo;s first machine teaching language.  </p>
+
+<p>This verison of Inkling has been replaced by a newer version. The syntax and terminology of the newer version of Inkling is documented in the <a href="inkling2-guide.html#overview">Inkling v2 Guide</a></p>
 
 <h3 id="what-is-machine-teaching">What is Machine Teaching?</h3>
 
@@ -696,11 +587,11 @@ Currently, during the Bonsai Platform preview, you can only train with simulator
 
 <h6 id="determining-objectives">Determining Objectives</h6>
 
-<p>There are several factors you can use to determine what your objective should be. Before you even start determining your objectives, you need to know what your concepts and curricula are. A good objective should reward the AI more often and be proportional to the quality of of the behavior.</p>
+<p>There are several factors you can use to determine what your objective should be. Before you even start determining your objectives, you need to know what your concepts and curricula are. A good objective should reward the AI more often and be proportional to the quality of the behavior.</p>
 
 <h3 id="frequency-of-feedback">Frequency of Feedback</h3>
 
-<p>The frequency of feedback affects the speed of training. Ideally, the time between the AI&rsquo;s decision making and whether or not the decision was good needs to be kept short.  For example, if you&rsquo;re teaching an AI to play Pacman, you want to choose an objective like <code class="prettyprint">score</code> instead of an objective like <code class="prettyprint">beat level</code>: in Pacman, your score changes often, typically many times during a level, but your level can only change 256 times, and only after many many actions. Your AI would have to beat an entire level to be rewarded, which is difficult to do without getting intermediate feedback about which actions along the way were good ones. </p>
+<p>The frequency of feedback affects the speed of training. Ideally, the time between the AI&rsquo;s decision making and whether or not the decision was good needs to be kept short.  For example, if you&rsquo;re teaching an AI to play Pacman, you want to choose an objective like <code class="prettyprint">score</code> instead of an objective like <code class="prettyprint">beat level</code>: in Pacman, your score changes often, typically many times during a level, but your level can only change 256 times, and only after many actions. Your AI would have to beat an entire level to be rewarded, which is difficult to do without getting intermediate feedback about which actions along the way were good ones. </p>
 
 <h3 id="proportional-feedback">Proportional Feedback</h3>
 

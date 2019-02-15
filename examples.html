@@ -11,190 +11,87 @@
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
-.highlight .gh {
-  color: #999999;
-}
-.highlight .sr {
-  color: #f6aa11;
-}
-.highlight .go {
-  color: #888888;
-}
-.highlight .gp {
-  color: #555555;
-}
-.highlight .gs {
-}
-.highlight .gu {
-  color: #aaaaaa;
-}
-.highlight .nb {
-  color: #f6aa11;
-}
-.highlight .cm {
-  color: #75715e;
-}
-.highlight .cp {
-  color: #75715e;
-}
-.highlight .c1 {
-  color: #75715e;
-}
-.highlight .cs {
-  color: #75715e;
-}
-.highlight .c, .highlight .cd {
-  color: #75715e;
+.highlight, .highlight .w {
+  color: #ffffff;
+  background-color: #272822;
 }
 .highlight .err {
-  color: #960050;
+  color: #272822;
+  background-color: #f92672;
 }
-.highlight .gr {
-  color: #960050;
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #ffc33e;
 }
-.highlight .gt {
-  color: #960050;
-}
-.highlight .gd {
-  color: #49483e;
-}
-.highlight .gi {
-  color: #49483e;
-}
-.highlight .ge {
-  color: #49483e;
-}
-.highlight .kc {
-  color: #66d9ef;
-}
-.highlight .kd {
-  color: #66d9ef;
-}
-.highlight .kr {
-  color: #66d9ef;
-}
-.highlight .no {
-  color: #66d9ef;
-}
-.highlight .kt {
-  color: #66d9ef;
-}
-.highlight .mf {
-  color: #ae81ff;
-}
-.highlight .mh {
-  color: #ae81ff;
-}
-.highlight .il {
-  color: #ae81ff;
-}
-.highlight .mi {
-  color: #ae81ff;
-}
-.highlight .mo {
-  color: #ae81ff;
-}
-.highlight .m, .highlight .mb, .highlight .mx {
-  color: #ae81ff;
-}
-.highlight .sc {
-  color: #ae81ff;
-}
-.highlight .se {
-  color: #ae81ff;
-}
-.highlight .ss {
-  color: #ae81ff;
-}
-.highlight .sd {
-  color: #e6db74;
-}
-.highlight .s2 {
-  color: #e6db74;
-}
-.highlight .sb {
-  color: #e6db74;
-}
-.highlight .sh {
-  color: #e6db74;
-}
-.highlight .si {
-  color: #e6db74;
-}
-.highlight .sx {
-  color: #e6db74;
-}
-.highlight .s1 {
-  color: #e6db74;
-}
-.highlight .s {
-  color: #e6db74;
-}
-.highlight .na {
-  color: #a6e22e;
-}
-.highlight .nc {
-  color: #a6e22e;
-}
-.highlight .nd {
-  color: #a6e22e;
-}
-.highlight .ne {
-  color: #a6e22e;
-}
-.highlight .nf {
-  color: #a6e22e;
-}
-.highlight .vc {
-  color: #ffffff;
-}
-.highlight .nn {
-  color: #ffffff;
-}
-.highlight .nl {
-  color: #ffffff;
-}
-.highlight .ni {
-  color: #ffffff;
-}
-.highlight .bp {
-  color: #ffffff;
-}
-.highlight .vg {
-  color: #ffffff;
-}
-.highlight .vi {
-  color: #ffffff;
-}
-.highlight .nv {
-  color: #ffffff;
-}
-.highlight .w {
-  color: #ffffff;
-}
-.highlight {
-  color: #ffffff;
-}
-.highlight .n, .highlight .py, .highlight .nx {
-  color: #ffffff;
-}
-.highlight .ow {
-  color: #f92672;
+.highlight .cp {
+  color: #ffc33e;
 }
 .highlight .nt {
+  color: #ffc33e;
+}
+.highlight .o, .highlight .ow {
+  color: #ffffff;
+}
+.highlight .p, .highlight .pi {
+  color: #ffffff;
+}
+.highlight .gi {
+  color: #ffffff;
+}
+.highlight .gd {
   color: #f92672;
 }
-.highlight .k, .highlight .kv {
-  color: #f92672;
+.highlight .gh {
+  color: #66d9ef;
+  background-color: #272822;
+  font-weight: bold;
 }
-.highlight .kn {
-  color: #f92672;
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #51beff;
 }
-.highlight .kp {
-  color: #f92672;
+.highlight .kc {
+  color: #4af065;
 }
-.highlight .o {
-  color: #f92672;
+.highlight .kt {
+  color: #4af065;
+}
+.highlight .kd {
+  color: #4af065;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #ffffff;
+}
+.highlight .sr {
+  color: #a1efe4;
+}
+.highlight .si {
+  color: #cc6633;
+}
+.highlight .se {
+  color: #cc6633;
+}
+.highlight .nn {
+  color: #ffc33e;
+}
+.highlight .nc {
+  color: #ffc33e;
+}
+.highlight .no {
+  color: #ffc33e;
+}
+.highlight .nx {
+  color: #4af065;
+}
+.highlight .nb, .highlight .bp {
+  color: #4af065;
+}
+.highlight .na {
+  color: #66d9ef;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #ffffff;
+}
+.highlight .ss {
+  color: #ffffff;
 }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
@@ -277,7 +174,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<input type="checkbox" id="drop-2"/>
 			<ul id="guides">
 				<li class=""> <a href="guides/simulation-guide.html">Learn About Simulation Requirements</a>  </li>
-				<li class=""> <a href="guides/inkling-guide.html">Learn the Inkling Language</a>  </li>
+				<li class=""> <a href="guides/inkling2-guide.html">Learn the Inkling Language</a>  </li>
 				<li class=""> <a href="guides/machine-teaching.html">Programming Machine Teaching</a>  </li>
 				<li class=""> <a href="guides/ai-engine-guide.html">Understand AI Engine Components</a>  </li>
 				<li class=""> <a href="guides/web-graphs-guide.html">Understand BRAIN Graphs</a>  </li>
@@ -290,7 +187,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<ul id="references">
 				<li class=""> <a href="references/api-reference.html">API Reference</a>  </li>
 				<li class=""> <a href="references/cli-reference.html">CLI Reference</a>  </li>
-				<li class=""> <a href="references/inkling-reference.html">Inkling Reference</a>  </li>
+				<li class=""> <a href="references/inkling2-reference.html">Inkling Reference</a>  </li>
 				<li class=""> <a href="references/simulator-reference.html">Simulator Reference</a>
 				<li class=""> <a href="references/library-reference.html">Python Library</a>  </li>
 				<li class=""> <a href="references/cpp-library-reference.html">C++ Library</a>  </li>
@@ -392,7 +289,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p>This page contains working examples of Inkling code in conjunction with python and C++ simulator files. All of these examples and the libraries that accompany them can be found within <a href="https://github.com/BonsaiAI/bonsai-sdk/tree/master/samples">BonsaiAI&rsquo;s SDK GitHub repo</a> and are also linked for each example.</p>
 
-<p>All of the <strong>Python</strong>, <strong>OpenAI Gym</strong>, and <strong>EnergyPlus</strong> examples can be trained in the cloud with Bonsai managed simulators. A full list of supported Docker containers for remotely managed simulators can be found in the <a href="references/cli-reference.html#bproj-file">Project File Reference</a>.</p>
+<p>All of the <strong>Python</strong>, <strong>OpenAI Gym</strong>, and <strong>EnergyPlus</strong> examples can be trained in the cloud with managed simulators. A full list of supported Docker containers for remotely managed simulators can be found in the <a href="references/cli-reference.html#bproj-file">Project File Reference</a>.</p>
 
 <p>If you have any suggestions of examples you&rsquo;d like to see us implement please <a href="https://bons.ai/contact-us#contact-page-form">contact the support team</a>.</p>
 
@@ -402,7 +299,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li><strong>Basic Python/C++ Simulation</strong>: A project called <em>Find the Center</em> which walks you through how to create a simple Inkling file that connects to a basic Python or C++ simulator.</li>
 <li><strong>Stellar Cartpole</strong>: A stand-alone version of Cartpole using the machine teaching pattern of STAR.</li>
 <li><strong>SimPy Elevator Simulation</strong>: A basic example of how to use SimPy to simulate a scenario. This one is an elevator dropping people off on 3 floors.</li>
-<li><strong>Tic-tac-toe</strong>: A simple implementation of pixel manipulation through the Luminance schema type for a tic-tac-toe board. Also showcases the use of an algorithm schema.</li>
+<li><strong>Tic-tac-toe</strong>: A simple implementation of pixel manipulation through the Image.Gray type for a tic-tac-toe board. Also showcases the use of an algorithm hint.</li>
 </ul>
 
 <h3 id="openai-gym-examples">OpenAI Gym Examples</h3>
@@ -434,65 +331,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p><a href="https://github.com/BonsaiAI/bonsai-sdk/blob/master/samples/find-the-center-py"><strong>Download the full source code on GitHub</strong></a> if you want to run this simulator locally.</p>
 
-<p>In this example, we&rsquo;ll walk you through the various statements that are part of the <em>Find the Center</em> game, including options for either a Python or C++ simulator file and the Inkling file. This is a very basic example of Inkling and how to connect to a custom simulator and shows the differences between using <code class="prettyprint">libbonsai</code> (C++) and the <code class="prettyprint">bonsai-ai</code> (Python) libraries.</p>
+<p>In this example, we&rsquo;ll explore the statements that are part of the <em>Find the Center</em> game, including options for either a Python or C++ simulator file and the Inkling file. This is a basic example of Inkling and how to connect to a custom simulator. It demonstrates the differences between using <code class="prettyprint">libbonsai</code> (C++) and the <code class="prettyprint">bonsai-ai</code> (Python) libraries.</p>
 
 <p><em>Find the Center</em> is a simple game where the AI seeks the average value between two numbers. In this game, the AI begins at a random value of 0, 1, or 2. The AI then can move to a lower number by outputting -1, a higher number by outputting +1, or staying on the same number by outputting 0. The goal of <em>Find the Center</em> is to remain in the center of 0 and 2 (the number 1).</p>
 
 <h2 id="inkling-file">Inkling File</h2>
 
-<h6 id="schema">Schema</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">schema</span> <span class="nx">GameState</span>
-    <span class="kr">Int8</span> <span class="nx">value</span>
-<span class="k">end</span>
+<h6 id="types">Types</h6>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">type</span> <span class="nx">GameState</span> <span class="p">{</span>
+    <span class="nx">value</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">Int8</span>
+<span class="p">}</span>
 </code></pre>
-<p>The <code class="prettyprint">GameState</code> schema has one field, <code class="prettyprint">value</code>, with type <code class="prettyprint">Int8</code>.</p>
-<pre class="highlight inkling tab-inkling"><code><span class="nx">constant</span> <span class="kr">Int8</span> <span class="nx">dec</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-<span class="nx">constant</span> <span class="kr">Int8</span> <span class="nx">stay</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="nx">constant</span> <span class="kr">Int8</span> <span class="nx">inc</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">schema</span> <span class="nx">PlayerMove</span>
-    <span class="kr">Int8</span><span class="p">{</span><span class="nx">dec</span><span class="p">,</span> <span class="nx">stay</span><span class="p">,</span> <span class="nx">inc</span><span class="p">}</span> <span class="nx">delta</span>
-<span class="k">end</span>
+<p>The <code class="prettyprint">GameState</code> type has one field, <code class="prettyprint">value</code>, with type <code class="prettyprint">Number.Int8</code>.</p>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">type</span> <span class="nx">PlayerMove</span> <span class="p">{</span>
+    <span class="nx">delta</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="nx">Dec</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nx">Stay</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">Inc</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="p">}</span>
 </code></pre>
-<p>The <code class="prettyprint">PlayerMove</code> schema has one field, <code class="prettyprint">delta</code>, with type <code class="prettyprint">Int8</code>. The <code class="prettyprint">Int8</code> type is constrained to three possible values: -1, 0, and 1. We have added constants to this schema to demonstrate how they can be optionally used.</p>
-<pre class="highlight inkling tab-inkling"><code><span class="k">schema</span> <span class="nx">SimConfig</span>
-    <span class="kr">Int8</span> <span class="nx">dummy</span>
-<span class="k">end</span>
-</code></pre>
-<p>The <code class="prettyprint">SimConfig</code> schema has one field, <code class="prettyprint">dummy</code>, because there is no configuration needed in this particular example.</p>
+<p>The <code class="prettyprint">PlayerMove</code> type has one field, <code class="prettyprint">delta</code>, with three possible values: -1, 0, and 1.</p>
 
-<h6 id="concept">Concept</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">concept</span> <span class="nx">find_the_center</span>
-    <span class="k">is</span> <span class="nx">classifier</span>
-    <span class="k">predicts</span> <span class="p">(</span><span class="nx">PlayerMove</span><span class="p">)</span>
-    <span class="k">follows</span> <span class="kr">input</span><span class="p">(</span><span class="nx">GameState</span><span class="p">)</span>
-    <span class="k">feeds</span> <span class="kr">output</span>
-<span class="k">end</span>
+<h6 id="concept-graph">Concept Graph</h6>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">graph</span> <span class="p">(</span><span class="k">input</span><span class="p">:</span> <span class="nx">GameState</span><span class="p">):</span> <span class="nx">PlayerMove</span> <span class="p">{</span>
+
+    <span class="k">concept</span> <span class="nx">find_the_center</span><span class="p">(</span><span class="k">input</span><span class="p">):</span> <span class="nx">PlayerMove</span> <span class="p">{</span>
+        <span class="k">curriculum</span> <span class="p">{</span>
+            <span class="k">source</span> <span class="nx">find_the_center_sim</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">output</span> <span class="nx">find_the_center</span>
+<span class="p">}</span>
 </code></pre>
-<p>This concept is named <code class="prettyprint">find_the_center</code>. <code class="prettyprint">find_the_center</code> expects input about the state of the game (defined by the <code class="prettyprint">GameState</code> schema) and replies with output defined by the <code class="prettyprint">PlayerMove</code> schema. This is the AI&rsquo;s next move in the simulation.</p>
+<p>The concept is named <code class="prettyprint">find_the_center</code>, and it expects input about the state of the game (of type <code class="prettyprint">GameState</code>) and replies with output of type <code class="prettyprint">PlayerMove</code>. This is the AI&rsquo;s next move in the simulation.</p>
+
+<p>The curriculum trains the concept using the <code class="prettyprint">find_the_center_sim</code> simulator. It defines no lessons, so a default lesson is assumed.</p>
 
 <h6 id="simulator">Simulator</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">simulator</span> <span class="nx">find_the_center_sim</span><span class="p">(</span><span class="nx">SimConfig</span><span class="p">)</span>
-    <span class="k">action</span> <span class="p">(</span><span class="nx">PlayerMove</span><span class="p">)</span>
-    <span class="k">state</span> <span class="p">(</span><span class="nx">GameState</span><span class="p">)</span>
-<span class="k">end</span>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">simulator</span> <span class="nx">find_the_center_sim</span><span class="p">(</span><span class="k">action</span><span class="p">:</span> <span class="nx">PlayerMove</span><span class="p">):</span> <span class="nx">GameState</span> <span class="p">{</span>
+<span class="p">}</span>
 </code></pre>
-<p>The <code class="prettyprint">simulator</code> is called <code class="prettyprint">find_the_center_sim</code> (shown in #simulator-file) and takes the schema input of <code class="prettyprint">SimConfig</code> (even though it isn&rsquo;t configuring anything, it&rsquo;s required by the simulator). The <code class="prettyprint">find_the_center</code> concept will be trained using the <code class="prettyprint">find_the_center_sim</code> simulator. To define the training relationship between the simulator and the concept we must begin by defining the simulator. <code class="prettyprint">find_the_center_sim</code> expects an action defined in the <code class="prettyprint">PlayerMove</code> schema as input and replies with a state defined in the <code class="prettyprint">GameState</code> schema as output.</p>
-
-<h6 id="curriculum">Curriculum</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">curriculum</span> <span class="nx">find_the_center_curriculum</span>
-    <span class="k">train</span> <span class="nx">find_the_center</span>
-    <span class="k">with</span> <span class="k">simulator</span> <span class="nx">find_the_center_sim</span>
-    <span class="k">objective</span> <span class="nx">time_at_goal</span>
-        <span class="k">lesson</span> <span class="nx">seek_center</span>
-            <span class="k">configure</span>
-                <span class="k">constrain</span> <span class="nx">dummy</span> <span class="k">with</span> <span class="kr">Int8</span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span>
-            <span class="k">until</span>
-                <span class="k">maximize</span> <span class="nx">time_at_goal</span>
-<span class="k">end</span>
-</code></pre>
-<p>The curriculum is named <code class="prettyprint">find_the_center_curriculum</code>, and it trains the <code class="prettyprint">find_the_center</code> concept using the <code class="prettyprint">find_the_center_sim</code>.</p>
-
-<p>This curriculum contains one lesson, called <code class="prettyprint">seek_center</code>. It configures the simulation, by setting a number of constraints for the state of the simulator. The lesson trains until the AI has maximized the objective <code class="prettyprint">time_at_goal</code>.</p>
+<p>The <code class="prettyprint">simulator</code> is called <code class="prettyprint">find_the_center_sim</code> (shown in #simulator-file) and takes an input action of type PlayerMove. It returns the state of type <code class="prettyprint">GameState</code>.</p>
 
 <h2 id="simulator-file">Simulator File</h2>
 <pre class="highlight python tab-python"><code><span class="s">""" This Basic simulator is for learning the simulator interface.
@@ -723,63 +600,50 @@ It can be used in this case to find the center between two numbers.
 
 <h2 id="inkling-file">Inkling File</h2>
 
-<h6 id="schema">Schema</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">schema</span> <span class="nx">GameState</span>
-    <span class="kr">Float32</span> <span class="nx">position</span><span class="p">,</span>
-    <span class="kr">Float32</span> <span class="nx">velocity</span><span class="p">,</span>
-    <span class="kr">Float32</span> <span class="nx">angle</span><span class="p">,</span>
-    <span class="kr">Float32</span> <span class="nx">rotation</span>
-<span class="k">end</span>
+<h6 id="types">Types</h6>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">type</span> <span class="nx">GameState</span> <span class="p">{</span>
+    <span class="nx">position</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span>
+    <span class="nx">velocity</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span>
+    <span class="nx">angle</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span>
+    <span class="nx">rotation</span><span class="p">:</span> <span class="k">number</span>
+<span class="p">}</span>
 </code></pre>
-<p>The schema <code class="prettyprint">GameState</code> names four records — <code class="prettyprint">position</code>, <code class="prettyprint">velocity</code>, <code class="prettyprint">angle</code>, and <code class="prettyprint">rotation</code> — and assigns a type to them. This information is input from the simulation.</p>
-<pre class="highlight inkling tab-inkling"><code><span class="k">schema</span> <span class="nx">Action</span>
-   <span class="kr">Int8</span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span> <span class="nx">command</span>
-<span class="k">end</span>
+<p>The type <code class="prettyprint">GameState</code> defines four fields: <code class="prettyprint">position</code>, <code class="prettyprint">velocity</code>, <code class="prettyprint">angle</code>, and <code class="prettyprint">rotation</code>. This state information is provided by the simulation.</p>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">type</span> <span class="nx">Action</span> <span class="p">{</span>
+    <span class="nx">command</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">Int8</span><span class="o">&lt;</span><span class="nx">left</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">right</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="p">}</span>
 </code></pre>
-<p>The schema <code class="prettyprint">Action</code> names a record — <code class="prettyprint">action</code> —  and assigns it a constrained type. We have added constants to this schema to demonstrate how they can be optionally used.</p>
-<pre class="highlight inkling tab-inkling"><code><span class="k">schema</span> <span class="nx">CartPoleConfig</span>
-    <span class="kr">Int8</span> <span class="nx">episode_length</span><span class="p">,</span>
-    <span class="kr">UInt8</span> <span class="nx">deque_size</span>
-<span class="k">end</span>
+<p>The type <code class="prettyprint">Action</code> defines a single field <code class="prettyprint">command</code> and assigns it a constrained type.</p>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">type</span> <span class="nx">CartPoleConfig</span> <span class="p">{</span>
+    <span class="nx">episode_length</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">Int8</span><span class="p">,</span>
+    <span class="nx">deque_size</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">UInt8</span>
+<span class="p">}</span>
 </code></pre>
-<p>The schema <code class="prettyprint">CartPoleConfig</code> names two records — <code class="prettyprint">episode_length</code> and
- <code class="prettyprint">deque_size</code> — and assigns each of them a type.   <code class="prettyprint">episode_length</code> is a signed <code class="prettyprint">Int8</code> because -1 is used for &ldquo;run until pole drops&rdquo;.</p>
+<p>The type <code class="prettyprint">CartPoleConfig</code> defines two fields: <code class="prettyprint">episode_length</code> and <code class="prettyprint">deque_size</code>. <code class="prettyprint">episode_length</code> is a signed <code class="prettyprint">Int8</code> because -1 is used for &ldquo;run until pole drops&rdquo;.</p>
 
-<h6 id="concept">Concept</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">concept</span> <span class="nx">balance</span> <span class="k">is</span> <span class="nx">classifier</span>
-    <span class="k">predicts</span> <span class="p">(</span><span class="nx">Action</span><span class="p">)</span>
-    <span class="k">follows</span> <span class="kr">input</span><span class="p">(</span><span class="nx">GameState</span><span class="p">)</span>
-    <span class="k">feeds</span> <span class="kr">output</span>
-<span class="k">end</span>
+<h6 id="concept-graph">Concept Graph</h6>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">graph</span> <span class="p">(</span><span class="k">input</span><span class="p">:</span> <span class="nx">GameState</span><span class="p">):</span> <span class="nx">Action</span> <span class="p">{</span>
+    <span class="k">concept</span> <span class="nx">balance</span><span class="p">(</span><span class="k">input</span><span class="p">):</span> <span class="nx">Action</span> <span class="p">{</span>
+        <span class="k">curriculum</span> <span class="p">{</span>
+            <span class="k">source</span> <span class="nx">cartpole_simulator</span>
+            <span class="k">lesson</span> <span class="nx">balancing</span> <span class="p">{</span>
+                <span class="k">constraint</span> <span class="p">{</span>
+                    <span class="nx">episode_length</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+                    <span class="nx">deque_size</span><span class="p">:</span> <span class="mi">1</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">output</span> <span class="nx">balance</span>
+<span class="p">}</span>
 </code></pre>
-<p>The concept is named <code class="prettyprint">balance</code>, and it takes input from the simulator. That input is the records in the schema <code class="prettyprint">GameState</code>. The balance concept outputs the move the AI should make in the simulator. This output is the record in the <code class="prettyprint">Action</code> schema.</p>
+<p>The concept is named <code class="prettyprint">balance</code>, and it takes input from the simulator of type <code class="prettyprint">GameState</code>. The balance concept outputs the move the AI should make in the simulator. The output is of type <code class="prettyprint">Action</code>.</p>
 
 <h6 id="simulator">Simulator</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">simulator</span> <span class="nx">the_simulator</span><span class="p">(</span><span class="nx">CartPoleConfig</span><span class="p">)</span>
-   <span class="k">action</span> <span class="p">(</span><span class="nx">Action</span><span class="p">)</span>
-   <span class="k">state</span> <span class="p">(</span><span class="nx">GameState</span><span class="p">)</span>
-<span class="k">end</span>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">simulator</span> <span class="nx">cartpole_simulator</span><span class="p">(</span><span class="k">action</span><span class="p">:</span> <span class="nx">Action</span><span class="p">,</span> <span class="k">config</span><span class="p">:</span> <span class="nx">CartPoleConfig</span><span class="p">):</span> <span class="nx">GameState</span> <span class="p">{</span>
+<span class="p">}</span>
 </code></pre>
-<p>Simulator <code class="prettyprint">the_simulator</code> gets information from three schemas. The first schema, <code class="prettyprint">CartPoleConfig</code>, specifies the schema for configuration of the simulation. The second schema <code class="prettyprint">Action</code> specifies the action that the AI will take in the simulation. The third schema <code class="prettyprint">GameState</code> contains the state of the simulator that is sent to the lesson.</p>
-
-<h6 id="curriculum">Curriculum</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">curriculum</span> <span class="nx">balance_curriculum</span>
-   <span class="k">train</span> <span class="nx">balance</span>
-
-   <span class="k">with</span> <span class="k">simulator</span> <span class="nx">the_simulator</span>
-   <span class="k">objective</span> <span class="nx">balance_objective</span>
-
-       <span class="k">lesson</span> <span class="nx">balancing</span>
-           <span class="k">configure</span>
-               <span class="k">constrain</span> <span class="nx">episode_length</span> <span class="k">with</span> <span class="kr">Int8</span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">},</span>
-               <span class="k">constrain</span> <span class="nx">deque_size</span> <span class="k">with</span> <span class="kr">UInt8</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
-           <span class="k">until</span>
-               <span class="k">maximize</span> <span class="nx">balance_objective</span>
-<span class="k">end</span>
-</code></pre>
-<p>The curriculum&rsquo;s name is <code class="prettyprint">balance_curriculum</code>. It trains the <code class="prettyprint">balance</code> concept with simulator <code class="prettyprint">the_simulator</code>. The objective for this curriculum is <code class="prettyprint">balance_objective</code>. The objective measures how long the pole stays upright.</p>
-
-<p>This curriculum contains one lesson, called <code class="prettyprint">balancing</code>. It configures the simulation, by setting two constraints for the state of the simulator. The lesson trains until the AI has maximized the objective.</p>
+<p>Simulator <code class="prettyprint">cartpole_simulator</code> receives an action of type <code class="prettyprint">Action</code> and configuration information of type <code class="prettyprint">CartPoleConfig</code>. It returns a value of type <code class="prettyprint">GameState</code> that indicates the state of the game after the action is performed.</p>
 
 <h2 id="simulator-file">Simulator File</h2>
 
@@ -1053,11 +917,11 @@ It can be used in this case to find the center between two numbers.
 
 <p><a href="https://github.com/BonsaiAI/bonsai-sdk/tree/master/samples/elevator-sim"><strong>Download the full source code on GitHub</strong></a> if you want to run this simulator locally.</p>
 
-<p>In this example, <a href="https://simpy.readthedocs.io/en/latest/index.html">SimPy</a>, a process-based discrete-event simulation framework based on standard Python, is used to simulate an elevator effectively transporting people to their desired floor. The simulated elevator gets rewarded by having people wait for the least amount of time. This example includes a simple elevator SimPy simulator, a Python simulation, and the simulation&rsquo;s Inkling file.</p>
+<p>In this example, <a href="https://simpy.readthedocs.io/en/latest/index.html">SimPy</a>, a process-based discrete-event simulation framework based on standard Python, is used to simulate an elevator effectively transporting people to their desired floor. The simulated elevator gets rewarded by having people wait for the least time. This example includes a simple elevator SimPy simulator, a Python simulation, and an Inkling file.</p>
 
 <p>&ldquo;Processes in SimPy are defined by Python generator functions and may, for example, be used to model active components like customers, vehicles or agents. SimPy also provides various types of shared resources to model limited capacity congestion points (like servers, checkout counters and tunnels).&rdquo; - SimPy docs</p>
 
-<p>This simulation is to provide actions (up, down, open doors) for an elevator, given floor requests from randomly arriving passengers. SimPy has a great framework for simulating time only when some state changes, which speeds up training for systems that would otherwise be mostly waiting.</p>
+<p>This simulation consumes actions (up, down, open doors) for an elevator given floor requests from randomly-arriving passengers. SimPy has a great framework for simulating time only when state changes occur. This speeds up training for systems that would otherwise be mostly waiting.</p>
 
 <p>In the image to the right, the elevator logs output every 100 seconds, then shows the state of the world, and then a list of recent passengers. The world state is the floor, the number of people waiting, plus the elevator, and the number of people inside.</p>
 
@@ -1067,69 +931,44 @@ It can be used in this case to find the center between two numbers.
 
 <h2 id="inkling-file">Inkling File</h2>
 
-<h6 id="schema">Schema</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="c1"># Position is current location of elevator</span>
-<span class="c1"># State of each floor: 1 if the floor is requested, 0 if not</span>
-<span class="k">schema</span> <span class="nx">FloorState</span>
-    <span class="kr">Int8</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span> <span class="nx">Position</span><span class="p">,</span>
-    <span class="kr">Int8</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">}</span> <span class="nx">Floor1</span><span class="p">,</span>
-    <span class="kr">Int8</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">}</span> <span class="nx">Floor2</span><span class="p">,</span>
-    <span class="kr">Int8</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">}</span> <span class="nx">Floor3</span>
-<span class="k">end</span>
+<h6 id="types">Types</h6>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">type</span> <span class="nx">FloorState</span> <span class="p">{</span>
+    <span class="nx">Position</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="nx">Floor1</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="nx">Floor2</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="nx">Floor3</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="p">}</span>
 </code></pre>
-<p>The <code class="prettyprint">FloorState</code> schema defines the dictionary returned from the Python simulation&rsquo;s <code class="prettyprint">advance</code> method to the BRAIN.</p>
-<pre class="highlight inkling tab-inkling"><code><span class="c1"># command options: up, open, down</span>
-<span class="nx">constant</span> <span class="kr">Int8</span> <span class="nx">up</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="nx">constant</span> <span class="kr">Int8</span> <span class="nx">open</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="nx">constant</span> <span class="kr">Int8</span> <span class="nx">down</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="k">schema</span> <span class="nx">Action</span>
-    <span class="kr">Int8</span><span class="p">{</span><span class="nx">up</span><span class="p">,</span> <span class="nx">open</span><span class="p">,</span> <span class="nx">down</span><span class="p">}</span> <span class="nx">command</span>
-<span class="k">end</span>
+<p>The <code class="prettyprint">FloorState</code> type defines the fields returned by the simulation&rsquo;s <code class="prettyprint">advance</code> method.</p>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">type</span> <span class="nx">Action</span> <span class="p">{</span>
+    <span class="nx">command</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="nx">up</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">open</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">down</span> <span class="o">=</span> <span class="mi">2</span><span class="o">&gt;</span>
+<span class="p">}</span>
 </code></pre>
-<p>The <code class="prettyprint">Action</code> schema defines the possible actions the elevator can take. We have added constants to this schema to demonstrate how they can be optionally used. In this case the command given to the elevator is &lsquo;0&rsquo; is open, &lsquo;1&rsquo; is go up a floor, and &lsquo;2&rsquo; is go down a floor.</p>
-<pre class="highlight inkling tab-inkling"><code><span class="c1"># Possible option for configuration</span>
-<span class="k">schema</span> <span class="nx">ElevatorConfig</span>
-    <span class="kr">Int8</span> <span class="nx">episode_length</span>
-<span class="k">end</span>
+<p>The <code class="prettyprint">Action</code> type defines the possible commands accepted by the elevator. In this case, the command given to the elevator is &lsquo;0&rsquo; to open the door, &lsquo;1&rsquo; to go up a floor, and &lsquo;2&rsquo; to go down a floor.</p>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">type</span> <span class="nx">ElevatorConfig</span> <span class="p">{</span>
+    <span class="nx">episode_length</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">Int8</span>
+<span class="p">}</span>
 </code></pre>
-<p>The <code class="prettyprint">ElevatorConfig</code> schema outlines some possible configurations you could give to the elevator if you wanted to tailor its learning in the lessons outlined later.</p>
+<h6 id="concept-graph">Concept Graph</h6>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">graph</span> <span class="p">(</span><span class="k">input</span><span class="p">:</span> <span class="nx">FloorState</span><span class="p">):</span> <span class="nx">Action</span> <span class="p">{</span>
+    <span class="k">concept</span> <span class="nx">elevator_plan</span><span class="p">(</span><span class="k">input</span><span class="p">):</span> <span class="nx">Action</span> <span class="p">{</span>
+        <span class="k">curriculum</span> <span class="p">{</span>
+            <span class="k">source</span> <span class="nx">elevator_simulator</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-<h6 id="concept">Concept</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="c1"># Predicts an Action and follows input from the FloorState schema</span>
-<span class="k">concept</span> <span class="nx">elevator_plan</span> <span class="k">is</span> <span class="nx">classifier</span>
-    <span class="k">predicts</span> <span class="p">(</span><span class="nx">Action</span><span class="p">)</span>
-    <span class="k">follows</span> <span class="kr">input</span><span class="p">(</span><span class="nx">FloorState</span><span class="p">)</span>
-    <span class="k">feeds</span> <span class="kr">output</span>
-<span class="k">end</span>
+    <span class="k">output</span> <span class="nx">elevator_plan</span>
+<span class="p">}</span>
 </code></pre>
-<p>This concept is named <code class="prettyprint">elevator_plan</code>, a classifier, which predicts an <code class="prettyprint">Action</code> given the current <code class="prettyprint">FloorState</code>. In this simple example, we are training the concept to make an action (go up a floor, go down a floor, or open the doors) based on the current state of the floor the elevator is on.</p>
+<p>This concept is named <code class="prettyprint">elevator_plan</code>, and it computes an <code class="prettyprint">Action</code> given the current <code class="prettyprint">FloorState</code>. In this simple example, we are training the concept to make an action (go up a floor, go down a floor, or open the doors) based on the current state of the floor.</p>
+
+<p>The curriculum uses simulator <code class="prettyprint">elevator_simulator</code> as its data source. No lesson is specified, so a single simple lesson is assumed.</p>
 
 <h6 id="simulator">Simulator</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="c1"># Connect to SimPy simulator for training</span>
-<span class="k">simulator</span> <span class="nx">elevator_simulator</span><span class="p">(</span><span class="nx">ElevatorConfig</span><span class="p">)</span>
-    <span class="k">action</span> <span class="p">(</span><span class="nx">Action</span><span class="p">)</span>
-    <span class="k">state</span> <span class="p">(</span><span class="nx">FloorState</span><span class="p">)</span>
-<span class="k">end</span>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">simulator</span> <span class="nx">elevator_simulator</span><span class="p">(</span><span class="k">action</span><span class="p">:</span> <span class="nx">Action</span><span class="p">):</span> <span class="nx">FloorState</span> <span class="p">{</span>
+<span class="p">}</span>
 </code></pre>
-<p>The simulator clause declares that a simulator named <code class="prettyprint">elevator_simulator</code> will be connecting to the server for training. This <code class="prettyprint">elevator_simulator</code> expects an action defined in the <code class="prettyprint">Action</code> schema as input and replies with a state defined in the <code class="prettyprint">FloorState</code> schema as output.</p>
-
-<h6 id="curriculum">Curriculum</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="c1"># This trains the concept using a single lesson</span>
-<span class="c1"># Maximize the elevator_objective defined in elevator_simulator.py</span>
-<span class="k">curriculum</span> <span class="nx">high_score_curriculum</span>
-    <span class="k">train</span> <span class="nx">elevator_plan</span>
-    <span class="k">with</span> <span class="k">simulator</span> <span class="nx">elevator_simulator</span>
-    <span class="k">objective</span> <span class="nx">elevator_objective</span>
-        <span class="k">lesson</span> <span class="nx">get_high_score</span>
-            <span class="k">configure</span>
-                <span class="k">constrain</span> <span class="nx">episode_length</span> <span class="k">with</span> <span class="kr">Int8</span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span>
-            <span class="k">until</span>
-                <span class="k">maximize</span> <span class="nx">elevator_objective</span>
-<span class="k">end</span>
-</code></pre>
-<p>The curriculum <code class="prettyprint">high_score_curriculum</code> trains <code class="prettyprint">elevator_plan</code> using <code class="prettyprint">elevator_simulator</code>. The BRAIN that runs this Inkling code will try to maximize the value returned from <code class="prettyprint">elevator_objective</code> until you stop training. The reward function passed to <code class="prettyprint">elevator_objective</code> is a method in the simulator <code class="prettyprint">elevator_simulator.py</code> in which it returns the waiting time of the total sum of people as a negative number, in order to maximize it. The code for this can be seen at the end of the simulator excerpt below.</p>
-
-<p>This curriculum contains one simple lesson, called <code class="prettyprint">get_high_score</code>. It configures the simulation, but in this case the lesson is simply using a dummy variable to not provide the elevator with any starting conditions to learn from. The training starts from random placement and actions.</p>
+<p>The simulator clause declares that a simulator named <code class="prettyprint">elevator_simulator</code> will be connecting to the server for training. This <code class="prettyprint">elevator_simulator</code> expects an input action of type <code class="prettyprint">Action</code> and replies with a value of type <code class="prettyprint">FloorState</code>.</p>
 
 <h2 id="simulator-excerpt">Simulator Excerpt</h2>
 <pre class="highlight python tab-python"><code><span class="c"># Excerpt of simulator class from the elevator_simulator.py file</span>
@@ -1230,81 +1069,58 @@ It can be used in this case to find the center between two numbers.
 
 <p><a href="https://github.com/BonsaiAI/bonsai-sdk/tree/master/samples/tic-tac-toe"><strong>Download the full source code on GitHub</strong></a> to run this simulator.</p>
 
-<p>To demonstrate the use of Luminance in The Bonsai Platform this example will walk you through a simple implementation of tic-tac-toe. The full Inkling file is presented to walk through each part of the file and the rest of the code to run the example is found at the link above.</p>
+<p>To demonstrate the use of images in the Bonsai platform, this example will walk you through a simple implementation of tic-tac-toe. The full Inkling file is presented to walk through each part of the file and the rest of the code to run the example is found at the link above.</p>
 <pre class="highlight python tab-python"><code><span class="n">letters</span> <span class="o">=</span> <span class="p">{</span><span class="s">"X"</span><span class="p">:</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span>
            <span class="s">"O"</span><span class="p">:</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span>
            <span class="s">" "</span><span class="p">:</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]}</span>
 </code></pre>
-<p>This example will train a BRAIN using a 9x9 pixel grid (an input matrix) to represent the tic-tac-toe board. The representation of each letter, X, O, and a blank space, each are represented by a 3x3 matrix as shown in the code panel. There are 9 options for movement to correspond with the 9 spaces on the board.</p>
+<p>This example will train a BRAIN using a 9x9 grayscale pixel grid (an input matrix) to represent the tic-tac-toe board. The representation of each letter, X, O, and a blank space, each are represented by a 3x3 matrix as shown in the code panel. There are 9 options for movement to correspond with the 9 spaces on the board.</p>
 
-<p>This example also contains an advanced-level algorithm clause in its Inkling File. This clause is not required but it will help the example train much faster. For more information on use of the algorithm clause see the <a href="references/inkling-reference.html#advanced-algorithms">Inkling Reference</a>.</p>
+<p>This example also contains an advanced-level algorithm clause in its Inkling File. This clause is not required, but it will help the example train much faster. For more information on use of the algorithm clause see the <a href="references/inkling2-reference.html#advanced-algorithms">Inkling Reference</a>.</p>
 
 <h2 id="inkling-file">Inkling File</h2>
 
-<h6 id="schema">Schema</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">schema</span> <span class="nx">GameState</span>
-    <span class="kr">Luminance</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span> <span class="nx">image</span>
-<span class="k">end</span>
+<h6 id="types">Types</h6>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">type</span> <span class="nx">GameState</span> <span class="p">{</span>
+    <span class="nx">image</span><span class="p">:</span> <span class="nb">Image</span><span class="p">.</span><span class="nb">Gray</span><span class="o">&lt;</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="o">&gt;</span>
+<span class="p">}</span>
 </code></pre>
-<p>The <code class="prettyprint">GameState</code> schema uses <code class="prettyprint">Luminance</code> to create a 9x9 pixel grid (an input matrix) to represent all possible states of the tic-tac-toe board. This is because each letter (or blank space) is a 3x3 matrix of its own so a 3x3 grid of 3x3 letters (or blanks) results in a 9x9 grid.</p>
-<pre class="highlight inkling tab-inkling"><code><span class="k">schema</span> <span class="nx">PlayerMove</span>
-    <span class="kr">Int8</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">}</span> <span class="nx">move</span>
-<span class="k">end</span>
+<p>The <code class="prettyprint">GameState</code> type defines a field <code class="prettyprint">image</code> that uses the complex type <code class="prettyprint">Image.Gray</code> to create a 9x9 pixel grid (an input matrix) to represent all possible states of the tic-tac-toe board. Each letter (or blank space) is a 3x3 image, so a 3x3 grid of 3x3 letters (or blanks) results in a 9x9 grid.</p>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">type</span> <span class="nx">PlayerMove</span> <span class="p">{</span>
+    <span class="nx">move</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">Int8</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="o">&gt;</span>
+<span class="p">}</span>
 </code></pre>
-<p>The <code class="prettyprint">PlayerMove</code> schema classifies all 9 possible moves the AI can make, one for each space on the tic-tac-toe board.</p>
-<pre class="highlight inkling tab-inkling"><code><span class="k">schema</span> <span class="nx">DummyConfig</span>
-    <span class="kr">Int8</span> <span class="nx">dummy</span>
-<span class="k">end</span>
-</code></pre>
-<p>The <code class="prettyprint">DummyConfig</code> schema in this case is not used (but is still required to be defined in Inkling). It would define the configuration for the <code class="prettyprint">highscore</code> lesson if needed but in our case ends up getting set to the default value of -1 (unused).</p>
+<p>The <code class="prettyprint">PlayerMove</code> type classifies all 9 possible moves the AI can make, one for each space on the tic-tac-toe board.</p>
 
-<h6 id="concept">Concept</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">concept</span> <span class="nx">play_tictactoe</span> <span class="k">is</span> <span class="nx">classifier</span>
-    <span class="k">predicts</span> <span class="p">(</span><span class="nx">PlayerMove</span><span class="p">)</span>
-    <span class="k">follows</span> <span class="kr">input</span><span class="p">(</span><span class="nx">GameState</span><span class="p">)</span>
-    <span class="k">feeds</span> <span class="kr">output</span>
-<span class="k">end</span>
+<h6 id="concept-graph">Concept Graph</h6>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">graph</span> <span class="p">(</span><span class="k">input</span><span class="p">:</span> <span class="nx">GameState</span><span class="p">):</span> <span class="nx">PlayerMove</span> <span class="p">{</span>
+    <span class="k">concept</span> <span class="nx">play_tictactoe</span><span class="p">(</span><span class="k">input</span><span class="p">):</span> <span class="nx">PlayerMove</span> <span class="p">{</span>
+        <span class="k">curriculum</span> <span class="p">{</span>
+            <span class="k">algorithm</span> <span class="p">{</span>
+                <span class="nx">Algorithm</span><span class="p">:</span> <span class="s2">"DQN"</span><span class="p">,</span>
+                <span class="nx">ConvolutionLayers</span><span class="p">:</span> <span class="p">[{</span>
+                    <span class="nx">XSize</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                    <span class="nx">YSize</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                    <span class="nx">XStride</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                    <span class="nx">YStride</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                    <span class="nx">FilterCount</span><span class="p">:</span> <span class="mi">2</span>
+                <span class="p">}]</span>
+            <span class="p">}</span>
+            <span class="k">source</span> <span class="nx">tictactoe_simulator</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">output</span> <span class="nx">play_tictactoe</span>
+<span class="p">}</span>
 </code></pre>
-<p>This concept named <code class="prettyprint">play_tictactoe</code> is a classifier, which means it has to pick one of a set number of 9 options in the <code class="prettyprint">PlayerMove</code> schema. The AI picks this action based on the current state of the game, <code class="prettyprint">GameState</code> as an input.</p>
+<p>The concept, <code class="prettyprint">play_tictactoe</code>, returns a value of type <code class="prettyprint">PlayerMove</code> which indicates which of nine possible actions should be taken. The AI picks this action based on the current state of the game, <code class="prettyprint">GameState</code> as an input.</p>
 
 <h6 id="simulator">Simulator</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">simulator</span> <span class="nx">tictactoe_simulator</span><span class="p">(</span><span class="nx">DummyConfig</span><span class="p">)</span>
-  <span class="k">action</span>  <span class="p">(</span><span class="nx">PlayerMove</span><span class="p">)</span>
-  <span class="k">state</span>  <span class="p">(</span><span class="nx">GameState</span><span class="p">)</span>
-<span class="k">end</span>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">simulator</span> <span class="nx">tictactoe_simulator</span><span class="p">(</span><span class="k">action</span><span class="p">:</span> <span class="nx">PlayerMove</span><span class="p">):</span> <span class="nx">GameState</span> <span class="p">{</span>
+<span class="p">}</span>
 </code></pre>
-<p>The simulator clause declares that a simulator named <code class="prettyprint">tictactoe_simulator</code> will be connecting to the server for training. This <code class="prettyprint">tictactoe_simulator</code> expects an action defined in the <code class="prettyprint">PlayerMove</code> schema as input and replies with a state defined in the <code class="prettyprint">GameState</code> schema as output.</p>
+<p>The simulator clause declares that a simulator named <code class="prettyprint">tictactoe_simulator</code> will be connecting to the server for training. This <code class="prettyprint">tictactoe_simulator</code> expects an action of type <code class="prettyprint">PlayerMove</code> as input and replies with a value of type <code class="prettyprint">GameState</code>.</p>
 
-<h6 id="algorithm">Algorithm</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="nx">algorithm</span> <span class="nx">My_DQN_Settings</span>
-    <span class="k">is</span> <span class="nx">DQN</span>
-    <span class="nx">hidden_layer_size</span> <span class="o">=&gt;</span> <span class="s2">"32"</span><span class="p">,</span>
-    <span class="nx">hidden_layer_activation_descriptor</span> <span class="o">=&gt;</span> <span class="s2">"'relu'"</span><span class="p">,</span>
-    <span class="nx">conv_layer_descriptor</span> <span class="o">=&gt;</span> <span class="s2">"3x3:3:3:2"</span><span class="p">,</span>
-    <span class="nx">conv_compression_size_descriptor</span> <span class="o">=&gt;</span> <span class="s2">"32"</span><span class="p">,</span>
-    <span class="nx">conv_compression_activation_descriptor</span> <span class="o">=&gt;</span> <span class="s2">"'relu'"</span>
-<span class="k">end</span>
-</code></pre>
-<p>This algorithm schema sets the algorithm used to be <code class="prettyprint">DQN</code> and also sets some parameters for this algorithm. One to note is the <code class="prettyprint">conv_layer_descriptor</code> which has the syntax of <code class="prettyprint">“x_sizexy_size:x_stride:y_stride:filters”</code> which translates to: &ldquo;Make a convolutional layer composed of two filters, each of size 3 pixels by 3 pixels, and with a vertical and horizontal stride of 3. One of the filters is for X, one filter for O (exactly the size of the X or O) with a stride of exactly one character&rsquo;s width.&rdquo;</p>
-
-<p>This clause is not required for this example but it will help the example train much faster. For more information on use of the algorithm clause see the <a href="references/inkling-reference.html#advanced-algorithms">Inkling Reference</a>.</p>
-
-<h6 id="curriculum">Curriculum</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">curriculum</span> <span class="nx">ticatactoe_curriculum</span>
-    <span class="k">train</span> <span class="nx">play_tictactoe</span>
-    <span class="k">using</span> <span class="nx">algorithm</span> <span class="nx">My_DQN_Settings</span>
-    <span class="k">with</span> <span class="k">simulator</span> <span class="nx">tictactoe_simulator</span>
-    <span class="k">objective</span> <span class="nx">get_reward</span>
-        <span class="k">lesson</span> <span class="nx">highscore</span>
-            <span class="k">configure</span>
-                <span class="k">constrain</span> <span class="nx">dummy</span> <span class="k">with</span> <span class="kr">Int8</span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span>
-            <span class="k">until</span>
-                <span class="k">maximize</span> <span class="nx">get_reward</span>
-<span class="k">end</span>
-</code></pre>
-<p>The curriculum <code class="prettyprint">tictactoe_curriculum</code> trains <code class="prettyprint">play_tictactoe</code> using <code class="prettyprint">tictactoe_simulator</code>. The BRAIN that runs this Inkling code will try to maximize the value returned from <code class="prettyprint">get_reward</code> until you stop training. The BRAIN has an incentive to win the game of tic-tac-toe from <code class="prettyprint">get_reward</code> returning a reward of -1 if the computer wins, 0.5 if a tie, and 1 if it wins.</p>
-
-<p>This curriculum contains one lesson, called <code class="prettyprint">highscore</code>. It configures the simulation with a default (unused) value of -1 because there is no need for a configuration in this example.</p>
+<p>The algorithm clause provides a hint to the AI Engine that a <code class="prettyprint">DQN</code> algorithm should be used. It also sets some parameters for this algorithm. This hint is not required for this example but it will help the example train much faster. For more information on use of the algorithm clause see the <a href="references/inkling2-reference.html#advanced-algorithms">Inkling Reference</a>.</p>
 
 <h2 id="simulator-file">Simulator File</h2>
 
@@ -1328,59 +1144,50 @@ It can be used in this case to find the center between two numbers.
 
 <h2 id="inkling-file">Inkling File</h2>
 
-<h6 id="schema">Schema</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">schema</span> <span class="nx">GameState</span>
-    <span class="kr">Float32</span> <span class="nx">x_position</span><span class="p">,</span>
-    <span class="kr">Float32</span> <span class="nx">x_velocity</span>
-<span class="k">end</span>
+<h6 id="types">Types</h6>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">type</span> <span class="nx">GameState</span> <span class="p">{</span>
+    <span class="nx">x_position</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span>
+    <span class="nx">x_velocity</span><span class="p">:</span> <span class="k">number</span>
+<span class="p">}</span>
 </code></pre>
-<p>The <code class="prettyprint">GameState</code> schema names two records — <code class="prettyprint">x_position</code> and <code class="prettyprint">y_position</code> — and assigns a type to them.</p>
-<pre class="highlight inkling tab-inkling"><code><span class="nx">constant</span> <span class="kr">Float32</span> <span class="nx">throttleMin</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>
-<span class="nx">constant</span> <span class="kr">Float32</span> <span class="nx">throttleMax</span> <span class="o">=</span> <span class="mf">1.0</span>
-<span class="k">schema</span> <span class="nx">Action</span>
-    <span class="kr">Float32</span><span class="p">{</span><span class="nl">throttleMin</span><span class="p">:</span><span class="nx">throttleMax</span><span class="p">}</span> <span class="nx">command</span>
-<span class="k">end</span>
+<p>The <code class="prettyprint">GameState</code> type defines two fields — <code class="prettyprint">x_position</code> and <code class="prettyprint">y_position</code>.</p>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">const</span> <span class="nx">throttleMin</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>
+<span class="k">const</span> <span class="nx">throttleMax</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="k">type</span> <span class="nx">Action</span> <span class="p">{</span>
+    <span class="nx">command</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="nx">throttleMin</span> <span class="p">..</span> <span class="nx">throttleMax</span><span class="o">&gt;</span>
+<span class="p">}</span>
 </code></pre>
-<p>The <code class="prettyprint">Action</code> schema names a single record — <code class="prettyprint">command</code> — and assigns a constrained type to it. We have added constants to this schema to demonstrate how they can be optionally used.</p>
-<pre class="highlight inkling tab-inkling"><code><span class="k">schema</span> <span class="nx">MountainCarConfig</span>
-    <span class="kr">UInt8</span> <span class="nx">deque_size</span>
-<span class="k">end</span>
+<p>The <code class="prettyprint">Action</code> type defines a single field — <code class="prettyprint">command</code> — and assigns it a constrained type.</p>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">type</span> <span class="nx">MountainCarConfig</span> <span class="p">{</span>
+    <span class="nx">deque_size</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">UInt8</span>
+<span class="p">}</span>
 </code></pre>
-<p>The <code class="prettyprint">MountainCarConfig</code> schema names a single record - <code class="prettyprint">deque_size</code> - and assigns an unconstrained type to it.</p>
+<p>The <code class="prettyprint">MountainCarConfig</code> type defines a single field - <code class="prettyprint">deque_size</code>.</p>
 
-<h6 id="concept">Concept</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">concept</span> <span class="nx">high_score</span> <span class="k">is</span> <span class="nx">classifier</span>
-    <span class="k">predicts</span> <span class="p">(</span><span class="nx">Action</span><span class="p">)</span>
-    <span class="k">follows</span> <span class="kr">input</span><span class="p">(</span><span class="nx">GameState</span><span class="p">)</span>
-    <span class="k">feeds</span> <span class="kr">output</span>
-<span class="k">end</span>
+<h6 id="concept-graph">Concept Graph</h6>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">graph</span> <span class="p">(</span><span class="k">input</span><span class="p">:</span> <span class="nx">GameState</span><span class="p">):</span> <span class="nx">Action</span> <span class="p">{</span>
+    <span class="k">concept</span> <span class="nx">high_score</span><span class="p">(</span><span class="k">input</span><span class="p">):</span> <span class="nx">Action</span> <span class="p">{</span>
+        <span class="k">curriculum</span> <span class="p">{</span>
+            <span class="k">source</span> <span class="nx">mountaincar_continuous_simulator</span>
+            <span class="k">lesson</span> <span class="nx">get_high_score</span> <span class="p">{</span>
+                <span class="k">constraint</span> <span class="p">{</span>
+                    <span class="nx">deque_size</span><span class="p">:</span> <span class="mi">1</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">output</span> <span class="nx">high_score</span>
+<span class="p">}</span>
 </code></pre>
-<p>The concept is named <code class="prettyprint">high_score</code>, and it takes input from the simulator about the state of the game (<code class="prettyprint">GameState</code> schema). It outputs to the <code class="prettyprint">Action</code> schema. This is the AI&rsquo;s next move in the game.</p>
+<p>The output concept is named <code class="prettyprint">high_score</code>, and it takes input from the simulator about the state of the game (which is of type <code class="prettyprint">GameState</code>). It outputs a value of type <code class="prettyprint">Action</code>. This is the AI&rsquo;s next move in the game.</p>
+
+<p>The curriculum uses the simulator <code class="prettyprint">mountaincar_simulator</code> as its data source. One lesson is specified, and it configures the simulation by constraining the deque_size field to a value of 1.</p>
 
 <h6 id="simulator">Simulator</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">simulator</span> <span class="nx">mountaincar_continuous_simulator</span><span class="p">(</span><span class="nx">MountainCarConfig</span><span class="p">)</span>
-   <span class="k">action</span>  <span class="p">(</span><span class="nx">Action</span><span class="p">)</span>
-   <span class="k">state</span>  <span class="p">(</span><span class="nx">GameState</span><span class="p">)</span>
-<span class="k">end</span>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">simulator</span> <span class="nx">mountaincar_continuous_simulator</span><span class="p">(</span><span class="k">action</span><span class="p">:</span> <span class="nx">Action</span><span class="p">,</span> <span class="k">config</span><span class="p">:</span> <span class="nx">MountainCarConfig</span><span class="p">):</span> <span class="nx">GameState</span> <span class="p">{</span>
+<span class="p">}</span>
 </code></pre>
-<p>The <code class="prettyprint">mountaincar_continuous_simulator</code> gets information from two schemas. The first schema, <code class="prettyprint">MountainCarConfig</code>, specifies the schema for configuration of the simulation. The second schema contains the state of the simulator that is sent to the lesson.</p>
-
-<h6 id="curriculum">Curriculum</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">curriculum</span> <span class="nx">high_score_curriculum</span>
-    <span class="k">train</span> <span class="nx">high_score</span>
-    <span class="k">with</span> <span class="k">simulator</span> <span class="nx">mountaincar_continuous_simulator</span>
-    <span class="k">objective</span> <span class="nx">open_ai_gym_default_objective</span>
-
-        <span class="k">lesson</span> <span class="nx">get_high_score</span>
-            <span class="k">configure</span>
-                <span class="k">constrain</span> <span class="nx">deque_size</span> <span class="k">with</span> <span class="kr">UInt8</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
-            <span class="k">until</span>
-                <span class="k">maximize</span> <span class="nx">open_ai_gym_default_objective</span>
-<span class="k">end</span>
-</code></pre>
-<p>The curriculum is named <code class="prettyprint">high_score_curriculum</code>, and it trains the <code class="prettyprint">high_score</code> concept using the <code class="prettyprint">mountaincar_simulator</code>. This curriculum contains one lesson, called <code class="prettyprint">get_high_score</code>. It configures the simulation, by setting two constraints for the state of the simulator.</p>
-
-<p>The lesson trains until the AI has maximized the objective named <code class="prettyprint">score</code>.</p>
+<p>The <code class="prettyprint">mountaincar_continuous_simulator</code> receives actions of type <code class="prettyprint">Action</code> and configuration information of type <code class="prettyprint">MountainCarConfig</code>. It outputs values of type <code class="prettyprint">GameState</code>.</p>
 
 <h2 id="simulator-file">Simulator File</h2>
 <pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">sys</span>
@@ -1438,64 +1245,56 @@ This example has now been replaced by the Stellar Cartpole example as the defaul
 
 <h2 id="inkling-file">Inkling File</h2>
 
-<h6 id="schema">Schema</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">schema</span> <span class="nx">GameState</span>
-    <span class="kr">Float32</span> <span class="nx">position</span><span class="p">,</span>
-    <span class="kr">Float32</span> <span class="nx">velocity</span><span class="p">,</span>
-    <span class="kr">Float32</span> <span class="nx">angle</span><span class="p">,</span>
-    <span class="kr">Float32</span> <span class="nx">rotation</span>
-<span class="k">end</span>
+<h6 id="types">Types</h6>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">type</span> <span class="nx">GameState</span> <span class="p">{</span>
+    <span class="nx">position</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span>
+    <span class="nx">velocity</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span>
+    <span class="nx">angle</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span>
+    <span class="nx">rotation</span><span class="p">:</span> <span class="k">number</span>
+<span class="p">}</span>
 </code></pre>
-<p>The schema <code class="prettyprint">GameState</code> names four records — <code class="prettyprint">position</code>, <code class="prettyprint">velocity</code>, <code class="prettyprint">angle</code>, and <code class="prettyprint">rotation</code> — and assigns a type to them. This information is input from the simulation.</p>
-<pre class="highlight inkling tab-inkling"><code><span class="nx">constant</span> <span class="kr">Int8</span> <span class="nx">left</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="nx">constant</span> <span class="kr">Int8</span> <span class="nx">right</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">schema</span> <span class="nx">Action</span>
-    <span class="kr">Int8</span><span class="p">{</span><span class="nx">left</span><span class="p">,</span> <span class="nx">right</span><span class="p">}</span> <span class="nx">command</span>
-<span class="k">end</span>
+<p>The type <code class="prettyprint">GameState</code> defines four fields - <code class="prettyprint">position</code>, <code class="prettyprint">velocity</code>, <code class="prettyprint">angle</code>, and <code class="prettyprint">rotation</code> — and assigns a type to each. This information is input from the simulation.</p>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">type</span> <span class="nx">Action</span> <span class="p">{</span>
+    <span class="nx">command</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="nx">Left</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">Right</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="p">}</span>
 </code></pre>
-<p>The schema <code class="prettyprint">Action</code> names a record — <code class="prettyprint">action</code> —  and assigns it a constrained type. We have added constants to this schema to demonstrate how they can be optionally used.</p>
-<pre class="highlight inkling tab-inkling"><code><span class="k">schema</span> <span class="nx">CartPoleConfig</span>
-    <span class="kr">Int8</span> <span class="nx">episode_length</span><span class="p">,</span>
-    <span class="kr">UInt8</span> <span class="nx">deque_size</span>
-<span class="k">end</span>
+<p>The type <code class="prettyprint">Action</code> defines a single flield — <code class="prettyprint">action</code> —  and assigns it a constrained type.</p>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">type</span> <span class="nx">CartPoleConfig</span> <span class="p">{</span>
+    <span class="nx">episode_length</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">Int8</span><span class="p">,</span>
+    <span class="nx">deque_size</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">UInt8</span>
+<span class="p">}</span>
 </code></pre>
-<p>The schema <code class="prettyprint">CartPoleConfig</code> names two records — <code class="prettyprint">episode_length</code> and
- <code class="prettyprint">deque_size</code> — and assigns each of them a type.   <code class="prettyprint">episode_length</code> is a signed <code class="prettyprint">Int8</code> because -1 is used for &ldquo;run until pole drops&rdquo;.</p>
+<p>The type <code class="prettyprint">CartPoleConfig</code> defines two fields — <code class="prettyprint">episode_length</code> and
+ <code class="prettyprint">deque_size</code> — and assigns each of them a type.  <code class="prettyprint">episode_length</code> is a signed <code class="prettyprint">Int8</code> because -1 is used for &ldquo;run until pole drops&rdquo;.</p>
 
-<h6 id="concept">Concept</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">concept</span> <span class="nx">balance</span> <span class="k">is</span> <span class="nx">classifier</span>
-    <span class="k">predicts</span> <span class="p">(</span><span class="nx">Action</span><span class="p">)</span>
-    <span class="k">follows</span> <span class="kr">input</span><span class="p">(</span><span class="nx">GameState</span><span class="p">)</span>
-    <span class="k">feeds</span> <span class="kr">output</span>
-<span class="k">end</span>
+<h6 id="concept-graph">Concept Graph</h6>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">graph</span> <span class="p">(</span><span class="k">input</span><span class="p">:</span> <span class="nx">GameState</span><span class="p">):</span> <span class="nx">Action</span> <span class="p">{</span>
+
+    <span class="k">concept</span> <span class="nx">balance</span><span class="p">(</span><span class="k">input</span><span class="p">):</span> <span class="nx">Action</span> <span class="p">{</span>
+        <span class="k">curriculum</span> <span class="p">{</span>
+            <span class="k">source</span> <span class="nx">cartpole_simulator</span>
+
+            <span class="k">lesson</span> <span class="nx">balancing</span> <span class="p">{</span>
+                <span class="k">constraint</span> <span class="p">{</span>
+                    <span class="nx">episode_length</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+                    <span class="nx">deque_size</span><span class="p">:</span> <span class="mi">1</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">output</span> <span class="nx">balance</span>
+<span class="p">}</span>
 </code></pre>
-<p>The concept is named <code class="prettyprint">balance</code>, and it takes input from the simulator. That input is the records in the schema <code class="prettyprint">GameState</code>. The balance concept outputs the move the AI should make in the simulator. This output is the record in the <code class="prettyprint">Action</code> schema.</p>
+<p>The concept is named <code class="prettyprint">balance</code>, and it takes input from the simulator. That input is of type <code class="prettyprint">GameState</code>. The balance concept outputs the move the AI should make in the simulator. This output is of type <code class="prettyprint">Action</code>.</p>
+
+<p>The curriculum defines one lesson, called <code class="prettyprint">balancing</code>. It constrains the simulator&rsquo;s configuration such that the <code class="prettyprint">episode_length</code> is -1 and the <code class="prettyprint">deque_size</code> is 1 for all episodes.</p>
 
 <h6 id="simulator">Simulator</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">simulator</span> <span class="nx">cartpole_simulator</span><span class="p">(</span><span class="nx">CartPoleConfig</span><span class="p">)</span> 
-    <span class="k">action</span> <span class="p">(</span><span class="nx">Action</span><span class="p">)</span>
-    <span class="k">state</span> <span class="p">(</span><span class="nx">GameState</span><span class="p">)</span>
-<span class="k">end</span>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">simulator</span> <span class="nx">cartpole_simulator</span><span class="p">(</span><span class="k">action</span><span class="p">:</span> <span class="nx">Action</span><span class="p">,</span> <span class="k">config</span><span class="p">:</span> <span class="nx">CartPoleConfig</span><span class="p">):</span> <span class="nx">GameState</span> <span class="p">{</span>
+<span class="p">}</span>
 </code></pre>
-<p>Simulator <code class="prettyprint">cartpole_simulator</code> gets information from three schemas. The first schema, <code class="prettyprint">CartPoleConfig</code>, specifies the schema for configuration of the simulation. The second schema <code class="prettyprint">Action</code> specifies the action that the AI will take in the simulation. The third schema <code class="prettyprint">GameState</code> contains the state of the simulator that is sent to the lesson.</p>
-
-<h6 id="curriculum">Curriculum</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">curriculum</span> <span class="nx">balance_curriculum</span>
-    <span class="k">train</span> <span class="nx">balance</span>
-    <span class="k">with</span> <span class="k">simulator</span> <span class="nx">cartpole_simulator</span>
-    <span class="k">objective</span> <span class="nx">open_ai_gym_default_objective</span>
-
-        <span class="k">lesson</span> <span class="nx">balancing</span>
-            <span class="k">configure</span>
-                <span class="k">constrain</span> <span class="nx">episode_length</span> <span class="k">with</span> <span class="kr">Int8</span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">},</span>
-                <span class="k">constrain</span> <span class="nx">deque_size</span> <span class="k">with</span> <span class="kr">UInt8</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span>
-            <span class="k">until</span>
-                <span class="k">maximize</span> <span class="nx">open_ai_gym_default_objective</span>
-<span class="k">end</span>
-</code></pre>
-<p>The curriculum&rsquo;s name is <code class="prettyprint">balance_curriculum</code>. It trains the <code class="prettyprint">balance</code> concept with the <code class="prettyprint">cartpole_simulator</code>. The objective for this curriculum is <code class="prettyprint">up_time</code>. The objective measures how long the pole stays upright.</p>
-
-<p>This curriculum contains one lesson, called <code class="prettyprint">balancing</code>. It configures the simulation, by setting two constraints for the state of the simulator. The lesson trains until the AI has maximized the objective.</p>
+<p>Simulator <code class="prettyprint">cartpole_simulator</code> receives inputs of two types. The first, <code class="prettyprint">Action</code>, specifies the action that the AI will take in the simulation. The second, <code class="prettyprint">CartPoleConfig</code>, specifies the configuration of the simulation. The simulator outputs a value of type <code class="prettyprint">GameState</code> which contains the state of the simulator at each iteration.</p>
 
 <h2 id="simulator-file">Simulator File</h2>
 <pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">sys</span>
@@ -1512,21 +1311,9 @@ This example has now been replaced by the Stellar Cartpole example as the defaul
     <span class="n">environment_name</span> <span class="o">=</span> <span class="s">'CartPole-v0'</span>
 
     <span class="c"># simulator name from Inkling</span>
-    <span class="c"># Example Inkling:</span>
-    <span class="c">#   curriculum balance_curriculum</span>
-    <span class="c">#       train balance</span>
-    <span class="c">#       with simulator cartpole_simulator</span>
-    <span class="c">#       ....</span>
     <span class="n">simulator_name</span> <span class="o">=</span> <span class="s">'cartpole_simulator'</span>
 
-    <span class="c"># convert openai gym observation to our state schema</span>
-    <span class="c"># Example Inkling:</span>
-    <span class="c">#   schema GameState</span>
-    <span class="c">#       Float32 position,</span>
-    <span class="c">#       Float32 velocity,</span>
-    <span class="c">#       Float32 angle,</span>
-    <span class="c">#       Float32 rotation</span>
-    <span class="c">#   end</span>
+    <span class="c"># convert openai gym observation to our state type</span>
     <span class="k">def</span> <span class="nf">gym_to_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observation</span><span class="p">):</span>
         <span class="n">state</span> <span class="o">=</span> <span class="p">{</span><span class="s">'position'</span><span class="p">:</span> <span class="n">observation</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
                  <span class="s">'velocity'</span><span class="p">:</span> <span class="n">observation</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
@@ -1534,11 +1321,7 @@ This example has now been replaced by the Stellar Cartpole example as the defaul
                  <span class="s">'rotation'</span><span class="p">:</span> <span class="n">observation</span><span class="p">[</span><span class="mi">3</span><span class="p">]}</span>
         <span class="k">return</span> <span class="n">state</span>
 
-    <span class="c"># convert our action schema into openai gym action</span>
-    <span class="c"># Example Inkling:</span>
-    <span class="c">#   schema Action</span>
-    <span class="c">#       Int8{0, 1} command</span>
-    <span class="c">#   end</span>
+    <span class="c"># convert our action type into openai gym action</span>
     <span class="k">def</span> <span class="nf">action_to_gym</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">action</span><span class="p">[</span><span class="s">'command'</span><span class="p">]</span>
 
@@ -1596,14 +1379,14 @@ This example has now been replaced by the Stellar Cartpole example as the defaul
     <span class="c">#       ....</span>
     <span class="n">simulator_name</span> <span class="o">=</span> <span class="s">'cartpole_simulator'</span>
 
-    <span class="c"># convert openai gym observation to our state schema</span>
+    <span class="c"># convert openai gym observation to our state type</span>
     <span class="c"># Example Inkling:</span>
-    <span class="c">#   schema GameState</span>
-    <span class="c">#       Float32 position,</span>
-    <span class="c">#       Float32 velocity,</span>
-    <span class="c">#       Float32 angle,</span>
-    <span class="c">#       Float32 rotation</span>
-    <span class="c">#   end</span>
+    <span class="c">#   type GameState {</span>
+    <span class="c">#       position: number,</span>
+    <span class="c">#       velocity: number,</span>
+    <span class="c">#       angle: number,</span>
+    <span class="c">#       rotation: number</span>
+    <span class="c">#   }</span>
     <span class="k">def</span> <span class="nf">gym_to_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observation</span><span class="p">):</span>
         <span class="n">state</span> <span class="o">=</span> <span class="p">{</span><span class="s">'position'</span><span class="p">:</span> <span class="n">observation</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
                  <span class="s">'velocity'</span><span class="p">:</span> <span class="n">observation</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
@@ -1611,11 +1394,11 @@ This example has now been replaced by the Stellar Cartpole example as the defaul
                  <span class="s">'rotation'</span><span class="p">:</span> <span class="n">observation</span><span class="p">[</span><span class="mi">3</span><span class="p">]}</span>
         <span class="k">return</span> <span class="n">state</span>
 
-    <span class="c"># convert our action schema into openai gym action</span>
+    <span class="c"># convert our action type into openai gym action</span>
     <span class="c"># Example Inkling:</span>
-    <span class="c">#   schema Action</span>
-    <span class="c">#       Int8{0, 1} command</span>
-    <span class="c">#   end</span>
+    <span class="c">#   type Action {</span>
+    <span class="c">#       command: number&lt;0, 1&gt;</span>
+    <span class="c">#   }</span>
     <span class="k">def</span> <span class="nf">action_to_gym</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">action</span><span class="p">[</span><span class="s">'command'</span><span class="p">]</span>
 
@@ -1706,7 +1489,7 @@ This example has now been replaced by the Stellar Cartpole example as the defaul
 
 <p>This example demonstrates how instances of the <code class="prettyprint">Event</code> class can be used to drive a custom simulation loop. Rather than relying on machinery internal to <code class="prettyprint">bonsai_ai.Simulator</code>, the <code class="prettyprint">CartPoleTrainer</code> class advances the simulation event by event, which, in turn, allows for custom logic at each stage.</p>
 
-<p>This event driven interface is for when you can&rsquo;t squeeze your particular application logic into the prescribed callback interface. If this is the case, your implementation may benefit from employing this pattern.</p>
+<p>This event-driven interface is useful when you can&rsquo;t squeeze your particular application logic into the prescribed callback interface.</p>
 
 <p>Cartpole is a classic control problem. <a href="https://gym.openai.com/envs/CartPole-v1">OpenAI Gym</a> describes it as:</p>
 
@@ -1845,63 +1628,47 @@ This example has now been replaced by the Stellar Cartpole example as the defaul
 
 <p><a href="https://github.com/BonsaiAI/bonsai-sdk/tree/master/samples/energyplus-sample"><strong>Download the full source code on GitHub</strong></a> if you want to run this simulator locally. If you want to run EnergyPlus remotely on the Bonsai Platform as a managed simulator, create a new BRAIN selecting the EnergyPlus demo on <a href="https://beta.bons.ai/new">beta.bons.ai</a>.</p>
 
-<p>In this example, we&rsquo;ll walk you through the various statements that are part of a sample implementation of <a href="https://energyplus.net/">EnergyPlus</a> on the Bonsai Platform, including the simulator and the Inkling files. This is a real-world example of how to use the Bonsai Platform for HVAC control using BCVTB and EnergyPlus.</p>
+<p>In this example, we&rsquo;ll walk you through the statements that are part of a sample implementation of <a href="https://energyplus.net/">EnergyPlus</a> on the Bonsai Platform. This is a real-world example of how to use the Bonsai Platform for HVAC control using BCVTB and EnergyPlus.</p>
 
-<p>While this BRAIN is training, the Bonsai AI Engine launches the EnergyPlus simulator in the background for every episode. The <em>energyplus_simulator.py</em> then drives the simulator forward a step at a time until it finishes the episode and then relaunches it for the next episode, driving the actions into it and sending state results back to the Bonsai AI Engine.</p>
+<p>While this BRAIN is training, the Bonsai AI Engine invokes the EnergyPlus simulator for every episode. The <em>energyplus_simulator.py</em> then drives the simulator forward a step at a time until it finishes the episode and then resets it for the next episode, driving the actions into it and sending states back to the Bonsai AI Engine.</p>
 
 <h2 id="inkling-file">Inkling File</h2>
 
-<h6 id="schema">Schema</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="nx">constant</span> <span class="kr">Int32</span> <span class="nx">minIrradiation</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="nx">constant</span> <span class="kr">Int32</span> <span class="nx">maxIrradiation</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="k">schema</span> <span class="nx">SimState</span>
-    <span class="kr">Int32</span><span class="p">{</span><span class="nl">minIrradiation</span><span class="p">:</span><span class="nx">maxIrradiation</span><span class="p">}</span> <span class="nx">SolarIrradiation</span>
-<span class="k">end</span>
+<h6 id="types">Types</h6>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">const</span> <span class="nx">minIrradiation</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">Int32</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">const</span> <span class="nx">maxIrradiation</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">Int32</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">type</span> <span class="nx">SimState</span> <span class="p">{</span>
+    <span class="nx">SolarIrradiation</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">Int32</span><span class="o">&lt;</span><span class="nx">minIrradiation</span> <span class="p">..</span> <span class="nx">maxIrradiation</span><span class="o">&gt;</span>
+<span class="p">}</span>
 </code></pre>
-<p>The <code class="prettyprint">SimState</code> schema defines the dictionary returned from the Python simulation&rsquo;s <code class="prettyprint">advance</code> method to the BRAIN. We have added constants to this schema to demonstrate how they can be optionally used. They can be used in all or none of the schemas you define.</p>
-<pre class="highlight inkling tab-inkling"><code><span class="k">schema</span> <span class="nx">SimAction</span>
-    <span class="kr">Int32</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">}</span> <span class="nx">shade</span>
-<span class="k">end</span>
+<p>The <code class="prettyprint">SimState</code> type describes the value returned from the Python simulation&rsquo;s <code class="prettyprint">simulate</code> method to the BRAIN. We have added constants to demonstrate how they can be used in defining types.</p>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">type</span> <span class="nx">SimAction</span> <span class="p">{</span>
+    <span class="nx">shade</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="nx">Up</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">Down</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="p">}</span>
 </code></pre>
-<p>The <code class="prettyprint">SimAction</code> schema defines the &lsquo;actions&rsquo;, a dictionary of control signals this AI can send to the climate control. For example: <code class="prettyprint">shade</code> == night, off, day.</p>
-<pre class="highlight inkling tab-inkling"><code><span class="k">schema</span> <span class="nx">SimConfig</span>
-    <span class="kr">Int32</span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span> <span class="nx">unused</span>
-<span class="k">end</span>
-</code></pre>
-<p>The <code class="prettyprint">SimConfig</code> schema in this case is not used (but is still required to be defined in Inkling) but it would define the dictionary passed as a parameter to the <code class="prettyprint">set_properties</code> method of the Python simulator.</p>
+<p>The <code class="prettyprint">SimAction</code> type defines the control signals this AI can send to the climate control. In this case, the shade can be either up or down.</p>
 
-<h6 id="concept">Concept</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">concept</span> <span class="nx">my_concept</span> <span class="k">is</span> <span class="nx">classifier</span>
-   <span class="k">predicts</span> <span class="p">(</span><span class="nx">SimAction</span><span class="p">)</span>
-   <span class="k">follows</span> <span class="kr">input</span><span class="p">(</span><span class="nx">SimState</span><span class="p">)</span>
-   <span class="k">feeds</span> <span class="kr">output</span>
-<span class="k">end</span>
+<h6 id="concept-graph">Concept Graph</h6>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">graph</span> <span class="p">(</span><span class="k">input</span><span class="p">:</span> <span class="nx">SimState</span><span class="p">):</span> <span class="nx">SimAction</span> <span class="p">{</span>
+
+    <span class="k">concept</span> <span class="nx">my_concept</span><span class="p">(</span><span class="k">input</span><span class="p">):</span> <span class="nx">SimAction</span> <span class="p">{</span>
+        <span class="k">curriculum</span> <span class="p">{</span>
+            <span class="k">source</span> <span class="nx">energyplus_simulator</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">output</span> <span class="nx">my_concept</span>
+<span class="p">}</span>
 </code></pre>
-<p>This concept is named <code class="prettyprint">my_concept</code> which predicts a <code class="prettyprint">SimAction</code> given a <code class="prettyprint">SimState</code>. In this simple demo we just ask the Bonsai Platform to generate any model that can learn to control the server using these inputs and outputs.</p>
+<p>This concept is named <code class="prettyprint">my_concept</code> which outputs a <code class="prettyprint">SimAction</code> given a <code class="prettyprint">SimState</code>. In this simple demo, we ask the Bonsai Platform to generate any model that can learn to control the system using these inputs and outputs.</p>
+
+<p>The curriculum trains <code class="prettyprint">my_concept</code> using <code class="prettyprint">energyplus_simulator</code>. This curriculum has no defined lesson, so a default lesson is assumed.</p>
 
 <h6 id="simulator">Simulator</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">simulator</span> <span class="nx">energyplus_simulator</span><span class="p">(</span><span class="nx">SimConfig</span><span class="p">)</span>
-    <span class="k">action</span> <span class="p">(</span><span class="nx">SimAction</span><span class="p">)</span>
-    <span class="k">state</span> <span class="p">(</span><span class="nx">SimState</span><span class="p">)</span>
-<span class="k">end</span>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">simulator</span> <span class="nx">energyplus_simulator</span><span class="p">(</span><span class="k">action</span><span class="p">:</span> <span class="nx">SimAction</span><span class="p">):</span> <span class="nx">SimState</span> <span class="p">{</span>
+<span class="p">}</span>
 </code></pre>
-<p>The simulator clause declares that a simulator named <code class="prettyprint">energyplus_simulator</code> will be connecting to the server for training. This code snippet binds the previous schemas to this simulator. To define the training relationship between the simulator and the concept we must begin by defining the simulator. <code class="prettyprint">energyplus_simulator</code> expects an action defined in the <code class="prettyprint">SimAction</code> schema as input and replies with a state defined in the <code class="prettyprint">SimState</code> schema as output.</p>
-
-<h6 id="curriculum">Curriculum</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">curriculum</span> <span class="nx">my_curriculum</span>
-    <span class="k">train</span> <span class="nx">my_concept</span>
-    <span class="k">with</span> <span class="k">simulator</span> <span class="nx">energyplus_simulator</span>
-    <span class="k">objective</span> <span class="nx">reward_function</span>
-        <span class="k">lesson</span> <span class="nx">my_first_lesson</span>
-            <span class="k">configure</span>
-                <span class="k">constrain</span> <span class="nx">unused</span> <span class="k">with</span> <span class="kr">Int32</span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">}</span>
-            <span class="k">until</span>
-                <span class="k">maximize</span> <span class="nx">reward_function</span>
-<span class="k">end</span>
-</code></pre>
-<p>The curriculum <code class="prettyprint">my_curriculum</code> trains <code class="prettyprint">my_concept</code> using <code class="prettyprint">energyplus_simulator</code>. The BRAIN that runs this Inkling code will try to maximize the value returned from <code class="prettyprint">reward_function</code> until you stop training. <code class="prettyprint">reward_function</code> is a method in the Python simulator.</p>
-
-<p>This curriculum contains one lesson, called <code class="prettyprint">my_first_lesson</code>. It configures the simulation, by setting a number of constraints for the state of the simulator.</p>
+<p>This statement declares that a simulator named <code class="prettyprint">energyplus_simulator</code> will be connecting to the server for training. This code snippet binds the previous types to this simulator. To define the training relationship between the simulator and the concept, we must begin by defining the simulator. <code class="prettyprint">energyplus_simulator</code> expects an action of type <code class="prettyprint">SimAction</code> as an input, and it replies with a state of type <code class="prettyprint">SimState</code> as output.</p>
 
 <h2 id="simulator-excerpt">Simulator Excerpt</h2>
 <pre class="highlight python tab-python"><code><span class="c"># Excerpt of simulator class from the energyplus_simulator.py file</span>
@@ -2056,62 +1823,52 @@ This example has now been replaced by the Stellar Cartpole example as the defaul
 
 <h2 id="inkling-file">Inkling File</h2>
 
-<p>Inkling is a declarative, strongly typed programming language specifically designed for artificial intelligence (AI). It abstracts away the world of dynamic AI algorithms that require expertise in machine learning and enables more developers to program AI. Please review our <a href="guides/inkling-guide.html#overview"><strong>Inkling Guide</strong></a> to learn more about these topics.</p>
+<p>Inkling is a declarative, strongly typed programming language specifically designed for artificial intelligence (AI). It abstracts away the world of dynamic AI algorithms that require expertise in machine learning and enables more developers to program AI. Please review our <a href="guides/inkling2-guide.html#overview"><strong>Inkling Guide</strong></a> to learn more about these topics.</p>
 
-<h6 id="schema">Schema</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">schema</span> <span class="nx">HouseheatState</span>
-    <span class="kr">Float32</span> <span class="nx">set_temp</span><span class="p">,</span>
-    <span class="kr">Float32</span> <span class="nx">room_temp</span><span class="p">,</span>
-    <span class="kr">Float32</span> <span class="nx">outside_temp</span><span class="p">,</span>
-    <span class="kr">Float32</span> <span class="nx">dTroom</span><span class="p">,</span>
-    <span class="kr">Float32</span> <span class="nx">heat_output</span><span class="p">,</span>
-    <span class="kr">Float32</span> <span class="nx">dTout</span>
-<span class="k">end</span>
+<h6 id="types">Types</h6>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">type</span> <span class="nx">HouseheatState</span> <span class="p">{</span>
+    <span class="nx">set_temp</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span>
+    <span class="nx">room_temp</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span>
+    <span class="nx">outside_temp</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span>
+    <span class="nx">dTroom</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span>
+    <span class="nx">heat_output</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span>
+    <span class="nx">dTout</span><span class="p">:</span> <span class="k">number</span>
+<span class="p">}</span>
 </code></pre>
-<p>The <code class="prettyprint">HouseheatState</code> schema names six records and assigns a type to them.</p>
-<pre class="highlight inkling tab-inkling"><code><span class="k">schema</span> <span class="nx">HouseheatAction</span>
-    <span class="kr">Float32</span><span class="p">{</span> <span class="mf">0.0</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mf">1.0</span> <span class="p">}</span> <span class="nx">heater_on</span>
-<span class="k">end</span>
+<p>The <code class="prettyprint">HouseheatState</code> type defines six numeric fields.</p>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">type</span> <span class="nx">HouseheatAction</span> <span class="p">{</span>
+    <span class="nx">heater_on</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span> <span class="p">..</span> <span class="mi">1</span> <span class="k">step</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="p">}</span>
 </code></pre>
-<p>The <code class="prettyprint">HouseheatAction</code> schema names a single record — <code class="prettyprint">heater_on</code> — and assigns a constrained type to it.</p>
-<pre class="highlight inkling tab-inkling"><code><span class="k">schema</span> <span class="nx">HouseheatConfig</span>
-    <span class="kr">Float32</span> <span class="nx">outside_phase</span>
-<span class="k">end</span>
+<p>The <code class="prettyprint">HouseheatAction</code> type defines a single field — <code class="prettyprint">heater_on</code> with a constrianed numeric range.</p>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">type</span> <span class="nx">HouseheatConfig</span> <span class="p">{</span>
+    <span class="nx">outside_phase</span><span class="p">:</span> <span class="k">number</span>
+<span class="p">}</span>
 </code></pre>
-<p>The <code class="prettyprint">HouseheatConfig</code> schema names one record — <code class="prettyprint">outside_phase</code> - and assigns a type to it.</p>
+<p>The <code class="prettyprint">HouseheatConfig</code> type defines one field — <code class="prettyprint">outside_phase</code>.</p>
 
-<h6 id="concept">Concept</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">concept</span> <span class="nx">thermostat</span> <span class="k">is</span> <span class="nx">classifier</span>
-   <span class="k">predicts</span> <span class="p">(</span><span class="nx">HouseheatAction</span><span class="p">)</span>
-   <span class="k">follows</span> <span class="kr">input</span><span class="p">(</span><span class="nx">HouseheatState</span><span class="p">)</span>
-   <span class="k">feeds</span> <span class="kr">output</span>
-<span class="k">end</span>
+<h6 id="concept-graph">Concept Graph</h6>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">graph</span> <span class="p">(</span><span class="k">input</span><span class="p">:</span> <span class="nx">HouseheatState</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">concept</span> <span class="nx">thermostat</span><span class="p">(</span><span class="k">input</span><span class="p">):</span> <span class="nx">HouseheatAction</span> <span class="p">{</span>
+        <span class="k">curriculum</span> <span class="p">{</span>
+            <span class="k">source</span> <span class="nx">simulink_sim</span>
+
+            <span class="k">lesson</span> <span class="nx">my_first_lesson</span> <span class="p">{</span>
+                <span class="k">constraint</span> <span class="p">{</span>
+                    <span class="nx">outside_phase</span><span class="p">:</span> <span class="mi">0</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
-<p>The concept, <code class="prettyprint">thermostat</code>, takes input from the simulation model about the state of the temperature in the house (<code class="prettyprint">HouseheatState</code> schema). It outputs to the <code class="prettyprint">HouseheatAction</code> schema. This is the AI&rsquo;s next move in the game.</p>
+<p>The concept <code class="prettyprint">thermostat</code> has an input of type <code class="prettyprint">HouseheatState</code>. It outputs a value of type <code class="prettyprint">HouseheatAction</code>. This is the AI&rsquo;s next move in the game.</p>
 
 <h6 id="simulator">Simulator</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">simulator</span> <span class="nx">simulink_sim</span><span class="p">(</span><span class="nx">HouseheatConfig</span><span class="p">)</span>
-    <span class="k">action</span> <span class="p">(</span><span class="nx">HouseheatAction</span><span class="p">)</span>
-    <span class="k">state</span> <span class="p">(</span><span class="nx">HouseheatState</span><span class="p">)</span>
-<span class="k">end</span>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">simulator</span> <span class="nx">simulink_sim</span><span class="p">(</span><span class="k">action</span><span class="p">:</span> <span class="nx">HouseheatAction</span><span class="p">,</span> <span class="k">config</span><span class="p">:</span> <span class="nx">HouseheatConfig</span><span class="p">):</span> <span class="nx">HouseheatState</span> <span class="p">{</span>
+<span class="p">}</span>
 </code></pre>
-<p>The <code class="prettyprint">simulink_sim</code> gets information from two schemas. The first schema, <code class="prettyprint">action</code>, specifies the schema for actions within the simulation. The second schema, <code class="prettyprint">state</code> contains the state of the simulation sent to the lesson.</p>
-
-<h6 id="curriculum">Curriculum</h6>
-<pre class="highlight inkling tab-inkling"><code><span class="k">curriculum</span> <span class="nx">my_curriculum</span>
-    <span class="k">train</span> <span class="nx">thermostat</span>
-    <span class="k">with</span> <span class="k">simulator</span> <span class="nx">simulink_sim</span>
-    <span class="k">objective</span> <span class="nx">match_set_temp</span>
-        <span class="k">lesson</span> <span class="nx">my_first_lesson</span>
-            <span class="k">configure</span>
-            <span class="k">constrain</span> <span class="nx">outside_phase</span> <span class="k">with</span> <span class="kr">Float32</span><span class="p">{</span><span class="mf">0.0</span><span class="p">}</span>
-            <span class="k">until</span>
-                <span class="k">maximize</span> <span class="nx">match_set_temp</span>
-<span class="k">end</span>
-</code></pre>
-<p>The curriculum, <code class="prettyprint">my_curriculum</code>, trains the <code class="prettyprint">thermostat</code> concept using the <code class="prettyprint">simulink_sim</code>. This curriculum contains one lesson, called <code class="prettyprint">my_first_lesson</code>. It configures the simulation, by setting constraints for the state of the simulator.</p>
-
-<p>The lesson trains until the AI has maximized the objective named <code class="prettyprint">match_set_temp</code>.</p>
+<p>The <code class="prettyprint">simulink_sim</code> receives input actions of type <code class="prettyprint">HouseheatAction</code> and configuration information of type <code class="prettyprint">HouseheatConfig</code>. It returns values of type <code class="prettyprint">HouseheatState</code>.</p>
 
       </div>
       <div class="dark-box">

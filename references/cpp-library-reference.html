@@ -11,190 +11,87 @@
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
-.highlight .gh {
-  color: #999999;
-}
-.highlight .sr {
-  color: #f6aa11;
-}
-.highlight .go {
-  color: #888888;
-}
-.highlight .gp {
-  color: #555555;
-}
-.highlight .gs {
-}
-.highlight .gu {
-  color: #aaaaaa;
-}
-.highlight .nb {
-  color: #f6aa11;
-}
-.highlight .cm {
-  color: #75715e;
-}
-.highlight .cp {
-  color: #75715e;
-}
-.highlight .c1 {
-  color: #75715e;
-}
-.highlight .cs {
-  color: #75715e;
-}
-.highlight .c, .highlight .cd {
-  color: #75715e;
+.highlight, .highlight .w {
+  color: #ffffff;
+  background-color: #272822;
 }
 .highlight .err {
-  color: #960050;
+  color: #272822;
+  background-color: #f92672;
 }
-.highlight .gr {
-  color: #960050;
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #ffc33e;
 }
-.highlight .gt {
-  color: #960050;
-}
-.highlight .gd {
-  color: #49483e;
-}
-.highlight .gi {
-  color: #49483e;
-}
-.highlight .ge {
-  color: #49483e;
-}
-.highlight .kc {
-  color: #66d9ef;
-}
-.highlight .kd {
-  color: #66d9ef;
-}
-.highlight .kr {
-  color: #66d9ef;
-}
-.highlight .no {
-  color: #66d9ef;
-}
-.highlight .kt {
-  color: #66d9ef;
-}
-.highlight .mf {
-  color: #ae81ff;
-}
-.highlight .mh {
-  color: #ae81ff;
-}
-.highlight .il {
-  color: #ae81ff;
-}
-.highlight .mi {
-  color: #ae81ff;
-}
-.highlight .mo {
-  color: #ae81ff;
-}
-.highlight .m, .highlight .mb, .highlight .mx {
-  color: #ae81ff;
-}
-.highlight .sc {
-  color: #ae81ff;
-}
-.highlight .se {
-  color: #ae81ff;
-}
-.highlight .ss {
-  color: #ae81ff;
-}
-.highlight .sd {
-  color: #e6db74;
-}
-.highlight .s2 {
-  color: #e6db74;
-}
-.highlight .sb {
-  color: #e6db74;
-}
-.highlight .sh {
-  color: #e6db74;
-}
-.highlight .si {
-  color: #e6db74;
-}
-.highlight .sx {
-  color: #e6db74;
-}
-.highlight .s1 {
-  color: #e6db74;
-}
-.highlight .s {
-  color: #e6db74;
-}
-.highlight .na {
-  color: #a6e22e;
-}
-.highlight .nc {
-  color: #a6e22e;
-}
-.highlight .nd {
-  color: #a6e22e;
-}
-.highlight .ne {
-  color: #a6e22e;
-}
-.highlight .nf {
-  color: #a6e22e;
-}
-.highlight .vc {
-  color: #ffffff;
-}
-.highlight .nn {
-  color: #ffffff;
-}
-.highlight .nl {
-  color: #ffffff;
-}
-.highlight .ni {
-  color: #ffffff;
-}
-.highlight .bp {
-  color: #ffffff;
-}
-.highlight .vg {
-  color: #ffffff;
-}
-.highlight .vi {
-  color: #ffffff;
-}
-.highlight .nv {
-  color: #ffffff;
-}
-.highlight .w {
-  color: #ffffff;
-}
-.highlight {
-  color: #ffffff;
-}
-.highlight .n, .highlight .py, .highlight .nx {
-  color: #ffffff;
-}
-.highlight .ow {
-  color: #f92672;
+.highlight .cp {
+  color: #ffc33e;
 }
 .highlight .nt {
+  color: #ffc33e;
+}
+.highlight .o, .highlight .ow {
+  color: #ffffff;
+}
+.highlight .p, .highlight .pi {
+  color: #ffffff;
+}
+.highlight .gi {
+  color: #ffffff;
+}
+.highlight .gd {
   color: #f92672;
 }
-.highlight .k, .highlight .kv {
-  color: #f92672;
+.highlight .gh {
+  color: #66d9ef;
+  background-color: #272822;
+  font-weight: bold;
 }
-.highlight .kn {
-  color: #f92672;
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #51beff;
 }
-.highlight .kp {
-  color: #f92672;
+.highlight .kc {
+  color: #4af065;
 }
-.highlight .o {
-  color: #f92672;
+.highlight .kt {
+  color: #4af065;
+}
+.highlight .kd {
+  color: #4af065;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #ffffff;
+}
+.highlight .sr {
+  color: #a1efe4;
+}
+.highlight .si {
+  color: #cc6633;
+}
+.highlight .se {
+  color: #cc6633;
+}
+.highlight .nn {
+  color: #ffc33e;
+}
+.highlight .nc {
+  color: #ffc33e;
+}
+.highlight .no {
+  color: #ffc33e;
+}
+.highlight .nx {
+  color: #4af065;
+}
+.highlight .nb, .highlight .bp {
+  color: #4af065;
+}
+.highlight .na {
+  color: #66d9ef;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #ffffff;
+}
+.highlight .ss {
+  color: #ffffff;
 }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
@@ -277,7 +174,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<input type="checkbox" id="drop-2"/>
 			<ul id="guides">
 				<li class=""> <a href="../guides/simulation-guide.html">Learn About Simulation Requirements</a>  </li>
-				<li class=""> <a href="../guides/inkling-guide.html">Learn the Inkling Language</a>  </li>
+				<li class=""> <a href="../guides/inkling2-guide.html">Learn the Inkling Language</a>  </li>
 				<li class=""> <a href="../guides/machine-teaching.html">Programming Machine Teaching</a>  </li>
 				<li class=""> <a href="../guides/ai-engine-guide.html">Understand AI Engine Components</a>  </li>
 				<li class=""> <a href="../guides/web-graphs-guide.html">Understand BRAIN Graphs</a>  </li>
@@ -290,7 +187,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<ul id="references">
 				<li class=""> <a href="api-reference.html">API Reference</a>  </li>
 				<li class=""> <a href="cli-reference.html">CLI Reference</a>  </li>
-				<li class=""> <a href="inkling-reference.html">Inkling Reference</a>  </li>
+				<li class=""> <a href="inkling2-reference.html">Inkling Reference</a>  </li>
 				<li class=""> <a href="simulator-reference.html">Simulator Reference</a>
 				<li class=""> <a href="library-reference.html">Python Library</a>  </li>
 				<li class="selected"> <a href="cpp-library-reference.html">C++ Library</a>  </li>
@@ -676,10 +573,6 @@ demonstrates how these are called during training. Optionally, one may also over
 <td>The simulators name.</td>
 </tr>
 <tr>
-<td><code class="prettyprint">objective_name</code></td>
-<td>The name of the current objective for an episode.</td>
-</tr>
-<tr>
 <td><code class="prettyprint">episode_reward</code></td>
 <td>Cumulative reward for this episode so far.</td>
 </tr>
@@ -706,10 +599,8 @@ demonstrates how these are called during training. Optionally, one may also over
 <blockquote>
 <p>Example Inkling:</p>
 </blockquote>
-<pre class="highlight inkling tab-inkling"><code><span class="k">simulator</span> <span class="nx">my_simulator</span><span class="p">(</span><span class="nx">Config</span><span class="p">)</span>
-    <span class="k">action</span> <span class="p">(</span><span class="nx">Action</span><span class="p">)</span>
-    <span class="k">state</span> <span class="p">(</span><span class="nx">State</span><span class="p">)</span>
-<span class="k">end</span>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">simulator</span> <span class="nx">my_simulator</span><span class="p">(</span><span class="k">action</span><span class="p">:</span> <span class="nx">Action</span><span class="p">,</span> <span class="k">config</span><span class="p">:</span> <span class="nx">Config</span><span class="p">):</span> <span class="nx">State</span> <span class="p">{</span>
+<span class="p">}</span>
 </code></pre>
 <blockquote>
 <p>Example code:</p>
@@ -779,7 +670,7 @@ of Simulator and implement the <code class="prettyprint">episode_start</code> an
 <h2 id="bool-predict">bool predict()</h2>
 <pre class="highlight cpp tab-cpp"><code><span class="kt">void</span> <span class="n">MySimulator</span><span class="o">::</span><span class="n">simulate</span><span class="p">(</span><span class="k">const</span> <span class="n">bonsai</span><span class="o">::</span><span class="n">InklingMessage</span><span class="o">&amp;</span> <span class="n">action</span><span class="p">,</span>
                     <span class="n">bonsai</span><span class="o">::</span><span class="n">InklingMessage</span><span class="o">&amp;</span> <span class="n">state</span><span class="p">,</span> <span class="kt">float</span><span class="o">&amp;</span> <span class="n">reward</span><span class="p">,</span> <span class="kt">bool</span><span class="o">&amp;</span> <span class="n">terminal</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">predict</span><span class="p">()</span> <span class="o">==</span> <span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">predict</span><span class="p">())</span> <span class="p">{</span>
         <span class="c1">// calculate reward...
 </span>    <span class="p">}</span>
 
@@ -788,30 +679,19 @@ of Simulator and implement the <code class="prettyprint">episode_start</code> an
 </code></pre>
 <p>Returns a value indicating whether the simulation is set up to run in predict mode or training mode.</p>
 
-<h2 id="string-objective_name">string objective_name()</h2>
-<pre class="highlight cpp tab-cpp"><code><span class="kt">void</span> <span class="n">MySimulator</span><span class="o">::</span><span class="n">episode_start</span><span class="p">(</span><span class="k">const</span> <span class="n">bonsai</span><span class="o">::</span><span class="n">InklingMessage</span><span class="o">&amp;</span> <span class="n">params</span><span class="p">,</span>
-                                <span class="n">bonsai</span><span class="o">::</span><span class="n">InklingMessage</span><span class="o">&amp;</span> <span class="n">initial_state</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">objective_name</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
-    <span class="p">...</span>
-<span class="p">}</span>
-</code></pre>
-<p>Property accessor that returns the name of the current objective from Inkling.
-The objective may be updated before <code class="prettyprint">episode_start</code> is called. When running
-for prediction and during start up, objective will return an empty std::string.</p>
-
 <h2 id="episode_start-parameters-initial_state">episode_start(parameters, initial_state)</h2>
 
 <blockquote>
 <p>Example Inkling:</p>
 </blockquote>
-<pre class="highlight inkling tab-inkling"><code><span class="k">schema</span> <span class="nx">Config</span>
-    <span class="kr">UInt8</span> <span class="nx">start_angle</span>
-<span class="k">end</span>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">type</span> <span class="nx">Config</span> <span class="p">{</span>
+    <span class="nx">start_angle</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">UInt8</span>
+<span class="p">}</span>
 
-<span class="k">schema</span> <span class="nx">State</span>
-    <span class="kr">Float32</span> <span class="nx">angle</span><span class="p">,</span>
-    <span class="kr">Float32</span> <span class="nx">velocity</span>
-<span class="k">end</span>
+<span class="k">type</span> <span class="nx">State</span> <span class="p">{</span>
+    <span class="nx">angle</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">Float32</span><span class="p">,</span>
+    <span class="nx">velocity</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">Float32</span>
+<span class="p">}</span>
 </code></pre>
 <blockquote>
 <p>Example code:</p>
@@ -819,8 +699,7 @@ for prediction and during start up, objective will return an empty std::string.<
 <pre class="highlight cpp tab-cpp"><code><span class="kt">void</span> <span class="n">MySimulator</span><span class="o">::</span><span class="n">episode_start</span><span class="p">(</span><span class="k">const</span> <span class="n">bonsai</span><span class="o">::</span><span class="n">InklingMessage</span><span class="o">&amp;</span> <span class="n">params</span><span class="p">,</span>
                                 <span class="n">bonsai</span><span class="o">::</span><span class="n">InklingMessage</span><span class="o">&amp;</span> <span class="n">initial_state</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// training params are only passed in during training
-</span>    <span class="k">if</span> <span class="p">(</span><span class="n">predict</span><span class="p">()</span> <span class="o">==</span> <span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">objective_name</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">predict</span><span class="p">())</span> <span class="p">{</span>
         <span class="n">angle</span> <span class="o">=</span> <span class="n">params</span><span class="p">.</span><span class="n">get_float32</span><span class="p">(</span><span class="s">"start_angle"</span><span class="p">);</span>
     <span class="p">}</span>
 
@@ -845,8 +724,7 @@ for prediction and during start up, objective will return an empty std::string.<
 </tbody></table>
 
 <p>This callback passes in a set of initial parameters and expects an initial state in return
-for the simulator. Before this callback is called, the property <code class="prettyprint">objective_name</code> will be
-updated to reflect the current objective for this episode.</p>
+for the simulator.</p>
 
 <p>This call is where a simulation should be reset for the next round.</p>
 
@@ -857,9 +735,9 @@ updated to reflect the current objective for this episode.</p>
 <blockquote>
 <p>Example Inkling:</p>
 </blockquote>
-<pre class="highlight inkling tab-inkling"><code><span class="k">schema</span> <span class="nx">Action</span>
-    <span class="kr">Int8</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">}</span> <span class="nx">delta</span>
-<span class="k">end</span>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">type</span> <span class="nx">Action</span> <span class="p">{</span>
+    <span class="nx">delta</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">Int8</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="p">}</span>
 </code></pre>
 <blockquote>
 <p>Example code:</p>
@@ -870,8 +748,8 @@ updated to reflect the current objective for this episode.</p>
     <span class="n">terminal</span> <span class="o">=</span> <span class="p">(</span><span class="n">velocity</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">);</span>
 
     <span class="c1">// reward is only needed during training.
-</span>    <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">predict</span><span class="p">()</span> <span class="o">==</span> <span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">reward</span> <span class="o">=</span> <span class="n">reward_for_objective</span><span class="p">(</span><span class="n">objective_name</span><span class="p">());</span>
+</span>    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">self</span><span class="p">.</span><span class="n">predict</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">reward</span> <span class="o">=</span> <span class="n">get_reward</span><span class="p">();</span>
     <span class="p">}</span>
 
     <span class="n">state</span><span class="p">.</span><span class="n">set_float32</span><span class="p">(</span><span class="s">"velocity"</span><span class="p">,</span> <span class="n">velocity</span><span class="p">);</span>
@@ -894,7 +772,7 @@ updated to reflect the current objective for this episode.</p>
 </tr>
 <tr>
 <td><code class="prettyprint">reward</code></td>
-<td>Output reward value as calculated based upon the objective.</td>
+<td>Output calculated reward value.</td>
 </tr>
 <tr>
 <td><code class="prettyprint">terminal</code></td>
@@ -904,12 +782,8 @@ updated to reflect the current objective for this episode.</p>
 
 <p>This callback steps the simulation forward by a single step. It passes in
 the <code class="prettyprint">action</code> to be taken, and expects the resulting <code class="prettyprint">state</code>, <code class="prettyprint">reward</code> for the current
-<code class="prettyprint">objective</code>, and a <code class="prettyprint">terminal</code> flag used to signal the end of an episode. Note that an
+<code class="prettyprint">curriculum</code>, and a <code class="prettyprint">terminal</code> flag used to signal the end of an episode. Note that an
 episode may be reset prematurely by the backend during training.</p>
-
-<p>For a multi-lesson curriculum, the <code class="prettyprint">objective_name</code> will change from episode to episode.
-In this case ensure that the simulator is returning the correct reward for the
-different lessons.</p>
 
 <p>Returning <code class="prettyprint">true</code> for the <code class="prettyprint">terminal</code> flag signals the start of a new episode.</p>
 

@@ -11,190 +11,87 @@
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
-.highlight .gh {
-  color: #999999;
-}
-.highlight .sr {
-  color: #f6aa11;
-}
-.highlight .go {
-  color: #888888;
-}
-.highlight .gp {
-  color: #555555;
-}
-.highlight .gs {
-}
-.highlight .gu {
-  color: #aaaaaa;
-}
-.highlight .nb {
-  color: #f6aa11;
-}
-.highlight .cm {
-  color: #75715e;
-}
-.highlight .cp {
-  color: #75715e;
-}
-.highlight .c1 {
-  color: #75715e;
-}
-.highlight .cs {
-  color: #75715e;
-}
-.highlight .c, .highlight .cd {
-  color: #75715e;
+.highlight, .highlight .w {
+  color: #ffffff;
+  background-color: #272822;
 }
 .highlight .err {
-  color: #960050;
+  color: #272822;
+  background-color: #f92672;
 }
-.highlight .gr {
-  color: #960050;
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #ffc33e;
 }
-.highlight .gt {
-  color: #960050;
-}
-.highlight .gd {
-  color: #49483e;
-}
-.highlight .gi {
-  color: #49483e;
-}
-.highlight .ge {
-  color: #49483e;
-}
-.highlight .kc {
-  color: #66d9ef;
-}
-.highlight .kd {
-  color: #66d9ef;
-}
-.highlight .kr {
-  color: #66d9ef;
-}
-.highlight .no {
-  color: #66d9ef;
-}
-.highlight .kt {
-  color: #66d9ef;
-}
-.highlight .mf {
-  color: #ae81ff;
-}
-.highlight .mh {
-  color: #ae81ff;
-}
-.highlight .il {
-  color: #ae81ff;
-}
-.highlight .mi {
-  color: #ae81ff;
-}
-.highlight .mo {
-  color: #ae81ff;
-}
-.highlight .m, .highlight .mb, .highlight .mx {
-  color: #ae81ff;
-}
-.highlight .sc {
-  color: #ae81ff;
-}
-.highlight .se {
-  color: #ae81ff;
-}
-.highlight .ss {
-  color: #ae81ff;
-}
-.highlight .sd {
-  color: #e6db74;
-}
-.highlight .s2 {
-  color: #e6db74;
-}
-.highlight .sb {
-  color: #e6db74;
-}
-.highlight .sh {
-  color: #e6db74;
-}
-.highlight .si {
-  color: #e6db74;
-}
-.highlight .sx {
-  color: #e6db74;
-}
-.highlight .s1 {
-  color: #e6db74;
-}
-.highlight .s {
-  color: #e6db74;
-}
-.highlight .na {
-  color: #a6e22e;
-}
-.highlight .nc {
-  color: #a6e22e;
-}
-.highlight .nd {
-  color: #a6e22e;
-}
-.highlight .ne {
-  color: #a6e22e;
-}
-.highlight .nf {
-  color: #a6e22e;
-}
-.highlight .vc {
-  color: #ffffff;
-}
-.highlight .nn {
-  color: #ffffff;
-}
-.highlight .nl {
-  color: #ffffff;
-}
-.highlight .ni {
-  color: #ffffff;
-}
-.highlight .bp {
-  color: #ffffff;
-}
-.highlight .vg {
-  color: #ffffff;
-}
-.highlight .vi {
-  color: #ffffff;
-}
-.highlight .nv {
-  color: #ffffff;
-}
-.highlight .w {
-  color: #ffffff;
-}
-.highlight {
-  color: #ffffff;
-}
-.highlight .n, .highlight .py, .highlight .nx {
-  color: #ffffff;
-}
-.highlight .ow {
-  color: #f92672;
+.highlight .cp {
+  color: #ffc33e;
 }
 .highlight .nt {
+  color: #ffc33e;
+}
+.highlight .o, .highlight .ow {
+  color: #ffffff;
+}
+.highlight .p, .highlight .pi {
+  color: #ffffff;
+}
+.highlight .gi {
+  color: #ffffff;
+}
+.highlight .gd {
   color: #f92672;
 }
-.highlight .k, .highlight .kv {
-  color: #f92672;
+.highlight .gh {
+  color: #66d9ef;
+  background-color: #272822;
+  font-weight: bold;
 }
-.highlight .kn {
-  color: #f92672;
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #51beff;
 }
-.highlight .kp {
-  color: #f92672;
+.highlight .kc {
+  color: #4af065;
 }
-.highlight .o {
-  color: #f92672;
+.highlight .kt {
+  color: #4af065;
+}
+.highlight .kd {
+  color: #4af065;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #ffffff;
+}
+.highlight .sr {
+  color: #a1efe4;
+}
+.highlight .si {
+  color: #cc6633;
+}
+.highlight .se {
+  color: #cc6633;
+}
+.highlight .nn {
+  color: #ffc33e;
+}
+.highlight .nc {
+  color: #ffc33e;
+}
+.highlight .no {
+  color: #ffc33e;
+}
+.highlight .nx {
+  color: #4af065;
+}
+.highlight .nb, .highlight .bp {
+  color: #4af065;
+}
+.highlight .na {
+  color: #66d9ef;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #ffffff;
+}
+.highlight .ss {
+  color: #ffffff;
 }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
@@ -277,7 +174,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<input type="checkbox" id="drop-2"/>
 			<ul id="guides">
 				<li class=""> <a href="simulation-guide.html">Learn About Simulation Requirements</a>  </li>
-				<li class=""> <a href="inkling-guide.html">Learn the Inkling Language</a>  </li>
+				<li class=""> <a href="inkling2-guide.html">Learn the Inkling Language</a>  </li>
 				<li class="selected"> <a href="machine-teaching.html">Programming Machine Teaching</a>  </li>
 				<li class=""> <a href="ai-engine-guide.html">Understand AI Engine Components</a>  </li>
 				<li class=""> <a href="web-graphs-guide.html">Understand BRAIN Graphs</a>  </li>
@@ -290,7 +187,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<ul id="references">
 				<li class=""> <a href="../references/api-reference.html">API Reference</a>  </li>
 				<li class=""> <a href="../references/cli-reference.html">CLI Reference</a>  </li>
-				<li class=""> <a href="../references/inkling-reference.html">Inkling Reference</a>  </li>
+				<li class=""> <a href="../references/inkling2-reference.html">Inkling Reference</a>  </li>
 				<li class=""> <a href="../references/simulator-reference.html">Simulator Reference</a>
 				<li class=""> <a href="../references/library-reference.html">Python Library</a>  </li>
 				<li class=""> <a href="../references/cpp-library-reference.html">C++ Library</a>  </li>
@@ -462,61 +359,53 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <blockquote>
 <p>Inkling code for Househeat</p>
 </blockquote>
-<pre class="highlight inkling tab-inkling"><code><span class="k">schema</span> <span class="nx">HouseheatState</span>
-    <span class="kr">Float32</span> <span class="nx">heat_cost</span><span class="p">,</span>
-    <span class="kr">Float32</span> <span class="nx">temperature_difference</span><span class="p">,</span>
-    <span class="kr">Float32</span> <span class="nx">temperature_difference_t1</span><span class="p">,</span>
-    <span class="kr">Float32</span> <span class="nx">temperature_difference_t2</span><span class="p">,</span>
-    <span class="kr">Float32</span> <span class="nx">temperature_difference_t3</span><span class="p">,</span>
-    <span class="kr">Float32</span> <span class="nx">temperature_difference_t4</span><span class="p">,</span>
-    <span class="kr">Float32</span> <span class="nx">temperature_difference_t5</span><span class="p">,</span>
-    <span class="kr">Float32</span> <span class="nx">outside_temp_change</span>
-<span class="k">end</span>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">inkling</span> <span class="s2">"2.0"</span>
 
-<span class="k">schema</span> <span class="nx">HouseheatAction</span>
-    <span class="kr">Float32</span><span class="p">{</span> <span class="mf">0.0</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mf">1.0</span> <span class="p">}</span> <span class="nx">heater_on</span>
-<span class="k">end</span>
+<span class="k">type</span> <span class="nx">HouseheatState</span> <span class="p">{</span>
+    <span class="nx">heat_cost</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span>
+    <span class="nx">temperature_difference</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span>
+    <span class="nx">temperature_difference_t1</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span>
+    <span class="nx">temperature_difference_t2</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span>
+    <span class="nx">temperature_difference_t3</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span>
+    <span class="nx">temperature_difference_t4</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span>
+    <span class="nx">temperature_difference_t5</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span>
+    <span class="nx">outside_temp_change</span><span class="p">:</span> <span class="k">number</span>
+<span class="p">}</span>
 
-<span class="k">schema</span> <span class="nx">HouseheatConfig</span>
-    <span class="kr">Float32</span> <span class="nx">outside_phase</span>
-<span class="k">end</span>
+<span class="k">type</span> <span class="nx">HouseheatAction</span> <span class="p">{</span>
+    <span class="nx">heater_on</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span> <span class="p">..</span> <span class="mi">1</span> <span class="k">step</span> <span class="mi">1</span><span class="o">&gt;</span>
+<span class="p">}</span>
 
-<span class="k">concept</span> <span class="nx">thermostat</span> <span class="k">is</span> <span class="nx">classifier</span>
-   <span class="k">predicts</span> <span class="p">(</span><span class="nx">HouseheatAction</span><span class="p">)</span>
-   <span class="k">follows</span> <span class="kr">input</span><span class="p">(</span><span class="nx">HouseheatState</span><span class="p">)</span>
-   <span class="k">feeds</span> <span class="kr">output</span>
-<span class="k">end</span>
+<span class="k">type</span> <span class="nx">HouseheatConfig</span> <span class="p">{</span>
+    <span class="nx">outside_phase</span><span class="p">:</span> <span class="k">number</span>
+<span class="p">}</span>
 
-<span class="k">simulator</span> <span class="nx">simulink_sim</span><span class="p">(</span><span class="nx">HouseheatConfig</span><span class="p">)</span>
-    <span class="k">action</span> <span class="p">(</span><span class="nx">HouseheatAction</span><span class="p">)</span>
-    <span class="k">state</span> <span class="p">(</span><span class="nx">HouseheatState</span><span class="p">)</span>
-<span class="k">end</span>
+<span class="k">simulator</span> <span class="nx">simulink_sim</span><span class="p">(</span><span class="k">action</span><span class="p">:</span> <span class="nx">HouseheatAction</span><span class="p">,</span> <span class="k">config</span><span class="p">:</span> <span class="nx">HouseheatConfig</span><span class="p">):</span> <span class="nx">HouseheatState</span> <span class="p">{</span>
+<span class="p">}</span>
 
-<span class="k">curriculum</span> <span class="nx">my_curriculum</span>
-    <span class="k">train</span> <span class="nx">thermostat</span>
-    <span class="k">with</span> <span class="k">simulator</span> <span class="nx">simulink_sim</span>
-    <span class="k">objective</span> <span class="nx">match_set_temp</span>
-
-        <span class="k">lesson</span> <span class="nx">my_first_lesson</span>
-            <span class="k">configure</span>
-            <span class="k">constrain</span> <span class="nx">outside_phase</span> <span class="k">with</span> <span class="kr">Float32</span><span class="p">{</span><span class="mf">0.0</span><span class="p">:</span><span class="mf">12.0</span><span class="p">}</span>
-            <span class="k">until</span>
-                <span class="k">maximize</span> <span class="nx">match_set_temp</span>
-
-        <span class="k">lesson</span> <span class="nx">my_second_lesson</span>
-            <span class="k">configure</span>
-            <span class="k">constrain</span> <span class="nx">outside_phase</span> <span class="k">with</span> <span class="kr">Float32</span><span class="p">{</span><span class="mf">0.0</span><span class="p">:</span><span class="mf">24.0</span><span class="p">}</span>
-            <span class="k">until</span>
-                <span class="k">maximize</span> <span class="nx">match_set_temp</span>
-
-
-        <span class="k">lesson</span> <span class="nx">my_third_lesson</span>
-            <span class="k">configure</span>
-            <span class="k">constrain</span> <span class="nx">outside_phase</span> <span class="k">with</span> <span class="kr">Float32</span><span class="p">{</span><span class="mf">0.0</span><span class="p">:</span><span class="mf">48.0</span><span class="p">}</span>
-            <span class="k">until</span>
-                <span class="k">maximize</span> <span class="nx">match_set_temp</span>
-
-<span class="k">end</span>
+<span class="k">graph</span> <span class="p">(</span><span class="k">input</span><span class="p">:</span> <span class="nx">HouseheatState</span><span class="p">):</span> <span class="nx">HouseheatAction</span> <span class="p">{</span>
+    <span class="k">concept</span> <span class="nx">thermostat</span><span class="p">(</span><span class="k">input</span><span class="p">):</span> <span class="nx">HouseheatAction</span> <span class="p">{</span>
+        <span class="k">curriculum</span> <span class="p">{</span>
+            <span class="k">source</span> <span class="nx">simulink_sim</span>
+            <span class="k">lesson</span> <span class="nx">my_first_lesson</span> <span class="p">{</span>
+                <span class="k">constraint</span> <span class="p">{</span>
+                    <span class="nx">outside_phase</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span> <span class="p">..</span> <span class="mi">12</span><span class="o">&gt;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="k">lesson</span> <span class="nx">my_second_lesson</span> <span class="p">{</span>
+                <span class="k">constraint</span> <span class="p">{</span>
+                    <span class="nx">outside_phase</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span> <span class="p">..</span> <span class="mi">24</span><span class="o">&gt;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="k">lesson</span> <span class="nx">my_third_lesson</span> <span class="p">{</span>
+                <span class="k">constraint</span> <span class="p">{</span>
+                    <span class="nx">outside_phase</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span> <span class="p">..</span> <span class="mi">48</span><span class="o">&gt;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">output</span> <span class="nx">thermostat</span>
+<span class="p">}</span>
 </code></pre>
 <blockquote>
 <p>Python code for Househeat</p>
@@ -672,7 +561,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p>The rest of this guide will walk through example code and best practices of training a BRAIN to keep the internal temperature of a house as close as possible to a set point temperature. This system models the outdoor environment, the thermal characteristics of the house, and the house heating system. This is simulating the real-world example of a HVAC system in a home.</p>
 
-<p>Before we dive into the STAR components of this system, let’s first look at the Inkling concepts and schemas that describe the problem at hand. These state and action schemas combine with the reward to comprise the feedback loop that the BRAIN will use to learn. We will use the transformations outlined below to reformat the simulator inputs and outputs to match the Inkling schemas that we present to the BRAIN.</p>
+<p>Before we dive into the STAR components of this system, let’s first look at the Inkling concepts and types that describe the problem at hand. These state and action types combine with the reward to comprise the feedback loop that the BRAIN will use to learn. We will use the transformations outlined below to reformat the simulator inputs and outputs to match the Inkling types that we present to the BRAIN.</p>
 
 <p>After you&rsquo;ve glanced at the Inkling code you can take a quick look at the Python code. This guide will walk through segments of it and the full code (with more code comments) can be referenced under <a href="https://github.com/BonsaiAI/bonsai-simulink/tree/master/examples/simulink-househeat">Simulink Househeat</a> on GitHub if you want the full context. Specifically, the code snippets describing machine teaching can be found in <code class="prettyprint">simulink_househeat.ink</code> for Inkling and <code class="prettyprint">bonsai_model.py</code> for Python.</p>
 
@@ -879,30 +768,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <h1 id="constructing-lessons-for-brain-training">Constructing Lessons for BRAIN Training</h1>
 
-<p>Each Inkling file contains a lesson plan that will be used to train the BRAIN.  You can create a phased training plan for your BRAIN by configuring your simulation model at the beginning of each episode.  </p>
+<p>Each Inkling file contains a lesson plan that will be used to train the BRAIN. You can create a phased training plan for your BRAIN by configuring your simulation model at the beginning of each episode.  </p>
 
 <h2 id="initializing-episodes">Initializing Episodes</h2>
 
 <blockquote>
 <p>Inkling for episode configuration</p>
 </blockquote>
-<pre class="highlight inkling tab-inkling"><code><span class="k">schema</span> <span class="nx">HouseheatConfig</span>
-    <span class="kr">Float32</span> <span class="nx">outside_phase</span>
-<span class="k">end</span>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">type</span> <span class="nx">HouseheatConfig</span> <span class="p">{</span>
+    <span class="nx">outside_phase</span><span class="p">:</span> <span class="k">number</span>
+<span class="p">}</span>
 
-<span class="k">curriculum</span> <span class="nx">my_curriculum</span>
-    <span class="k">train</span> <span class="nx">thermostat</span>
-    <span class="k">with</span> <span class="k">simulator</span> <span class="nx">simulink_sim</span>
-    <span class="k">objective</span> <span class="nx">match_set_temp</span>
+<span class="k">concept</span> <span class="nx">thermostat</span><span class="p">(</span><span class="k">input</span><span class="p">):</span> <span class="nx">HouseheatAction</span> <span class="p">{</span>
+    <span class="k">curriculum</span> <span class="p">{</span>
+        <span class="k">source</span> <span class="nx">simulink_sim</span>
 
-        <span class="k">lesson</span> <span class="nx">my_first_lesson</span>
-            <span class="k">configure</span>
-            <span class="k">constrain</span> <span class="nx">outside_phase</span> <span class="k">with</span> <span class="kr">Float32</span><span class="p">{</span><span class="mf">0.0</span><span class="p">:</span><span class="mf">12.0</span><span class="p">}</span>
-            <span class="k">until</span>
-                <span class="k">maximize</span> <span class="nx">match_set_temp</span> 
-<span class="k">end</span>
+        <span class="k">lesson</span> <span class="nx">my_first_lesson</span> <span class="p">{</span>
+            <span class="k">constraint</span> <span class="p">{</span>
+                <span class="nx">outside_phase</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span> <span class="p">..</span> <span class="mi">12</span><span class="o">&gt;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
-<p>The episode_start call passes in configuration parameters that are specified in Inkling.  In the example shown, a randomized phase of the sinusoidal temperature variations is passed into an HVAC simulation from the Inkling lesson.  You can think of this as the outside temperature at different times of the day. </p>
+<p>The episode_start call passes in configuration parameters that are specified in Inkling. In the example shown, a randomized phase of the sinusoidal temperature variations is passed into an HVAC simulation from the Inkling lesson.  You can think of this as the outside temperature at different times of the day. </p>
 
 <p>At the beginning of each episode, the phase is passed into the STAR.py file and you can use it for things like reward calculations. </p>
 
@@ -917,16 +806,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </code></pre>
 <h2 id="generalizing-training">Generalizing Training</h2>
 
-<p>We can also train more robust policies and better transition from simulation to live equipment using simulator configurations.   Randomizing initial conditions can force the BRAIN to learn the underlying dynamics of systems instead of overfitting to one particular scenario.  This technique can also help to better adapt to live equipment which often experiences much more variation than the simulation model that the BRAIN was trained on.</p>
+<p>We can also train more robust policies and better transition from simulation to live equipment using simulator configurations. Randomizing initial conditions can force the BRAIN to learn the underlying dynamics of systems instead of overfitting to one particular scenario. This technique can also help to better adapt to live equipment which often experiences much more variation than the simulation model that the BRAIN was trained on.</p>
 
 <blockquote>
 <p>Temperature variation in Inkling lesson</p>
 </blockquote>
-<pre class="highlight inkling tab-inkling"><code><span class="k">lesson</span> <span class="nx">my_first_lesson</span>
-    <span class="k">configure</span>
-    <span class="k">constrain</span> <span class="nx">outside_phase</span> <span class="k">with</span> <span class="kr">Float32</span><span class="p">{</span><span class="mf">0.0</span><span class="p">:</span><span class="mf">12.0</span><span class="p">}</span>
-    <span class="k">until</span>
-        <span class="k">maximize</span> <span class="nx">match_set_temp</span>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">lesson</span> <span class="nx">my_first_lesson</span> <span class="p">{</span>
+    <span class="k">constraint</span> <span class="p">{</span>
+        <span class="nx">outside_phase</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span> <span class="p">..</span> <span class="mi">12</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 <p>For example, if you are training a BRAIN to control an HVAC system to control a chiller valve there may be error in the valve calibration.   When the BRAIN specifies a the valve to be opened to allow 40% of maximum water flow, the valve actually opens to 42% maximum water flow.  One way to mitigate this common miscalibration would be to set a noise variable in Inkling configuration parameter.  At the beginning of each episode, this variable will be set to a random value within a range of possible miscalibration.  This mimics the effect of valves that are miscalibrated and forces the BRAIN to learn to effectively control the HVAC system through a wide variety of miscalibrated valves.</p>
 
@@ -937,35 +826,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <blockquote>
 <p>Inkling curriculum</p>
 </blockquote>
-<pre class="highlight inkling tab-inkling"><code><span class="k">curriculum</span> <span class="nx">my_curriculum</span>
-    <span class="k">train</span> <span class="nx">thermostat</span>
-    <span class="k">with</span> <span class="k">simulator</span> <span class="nx">simulink_sim</span>
-    <span class="k">objective</span> <span class="nx">match_set_temp</span>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">concept</span> <span class="nx">thermostat</span><span class="p">(</span><span class="k">input</span><span class="p">):</span> <span class="nx">HouseheatAction</span> <span class="p">{</span>
+    <span class="k">curriculum</span> <span class="p">{</span>
+        <span class="k">source</span> <span class="nx">simulink_sim</span>
 
-        <span class="k">lesson</span> <span class="nx">my_first_lesson</span>
-            <span class="k">configure</span>
-            <span class="k">constrain</span> <span class="nx">outside_phase</span> <span class="k">with</span> <span class="kr">Float32</span><span class="p">{</span><span class="mf">0.0</span><span class="p">:</span><span class="mf">12.0</span><span class="p">}</span>
-            <span class="k">until</span>
-                <span class="k">maximize</span> <span class="nx">match_set_temp</span>
+        <span class="k">lesson</span> <span class="nx">my_first_lesson</span> <span class="p">{</span>
+            <span class="k">constraint</span> <span class="p">{</span>
+                <span class="nx">outside_phase</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span> <span class="p">..</span> <span class="mi">12</span><span class="o">&gt;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
 
-        <span class="k">lesson</span> <span class="nx">my_second_lesson</span>
-            <span class="k">configure</span>
-            <span class="k">constrain</span> <span class="nx">outside_phase</span> <span class="k">with</span> <span class="kr">Float32</span><span class="p">{</span><span class="mf">0.0</span><span class="p">:</span><span class="mf">24.0</span><span class="p">}</span>
-            <span class="k">until</span>
-                <span class="k">maximize</span> <span class="nx">match_set_temp</span>
+        <span class="k">lesson</span> <span class="nx">my_second_lesson</span> <span class="p">{</span>
+            <span class="k">constraint</span> <span class="p">{</span>
+                <span class="nx">outside_phase</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span> <span class="p">..</span> <span class="mi">24</span><span class="o">&gt;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
 
-
-        <span class="k">lesson</span> <span class="nx">my_third_lesson</span>
-            <span class="k">configure</span>
-            <span class="k">constrain</span> <span class="nx">outside_phase</span> <span class="k">with</span> <span class="kr">Float32</span><span class="p">{</span><span class="mf">0.0</span><span class="p">:</span><span class="mf">48.0</span><span class="p">}</span>
-            <span class="k">until</span>
-                <span class="k">maximize</span> <span class="nx">match_set_temp</span>
-
-<span class="k">end</span>
+        <span class="k">lesson</span> <span class="nx">my_third_lesson</span> <span class="p">{</span>
+            <span class="k">constraint</span> <span class="p">{</span>
+                <span class="nx">outside_phase</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span> <span class="p">..</span> <span class="mi">48</span><span class="o">&gt;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
-<p>In this example we want to train a BRAIN to control a residential HVAC system.  We want the BRAIN to successfully respond to a wide variety of initial room temperatures.  We create an Inkling <code class="prettyprint">configure</code> variable for initial temperature, but we don’t want to vary the initial room temperature randomly because the range of initial temperatures is very wide.  This may take the learning algorithm a long time to explore the solution space. </p>
+<p>In this example we want to train a BRAIN to control a residential HVAC system.  We want the BRAIN to successfully respond to a wide variety of initial room temperatures.  We create an Inkling configuration for initial temperature, but we don’t want to vary the initial room temperature randomly because the range of initial temperatures is very wide. This may take the learning algorithm a long time to explore the solution space. </p>
 
-<p>Instead, we use a phased training approach called lessons. In the early episodes, the first lesson, we <code class="prettyprint">constrain</code> the initial temperature to a narrow range. After the BRAIN learns to control the system well in the first range of initial temperatures, we increase the range of possible initial temperatures in the second lesson. Then we repeat the process for subsequent lessons. </p>
+<p>Instead, we use a phased training approach called lessons. In the early episodes, the first lesson, we specify a <code class="prettyprint">constraint</code> such that the initial temperature is within a narrow range. After the BRAIN learns to control the system well in the first range of initial temperatures, we increase the range of possible initial temperatures in the second lesson. Then we repeat the process for subsequent lessons. </p>
 
 <h1 id="logging-brain-training-progress">Logging BRAIN Training Progress</h1>
 

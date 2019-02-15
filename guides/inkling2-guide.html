@@ -1,0 +1,644 @@
+
+
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Learn the Inkling Language - Bonsai</title>
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #272822;
+  background-color: #f92672;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #ffc33e;
+}
+.highlight .cp {
+  color: #ffc33e;
+}
+.highlight .nt {
+  color: #ffc33e;
+}
+.highlight .o, .highlight .ow {
+  color: #ffffff;
+}
+.highlight .p, .highlight .pi {
+  color: #ffffff;
+}
+.highlight .gi {
+  color: #ffffff;
+}
+.highlight .gd {
+  color: #f92672;
+}
+.highlight .gh {
+  color: #66d9ef;
+  background-color: #272822;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #51beff;
+}
+.highlight .kc {
+  color: #4af065;
+}
+.highlight .kt {
+  color: #4af065;
+}
+.highlight .kd {
+  color: #4af065;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #ffffff;
+}
+.highlight .sr {
+  color: #a1efe4;
+}
+.highlight .si {
+  color: #cc6633;
+}
+.highlight .se {
+  color: #cc6633;
+}
+.highlight .nn {
+  color: #ffc33e;
+}
+.highlight .nc {
+  color: #ffc33e;
+}
+.highlight .no {
+  color: #ffc33e;
+}
+.highlight .nx {
+  color: #4af065;
+}
+.highlight .nb, .highlight .bp {
+  color: #4af065;
+}
+.highlight .na {
+  color: #66d9ef;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #ffffff;
+}
+.highlight .ss {
+  color: #ffffff;
+}
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js" type="text/javascript"></script>
+    <script type="text/javascript">WebFont.load({  google: {    families: ["Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic"]  }});</script>
+    <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
+	  <link href="../stylesheets/test.css" rel="stylesheet" media="screen" />
+    <link href="../favicon.ico" rel="icon" type="image/ico" />
+      <script src="../javascripts/all.js"></script>
+      <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WVB6MG2');</script>
+<!-- End Google Tag Manager -->
+      <!-- start Mixpanel -->
+<script type="text/javascript">(function(e,a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,
+0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
+mixpanel.init("91fbf7b68fb2356f91916026f221ddd5", {
+    loaded: function(mixpanel) {
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        distinct_id = getParameterByName('refUserId');
+        if (distinct_id) {
+          mixpanel.identify(distinct_id);
+        }
+    }
+});</script>
+<!-- end Mixpanel -->
+
+  </head>
+
+  <body class="guides guides_inkling2-guide" data-languages="[]">
+
+
+	  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVB6MG2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) --> 
+
+  <div id="flex-container">
+
+	<nav id="primary-nav">
+
+
+
+	<div id="logo"> <a href="../"><img class="bonsai-logo" src="../images/bonsai-logo.svg"></a></div>
+
+	<label for="drop" class="toggle"><img class="menu-ham" src="../images/menu.svg"></label>
+	<input type="checkbox" id="drop" />
+
+	<ul class="menu">
+
+		<li class="header_menu_item "> <a href="getting-started.html">Quick Start</a></li>
+
+		<li class="header_menu_item"> <!-- First Tier Drop Down --> <label for="drop-1" class="toggle">Tutorials +</label><a  href="#">Tutorials</a>
+			<input type="checkbox" id="drop-1"/>
+			<ul id="tutorials">
+				<li class=""> <a href="cli-install-guide.html">Install the CLI</a>  </li>
+				<li class=""> <a href="local-dev-guide.html">Use the CLI for Training</a>  </li>
+				<li class=""> <a href="sdk-install-guide.html">Install the SDK</a>  </li>
+				<li class=""> <a href="../tutorials/tutorial1.html">Running Simulations and Writing Inkling</a>  </li>
+				<li class=""> <a href="../tutorials/simulink.html">Train a Simulink Model with Bonsai</a>  </li>
+				<li class=""> <a href="jupyter-api-guide.html">Use Bonsai's API with Jupyter</a>  </li>
+			</ul>
+		</li>
+
+		<li class="header_menu_item"> <!-- First Tier Drop Down --> <label for="drop-2" class="toggle">Guides +</label><a  href="#">Guides</a>
+			<input type="checkbox" id="drop-2"/>
+			<ul id="guides">
+				<li class=""> <a href="simulation-guide.html">Learn About Simulation Requirements</a>  </li>
+				<li class="selected"> <a href="inkling2-guide.html">Learn the Inkling Language</a>  </li>
+				<li class=""> <a href="machine-teaching.html">Programming Machine Teaching</a>  </li>
+				<li class=""> <a href="ai-engine-guide.html">Understand AI Engine Components</a>  </li>
+				<li class=""> <a href="web-graphs-guide.html">Understand BRAIN Graphs</a>  </li>
+				<li class=""> <a href="sim-scale-guide.html">Scale Simulation runs with Azure Batch</a>  </li>
+			</ul>
+		</li>
+
+		<li class="header_menu_item"> <!-- First Tier Drop Down --> <label for="drop-3" class="toggle">References +</label><a  href="#">References</a>
+			<input type="checkbox" id="drop-3"/>
+			<ul id="references">
+				<li class=""> <a href="../references/api-reference.html">API Reference</a>  </li>
+				<li class=""> <a href="../references/cli-reference.html">CLI Reference</a>  </li>
+				<li class=""> <a href="../references/inkling2-reference.html">Inkling Reference</a>  </li>
+				<li class=""> <a href="../references/simulator-reference.html">Simulator Reference</a>
+				<li class=""> <a href="../references/library-reference.html">Python Library</a>  </li>
+				<li class=""> <a href="../references/cpp-library-reference.html">C++ Library</a>  </li>
+
+			</ul>
+		</li>
+
+		<li class="header_menu_item "> <a href="../examples.html">Examples</a></li>
+
+		<li>
+			<input type="search" id="docs-search" placeholder="Search Bonsai Docs">
+		</li>
+
+
+	</ul>
+
+</nav>
+
+
+	<div id="main-wrapper">
+
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div class="page-title">Learn the Inkling Language</div>
+      <div id="toc">
+      </div>
+
+			 
+<ul class="toc-footer">
+
+<li><a href='https://bons.ai'>Bonsai Home</a></li>
+<li><a href='https://beta.bons.ai'>BRAIN Dashboard</a></li>
+<li><a href='https://github.com/BonsaiAI/slate'>Contribute to the Docs</a></li>
+<li><a href='https://bons.ai/get-started'>Apply for Bonsai Platform Preview</a></li>
+<li><a href="/releases.html">Product Release Notes</a></li>
+<li><a href="/system-reqs.html">Official System Requirements</a></li>
+<li><a href='https://bons.ai/contact-us#contact-page-form'>Contact Us</a></li>
+
+</ul>
+
+
+	   <div class="cc-bottom">
+	
+	<div class="toc-footer bottom cc-info">
+
+		<a href='https://creativecommons.org/licenses/by-sa/4.0/' class="cc-icon-width" >
+			<svg class="cc" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+			viewBox="0 0 70.7 13.4" style="enable-background:new 0 0 70.7 13.4;" xml:space="preserve">
+
+				<g>
+
+				<g>
+				<circle class="st0" cx="6.8" cy="6.7" r="6.1"/>
+				<path d="M6.7,0c1.9,0,3.5,0.7,4.8,2c0.6,0.6,1.1,1.4,1.4,2.2c0.3,0.8,0.5,1.7,0.5,2.6c0,0.9-0.2,1.8-0.5,2.6
+				c-0.3,0.8-0.8,1.5-1.4,2.1c-0.7,0.6-1.4,1.1-2.2,1.5c-0.8,0.3-1.7,0.5-2.6,0.5S5,13.3,4.2,12.9c-0.8-0.3-1.5-0.8-2.2-1.5
+				s-1.1-1.4-1.5-2.2S0,7.6,0,6.7C0,5.8,0.2,5,0.5,4.2S1.3,2.6,2,2C3.3,0.7,4.8,0,6.7,0z M6.7,1.2c-1.5,0-2.8,0.5-3.9,1.6
+				C2.3,3.4,1.9,4,1.6,4.6C1.4,5.3,1.2,6,1.2,6.7c0,0.7,0.1,1.4,0.4,2.1c0.3,0.7,0.7,1.3,1.2,1.8c0.5,0.5,1.1,0.9,1.8,1.2
+				c0.7,0.3,1.4,0.4,2.1,0.4c0.7,0,1.4-0.1,2.1-0.4c0.7-0.3,1.3-0.7,1.8-1.2c1-1,1.6-2.3,1.6-3.9c0-0.7-0.1-1.4-0.4-2.1
+				c-0.3-0.7-0.7-1.3-1.2-1.8C9.5,1.8,8.2,1.2,6.7,1.2z M6.6,5.6L5.7,6.1C5.6,5.9,5.5,5.7,5.4,5.6C5.3,5.6,5.1,5.5,5,5.5
+				c-0.6,0-0.9,0.4-0.9,1.2c0,0.4,0.1,0.6,0.2,0.9C4.5,7.8,4.7,7.9,5,7.9c0.4,0,0.7-0.2,0.8-0.6l0.8,0.4C6.5,8.1,6.2,8.3,5.9,8.5
+				c-0.3,0.2-0.7,0.3-1,0.3c-0.6,0-1.1-0.2-1.5-0.6C3.1,7.9,2.9,7.4,2.9,6.7c0-0.6,0.2-1.1,0.6-1.5c0.4-0.4,0.8-0.6,1.4-0.6
+				C5.7,4.6,6.3,5,6.6,5.6z M10.5,5.6L9.6,6.1C9.5,5.9,9.4,5.7,9.3,5.6C9.1,5.6,9,5.5,8.9,5.5C8.3,5.5,8,5.9,8,6.7
+				c0,0.4,0.1,0.6,0.2,0.9c0.2,0.2,0.4,0.3,0.7,0.3c0.4,0,0.7-0.2,0.8-0.6l0.8,0.4c-0.2,0.3-0.4,0.6-0.7,0.8c-0.3,0.2-0.7,0.3-1,0.3
+				c-0.6,0-1.1-0.2-1.5-0.6C7,7.9,6.8,7.4,6.8,6.7c0-0.6,0.2-1.1,0.6-1.5c0.4-0.4,0.8-0.6,1.4-0.6C9.6,4.6,10.2,5,10.5,5.6z"/>
+				</g>
+
+				</g>
+			</svg>
+		</a>
+		
+		<a href='https://creativecommons.org/licenses/by-sa/4.0/'>Content:
+		CC-BY-SA </a>
+		
+	</div>
+
+</div>
+
+    </div>
+
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        
+          <h1 id="overview">Overview</h1>
+
+<blockquote>
+<p><img src="../images/data-flow-simple.png" alt="Brain and Simulator" /></p>
+</blockquote>
+
+<p>Welcome to Inkling, Bonsai&rsquo;s special-purpose programming language for training AI.</p>
+
+<p>Inkling is a declarative, strongly-typed programming language specifically designed for artificial intelligence. It abstracts away the vast world of dynamic AI algorithms that require expertise in machine learning and enables more developers to program AI. An Inkling file contains the concepts &ndash; what you want to teach the AI &ndash; and the curriculum, &ndash; how you want to teach the concepts &ndash; necessary to train your BRAIN. Before you read through this section about the Inkling language, you should familiarize yourself with the various components of the Bonsai AI Engine, which you can read about in our <a href="getting-started.html#the-bonsai-platform">Getting Started Guide</a>.</p>
+
+<p>If you&rsquo;re interesting in finding out more about what&rsquo;s going on under the hood of the Bonsai AI Engine, check out <a href="ai-engine-guide.html">Understand AI Engine Components</a>.</p>
+
+<h2 id="inkling-a-new-language">Inkling: A New Language</h2>
+
+<h3 id="what-kind-of-language-is-inkling">What kind of language is Inkling?</h3>
+
+<p>Inkling is a special-purpose language for writing AI programs. The language has a blend of declarative and functional styles. We like to describe Inkling as the world&rsquo;s first machine teaching language.  </p>
+
+<p>The current verison of Inkling replaces an earlier version. The syntax and terminology of the earlier version of Inkling is documented in the <a href="inkling-guide.html#overview">Inkling v1 Guide</a></p>
+
+<h3 id="what-is-machine-teaching">What is Machine Teaching?</h3>
+
+<p>Machine teaching is a new programming paradigm. It expresses the solution to a problem in terms of how you teach the computer to find the solution as opposed to how to calculate the solution. Machine teaching focuses on:</p>
+
+<ul>
+<li><strong>What do you want the computer to know?</strong>
+Machine teaching captures the concepts and their relationship to each other and forms a directed graph of the concepts.</li>
+</ul>
+
+<p>Imagine learning to play baseball. There are many concepts involved. It goes beyond just the rules of the game and includes things like batting stance, bat grip, hand-eye coordination, etc.</p>
+
+<ul>
+<li><strong>How do you go about teaching those things?</strong>
+Machine teaching focuses on how the problem can be taught, not how it can be calculated.</li>
+</ul>
+
+<p>Imagine teaching children to play baseball. You can&rsquo;t just explain the whole game to them and expect them to understand how to play. You&rsquo;d break down learning into pieces and create a series of lessons that would help them learn how to play baseball.</p>
+
+<p>Let&rsquo;s say, to start, you wanted to teach them the concept of hand-eye coordination. A sequence of lessons would capture this. You might start with a whiffle ball on a tee, progress to a tee that pops the ball up, move to underhand pitches, and then overhand pitches. You could continue to build upon your hand-eye coordination concept with things like curved pitches, different styles of catching, and other exercises. These <strong>progressive lessons</strong> help teach one concept - hand-eye coordination.</p>
+
+<h3 id="inkling-is-a-special-purpose-language">Inkling is a Special-Purpose Language</h3>
+
+<p>Inkling is a special-purpose language (sometimes referred to as a domain-specific language), meaning that it is intended for writing programs for a particular domain. It is not designed as a general-purpose language, which allows you to write anything you can imagine. C++, Python, Ruby, and Java are all examples of general-purpose programming languages.</p>
+
+<p><strong>For example:</strong></p>
+
+<ul>
+<li>Python and Javascript can be programmed in a functional way, but they are not pure functional languages.</li>
+<li>F# is a pure functional programming language.</li>
+<li>R, matlab, Java and prolog are not functional programming languages.</li>
+</ul>
+
+<h3 id="white-space-insensitive">White Space Insensitive</h3>
+
+<p>Inkling is insensitive to white space. Internally, we prefer to use four spaces to indent lines. This is a stylistic choice. In this document, any mention of an &ldquo;indentation&rdquo; or a line &ldquo;being indented&rdquo; refers to using four spaces at the start of a line.</p>
+
+          <h1 id="concept-graphs">Concept Graphs</h1>
+
+<p>Concepts are the ideas that you want to teach your BRAIN. A BRAIN is organized into a directed graph of concepts with information flowing from the input of the graph to the output. A minimal concept graph may contain only a single concept. More complex concept graphs contain additional concepts whose outputs form inputs to yet other concepts. All concepts graphs must designate one concept whose output becomes the output for the entire BRAIN.</p>
+
+<p>For more information about Concepts, refer below to <a href="#concepts">Concepts</a> and the <a href="../references/inkling2-reference.html#concepts">Concept Reference</a>.</p>
+
+<h2 id="building-a-concept-graph">Building a Concept Graph</h2>
+
+<p>As you think about the problem you&rsquo;re trying to solve, consider how it may make sense to break up into subconcepts that can be taught independently and in an incremental manner. Start by thinking about the problem and what criteria must be met to solve it. For example:</p>
+
+<ul>
+<li>Learning to play a game</li>
+<li>Learning to save electricity in your home</li>
+<li>Learning to guide an agent to a specified location</li>
+</ul>
+
+<p>After you&rsquo;ve determined your success criteria, you want to decide what the AI can do to prove it has successfully learned how to achieve those criteria. In a game, this could be, &ldquo;I think if the AI can get a high score, it has successfully learned to play the game.&rdquo; This becomes your output <code class="prettyprint">concept</code>, and it also ties into your reward function, which measures how successful the AI is at learning this concept.</p>
+
+<p>The input to the concept graph typically mirrors the observable inputs for your systems. For example, if you are learning to play a game, the input may be the rasterized image of the game board. If you are learning to save electricity in your home, the inputs may consist of the current outside temperature, current inside temperature, the desired temperature, current electrical rate, etc.</p>
+
+<p>The output of the concept graph typically includes one or more actions that can be effected in your system. For a game, the output may consist of the X and Y values of a joystick controller and the state of one or more buttons. If you are learning to save electricity in your home, the output may consist of control signals that turn on the air conditioner or heater.</p>
+
+<h2 id="multi-concept-graphs">Multi-Concept Graphs</h2>
+
+<p>For more complex problems, it may be beneficial to break down the problem into other concepts. The outputs of these concepts can act as inputs for later concepts. By teaching these earlier concepts independently, it is often possible to speed up the overall training time.</p>
+
+<p>For each concept, you will need to determine what inputs are required and what data is expected to be computed as an output. Once a concept is successfully trained, it acts as a learned function that transforms its inputs into outputs. A concept&rsquo;s inputs can come from the graph input or from other concepts in the graph.</p>
+
+<p>Your concept graph can be drawn from left to right, starting with the graph input. Your other concepts come next, followed by your output concept, and finally, to the right, is the output. Concepts are trained independently with earlier concepts being trained before later concepts. To visualize this more clearly, see our expanded example below.</p>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="example-breakout">Example: Breakout</h3>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">graph</span> <span class="p">(</span><span class="k">input</span><span class="p">:</span> <span class="nx">GameState</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">concept</span> <span class="nx">get_high_score</span><span class="p">(</span><span class="k">input</span><span class="p">):</span> <span class="nx">PlayerMove</span> <span class="p">{</span>
+    <span class="c1"># Curriculum omitted</span>
+  <span class="p">}</span>
+
+  <span class="k">output</span> <span class="nx">get_high_score</span>
+<span class="p">}</span>
+</code></pre>
+<p>This program defines a single-concept graph. The name of the concept is get_high_score, and its input is the same as the input to the graph. It outputs a data type called PlayerMove. (More on types and type declarations below.)</p>
+
+<p>The output statement indicates that the get_high_score concept is the output for the entire graph.</p>
+
+<p><img src="../images/mental-model.png" alt="Mental model" /></p>
+
+<p>Single concept graph for learning Breakout</p>
+
+<p>The <code class="prettyprint">input</code> is a snapshot of the game in its current state.</p>
+
+<p>The concept <code class="prettyprint">get_high_score</code>, is the output <code class="prettyprint">concept</code>. It describes what we want the BRAIN to learn (in this case, to get a high score in the simulated Breakout game). This single-concept graph is sufficient to train a BRAIN to play the game, but training may take a long time.</p>
+
+<p>The <code class="prettyprint">output</code> type PlayerMove describes the move that the AI wants to make. It chooses from left, right, or no move. The definition of the GameState and PlayerMove types are not shown.</p>
+
+<p>To learn the <code class="prettyprint">get_high_score</code> concept more quickly, additional concepts can be added to the concept graph.</p>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">graph</span> <span class="p">(</span><span class="k">input</span><span class="p">:</span> <span class="nx">GameState</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">concept</span> <span class="nx">BallLocation</span><span class="p">(</span><span class="k">input</span><span class="p">):</span> <span class="nx">Coordinates</span> <span class="p">{</span>
+    <span class="c1"># Curriculum omitted</span>
+  <span class="p">}</span>
+
+  <span class="k">concept</span> <span class="nx">KeepPaddleUnderBall</span><span class="p">(</span><span class="k">input</span><span class="p">,</span> <span class="nx">BallLocation</span><span class="p">):</span> <span class="nx">PlayerMove</span> <span class="p">{</span>
+    <span class="c1"># Curriculum omitted</span>
+  <span class="p">}</span>
+
+  <span class="k">concept</span> <span class="nx">GetHighScore</span><span class="p">(</span><span class="k">input</span><span class="p">,</span> <span class="nx">KeepPaddleUnderBall</span><span class="p">):</span> <span class="nx">PlayerMove</span> <span class="p">{</span>
+    <span class="c1"># Curriculum omitted</span>
+  <span class="p">}</span>
+
+  <span class="k">output</span> <span class="nx">GetHighScore</span>
+<span class="p">}</span>
+</code></pre>
+<p>In this example, we&rsquo;ve added two extra concepts that support our output concept and give our BRAIN more information to work with. The concept of <code class="prettyprint">ball_location</code> computes the coordinates of the ball, which are provided as inputs to the concept <code class="prettyprint">keep_paddle_under_ball</code>, and that concept provides input to <code class="prettyprint">get_high_score</code>.</p>
+
+<p>The graph input remains the same as before. The AI has two additional concepts to train. When it is training the <code class="prettyprint">ball_location</code> concept, it takes in the input and returns the coordinates of the ball. On the <code class="prettyprint">keep_paddle_under_ball</code> concept, it takes in the input <em>and</em> the ball coordinates from <code class="prettyprint">ball_location</code>. Then, that concept returns the best move to attempt to keep the paddle underneath the ball. The final concept, <code class="prettyprint">get_high_score</code>, takes in the input and the move returned from <code class="prettyprint">keep_paddle_under_ball</code> and returns the move that will optimize the high score. Each of these concepts are trained from input to output.</p>
+
+          <h1 id="concepts">Concepts</h1>
+
+<p>A <strong>concept</strong> in Inkling is an (abstract) idea. In Inkling, the concept defines what you are going to teach the AI and how to teach it. For more information about using the concept keyword, refer to the <a href="../references/inkling2-reference.html#concepts">Concept Reference</a>.</p>
+
+<p>Every Inkling program needs at least one concept, which provides the output to the concept graph. Additional concepts may be defined to assist in teaching the output concept.</p>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="example-pac-man">Example: Pac-Man</h3>
+
+<p>If you want to teach your AI to play a game, the result of the AI learning this concept should be that it knows how to play the game. For example, consider an Inkling program that teaches an AI to play Pac-Man. The goal of the main concept is to get a high score.</p>
+
+<p>Supporting concepts might include <code class="prettyprint">eat_dots</code>, <code class="prettyprint">avoid_ghosts</code>, <code class="prettyprint">eat_fruit</code>, <code class="prettyprint">avoid_blue_ghosts</code>, <code class="prettyprint">dot_location</code>, <code class="prettyprint">ghost_location</code>, and <code class="prettyprint">ghost_color</code>.</p>
+
+<h3 id="example-tetris">Example: Tetris</h3>
+
+<p>Consider the game <a href="https://en.wikipedia.org/wiki/Tetris">Tetris</a>. As with Pac-Man, we want the AI to get the highest score possible. To assist in teaching the output concept, we can consider various other concepts that may assist the AI. Here&rsquo;s a short list, but you might be able to think of other facts you&rsquo;d want to use:</p>
+
+<ul>
+<li><code class="prettyprint">active_tetrimino</code>: the tetrimino (piece) that is active.</li>
+<li><code class="prettyprint">tetrimino_location</code>: the location of the active tetrimino.</li>
+<li><code class="prettyprint">tetrimino_speed</code>: how fast the tetrimino is moving.</li>
+<li><code class="prettyprint">clear_base</code>: fit tetriminos into the base to clear pieces of it.</li>
+</ul>
+
+<p>Any of these could be written into supporting concepts that would give information to the output concept.</p>
+
+<h3 id="example-home-automation">Example: Home Automation</h3>
+
+<p>Let&rsquo;s imagine that we want to save energy by turning off the lights in empty rooms. The output concept may be called <code class="prettyprint">turn_off_lights_empty_rooms</code>. To support the output concept, we need to think about other concepts that may assist the AI. Here&rsquo;s a short list, but you might be able to think of other facts that you&rsquo;d want to use:</p>
+
+<ul>
+<li><code class="prettyprint">light_state</code>: the on/off state of the lights in each room.</li>
+<li><code class="prettyprint">people_home</code>: The total number of people in the house.</li>
+<li><code class="prettyprint">person_location</code>: The location of each person/the room each person is in.</li>
+<li><code class="prettyprint">time_empty</code>: The amount of time a room has been empty.</li>
+<li><code class="prettyprint">definitely_empty</code>: don&rsquo;t shut off lights if someone is coming right back.</li>
+<li><code class="prettyprint">still_in_use</code>: (a variant of the one above) don&rsquo;t turn off the lights if an empty room might be reoccupied soon.</li>
+</ul>
+
+<p>Any of these could be written into supporting concepts that would give information to the output concept.</p>
+
+<h2 id="writing-concept-statements">Writing Concept Statements</h2>
+
+<p>In Inkling, concepts are declared using the <code class="prettyprint">concept</code> keyword followed by the concept&rsquo;s name, input list and output type. For readability, a descriptive name is recommended.</p>
+
+<p>Every learned concept must include a curriculum, which tells the AI engine how to train the concept. These will be covered below.</p>
+
+<p>For more information on the concept statement, see the <a href="../references/inkling2-reference.html#concepts">Concept Reference</a>.</p>
+
+          <h1 id="types">Types</h1>
+
+<p>Values in Inkling, including inputs and outputs of concepts, have defined types.</p>
+
+<p>The AI engine uses types to understand the data it is sent and how to represent the prediction it generates. Inkling is a statically-typed language. Errors will be reported if values are not compatible with their expected type.</p>
+
+<p>Inkling supports the following base types:</p>
+
+<ul>
+<li>number - a scalar numeric value with double floating point precision and range</li>
+<li>structure - a list of fields, each with its own specified type and unique name</li>
+<li>string (future) - a string of zero or more Unicode characters</li>
+<li>array (future) - a fixed-length list of values each with the same type</li>
+</ul>
+
+<h2 id="type-declarations">Type Declarations</h2>
+
+<p>A symbolic name can be associated with a type, and the name can be used anywhere a type can be specified.</p>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="c1"># Numeric type declaration</span>
+<span class="k">type</span> <span class="nx">Dimension</span> <span class="k">number</span>
+
+<span class="c1"># String type declaration</span>
+<span class="k">type</span> <span class="nx">PortName</span> <span class="k">string</span>
+
+<span class="c1"># Structure type declaration</span>
+<span class="k">type</span> <span class="nx">Place</span> <span class="p">{</span>
+  <span class="nx">Name</span><span class="p">:</span> <span class="k">string</span><span class="p">,</span>
+  <span class="nx">Longitude</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span>
+  <span class="nx">Latitude</span><span class="p">:</span> <span class="k">number</span>
+<span class="p">}</span>
+
+<span class="c1"># Structure types can refer to other types</span>
+<span class="k">type</span> <span class="nx">SensorState</span> <span class="p">{</span>
+  <span class="nx">Height</span><span class="p">:</span> <span class="nx">Dimension</span><span class="p">,</span>
+  <span class="nx">Width</span><span class="p">:</span> <span class="nx">Dimension</span>
+<span class="p">}</span>
+</code></pre>
+<h2 id="type-references">Type References</h2>
+
+<p>In Inkling, type references always follow a colon, which separates the field, variable, function or parameter from its type.</p>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="c1"># Graph input is of type GameState, and output is of type Action</span>
+<span class="k">graph</span> <span class="p">(</span><span class="k">input</span><span class="p">:</span> <span class="nx">GameState</span><span class="p">):</span> <span class="nx">Action</span> <span class="p">{</span>
+  <span class="c1"># Graph body omitted</span>
+<span class="p">}</span>
+</code></pre>
+<h2 id="range-constraints">Range Constraints</h2>
+
+<p>Number types can be constrained using range constraints, which consist of a start and end value and an optional step amount.</p>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="c1"># A real (floating-point) value from 0 to 5</span>
+<span class="k">type</span> <span class="nx">TypeA</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">..</span><span class="mi">5</span><span class="o">&gt;</span>
+
+<span class="c1"># An integer value from 0 to 5, inclusive</span>
+<span class="k">type</span> <span class="nx">TypeB</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">..</span><span class="mi">5</span> <span class="k">step</span> <span class="mi">1</span><span class="o">&gt;</span>
+
+<span class="c1"># A number in the set {-1, -0.5, 0, 0.5, 1}</span>
+<span class="k">type</span> <span class="nx">TypeC</span> <span class="k">number</span><span class="o">&lt;-</span><span class="mi">1</span><span class="p">..</span><span class="mi">1</span> <span class="k">step</span> <span class="mf">0.5</span><span class="o">&gt;</span>
+
+<span class="c1"># Constrained types can be further constrained</span>
+<span class="k">type</span> <span class="nx">TypeD</span> <span class="nx">TypeA</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">..</span><span class="mi">2</span><span class="o">&gt;</span>
+
+<span class="c1"># This will generate an error</span>
+<span class="k">type</span> <span class="nx">TypeE</span> <span class="nx">TypeA</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">..</span><span class="mi">7</span><span class="o">&gt;</span>
+</code></pre>
+<h2 id="enumerated-constraints">Enumerated Constraints</h2>
+
+<p>Number and string types can be constrained using enumerated constraints, which list the allowed values explicitly. Two forms of enumerated constraints are supported. Ordinal enumerations are assumed to have a meaningful order and must be listed in increasing order. Nominal enumerations have names but no meaninful order. </p>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="c1"># Ordinal enumeration</span>
+<span class="k">type</span> <span class="nx">Angle</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">180</span><span class="o">&gt;</span>
+
+<span class="c1"># Nominal enumeration</span>
+<span class="k">type</span> <span class="nx">Direction</span> <span class="k">number</span><span class="o">&lt;</span><span class="nx">Left</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">Right</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">Straight</span> <span class="o">=</span> <span class="mi">2</span><span class="o">&gt;</span>
+
+<span class="c1"># String ordinal enumeration</span>
+<span class="k">type</span> <span class="nx">Color</span> <span class="k">string</span><span class="o">&lt;</span><span class="s2">"Red"</span><span class="p">,</span> <span class="s2">"Blue"</span><span class="p">,</span> <span class="s2">"Green"</span><span class="o">&gt;</span>
+</code></pre>
+<h2 id="built-in-numeric-types">Built-in Numeric Types</h2>
+
+<p>Inkling supports built-in names for signed and unsigned integers of various sizes as well as floating point (32 and 64 bit). More details can be found under <a href="../references/inkling2-reference.html#types">Inkling Types</a>.</p>
+
+<h2 id="complex-types">Complex Types</h2>
+
+<p>Inkling supports built-in types for complex objects that are commonly used as data inputs. More details can be found under <a href="../references/inkling2-reference.html#types">Inkling Types</a>.</p>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">using</span> <span class="nb">Image</span>
+
+<span class="k">type</span> <span class="nx">SensorInput</span> <span class="p">{</span>
+  <span class="nx">ForwardCamera</span><span class="p">:</span> <span class="nb">Image</span><span class="p">.</span><span class="nb">Gray</span><span class="o">&lt;</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="nx">DepthSensor</span><span class="p">:</span> <span class="nb">Image</span><span class="p">.</span><span class="nb">Gray</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</code></pre>
+          <h1 id="curriculum-and-lessons">Curriculum and Lessons</h1>
+
+<p>A <strong>curriculum</strong> in Inkling defines how to teach a concept. Each concept declaration must contain a curriculum. A curriculum also specifies the data source (the simulator) used to train the concept.</p>
+
+<p>A <strong>lesson</strong> is part of a curriculum. It teaches a specific piece of the concept by specifying training parameters. Lessons enable the AI to learn the concept in stages instead of all at once. Lessons are contained within curriculum statements. If no lessons are specified within a curriculum, a default lesson is assumed.</p>
+
+<p>Each lesson provides an optional simulator configuration. If multiple lessons are specified, they should progress in difficulty with simple configurations followed by increasingly-difficult configurations.</p>
+<pre class="highlight inkling2 tab-inkling2"><code><span class="k">concept</span> <span class="nx">Balance</span>
+  <span class="k">curriculum</span> <span class="p">{</span>
+    <span class="k">source</span> <span class="nx">CartpoleSimulator</span>
+
+    <span class="k">lesson</span> <span class="nx">Slow</span> <span class="p">{</span>
+      <span class="k">constraint</span> <span class="p">{</span> <span class="nx">MaxSpeed</span><span class="p">:</span> <span class="mi">10</span> <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">lesson</span> <span class="nx">Medium</span> <span class="p">{</span>
+      <span class="k">constraint</span> <span class="p">{</span> <span class="nx">MaxSpeed</span><span class="p">:</span> <span class="mi">20</span> <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">lesson</span> <span class="nx">Fast</span> <span class="p">{</span>
+      <span class="k">constraint</span> <span class="p">{</span> <span class="nx">MaxSpeed</span><span class="p">:</span> <span class="mi">30</span> <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>For more information and examples, refer to the <a href="../references/inkling2-reference.html#curriculums">Curriculum Reference</a>.</p>
+
+<h2 id="defining-lessons">Defining Lessons</h2>
+
+<h3 id="simulator-configuration-constraints">Simulator Configuration Constraints</h3>
+
+<p>Each lesson may specify a <strong>constraint</strong> for the simulator&rsquo;s configuration. Earlier lessons must provide more restrictive constraints, while later lessons loosen the constraints. This allows the AI training to learn a simpler form of the concept before learning a more complex form.</p>
+
+<p>The <strong>constraint</strong> keyword must be followed by a type that constrains the simulator&rsquo;s declared configuration type. For more information and examples, refer to the <a href="../references/inkling2-reference.html#lessons">Lesson Reference</a>.</p>
+
+<h2 id="reward">Reward</h2>
+
+<p>The <strong>reward</strong> is a function that returns a numeric value indicating how well the AI is doing.</p>
+
+<p>This idea may be easier to understand with a few examples:</p>
+
+<p>In our Breakout example, our concept was GetHighScore. The <strong>score</strong> is how we are measuring how well the AI is doing at learning that concept.</p>
+
+<p>If we are teaching the AI Pac-Man and we are training the concept of <code class="prettyprint">avoid-non-blue-ghosts</code>, we may measure how well the AI is learning this concept by measuring the amount of time the AI manages to avoid non-blue ghosts. Our reward function uses <strong>time</strong> as the reward.</p>
+
+<h6 id="defining-rewards">Defining Rewards</h6>
+
+<p>There are several factors you can use to determine what your reward should be. A good reward function should reward the AI more often and be proportional to the quality of the behavior.</p>
+
+<h3 id="sparsity-of-rewards">Sparsity of Rewards</h3>
+
+<p>The frequency of feedback affects the speed of training. Ideally, the time between the AI&rsquo;s decision making and the reward for the behavior should be short. For example, if you&rsquo;re teaching an AI to play Pac-Man, you want to choose a reward like <code class="prettyprint">score</code> instead of a reward like <code class="prettyprint">beat level</code>. In Pac-Man, your score changes often, typically many times during a level, but your level can change only 256 times, and only after many actions. Your AI would need to beat an entire level to be rewarded, which is difficult to do without getting intermediate feedback about which actions along the way were beneficial.</p>
+
+<h3 id="proportional-feedback">Proportional Feedback</h3>
+
+<p>The reward should be in proportion to the quality or correctness of the behavior. When you are implementing your reward function, you need to consider that the AI will learn exactly what you ask it to learn. This can result in learning what you specified but not necessarily what you wanted. For example, if you ask an AI to play Pong (controlling both agents), and your reward function is based on <code class="prettyprint">game time</code>, the AI may learn that to get the longest time played, the paddle should remain in the same place. The ball will bounce back and forth between the two unmoving paddles. The AI learned exactly what you told it to learn &ndash; how to maximize the amount of time, but it didn&rsquo;t learn how to play the game.</p>
+
+          <h1 id="next-steps">Next Steps</h1>
+
+<p>Now that you’ve reviewed this guide, you can:</p>
+
+<p>Review <a href="https://www.youtube.com/watch?v=E_JtPzT5-dg&amp;index=3&amp;list=PLAktfMEMCsOY9HUZKIuGI6yqefGBuszAV"><strong>Advanced Platform Techniques</strong></a> (YouTube link) video to help you build and run complex Inkling on the Platform.</p>
+
+<p>And we have these other resources that will enable you to maximize your AI development experience:</p>
+
+<ul>
+<li><a href="../references/inkling2-reference.html">Inkling Reference</a></li>
+<li>VIDEO: <a href="https://www.youtube.com/watch?v=0R3PnJEisqk&amp;list=PLAktfMEMCsOY9HUZKIuGI6yqefGBuszAV&amp;index=4">Writing Great Reward Functions</a></li>
+<li><a href="../examples.html">Bonsai Platform Examples</a></li>
+</ul>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+
+    </div>
+
+  </div>
+  <!-- at the end of the BODY -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+  apiKey: '49fa6f01d7ff94a85b9b7434b1c2b7cf',
+  indexName: 'bon-sai',
+  inputSelector: '#docs-search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+  });
+  </script>
+  </body>
+</html>

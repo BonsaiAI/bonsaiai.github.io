@@ -1,0 +1,1200 @@
+
+
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Inkling Reference - Bonsai</title>
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #ffffff;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #272822;
+  background-color: #f92672;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #ffc33e;
+}
+.highlight .cp {
+  color: #ffc33e;
+}
+.highlight .nt {
+  color: #ffc33e;
+}
+.highlight .o, .highlight .ow {
+  color: #ffffff;
+}
+.highlight .p, .highlight .pi {
+  color: #ffffff;
+}
+.highlight .gi {
+  color: #ffffff;
+}
+.highlight .gd {
+  color: #f92672;
+}
+.highlight .gh {
+  color: #66d9ef;
+  background-color: #272822;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #51beff;
+}
+.highlight .kc {
+  color: #4af065;
+}
+.highlight .kt {
+  color: #4af065;
+}
+.highlight .kd {
+  color: #4af065;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #ffffff;
+}
+.highlight .sr {
+  color: #a1efe4;
+}
+.highlight .si {
+  color: #cc6633;
+}
+.highlight .se {
+  color: #cc6633;
+}
+.highlight .nn {
+  color: #ffc33e;
+}
+.highlight .nc {
+  color: #ffc33e;
+}
+.highlight .no {
+  color: #ffc33e;
+}
+.highlight .nx {
+  color: #4af065;
+}
+.highlight .nb, .highlight .bp {
+  color: #4af065;
+}
+.highlight .na {
+  color: #66d9ef;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #ffffff;
+}
+.highlight .ss {
+  color: #ffffff;
+}
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js" type="text/javascript"></script>
+    <script type="text/javascript">WebFont.load({  google: {    families: ["Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic"]  }});</script>
+    <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
+	  <link href="../stylesheets/test.css" rel="stylesheet" media="screen" />
+    <link href="../favicon.ico" rel="icon" type="image/ico" />
+      <script src="../javascripts/all.js"></script>
+      <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WVB6MG2');</script>
+<!-- End Google Tag Manager -->
+      <!-- start Mixpanel -->
+<script type="text/javascript">(function(e,a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,
+0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
+mixpanel.init("91fbf7b68fb2356f91916026f221ddd5", {
+    loaded: function(mixpanel) {
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        distinct_id = getParameterByName('refUserId');
+        if (distinct_id) {
+          mixpanel.identify(distinct_id);
+        }
+    }
+});</script>
+<!-- end Mixpanel -->
+
+  </head>
+
+  <body class="references references_inkling2-reference" data-languages="[]">
+
+
+	  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVB6MG2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) --> 
+
+  <div id="flex-container">
+
+	<nav id="primary-nav">
+
+
+
+	<div id="logo"> <a href="../"><img class="bonsai-logo" src="../images/bonsai-logo.svg"></a></div>
+
+	<label for="drop" class="toggle"><img class="menu-ham" src="../images/menu.svg"></label>
+	<input type="checkbox" id="drop" />
+
+	<ul class="menu">
+
+		<li class="header_menu_item "> <a href="../guides/getting-started.html">Quick Start</a></li>
+
+		<li class="header_menu_item"> <!-- First Tier Drop Down --> <label for="drop-1" class="toggle">Tutorials +</label><a  href="#">Tutorials</a>
+			<input type="checkbox" id="drop-1"/>
+			<ul id="tutorials">
+				<li class=""> <a href="../guides/cli-install-guide.html">Install the CLI</a>  </li>
+				<li class=""> <a href="../guides/local-dev-guide.html">Use the CLI for Training</a>  </li>
+				<li class=""> <a href="../guides/sdk-install-guide.html">Install the SDK</a>  </li>
+				<li class=""> <a href="../tutorials/tutorial1.html">Running Simulations and Writing Inkling</a>  </li>
+				<li class=""> <a href="../tutorials/simulink.html">Train a Simulink Model with Bonsai</a>  </li>
+				<li class=""> <a href="../guides/jupyter-api-guide.html">Use Bonsai's API with Jupyter</a>  </li>
+			</ul>
+		</li>
+
+		<li class="header_menu_item"> <!-- First Tier Drop Down --> <label for="drop-2" class="toggle">Guides +</label><a  href="#">Guides</a>
+			<input type="checkbox" id="drop-2"/>
+			<ul id="guides">
+				<li class=""> <a href="../guides/simulation-guide.html">Learn About Simulation Requirements</a>  </li>
+				<li class=""> <a href="../guides/inkling2-guide.html">Learn the Inkling Language</a>  </li>
+				<li class=""> <a href="../guides/machine-teaching.html">Programming Machine Teaching</a>  </li>
+				<li class=""> <a href="../guides/ai-engine-guide.html">Understand AI Engine Components</a>  </li>
+				<li class=""> <a href="../guides/web-graphs-guide.html">Understand BRAIN Graphs</a>  </li>
+				<li class=""> <a href="../guides/sim-scale-guide.html">Scale Simulation runs with Azure Batch</a>  </li>
+			</ul>
+		</li>
+
+		<li class="header_menu_item"> <!-- First Tier Drop Down --> <label for="drop-3" class="toggle">References +</label><a  href="#">References</a>
+			<input type="checkbox" id="drop-3"/>
+			<ul id="references">
+				<li class=""> <a href="api-reference.html">API Reference</a>  </li>
+				<li class=""> <a href="cli-reference.html">CLI Reference</a>  </li>
+				<li class="selected"> <a href="inkling2-reference.html">Inkling Reference</a>  </li>
+				<li class=""> <a href="simulator-reference.html">Simulator Reference</a>
+				<li class=""> <a href="library-reference.html">Python Library</a>  </li>
+				<li class=""> <a href="cpp-library-reference.html">C++ Library</a>  </li>
+
+			</ul>
+		</li>
+
+		<li class="header_menu_item "> <a href="../examples.html">Examples</a></li>
+
+		<li>
+			<input type="search" id="docs-search" placeholder="Search Bonsai Docs">
+		</li>
+
+
+	</ul>
+
+</nav>
+
+
+	<div id="main-wrapper">
+
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div class="page-title">Inkling Reference</div>
+      <div id="toc">
+      </div>
+
+			 
+<ul class="toc-footer">
+
+<li><a href='https://bons.ai'>Bonsai Home</a></li>
+<li><a href='https://beta.bons.ai'>BRAIN Dashboard</a></li>
+<li><a href='https://github.com/BonsaiAI/slate'>Contribute to the Docs</a></li>
+<li><a href='https://bons.ai/get-started'>Apply for Bonsai Platform Preview</a></li>
+<li><a href="/releases.html">Product Release Notes</a></li>
+<li><a href="/system-reqs.html">Official System Requirements</a></li>
+<li><a href='https://bons.ai/contact-us#contact-page-form'>Contact Us</a></li>
+
+</ul>
+
+
+	   <div class="cc-bottom">
+	
+	<div class="toc-footer bottom cc-info">
+
+		<a href='https://creativecommons.org/licenses/by-sa/4.0/' class="cc-icon-width" >
+			<svg class="cc" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+			viewBox="0 0 70.7 13.4" style="enable-background:new 0 0 70.7 13.4;" xml:space="preserve">
+
+				<g>
+
+				<g>
+				<circle class="st0" cx="6.8" cy="6.7" r="6.1"/>
+				<path d="M6.7,0c1.9,0,3.5,0.7,4.8,2c0.6,0.6,1.1,1.4,1.4,2.2c0.3,0.8,0.5,1.7,0.5,2.6c0,0.9-0.2,1.8-0.5,2.6
+				c-0.3,0.8-0.8,1.5-1.4,2.1c-0.7,0.6-1.4,1.1-2.2,1.5c-0.8,0.3-1.7,0.5-2.6,0.5S5,13.3,4.2,12.9c-0.8-0.3-1.5-0.8-2.2-1.5
+				s-1.1-1.4-1.5-2.2S0,7.6,0,6.7C0,5.8,0.2,5,0.5,4.2S1.3,2.6,2,2C3.3,0.7,4.8,0,6.7,0z M6.7,1.2c-1.5,0-2.8,0.5-3.9,1.6
+				C2.3,3.4,1.9,4,1.6,4.6C1.4,5.3,1.2,6,1.2,6.7c0,0.7,0.1,1.4,0.4,2.1c0.3,0.7,0.7,1.3,1.2,1.8c0.5,0.5,1.1,0.9,1.8,1.2
+				c0.7,0.3,1.4,0.4,2.1,0.4c0.7,0,1.4-0.1,2.1-0.4c0.7-0.3,1.3-0.7,1.8-1.2c1-1,1.6-2.3,1.6-3.9c0-0.7-0.1-1.4-0.4-2.1
+				c-0.3-0.7-0.7-1.3-1.2-1.8C9.5,1.8,8.2,1.2,6.7,1.2z M6.6,5.6L5.7,6.1C5.6,5.9,5.5,5.7,5.4,5.6C5.3,5.6,5.1,5.5,5,5.5
+				c-0.6,0-0.9,0.4-0.9,1.2c0,0.4,0.1,0.6,0.2,0.9C4.5,7.8,4.7,7.9,5,7.9c0.4,0,0.7-0.2,0.8-0.6l0.8,0.4C6.5,8.1,6.2,8.3,5.9,8.5
+				c-0.3,0.2-0.7,0.3-1,0.3c-0.6,0-1.1-0.2-1.5-0.6C3.1,7.9,2.9,7.4,2.9,6.7c0-0.6,0.2-1.1,0.6-1.5c0.4-0.4,0.8-0.6,1.4-0.6
+				C5.7,4.6,6.3,5,6.6,5.6z M10.5,5.6L9.6,6.1C9.5,5.9,9.4,5.7,9.3,5.6C9.1,5.6,9,5.5,8.9,5.5C8.3,5.5,8,5.9,8,6.7
+				c0,0.4,0.1,0.6,0.2,0.9c0.2,0.2,0.4,0.3,0.7,0.3c0.4,0,0.7-0.2,0.8-0.6l0.8,0.4c-0.2,0.3-0.4,0.6-0.7,0.8c-0.3,0.2-0.7,0.3-1,0.3
+				c-0.6,0-1.1-0.2-1.5-0.6C7,7.9,6.8,7.4,6.8,6.7c0-0.6,0.2-1.1,0.6-1.5c0.4-0.4,0.8-0.6,1.4-0.6C9.6,4.6,10.2,5,10.5,5.6z"/>
+				</g>
+
+				</g>
+			</svg>
+		</a>
+		
+		<a href='https://creativecommons.org/licenses/by-sa/4.0/'>Content:
+		CC-BY-SA </a>
+		
+	</div>
+
+</div>
+
+    </div>
+
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        
+          <h1 id="inkling-overview">Inkling Overview</h1>
+<pre class="highlight plaintext"><code>#######################################################
+# Inkling Code and Syntax snippets will be shown here #
+#######################################################
+</code></pre>
+<p>This reference contains comprehensive specifications and usage for the Inkling language, Bonsai’s special purpose programming language for training AI.</p>
+
+<p>Inkling is a declarative, statically-typed language that provides a layer of
+abstraction between the Inkling programmer and the vast and dynamic set of AI
+algorithms that require expertise in machine learning. Inkling allows you to
+focus at a conceptual level on what you want the machine to learn. That is why this model of
+programming is called machine teaching.</p>
+
+<p>An Inkling file contains the <a href="#concepts">concepts</a> (what and how you want to teach the AI), and a set of
+<a href="#types">types</a> (which describe the data) necessary to train your BRAIN.
+Training your BRAIN will also require a <a href="#simulators">simulator</a>. Python simulators are
+introduced in the <a href="../guides/getting-started.html#what-is-a-simulator">Quick Start</a>.</p>
+
+<h3 id="purpose">Purpose</h3>
+
+<p>The purpose of the Inkling Reference is to give you the level of detailed
+specification you need to write valid Inkling code. 
+The syntax for Inkling statements is available here. 
+This document also contains
+examples and explanation so that you can understand Inkling better. </p>
+
+<h3 id="functionality">Functionality</h3>
+
+<p>Use the Inkling Reference for quick lookups while coding and also for deep dives
+into subjects like type equivalence and range expressions.</p>
+
+          <h1 id="lexical-structure">Lexical Structure</h1>
+
+<p>The lexical structure of Inkling includes these lexical elements:</p>
+
+<ul>
+<li><a href="#keywords"><code class="prettyprint">keyword</code></a>: words that Inkling reserves for its own use</li>
+<li><a href="#identifiers"><code class="prettyprint">operator</code></a>: mathematical, logical, and grouping operators</li>
+<li><a href="#literals"><code class="prettyprint">identifier</code></a>: user-defined names in Inkling</li>
+<li><a href="#operators"><code class="prettyprint">literal</code></a>: numeric and string literal values</li>
+<li><a href="#comments"><code class="prettyprint">comment</code></a>: user-specified comments</li>
+</ul>
+
+<h2 id="keywords">Keywords</h2>
+
+<p>Keywords are reserved words in the grammar. They all consist of lowercase ASCII strings like <code class="prettyprint">concept</code>, <code class="prettyprint">input</code>, and <code class="prettyprint">type</code>.</p>
+
+<h2 id="operators">Operators</h2>
+
+<p>Operators are symbols that represent mathematical, logical or grouping operations like +, %, (), or [].</p>
+
+<p><strong>Operators Table</strong></p>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>&lt;=</td>
+<td>&lt;</td>
+<td>==</td>
+<td>!=</td>
+<td>&gt;=</td>
+<td>&gt;</td>
+</tr>
+<tr>
+<td>{</td>
+<td>}</td>
+<td>[</td>
+<td>]</td>
+<td>(</td>
+<td>)</td>
+</tr>
+<tr>
+<td>:</td>
+<td>+</td>
+<td>-</td>
+<td>/</td>
+<td>%</td>
+<td>,</td>
+</tr>
+<tr>
+<td>**</td>
+<td>*</td>
+<td>.</td>
+<td>..</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="identifiers">Identifiers</h2>
+<pre class="highlight inkling2 tab-inkling2--code"><code>    <span class="nx">velocity</span>
+    <span class="nx">_control_axis_1</span>
+    <span class="nx">Rotate90Degrees</span>
+    <span class="nx">`Search &amp; Rescue`</span>
+    <span class="nx">`input`</span>
+    <span class="nx">`1 Microsoft Way`</span>
+    <span class="nx">`\`A \\ B\``</span>
+</code></pre>
+<p>Identifiers are user-defined names of an object, such as a concept or a type. Identifiers start with an alphabetical ASCII character or underscore and contain only alphanumeric characters and underscores.</p>
+
+<p>If an identifier doesn&rsquo;t follow these rules (e.g. contains spaces or non-ASCII characters, starts with a number) or is a keyword, it must be surrounded by backticks. Backslash can be used as an escape for back quotes and backslashes.</p>
+
+<p>The use of capitalized identifiers is encouraged to avoid possible collisions with future keywords, which are guaranteed to be lowercase.</p>
+
+<h2 id="literals">Literals</h2>
+
+<p>Inkling supports string and numeric literals (floating point and integer). </p>
+
+<ul>
+<li><strong>String Literals</strong></li>
+</ul>
+<pre class="highlight inkling2 tab-inkling2--code"><code>    <span class="s2">"Foo"</span>
+    <span class="s2">"My \"String\""</span>
+    <span class="s2">""</span>
+</code></pre>
+<p>String literals are surrounded by double quote characters. A backslash is used as an escape character.</p>
+
+<ul>
+<li><strong>Integer Literals</strong></li>
+</ul>
+<pre class="highlight inkling2 tab-inkling2--code"><code>    <span class="o">+</span><span class="mi">99</span>
+    <span class="o">-</span><span class="mi">45</span>
+    <span class="mi">9999</span>
+</code></pre>
+<p>Integer literals are a string of digits with an optional sign and no decimal point.</p>
+
+<ul>
+<li><strong>Floating Point Literals</strong></li>
+</ul>
+<pre class="highlight inkling2 tab-inkling2--code"><code>    <span class="mf">12.0</span>
+    <span class="p">.</span><span class="mi">5</span>
+    <span class="mf">13.0f</span><span class="mi">7</span>
+    <span class="p">.</span><span class="mi">3</span><span class="nx">f</span><span class="o">+</span><span class="mi">2</span>
+</code></pre>
+<p>Floating-point literal values use decimal points and optional exponents.</p>
+
+<ul>
+<li><strong>Array literals</strong></li>
+</ul>
+<pre class="highlight inkling2 tab-inkling2--code"><code>    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">37</span><span class="p">]</span>
+</code></pre>
+<p>Array literals are surrounded by square brackets and contain a comma-separated list of values. Each value can be specified as an expression. All elements within an array literal must be the same type. Empty (zero-length) array literals are not supported.</p>
+
+<ul>
+<li><strong>Structure literals</strong></li>
+</ul>
+<pre class="highlight inkling2 tab-inkling2--code"><code>    <span class="p">{</span> <span class="nx">X</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">Y</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">Name</span><span class="p">:</span> <span class="s2">"Bob"</span> <span class="p">}</span>
+</code></pre>
+<p>Struct literals are surrounded by curly brackets and contain a comma-separated list of field name/value pairs separated by a colon. The value can be specified as an expression and can even be another struct literal.</p>
+
+<h2 id="comments">Comments</h2>
+<pre class="highlight inkling2 tab-inkling2--code"><code>  <span class="c1"># This is a comment</span>
+</code></pre>
+<ul>
+<li>An Inkling comment begins after the character <strong>#</strong>. Comments must be on a line by themselves.</li>
+</ul>
+
+<h1 id="inkling-version">Inkling Version</h1>
+<pre class="highlight inkling2 tab-inkling2--code"><code>    <span class="k">inkling</span> <span class="s2">"2.0"</span>
+</code></pre>
+<p>All Inkling programs must start with an <code class="prettyprint">inkling</code> statement that specifies the current language version. This allows the language to evolve without breaking existing programs.</p>
+
+          <h1 id="types">Types</h1>
+
+<p>Inkling is a statically-typed language, which means that each variable, constant, and parameter has a well-defined type. The type system in Inkling supports the following basic types:</p>
+
+<ul>
+<li>Number - numeric values (integer or floating point)</li>
+<li>String (future) - an array of zero or more unicode characters</li>
+<li>Array (future) - a non-zero-length array of same-typed values</li>
+<li>Structure - a collection of typed fields with unique names</li>
+<li>Complex - built-in object types for specialized uses (like images)</li>
+</ul>
+
+<h2 id="type-literals">Type Literals</h2>
+<pre class="highlight inkling2 tab-inkling2--code"><code>  <span class="k">number</span>
+  <span class="k">string</span>
+  <span class="k">number</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
+  <span class="p">{</span> <span class="nx">A</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span> <span class="nx">B</span><span class="p">:</span> <span class="k">string</span> <span class="p">}</span>
+</code></pre>
+<p>Types may be specified as simple type literals. Number and string literals simply use the keywords <code class="prettyprint">number</code> and <code class="prettyprint">string</code>. (Note: Strings are not yet implemented.)</p>
+
+<p>Array literals use square brackets surrounding a positive integer that represents the size of the array. Arrays may be nested. (Note: Arrays are not yet implemented.)</p>
+
+<p>Structure literals are denoted with curly braces surrounding a comma-separated list of one or more field definitions. Each field definition consists of a field name and a type separated by a colon.</p>
+
+<h3 id="numeric-constraints">Numeric Constraints</h3>
+<pre class="highlight inkling2 tab-inkling2--code"><code>  <span class="k">number</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">..</span><span class="mi">2</span><span class="o">&gt;</span>
+  <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">..</span><span class="mi">8</span> <span class="k">step</span> <span class="mi">3</span><span class="o">&gt;</span>
+  <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mi">7</span><span class="o">&gt;</span>
+  <span class="k">number</span><span class="o">&lt;</span><span class="mi">200</span><span class="o">&gt;</span>
+  <span class="mi">200</span>
+  <span class="k">number</span><span class="o">&lt;</span><span class="nx">Left</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">Straight</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">Right</span> <span class="o">=</span> <span class="mi">2</span><span class="o">&gt;</span>
+  <span class="k">number</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">..</span><span class="mi">100</span><span class="o">&gt;&lt;</span><span class="mi">2</span><span class="p">..</span><span class="mi">99</span><span class="o">&gt;&lt;</span><span class="mi">50</span><span class="p">..</span><span class="mi">51</span><span class="o">&gt;</span>
+</code></pre>
+<p>A <code class="prettyprint">number</code> type can express any value compatible with a double-precision floating-point representation. Sometimes it&rsquo;s useful to constrain a number type to represent smaller ranges or sets of numbers.</p>
+
+<p>A numeric type with a range constraint specifies a minimum and maximum value plus an optional step value surrounded by angle brackets. For example, number<0..8 step 3> represents a number that can take on the values 0, 4 or 8. If the range does not evenly divide by the step value, the last number in the range will be omitted. In the above example, the range would include the values 0, 3 and 6.</p>
+
+<p>A numeric type with ordinal enumerated constraint specifies discrete, unique values in a comma-separated list. They must be listed in increasing order. For example, number<0, 3.5, 7> is constrained to take on one of those three values.</p>
+
+<p>If an enumerated constraint contains only one value (e.g. number<200>), it can be represented more tersely using the value alone (e.g. 200).</p>
+
+<p>A numeric type with nominal enumerated constraint specifies unordered symbolic identifiers in a comma-separated list. Unique numeric values must be specified for each identifier. For example,  number<Left = 0, Straight = 1, Right = 2> takes on one of three values. Values specified in a nominal enumerated type can be accessed as constants elsewhere in the program by using the type name followed by a dot and the symbolic name of the value &ndash; for example, Direction.Left.</p>
+
+<p>A constraint can be applied to an already-constrained type if it further narrows the constraints on the type.</p>
+
+<h3 id="built-in-number-types">Built-in Number Types</h3>
+<pre class="highlight inkling2 tab-inkling2--code"><code>  <span class="k">using</span> <span class="nb">Number</span>
+</code></pre><pre class="highlight inkling2 tab-inkling2--code"><code>  <span class="nb">Number</span><span class="p">.</span><span class="nb">UInt8</span>
+  <span class="nb">Number</span><span class="p">.</span><span class="nb">Int64</span>
+  <span class="nb">Number</span><span class="p">.</span><span class="nb">Float32</span>
+  <span class="nb">Number</span><span class="p">.</span><span class="nb">Bool</span>
+</code></pre>
+<p>Inkling supports built-in symbolic names for number types that correspond to integer and floating-point types commonly found in other typed languages. These are shortands for constrained number types.</p>
+
+<p>These types make use of the built-in namespace <code class="prettyprint">Number</code>, which must be referenced somewhere in the program with a <code class="prettyprint">using</code> statement.</p>
+
+<ul>
+<li>  Unsigned integers: UInt8, UInt16, UInt32, UInt64</li>
+<li>  Signed Integers: Int8, Int16, Int32, Int64</li>
+<li>  Floating-point: Float32, Float64</li>
+<li>  Boolean: Bool</li>
+</ul>
+
+<h3 id="string-constraints">String Constraints</h3>
+<pre class="highlight inkling2 tab-inkling2--code"><code>  <span class="k">string</span><span class="o">&lt;</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"C"</span><span class="o">&gt;</span>
+  <span class="k">string</span><span class="o">&lt;</span><span class="s2">"Z"</span><span class="o">&gt;</span>
+  <span class="s2">"Z"</span>
+  <span class="k">number</span><span class="o">&lt;</span><span class="nx">Left</span> <span class="o">=</span> <span class="s2">"L"</span><span class="p">,</span> <span class="nx">Straight</span> <span class="o">=</span> <span class="s2">"S"</span><span class="p">,</span> <span class="nx">Right</span> <span class="o">=</span> <span class="s2">"R"</span><span class="o">&gt;</span>
+</code></pre>
+<p>As with numbers, a <code class="prettyprint">string</code> type can be constrained using an enumerated constraint.</p>
+
+<h3 id="complex-types">Complex Types</h3>
+<pre class="highlight inkling2 tab-inkling2--code"><code>  <span class="k">using</span> <span class="nb">Image</span>
+</code></pre><pre class="highlight inkling2 tab-inkling2--code"><code>  <span class="c1"># Default order of parameters is &lt;width, height&gt;</span>
+  <span class="nb">Image</span><span class="p">.</span><span class="nb">Gray</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="o">&gt;</span>
+  <span class="nb">Image</span><span class="p">.</span><span class="nb">Gray</span><span class="o">&lt;</span><span class="nx">Height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="nx">Width</span><span class="o">=</span><span class="mi">100</span><span class="o">&gt;</span>
+</code></pre>
+<p>Currently, the only supported complex type is Image.Gray, which represents a two-dimensional collection of gray-scale pixels. Each pixel is represented as a Number.UInt8 value (0 is black and 255 is white).</p>
+
+<p>The width and height of the image must be specified using a constant expression.</p>
+
+<h2 id="type-declarations">Type Declarations</h2>
+<pre class="highlight inkling2 tab-inkling2--code"><code>  <span class="k">type</span> <span class="nx">Height</span> <span class="k">number</span>
+
+  <span class="k">type</span> <span class="nx">Coordinate</span> <span class="p">{</span><span class="nx">X</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span> <span class="nx">Y</span><span class="p">:</span> <span class="k">number</span><span class="p">}</span>
+
+  <span class="k">type</span> <span class="nx">TicTacToeValue</span> <span class="k">string</span><span class="o">&lt;</span><span class="s2">""</span><span class="p">,</span> <span class="s2">"X"</span><span class="p">,</span> <span class="s2">"O"</span><span class="o">&gt;</span>
+
+  <span class="k">type</span> <span class="nx">TicTacToeBoard</span> <span class="nx">TicTacToeValue</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
+</code></pre>
+<p>A type can be associated with an identifier using a type declaration statement. This identifier can be used anywhere a type literal would be used.</p>
+
+<blockquote>
+<p>Type Declaration Syntax</p>
+</blockquote>
+<pre class="highlight inkling2 tab-inkling2--syntax"><code>  <span class="nx">typeDeclaration</span> <span class="p">:</span><span class="o">==</span>
+    <span class="k">type</span> <span class="o">&lt;</span><span class="nx">typeName</span><span class="o">&gt;</span> <span class="nx">typeReference</span>
+
+  <span class="nx">typeReference</span> <span class="p">:</span><span class="o">==</span>
+    <span class="o">&lt;</span><span class="nx">typeName</span><span class="o">&gt;</span> <span class="o">|</span> <span class="nx">typeLiteral</span>
+
+  <span class="nx">typeLiteral</span> <span class="p">:</span><span class="o">==</span>
+    <span class="nx">primitiveType</span> <span class="o">|</span>
+    <span class="nx">typeReference</span><span class="p">'</span><span class="o">&lt;</span><span class="p">'</span> <span class="nx">rangeExpression</span> <span class="p">'</span><span class="o">&gt;</span><span class="p">'</span> <span class="o">|</span>
+    <span class="nx">typeReference</span><span class="p">'</span><span class="o">&lt;</span><span class="p">'</span> <span class="nx">valueList</span> <span class="p">'</span><span class="o">&gt;</span><span class="p">'</span> <span class="o">|</span>
+    <span class="nx">typeReference</span><span class="p">'</span><span class="o">&lt;</span><span class="p">'</span> <span class="nx">typeArgumentList</span> <span class="p">'</span><span class="o">&gt;</span><span class="p">'</span> <span class="o">|</span>
+    <span class="nx">typeReference</span> <span class="p">'['</span> <span class="nx">constExpression</span> <span class="p">']'</span> <span class="o">|</span>
+    <span class="p">'{'</span> <span class="nx">typeFieldList</span> <span class="p">'}'</span>
+
+  <span class="nx">rangeExpression</span> <span class="p">:</span><span class="o">==</span>
+    <span class="nx">constExpression</span> <span class="p">'..'</span> <span class="nx">constExpression</span> <span class="p">[</span><span class="k">step</span> <span class="nx">constExpression</span><span class="p">]?</span>
+
+  <span class="nx">valueList</span> <span class="p">:</span><span class="o">==</span>
+    <span class="nx">constExpression</span> <span class="p">[','</span> <span class="nx">constExpression</span><span class="p">]</span><span class="o">*</span> <span class="p">[',']?</span>
+
+  <span class="nx">typeArgumentList</span> <span class="p">:</span><span class="o">==</span>
+    <span class="nx">typeArgument</span> <span class="p">[','</span> <span class="nx">typeArgument</span><span class="p">]</span><span class="o">*</span> <span class="p">[',']?</span>
+
+  <span class="nx">typeArgument</span> <span class="p">:</span><span class="o">==</span>
+    <span class="p">[</span><span class="o">&lt;</span><span class="nx">paramName</span><span class="o">&gt;</span> <span class="p">'</span><span class="o">=</span><span class="p">']?</span> <span class="nx">typeReference</span>
+
+  <span class="nx">typeFieldList</span> <span class="p">:</span><span class="o">==</span>
+    <span class="nx">typeField</span> <span class="p">[','</span> <span class="nx">typeField</span><span class="p">]</span><span class="o">*</span> <span class="p">[',']?</span>
+
+  <span class="nx">typeField</span> <span class="p">:</span><span class="o">==</span>
+    <span class="o">&lt;</span><span class="nx">fieldName</span><span class="o">&gt;</span> <span class="p">':'</span> <span class="nx">typeReference</span>
+</code></pre>
+<h2 id="type-equivalence">Type Equivalence</h2>
+
+<p>Inkling uses types to understand and interpret the format of data. The Inkling compiler performs type checks to guarantee type compatibility. In some cases, type equivalence is required (i.e. the types must match exactly). In other cases, castability is required (i.e. one type can be trivially transformed into another type).</p>
+
+<p>The table below explains the rules for equivalence and castability.</p>
+
+<table><thead>
+<tr>
+<th>Type</th>
+<th>Rules for equivalence</th>
+<th>Rules for castability</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>Constraints match</td>
+<td>Source is more constrained than dest</td>
+</tr>
+<tr>
+<td>String</td>
+<td>Constraints match</td>
+<td>Source is more constrained than dest</td>
+</tr>
+<tr>
+<td>Array</td>
+<td>Element type is equivalent<br> Number of dimensions match<br> Size of each dimension matches</td>
+<td>Element type is castable<br> Number of dimensions matches<br> Size of each dimension matches</td>
+</tr>
+<tr>
+<td>Structure</td>
+<td>All fields are present in the same order<br> Field names match<br> Field types are equivalent</td>
+<td>Subset of source fields are present in dest, not necessarily in same order<br> Field types of present fields are castable</td>
+</tr>
+<tr>
+<td>Complex</td>
+<td>Base type matches<br> Generic type arguments match</td>
+<td>Base type matches<br> Generic type arguments match</td>
+</tr>
+</tbody></table>
+
+          <h1 id="constants">Constants</h1>
+
+<p>This is the reference for the keyword <strong>const</strong>. </p>
+<pre class="highlight inkling2 tab-inkling2--code"><code><span class="k">const</span> <span class="nx">MaxVelocity</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">const</span> <span class="nx">MinVelocity</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">const</span> <span class="nx">Environment</span> <span class="o">=</span> <span class="s2">"NewYorkCity"</span>
+<span class="k">const</span> <span class="nx">DebugMode</span> <span class="o">=</span> <span class="k">true</span>
+<span class="k">const</span> <span class="nx">DestinationPoint</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">,</span> <span class="mf">9.2</span><span class="p">]</span>
+</code></pre>
+<p>Inkling supports named constants for all Inkling types. The name can be used wherever a value can appear.</p>
+
+<p>Constants make code easier to understand and modify because the constant name
+conveys the semantics of the constant. They document the logic of the program.</p>
+
+<p>Types can be specified for constants. If a type is omitted, it is inferred. If a type is specified, the compiler validates that the constant value matches the specified type.</p>
+
+<p>The constant value is specified as an expression that can make use of supported operators, numeric or string literals, and other constants. Cyclical constant references are not allowed.</p>
+<pre class="highlight inkling2 tab-inkling2--code"><code><span class="c1"># Valid constant declarations</span>
+<span class="k">const</span> <span class="nx">NumericConst1</span><span class="p">:</span> <span class="k">number</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">const</span> <span class="nx">NumericConst4</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span> <span class="p">..</span> <span class="mi">2</span><span class="o">&gt;</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">7</span>
+<span class="k">const</span> <span class="nx">NumericConst5</span> <span class="o">=</span> <span class="nx">NumericConst1</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="k">const</span> <span class="nx">StringConst1</span><span class="p">:</span> <span class="k">string</span> <span class="o">=</span> <span class="s2">"Hello"</span>
+<span class="k">const</span> <span class="nx">ArrayConst1</span><span class="p">:</span> <span class="k">number</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="k">const</span> <span class="nx">StructConst1</span><span class="p">:</span> <span class="p">{</span><span class="nx">X</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span> <span class="nx">Y</span><span class="p">:</span> <span class="k">string</span><span class="p">}</span> <span class="o">=</span> <span class="p">{</span><span class="nx">X</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">Y</span><span class="p">:</span> <span class="s2">"Foo"</span><span class="p">}</span>
+
+<span class="c1"># Errors: type mismatch</span>
+<span class="k">const</span> <span class="nx">NumericConst2</span><span class="p">:</span> <span class="k">number</span> <span class="o">=</span> <span class="s2">"Hello"</span>
+<span class="k">const</span> <span class="nx">NumericConst3</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span> <span class="p">..</span> <span class="mi">2</span><span class="o">&gt;</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">const</span> <span class="nx">StringConst2</span><span class="p">:</span> <span class="k">string</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Hello"</span><span class="p">]</span>
+<span class="k">const</span> <span class="nx">StructConst2</span><span class="p">:</span> <span class="p">{</span><span class="nx">X</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span> <span class="nx">Y</span><span class="p">:</span> <span class="k">string</span><span class="p">}</span> <span class="o">=</span> <span class="p">{</span><span class="nx">X</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">Y</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="k">const</span> <span class="nx">StructConst3</span><span class="p">:</span> <span class="p">{</span><span class="nx">X</span><span class="p">:</span> <span class="k">number</span><span class="p">,</span> <span class="nx">Y</span><span class="p">:</span> <span class="k">string</span><span class="p">}</span> <span class="o">=</span> <span class="p">{</span><span class="nx">X</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+
+<span class="c1"># Error: cyclical reference</span>
+<span class="k">const</span> <span class="nx">NumericConst6</span> <span class="o">=</span> <span class="nx">NumericConst6</span>
+</code></pre>
+<p>Some valid and invalid constant declarations are shown in the accompanying panel.</p>
+
+<p>The constants declaration syntax is shown in the accompanying panel.</p>
+
+<blockquote>
+<p>Constant Syntax</p>
+</blockquote>
+<pre class="highlight inkling2 tab-inkling2--syntax"><code><span class="nx">constantDeclaration</span> <span class="p">::</span><span class="o">=</span>
+  <span class="k">const</span> <span class="o">&lt;</span><span class="nx">constName</span><span class="o">&gt;</span> <span class="p">[':'</span> <span class="nx">typeReference</span><span class="p">]</span> <span class="o">=</span> <span class="nx">constExpression</span>
+</code></pre>
+<h3 id="usage">Usage</h3>
+
+<ul>
+<li>A constant declaration can appear only in the global program scope. It cannot be nested within another statement. </li>
+<li>A named constant does not have to be declared before it is used. </li>
+<li>A named constant can be used anywhere a literal can be used.</li>
+<li>The initialized value of the constant must be compatible with the declared type of the constant.</li>
+<li>If no type is declared, it is inferred from the value.</li>
+<li>The declared type of the constant must be compatible with the type of the context where it is used.</li>
+</ul>
+
+          <h1 id="graph">Graph</h1>
+
+<p>The <code class="prettyprint">graph</code> keyword declares the concept graph. Only one graph declaration is allowed per Inkling program. It defines the input type and output type of the BRAIN. It also contains the list of declared concepts and designates which concept provides the output for the graph.</p>
+<pre class="highlight inkling2 tab-inkling2--code"><code><span class="k">graph</span> <span class="p">(</span><span class="k">input</span><span class="p">:</span> <span class="nx">InputType</span><span class="p">):</span> <span class="nx">OutputType</span> <span class="p">{</span>
+  <span class="c1"># Concept declarations omitted</span>
+
+  <span class="k">output</span> <span class="nx">MyConcept</span>
+<span class="p">}</span>
+</code></pre>
+<blockquote>
+<p>Graph Syntax</p>
+</blockquote>
+<pre class="highlight inkling2 tab-inkling2--syntax"><code><span class="nx">graphStatement</span> <span class="p">:</span><span class="o">=</span>
+<span class="k">graph</span> <span class="p">'('</span> <span class="k">input</span> <span class="p">':'</span> <span class="nx">inputType</span> <span class="p">')'</span> <span class="p">[':'</span> <span class="nx">outputType</span><span class="p">]?</span> <span class="p">'{'</span>
+  <span class="nx">conceptDeclaration</span><span class="o">*</span>
+
+  <span class="k">output</span> <span class="o">&lt;</span><span class="nx">conceptName</span><span class="o">&gt;</span>
+<span class="p">'}'</span>
+
+<span class="nx">inputType</span> <span class="p">::</span><span class="o">=</span> <span class="nx">typeReference</span>
+<span class="nx">outputType</span> <span class="p">::</span><span class="o">=</span> <span class="nx">typeReference</span>
+</code></pre>
+<p>The inputType specifies the graph&rsquo;s input type.</p>
+
+<p>The outputType specifies the graph&rsquo;s output type. If omitted, it is inferred by the output type of the output concept. If provided, the compiler verifies that the specified type matches that of the output concept.</p>
+
+<p>The <code class="prettyprint">output</code> clause must refer to one of the declared concepts.</p>
+
+          <h1 id="concepts">Concepts</h1>
+
+<p>The <code class="prettyprint">concept</code> keyword declares an abstract concept that is to be learned by the system. It can be a feature (such as a curvy line in an image) or a goal (such as high score in a game). Ultimately, a concept represents a function from input to output. By declaring a concept, you are instructing the AI Engine that this is a node in the concept graph that must be learned.</p>
+<pre class="highlight inkling2 tab-inkling2--code"><code><span class="k">concept</span> <span class="nx">AbstractConceptName</span><span class="p">(</span><span class="nx">Antecedent1</span><span class="p">,</span> <span class="nx">Antecedent2</span><span class="p">):</span> <span class="nx">OutputType</span> <span class="p">{</span>
+  <span class="c1"># Curriculum omitted</span>
+<span class="p">}</span>
+</code></pre>
+<p>Because concepts are learned, their declarations tend to be fairly simple. The typical components of a concept statement are shown in the accompanying panel. </p>
+
+<blockquote>
+<p>Concept Syntax</p>
+</blockquote>
+<pre class="highlight inkling2 tab-inkling2--syntax"><code><span class="nx">conceptDeclaration</span> <span class="p">:</span><span class="o">=</span>
+<span class="k">concept</span> <span class="o">&lt;</span><span class="nx">conceptName</span><span class="o">&gt;</span> <span class="p">'('</span> <span class="nx">inputItemList</span> <span class="p">')'</span> <span class="p">':'</span> <span class="nx">outputType</span> <span class="p">'{'</span>
+  <span class="nx">curriculumClause</span>
+<span class="p">'}'</span>
+
+<span class="nx">inputItemList</span> <span class="p">::</span><span class="o">=</span>
+  <span class="p">[</span><span class="nx">inputItem</span><span class="p">]</span> <span class="o">|</span> <span class="p">[</span><span class="nx">inputItem</span> <span class="p">','</span> <span class="nx">inputItemList</span><span class="p">]</span>
+
+<span class="nx">inputItem</span> <span class="p">::</span><span class="o">=</span>
+  <span class="k">input</span> <span class="o">|</span> <span class="o">&lt;</span><span class="nx">conceptName</span><span class="o">&gt;</span>  <span class="c1"># name of a concept or input</span>
+
+<span class="nx">outputType</span> <span class="p">::</span><span class="o">=</span> <span class="nx">typeReference</span>
+</code></pre>
+<p>The inputItemList specifies the concept&rsquo;s inputs. Cycles in the graph are not allowed.</p>
+
+<p>The outputType specifies the concept&rsquo;s output [type][1].</p>
+
+<h3 id="usage">Usage</h3>
+
+<p>The concept statement specifies input sources and an output type. Input sources
+are provided in the input list. </p>
+<pre class="highlight inkling2 tab-inkling2--code"><code><span class="k">concept</span> <span class="nx">bar</span> <span class="p">(</span><span class="k">input</span><span class="p">):</span> <span class="nx">Move</span> <span class="p">{</span>
+  <span class="c1"># Curriculum omitted</span>
+<span class="p">}</span>
+
+<span class="k">concept</span> <span class="nx">foo</span> <span class="p">(</span><span class="nx">bar</span><span class="p">):</span> <span class="nx">Action</span> <span class="p">{</span>
+  <span class="c1"># Curriculum omitted</span>
+<span class="p">}</span>
+</code></pre>
+<p>Inputs can be the output of other concepts or the <code class="prettyprint">input</code> data stream. The <code class="prettyprint">input</code> stream
+is the original input to the concept graph.</p>
+
+<p>Input types do not need to be specified because their types are provided in the graph statement (in the case of <code class="prettyprint">input</code>) or via the concept type (in the case of other concepts). </p>
+
+<h3 id="example">Example</h3>
+
+<p>We show Inkling for the concept GetHighScore.</p>
+<pre class="highlight inkling2 tab-inkling2--code"><code><span class="k">concept</span> <span class="nx">GetHighScore</span><span class="p">(</span><span class="k">input</span><span class="p">):</span> <span class="nx">PlayerMove</span> <span class="p">{</span>
+  <span class="c1"># Curriculum omitted</span>
+<span class="p">}</span>
+</code></pre>
+<ul>
+<li><code class="prettyprint">conceptName</code>: GetHighScore</li>
+<li><code class="prettyprint">inputItemList</code>: <code class="prettyprint">input</code></li>
+<li><code class="prettyprint">outputType</code>: PlayerMove</li>
+</ul>
+
+          <h1 id="curriculums">Curriculums</h1>
+<pre class="highlight inkling2 tab-inkling2--code"><code><span class="k">concept</span> <span class="nx">MyConcept</span><span class="p">(</span><span class="k">input</span><span class="p">):</span> <span class="nx">OutputType</span> <span class="p">{</span>
+  <span class="k">curriculum</span> <span class="p">{</span>
+    <span class="k">source</span> <span class="nx">MySimulator</span>
+
+    <span class="c1"># Lessons specified here</span>
+
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>The <code class="prettyprint">curriculum</code> statement is used within a <a href="#concepts">concept</a> to specify how the concept should be trained.</p>
+
+<p>The <a href="#lessons">lessons</a> defined within the curriculum can be used to create a staged teaching plan.</p>
+
+<blockquote>
+<p>Curriculum Syntax</p>
+</blockquote>
+<pre class="highlight inkling2 tab-inkling2--syntax"><code><span class="k">curriculum</span> <span class="p">{</span>
+  <span class="k">source</span> <span class="o">&lt;</span><span class="nx">simulatorReference</span><span class="o">&gt;</span>
+
+  <span class="p">[</span><span class="nx">lessonStatement</span><span class="p">]</span><span class="o">*</span>
+<span class="p">}</span>
+</code></pre>
+<h3 id="usage">Usage</h3>
+
+<p>There can be only one curriculum per concept, and every concept must have a curriculum.</p>
+
+<p>Every curriculum must provide a <code class="prettyprint">source</code> clause that specifies the data source for teaching the concept. Currently, only <a href="#simulators">simulators</a> are supported as data sources, so the <code class="prettyprint">source</code> keyword must be followed by a simulator declaration or the name of a simulator declared at the global scope of the program.</p>
+
+<h3 id="breakout-example">Breakout Example</h3>
+
+<blockquote>
+<p>Breakout Example</p>
+</blockquote>
+<pre class="highlight inkling2 tab-inkling2--code"><code><span class="k">simulator</span> <span class="nx">BreakoutSimulator</span><span class="p">(</span><span class="k">action</span><span class="p">:</span> <span class="nx">PlayerMove</span><span class="p">,</span> <span class="k">config</span><span class="p">:</span> <span class="nx">BreakoutConfig</span><span class="p">):</span> <span class="nx">GameState</span> <span class="p">{</span>
+<span class="p">}</span>
+</code></pre>
+<p>The <code class="prettyprint">simulator</code> declaration specifies the simulator name and the types of two input values (the action and configuration). It also specifies the type of the simulator&rsquo;s output (the simulator state). In this instance, the configuration type is <code class="prettyprint">BreakoutConfig</code>. The lessons initialize the configuration type of <code class="prettyprint">BreakoutConfig</code>.</p>
+<pre class="highlight inkling2 tab-inkling2--code"><code><span class="k">type</span> <span class="nx">BreakoutConfig</span> <span class="p">{</span>
+  <span class="nx">level</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">UInt16</span><span class="p">,</span>
+  <span class="nx">paddle_width</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">UInt8</span><span class="o">&lt;</span><span class="mi">1</span> <span class="p">..</span> <span class="mi">4</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="nx">bricks_percent</span><span class="p">:</span> <span class="k">number</span>
+<span class="p">}</span>
+
+<span class="k">type</span> <span class="nx">PlayerMove</span> <span class="k">number</span><span class="o">&lt;</span><span class="nx">Left</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nx">Stay</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">Right</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&gt;</span>
+
+<span class="k">type</span> <span class="nx">GameState</span> <span class="p">{</span>
+  <span class="nx">pixels</span><span class="p">:</span> <span class="nb">Image</span><span class="p">.</span><span class="nb">Gray</span><span class="o">&lt;</span><span class="mi">84</span><span class="p">,</span> <span class="mi">336</span><span class="o">&gt;</span>
+<span class="p">}</span>
+
+<span class="k">graph</span> <span class="p">(</span><span class="k">input</span><span class="p">:</span> <span class="nx">GameState</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">concept</span> <span class="nx">HighScore</span><span class="p">(</span><span class="k">input</span><span class="p">):</span> <span class="nx">PlayerMove</span> <span class="p">{</span>
+    <span class="k">curriculum</span> <span class="p">{</span>
+      <span class="k">source</span> <span class="nx">BreakoutSimulator</span>
+
+      <span class="k">lesson</span> <span class="nx">ScoreLesson</span> <span class="p">{</span>
+        <span class="k">constraint</span> <span class="p">{</span>
+          <span class="nx">level</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">UInt16</span><span class="o">&lt;</span><span class="mi">1</span> <span class="p">..</span> <span class="mi">100</span><span class="o">&gt;</span><span class="p">,</span>
+          <span class="nx">paddle_width</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">UInt8</span><span class="o">&lt;</span><span class="mi">1</span> <span class="p">..</span> <span class="mi">4</span><span class="o">&gt;</span><span class="p">,</span>
+          <span class="nx">bricks_percent</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">output</span> <span class="nx">PlayBreakout</span>
+<span class="p">}</span>
+</code></pre>
+<p>The configuration type <code class="prettyprint">BreakoutConfig</code> is constrained in the lesson. When a concept is being trained, a new simulation configuration is passed to the simulator for each new episode. The configuration values are chosen in accordance with the current lesson&rsquo;s constraint. For example, in the lesson above, the <code class="prettyprint">bricks_percent</code> field is constrained to a value of 1, so the configuration passed to the simulator at the beginning of every episode will contain a value of 1 for this field. The <code class="prettyprint">paddle_width</code> field is constrained to integers in the range of 1 through 4, so the configuration passed to the simulator at the beginning of each episode will contain a value of 1, 2, 3 or 4 for this field. Values are chosen uniformly at random from the set specified in the constraint.</p>
+
+<p>The <code class="prettyprint">GameState</code> type describes the data that is passed as an input to the graph. This same data type is provided as an output from the simulator. For Breakout, this data includes a field called <code class="prettyprint">pixels</code> which refers to an 84x336 grayscale image.</p>
+
+<p>The simulator return type must match (or be castable to) the graph&rsquo;s <code class="prettyprint">input</code> type. For an explanation of castability, refer to <a href="#types">types</a>.</p>
+
+<p>In this example, the simulator declares the action type to be <code class="prettyprint">PlayerMove</code>. The simulator action type must match the output type for the concept being trained. In our example, the concept <code class="prettyprint">HighScore</code> trains the BRAIN to select the next move, which is of type <code class="prettyprint">PlayerMove</code>. </p>
+<pre class="highlight inkling2 tab-inkling2--code"><code><span class="k">graph</span> <span class="p">(</span><span class="k">input</span><span class="p">:</span> <span class="nx">GameState</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">concept</span> <span class="nx">KeepPaddleUnderBall</span><span class="p">(</span><span class="k">input</span><span class="p">):</span> <span class="nx">PlayerMove</span> <span class="p">{</span>
+    <span class="k">curriculum</span> <span class="p">{</span>
+      <span class="k">source</span> <span class="nx">BreakoutSimulator</span>
+
+      <span class="k">lesson</span> <span class="nx">TrackBallWidePaddle</span> <span class="p">{</span>
+        <span class="k">constraint</span> <span class="p">{</span>
+          <span class="nx">level</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">UInt16</span><span class="o">&lt;</span><span class="mi">1</span> <span class="p">..</span> <span class="mi">100</span><span class="o">&gt;</span><span class="p">,</span>
+          <span class="nx">paddle_width</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+          <span class="nx">bricks_percent</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+
+      <span class="k">lesson</span> <span class="nx">TrackBallAnyPaddle</span> <span class="p">{</span>
+        <span class="k">constraint</span> <span class="p">{</span>
+          <span class="nx">level</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">UInt16</span><span class="o">&lt;</span><span class="mi">1</span> <span class="p">..</span> <span class="mi">100</span><span class="o">&gt;</span><span class="p">,</span>
+          <span class="nx">paddle_width</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">UInt8</span><span class="o">&lt;</span><span class="mi">1</span> <span class="p">..</span> <span class="mi">4</span><span class="o">&gt;</span><span class="p">,</span>
+          <span class="nx">bricks_percent</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">output</span> <span class="nx">KeepPaddleUnderBall</span>
+<span class="p">}</span>
+</code></pre>
+<p>Another concept that helps with playing Breakout is <code class="prettyprint">KeepPaddleUnderBall</code>. In the curriculum for this concept, there are two lessons. One of the lessons, <code class="prettyprint">TrackBallAnyPaddle</code>, uses a wide paddle and is easier to learn. The second lesson, <code class="prettyprint">TrackBallAnyPaddle</code>, uses a <a href="#constrained-types-and-range-expressions">range expression</a> to vary the paddle width from 1 to 4. The second lesson is more difficult to learn, but by starting with an easier problem, the overall training time is reduced.</p>
+
+          <h1 id="lessons">Lessons</h1>
+
+<p>Lessons provide a staged way to teach a concept starting with easier tasks and moving to more difficult. This approach can reduce the total time it takes to train a concept.</p>
+
+<blockquote>
+<p>Lesson Syntax</p>
+</blockquote>
+<pre class="highlight inkling2 tab-inkling2--syntax"><code><span class="nx">lessonStatement</span> <span class="p">::</span><span class="o">=</span>
+  <span class="k">lesson</span> <span class="o">&lt;</span><span class="nx">lessonName</span><span class="o">&gt;</span> <span class="p">'{'</span>
+    <span class="p">[</span><span class="k">constraint</span> <span class="o">&lt;</span><span class="nx">typeReference</span><span class="o">&gt;</span><span class="p">]?</span>
+  <span class="p">'}'</span>
+</code></pre>
+<p>The <code class="prettyprint">lesson</code> declares a lesson within a curriculum. Lessons provide control over the training of a concept, allowing it to be staged from easy to difficult. This approach can reduce the overall training time.</p>
+
+<h3 id="usage">Usage</h3>
+
+<p>Multiple lessons can be used within a curriculum, and they are used at training time in the same order in which they&rsquo;re declared. The <code class="prettyprint">constraint</code> clause should configure the simulator in a restricted manner. Subsequent lessons should incrementally reduce the restrictions, making the problem more difficult and the exploration space larger. A range constraint used within a lesson should be less restrictive (or at least not more restrictive) than the corresponding range constraint used in a previous lesson.</p>
+
+<h3 id="example">Example</h3>
+<pre class="highlight inkling2 tab-inkling2--code"><code><span class="k">simulator</span> <span class="nx">BreakoutSimulator</span><span class="p">(</span><span class="k">action</span><span class="p">:</span> <span class="nx">PlayerMove</span><span class="p">,</span> <span class="k">config</span><span class="p">:</span> <span class="nx">BreakoutConfig</span><span class="p">):</span> <span class="nx">GameState</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="k">type</span> <span class="nx">BreakoutConfig</span> <span class="p">{</span>
+  <span class="nx">level</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">UInt16</span><span class="p">,</span>
+  <span class="nx">paddle_width</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">UInt8</span><span class="o">&lt;</span><span class="mi">1</span> <span class="p">..</span> <span class="mi">4</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="nx">bricks_percent</span><span class="p">:</span> <span class="k">number</span>
+<span class="p">}</span>
+
+<span class="k">type</span> <span class="nx">PlayerMove</span> <span class="k">number</span><span class="o">&lt;</span><span class="nx">Left</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nx">Stay</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">Right</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&gt;</span>
+
+<span class="k">type</span> <span class="nx">GameState</span> <span class="p">{</span>
+  <span class="nx">pixels</span><span class="p">:</span> <span class="nb">Image</span><span class="p">.</span><span class="nb">Gray</span><span class="o">&lt;</span><span class="mi">84</span><span class="p">,</span> <span class="mi">336</span><span class="o">&gt;</span>
+<span class="p">}</span>
+
+<span class="k">graph</span> <span class="p">(</span><span class="k">input</span><span class="p">:</span> <span class="nx">GameState</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">concept</span> <span class="nx">HighScore</span><span class="p">(</span><span class="nx">KeepPaddleUnderBall</span><span class="p">,</span> <span class="k">input</span><span class="p">):</span> <span class="nx">PlayerMove</span> <span class="p">{</span>
+    <span class="k">curriculum</span> <span class="p">{</span>
+      <span class="k">source</span> <span class="nx">BreakoutSimulator</span>
+
+      <span class="k">lesson</span> <span class="nx">ConstantBreakout</span> <span class="p">{</span>
+        <span class="k">constraint</span> <span class="p">{</span>
+          <span class="nx">level</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="nx">paddle_width</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+          <span class="nx">bricks_percent</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+
+      <span class="k">lesson</span> <span class="nx">VaryBreakout</span> <span class="p">{</span>
+        <span class="k">constraint</span> <span class="p">{</span>
+          <span class="nx">level</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">UInt16</span><span class="o">&lt;</span><span class="mi">1</span> <span class="p">..</span> <span class="mi">100</span><span class="o">&gt;</span><span class="p">,</span>
+          <span class="nx">paddle_width</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">UInt8</span><span class="o">&lt;</span><span class="mi">1</span> <span class="p">..</span> <span class="mi">4</span><span class="o">&gt;</span><span class="p">,</span>
+          <span class="nx">bricks_percent</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mf">0.1</span> <span class="p">..</span> <span class="mi">1</span> <span class="k">step</span> <span class="mf">0.01</span><span class="o">&gt;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">output</span> <span class="nx">HighScore</span>
+<span class="p">}</span>
+</code></pre>
+<p>In this example, we show lessons that break into stages the task of playing the game Breakout. </p>
+
+<ul>
+<li>The first lesson, <code class="prettyprint">ConstantBreakout</code>, trains the AI with a fixed configuration parameter.</li>
+<li>The second lesson, <code class="prettyprint">VaryBreakout</code> trains the AI with a configuration parameter that varies.</li>
+</ul>
+
+<p>The types specified after the <code class="prettyprint">constraint</code> keyword in our example specifies a type that must be compatible with the config type defined in the simulator declaration (<code class="prettyprint">BreakoutConfig</code>).</p>
+
+          <h1 id="simulators">Simulators</h1>
+<pre class="highlight inkling2 tab-inkling2--code"><code><span class="k">simulator</span> <span class="nx">MySimulator</span><span class="p">(</span><span class="k">action</span><span class="p">:</span> <span class="nx">MyActionType</span><span class="p">,</span> <span class="k">config</span><span class="p">:</span> <span class="nx">MyConfigType</span><span class="p">):</span> <span class="nx">MyStateType</span> <span class="p">{</span>
+<span class="p">}</span>
+</code></pre>
+<p>Curriculum statements reference an associated simulator in the <a href="#curriculums">source clause</a>.</p>
+
+<p>The <code class="prettyprint">simulator</code> statement describes the interface to a simulator program. The Inkling program does not contain code for the simulator itself. Instead the Inkling program defines how the simulator is used to train Inkling concepts.</p>
+
+<blockquote>
+<p>Simulator Declaration Syntax</p>
+</blockquote>
+<pre class="highlight inkling2 tab-inkling2--syntax"><code><span class="k">simulator</span> <span class="o">&lt;</span><span class="nx">simulatorName</span><span class="o">&gt;</span><span class="p">'('</span><span class="k">action</span> <span class="o">&lt;</span><span class="nx">typeReference</span><span class="o">&gt;</span>
+  <span class="p">[','</span> <span class="k">config</span> <span class="o">&lt;</span><span class="nx">ctypeReference</span><span class="o">&gt;</span><span class="p">]?</span> <span class="p">')'</span> <span class="p">':'</span> <span class="o">&lt;</span><span class="nx">typeReference</span><span class="o">&gt;</span> <span class="p">'{'</span>
+<span class="p">'}'</span>
+</code></pre>
+<p>A <code class="prettyprint">simulator</code> statement defines the interface to the simulator - its input and output parameter types.</p>
+
+<ul>
+<li>The action input type</li>
+<li>An optional configuration input type</li>
+<li>The state output type</li>
+</ul>
+
+<h3 id="usage">Usage</h3>
+<pre class="highlight inkling2 tab-inkling2--code"><code><span class="k">curriculum</span> <span class="p">{</span>
+  <span class="k">source</span> <span class="nx">BreakoutSimulator</span>
+<span class="p">}</span>
+</code></pre>
+<p>The curriculum statement references a simulator. The example in the code panel
+shows the use of simulator <code class="prettyprint">BreakoutSimulator</code>. </p>
+
+<h3 id="discussion">Discussion</h3>
+
+<p>Simulators are virtual environments designed to simulate the behavior of a real-world pysical environment and the objects or agents within it. Every simulator has &ldquo;observable state&rdquo;, a representation of the world inside the virtual environment. This state changes over time in response to actions taken by an agent. Typically, the observable state represents the inputs received by the simulated agent&rsquo;s sensors (cameras, temperature guages, depth sensors, etc.).</p>
+
+<p>During training, the AI Engine &ldquo;drives&rdquo; the simulator by giving it an action. The simulator then performs the action and returns the resulting state. The AI Engine then selects a new action and sends it to the simulator, and so on. Through this manner, the AI Engine is able to explore the &ldquo;state space&rdquo; of the simulated environment.</p>
+
+<p>Our <a href="library-reference.html">Library Reference</a> describes the classes and methods used to connect an existing simulator or create a new simulator in Python. <a href="../examples.html#basic-python-c-simulation">Find the Center</a> is an example of a basic simulator implementation.</p>
+
+<h3 id="example">Example</h3>
+<pre class="highlight inkling2 tab-inkling2--code"><code>
+<span class="k">simulator</span> <span class="nx">BreakoutSimulator</span><span class="p">(</span><span class="k">action</span><span class="p">:</span> <span class="nx">PlayerMove</span><span class="p">,</span> <span class="k">config</span><span class="p">:</span> <span class="nx">BreakoutConfig</span><span class="p">):</span> <span class="nx">GameState</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="k">type</span> <span class="nx">BreakoutConfig</span> <span class="p">{</span>
+  <span class="nx">level</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">UInt16</span><span class="p">,</span>
+  <span class="nx">paddle_width</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">UInt8</span><span class="o">&lt;</span><span class="mi">1</span> <span class="p">..</span> <span class="mi">4</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="nx">bricks_percent</span><span class="p">:</span> <span class="k">number</span>
+<span class="p">}</span>
+
+<span class="k">type</span> <span class="nx">PlayerMove</span> <span class="k">number</span><span class="o">&lt;</span><span class="nx">Left</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nx">Stay</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">Right</span> <span class="o">=</span> <span class="mi">1</span><span class="o">&gt;</span>
+
+<span class="k">type</span> <span class="nx">GameState</span> <span class="p">{</span>
+  <span class="nx">pixels</span><span class="p">:</span> <span class="nb">Image</span><span class="p">.</span><span class="nb">Gray</span><span class="o">&lt;</span><span class="mi">84</span><span class="p">,</span> <span class="mi">336</span><span class="o">&gt;</span>
+<span class="p">}</span>
+
+<span class="k">graph</span> <span class="p">(</span><span class="nx">iput</span><span class="p">:</span> <span class="nx">GameState</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">concept</span> <span class="nx">HighScore</span><span class="p">(</span><span class="k">input</span><span class="p">):</span> <span class="nx">PlayerMove</span> <span class="p">{</span>
+    <span class="k">curriculum</span> <span class="p">{</span>
+      <span class="k">source</span> <span class="nx">BreakoutSimulator</span>
+
+      <span class="k">lesson</span> <span class="nx">ScoreLesson</span> <span class="p">{</span>
+        <span class="k">constraint</span> <span class="p">{</span>
+          <span class="nx">level</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">UInt16</span><span class="o">&lt;</span><span class="mi">1</span> <span class="p">..</span> <span class="mi">100</span><span class="o">&gt;</span><span class="p">,</span>
+          <span class="nx">paddle_width</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">UInt8</span><span class="o">&lt;</span><span class="mi">1</span> <span class="p">..</span> <span class="mi">4</span><span class="o">&gt;</span><span class="p">,</span>
+          <span class="nx">bricks_percent</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">output</span> <span class="nx">PlayBreakout</span>
+<span class="p">}</span>
+</code></pre>
+<p>In this example we show some of the Inkling code for training the game Breakout.
+The curriculum <code class="prettyprint">source</code> clause specifies <code class="prettyprint">BreakoutSimulator</code>, and the
+<code class="prettyprint">simulator</code> statement specifies the action, state, and configuration types. </p>
+
+          <h1 id="algorithm-hints">Algorithm Hints</h1>
+
+<blockquote>
+<p>Syntax</p>
+</blockquote>
+<pre class="highlight inkling2 tab-inkling2--syntax"><code><span class="k">algorithm</span> <span class="p">{</span>
+   <span class="o">&lt;</span><span class="nx">fieldName</span><span class="o">&gt;</span> <span class="p">':'</span> <span class="o">&lt;</span><span class="nx">literal</span><span class="o">&gt;</span>
+   <span class="p">[</span> <span class="p">','</span> <span class="o">&lt;</span><span class="nx">fieldName</span><span class="o">&gt;</span> <span class="p">':'</span> <span class="o">&lt;</span><span class="nx">literal</span><span class="o">&gt;</span> <span class="p">]</span><span class="o">*</span>
+<span class="p">}</span>
+</code></pre>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight inkling2 tab-inkling2--code"><code><span class="k">graph</span> <span class="p">(</span><span class="k">input</span><span class="p">:</span> <span class="nx">GameState</span><span class="p">):</span> <span class="nx">Action</span> <span class="p">{</span>
+    <span class="k">concept</span> <span class="nx">balance</span><span class="p">(</span><span class="k">input</span><span class="p">):</span> <span class="nx">Action</span> <span class="p">{</span>
+        <span class="k">curriculum</span> <span class="p">{</span>
+            <span class="k">source</span> <span class="nx">MySimulator</span>
+
+            <span class="k">algorithm</span> <span class="p">{</span>
+                <span class="nx">Algorithm</span><span class="p">:</span> <span class="s2">"TRPO"</span><span class="p">,</span>
+                <span class="nx">HiddenLayers</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="nx">Size</span><span class="p">:</span> <span class="mi">64</span><span class="p">,</span>
+                        <span class="nx">Activation</span><span class="p">:</span> <span class="s2">"tanh"</span>
+                    <span class="p">},</span>
+                    <span class="p">{</span>
+                        <span class="nx">Size</span><span class="p">:</span> <span class="mi">64</span><span class="p">,</span>
+                        <span class="nx">Activation</span><span class="p">:</span> <span class="s2">"tanh"</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">output</span> <span class="nx">balance</span>
+<span class="p">}</span>
+</code></pre>
+<p>The algorithm clause is for advanced users who want to experiment with changing machine learning algorithms and their tuning parameters. An algorithm statement is a hint to the AI Engine which may be ignored if the AI Engine decides that the specified algorithm or parameters are inappropriate or obsolete. If the hint is followed, it applies only to the concept in which it is specified.</p>
+
+<h3 id="valid-algorithm-identifiers">Valid Algorithm Identifiers</h3>
+
+<ul>
+<li><code class="prettyprint">DQN</code> (Deep Q Learning) - classification only</li>
+<li><code class="prettyprint">DDPG</code> (Deep Deterministic Policy Gradients) - estimation only</li>
+<li><code class="prettyprint">DiscreteDDPG</code> (Deep Deterministic Policy Gradients with Discrete Actions) - classification only</li>
+<li><code class="prettyprint">QTable</code> (Q Learning with Q Table) - classification only</li>
+<li><code class="prettyprint">TRPO</code> (Trust Region Policy Optimization) - estimation only</li>
+</ul>
+
+<h3 id="shared-parameter-details">Shared Parameter Details</h3>
+
+<p>The following parameters all apply to DQN, DDPG, Discrete DDPG, and TRPO. Additional parameter options are shown in subsequent tables below.</p>
+
+<table><thead>
+<tr>
+<th>Parameter (Example use)</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>HiddenLayers: [HiddenLayerInfo] <br><br> (<code class="prettyprint">HiddenLayers: [{Size: 400, Activation: &quot;relu&quot;}, {Size: 300, Activation: &quot;tanh&quot;}]</code>)</td>
+<td>An array of structures that define the size and (optionally) the activation function for each hidden layer. Sizes must be positive integers, and activation functions must be one of &ldquo;linear&rdquo;, &ldquo;tanh&rdquo;, &ldquo;relu&rdquo;, &ldquo;logistic&rdquo;, &ldquo;softmax&rdquo;, &ldquo;elu&rdquo;, or &ldquo;default&rdquo;.</td>
+</tr>
+<tr>
+<td>ConvolutionLayers: [ConvolutionLayerInfo] <br><br> (<code class="prettyprint">ConvolutionLayers: {XSize: 8, YSize: 8, XStride: 4, YStride: 4 FilterCount: 32}”</code>)</td>
+<td>An array of structures that define the size, stride and (optionally) the filter count for each convolution layer.</td>
+</tr>
+<tr>
+<td>CompressionLayers: [HiddenLayerInfo] <br><br> (<code class="prettyprint">CompressionLayers: [{Size: 20, Activation: &quot;tanh&quot;}, {Size: 10, Activation: &quot;softmax&quot;}]</code>)</td>
+<td>If specified, will add one or more fully-connected hidden layers after the convolutional layers to compress the representation before incorporating other features. The format is the same as the HiddenLayerInfo described above.</td>
+</tr>
+<tr>
+<td>ConvolutionLimitDimension: string <br> (<code class="prettyprint">ConvolutionLimitDimension: “x”</code>)</td>
+<td>A string that represents which dimension of the input shape to be used as the convolutional filter sizes. Must be one of: &ldquo;max&rdquo;, &ldquo;min&rdquo;, &ldquo;x&rdquo;, &ldquo;y&rdquo;, or &ldquo;none&rdquo;. By default, it’s &ldquo;none&rdquo;, which uses the original input shapes as the filter sizes. &ldquo;max&rdquo; uses the maximum of x and y inputs as the filter size. &ldquo;min&rdquo; uses the minimum of x and y input. &ldquo;x&rdquo; uses the x dimension input shape as the filter size. &ldquo;y&rdquo; uses the y dimension input shape. (The example uses the input x dimension shape as the convolutional filter size.)</td>
+</tr>
+</tbody></table>
+
+<h3 id="dqn-specific-parameters">DQN-Specific Parameters</h3>
+
+<p>In addition to the first (shared) table of parameters, DQN also supports four additional parameters.</p>
+
+<table><thead>
+<tr>
+<th>Parameter (Example use)</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ExplorationDecay: float <br> (<code class="prettyprint">ExplorationDecay: 0.00001</code>)</td>
+<td>The exploration decay in DQN.</td>
+</tr>
+<tr>
+<td>SamplesPerTrain: int <br> (<code class="prettyprint">SamplesPerTrain: 10</code>)</td>
+<td>The number of samples (iterations) collected before training.</td>
+</tr>
+<tr>
+<td>QLearningRate: float <br> (<code class="prettyprint">QLearningRate: 0.0001</code>)</td>
+<td>The learning rate for training the Q network.</td>
+</tr>
+<tr>
+<td>DiscountRate: float <br> (<code class="prettyprint">DiscountRate: 0.99</code>)</td>
+<td>The discount rate for the Bellman Equation.</td>
+</tr>
+</tbody></table>
+
+<h3 id="ddpg-specific-and-discreteddpg-parameters">DDPG-Specific and DiscreteDDPG Parameters</h3>
+
+<p>In addition to the first (shared) table of parameters, DDPP and DiscreteDDPG support three additional parameters.</p>
+
+<table><thead>
+<tr>
+<th>Parameter (Example use)</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MuLearningRate: float <br> (<code class="prettyprint">MuLearningRate: 0.0001</code>)</td>
+<td>The learning rate for training the Mu network.</td>
+</tr>
+<tr>
+<td>QLearningRate: float <br> (<code class="prettyprint">QLearningRate: 0.0001</code>)</td>
+<td>The learning rate for training the Q network.</td>
+</tr>
+<tr>
+<td>DiscountRate: float <br> (<code class="prettyprint">DiscountRate: 0.99</code>)</td>
+<td>The discount rate for the Bellman Equation.</td>
+</tr>
+</tbody></table>
+
+<h3 id="trpo-specific-parameters">TRPO-Specific Parameters</h3>
+
+<p>In addition to the first (shared) table of parameters, TRPO supports one additional parameter.</p>
+
+<table><thead>
+<tr>
+<th>Parameter (Example use)</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SamplesPerTrain: int <br> (<code class="prettyprint">SamplesPerTrain: 10</code>)</td>
+<td>The number of samples (iterations) collected before training.</td>
+</tr>
+</tbody></table>
+
+<h3 id="qtable-parameters">QTable Parameters</h3>
+
+<p>QTable supports only three parameters.</p>
+
+<table><thead>
+<tr>
+<th>Parameter (Example use)</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ExplorationDecay: float <br> (<code class="prettyprint">ExplorationDecay: 0.00001</code>)</td>
+<td>The exploration decay in DQN.</td>
+</tr>
+<tr>
+<td>QLearningRate: float <br> (<code class="prettyprint">QLearningRate: 0.0001</code>)</td>
+<td>The learning rate for training the Q network.</td>
+</tr>
+<tr>
+<td>DiscountRate: float <br> (<code class="prettyprint">DiscountRate: 0.99</code>)</td>
+<td>The discount rate for the Bellman Equation.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+
+    </div>
+
+  </div>
+  <!-- at the end of the BODY -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+  <script type="text/javascript"> docsearch({
+  apiKey: '49fa6f01d7ff94a85b9b7434b1c2b7cf',
+  indexName: 'bon-sai',
+  inputSelector: '#docs-search',
+  debug: false // Set debug to true if you want to inspect the dropdown
+  });
+  </script>
+  </body>
+</html>

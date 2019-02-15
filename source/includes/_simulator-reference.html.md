@@ -28,18 +28,16 @@ A list of examples using these are on the [Examples][7] page.
 
 # Integrating a Simulator with Inkling
 
-> ![Simulator Diagram](../images/inkling_simulator_comparison.png)
+> ![Simulator Diagram](../images/inkling_simulator_comparison2.png)
 
 This table describes the colors and connections between the various parts of the Inkling file and Simulator file that must be the same or connected. The source code for this example, [Find the Center][11], is available if you wish to copy/paste this example.
 
 | Color               | Description  |
 | -                   | -  |
-| Purple (dark/light) | The Inkling state schema field names and types must match the state dictionaries returned from `episode_start` and `simulate` in the simulator. |
-| Blue (dark/light)   | The Inkling action schema field names will match the keys in the action dictionary passed to `simulate` in the simulator, and the values will have the types specified in Inkling, and will obey the specified constraints (`{-1, 0, 1}` in the example). |
-| Orange (dark/light) | The simulator's configuration passes as `parameters` to the `episode_start`, and will take values from the `constrain` clause in Inkling. |
-| Red                 | The name of the concept must match the `train` clause in the curriculum for that concept. |
-| Green               | The simulator name must match between the `simulator` clause and the `with simulator` clause in the curriculum. The simulator must pass the same name to the constructor of the `Simulator` class, so the AI engine knows which simulator is connected. |
-|Turquoise            | The name of the optimization objective or reward function appears twice in the Inkling, and is available as `self.objective_name` in the simulator. |
+| Purple (dark/light) | The Inkling state type field names and types must match the state dictionaries returned from `episode_start` and `simulate` in the simulator. |
+| Blue (dark/light)   | The Inkling action type field names will match the keys in the action dictionary passed to `simulate` in the simulator, and the values will have the types specified in Inkling, and will obey the specified constraints (`<-1, 0, 1>` in the example). |
+| Orange (dark/light) | The simulator's configuration passes as `parameters` to the `episode_start`, and will take values from the `constraint` clause in Inkling. |
+| Green               | The simulator name must match between the `simulator` clause and the `source` clause in the curriculum. The simulator must pass the same name to the constructor of the `Simulator` class so the AI engine knows which simulator is connected. |
 
 <aside class="notice">
 Note that config in __main__ is the brain configuration and remains the same throughout, whereas goal_config (highlighted in orange) is used at the beginning of every episode and must be named the same as it is in Inkling. These configs are unrelated.

@@ -20,4 +20,4 @@ And we have these other resources that will enable you to maximize your AI devel
 [1]: ../tutorials/tutorial1.html
 [2]: ./web-graphs-guide.html
 [3]: https://www.youtube.com/watch?v=0R3PnJEisqk&list=PLAktfMEMCsOY9HUZKIuGI6yqefGBuszAV&index=4
-[4]: ./inkling-guide.html
+[4]: ./inkling2-guide.html

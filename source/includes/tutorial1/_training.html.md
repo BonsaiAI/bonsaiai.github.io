@@ -10,7 +10,7 @@ bonsai push
 bonsai train start
 ```
 
-Use [`bonsai push`][1] to upload your edited Inkling file to the server whenever you make changes (make sure you filled in the action and state schemas first or you will get an error!).
+Use [`bonsai push`][1] to upload your edited Inkling file to the server whenever you make changes (make sure you filled in the action and state types first or you will get an error!).
 
 > Python 2
 
@@ -61,7 +61,7 @@ After your BRAIN is finished training you can use it to move to a point as quick
 
 Now you can see how fast the simulation can move to a point depending on how far away from the point it started. The higher the distance the more steps the agent will likely take to reach the point.
 
-And that’s it! You have now successfully learned how to test out a simulation, write your own schemas to connect a BRAIN, train, and predict from that BRAIN! 
+And that’s it! You have now successfully learned how to test out a simulation, write your own types to connect a BRAIN, train, and predict from that BRAIN! 
 
 [1]: ../references/cli-reference.html#bonsai-push
 [2]: ../references/cli-reference.html#bonsai-train-start

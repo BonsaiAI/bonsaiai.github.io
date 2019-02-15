@@ -4,82 +4,59 @@
 
 [**Download the full source code on GitHub**][1] if you want to run this simulator locally. If you want to run EnergyPlus remotely on the Bonsai Platform as a managed simulator, create a new BRAIN selecting the EnergyPlus demo on [beta.bons.ai][4].
 
-In this example, we'll walk you through the various statements that are part of a sample implementation of [EnergyPlus][2] on the Bonsai Platform, including the simulator and the Inkling files. This is a real-world example of how to use the Bonsai Platform for HVAC control using BCVTB and EnergyPlus.
+In this example, we'll walk you through the statements that are part of a sample implementation of [EnergyPlus][2] on the Bonsai Platform. This is a real-world example of how to use the Bonsai Platform for HVAC control using BCVTB and EnergyPlus.
 
-While this BRAIN is training, the Bonsai AI Engine launches the EnergyPlus simulator in the background for every episode. The *energyplus_simulator.py* then drives the simulator forward a step at a time until it finishes the episode and then relaunches it for the next episode, driving the actions into it and sending state results back to the Bonsai AI Engine.
+While this BRAIN is training, the Bonsai AI Engine invokes the EnergyPlus simulator for every episode. The *energyplus_simulator.py* then drives the simulator forward a step at a time until it finishes the episode and then resets it for the next episode, driving the actions into it and sending states back to the Bonsai AI Engine.
 
 ## Inkling File
 
-###### Schema
+###### Types
 
-```inkling
-constant Int32 minIrradiation = 0
-constant Int32 maxIrradiation = 10
-schema SimState
-    Int32{minIrradiation:maxIrradiation} SolarIrradiation
-end
+```inkling2
+const minIrradiation: Number.Int32 = 0
+const maxIrradiation: Number.Int32 = 10
+type SimState {
+    SolarIrradiation: Number.Int32<minIrradiation .. maxIrradiation>
+}
 ```
 
-The `SimState` schema defines the dictionary returned from the Python simulation's `advance` method to the BRAIN. We have added constants to this schema to demonstrate how they can be optionally used. They can be used in all or none of the schemas you define.
+The `SimState` type describes the value returned from the Python simulation's `simulate` method to the BRAIN. We have added constants to demonstrate how they can be used in defining types.
 
-```inkling
-schema SimAction
-    Int32 {0, 1} shade
-end
+```inkling2
+type SimAction {
+    shade: number<Up = 0, Down = 1>
+}
 ```
 
-The `SimAction` schema defines the 'actions', a dictionary of control signals this AI can send to the climate control. For example: `shade` == night, off, day.
+The `SimAction` type defines the control signals this AI can send to the climate control. In this case, the shade can be either up or down.
 
-```inkling
-schema SimConfig
-    Int32{-1} unused
-end
+###### Concept Graph
+
+```inkling2
+graph (input: SimState): SimAction {
+
+    concept my_concept(input): SimAction {
+        curriculum {
+            source energyplus_simulator
+        }
+    }
+
+    output my_concept
+}
 ```
 
-The `SimConfig` schema in this case is not used (but is still required to be defined in Inkling) but it would define the dictionary passed as a parameter to the `set_properties` method of the Python simulator.
+This concept is named `my_concept` which outputs a `SimAction` given a `SimState`. In this simple demo, we ask the Bonsai Platform to generate any model that can learn to control the system using these inputs and outputs.
 
-###### Concept
-
-```inkling
-concept my_concept is classifier
-   predicts (SimAction)
-   follows input(SimState)
-   feeds output
-end
-```
-
-This concept is named `my_concept` which predicts a `SimAction` given a `SimState`. In this simple demo we just ask the Bonsai Platform to generate any model that can learn to control the server using these inputs and outputs.
+The curriculum trains `my_concept` using `energyplus_simulator`. This curriculum has no defined lesson, so a default lesson is assumed.
 
 ###### Simulator
 
-```inkling
-simulator energyplus_simulator(SimConfig)
-    action (SimAction)
-    state (SimState)
-end
+```inkling2
+simulator energyplus_simulator(action: SimAction): SimState {
+}
 ```
 
-
-The simulator clause declares that a simulator named `energyplus_simulator` will be connecting to the server for training. This code snippet binds the previous schemas to this simulator. To define the training relationship between the simulator and the concept we must begin by defining the simulator. `energyplus_simulator` expects an action defined in the `SimAction` schema as input and replies with a state defined in the `SimState` schema as output.
-
-###### Curriculum
-
-```inkling
-curriculum my_curriculum
-    train my_concept
-    with simulator energyplus_simulator
-    objective reward_function
-        lesson my_first_lesson
-            configure
-                constrain unused with Int32{-1}
-            until
-                maximize reward_function
-end
-```
-
-The curriculum `my_curriculum` trains `my_concept` using `energyplus_simulator`. The BRAIN that runs this Inkling code will try to maximize the value returned from `reward_function` until you stop training. `reward_function` is a method in the Python simulator.
-
-This curriculum contains one lesson, called `my_first_lesson`. It configures the simulation, by setting a number of constraints for the state of the simulator.
+This statement declares that a simulator named `energyplus_simulator` will be connecting to the server for training. This code snippet binds the previous types to this simulator. To define the training relationship between the simulator and the concept, we must begin by defining the simulator. `energyplus_simulator` expects an action of type `SimAction` as an input, and it replies with a state of type `SimState` as output.
 
 ## Simulator Excerpt
 

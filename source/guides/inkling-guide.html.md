@@ -12,5 +12,5 @@ includes:
 - inkling-guide/curriculum-and-lessons.html.md
 - inkling-guide/next-steps.html.md
 
-search: true
+search: false
 ---

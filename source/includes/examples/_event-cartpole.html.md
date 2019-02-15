@@ -6,7 +6,7 @@
 
 This example demonstrates how instances of the `Event` class can be used to drive a custom simulation loop. Rather than relying on machinery internal to `bonsai_ai.Simulator`, the `CartPoleTrainer` class advances the simulation event by event, which, in turn, allows for custom logic at each stage.
 
-This event driven interface is for when you can't squeeze your particular application logic into the prescribed callback interface. If this is the case, your implementation may benefit from employing this pattern.
+This event-driven interface is useful when you can't squeeze your particular application logic into the prescribed callback interface.
 
 Cartpole is a classic control problem. [OpenAI Gym][2] describes it as:
 

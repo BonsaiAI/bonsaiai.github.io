@@ -16,5 +16,5 @@ includes:
 - inkling-reference/algorithms.html.md
 
   
-search: true
+search: false
 ---

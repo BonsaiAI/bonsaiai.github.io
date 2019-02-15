@@ -156,13 +156,13 @@ The scope in the upper right of the model labelled “BLOCK OUTPUT AND STATE” 
 
 The Bonsai Block exposes 3 input ports for drawing data from the enclosing model:
 
-- The state of the model, corresponding with the state schema defined in Inkling and that used to configure the block (see Block Parameters, below). This will usually comprise several values that should be multiplexed into a flat, numeric vector before hitting the block input port
+- The state of the model, corresponding with the state type defined in Inkling and that used to configure the block (see Block Parameters, below). This will usually comprise several values that should be multiplexed into a flat, numeric vector before hitting the block input port
 - The reward relative to the current state in the form of a single real number. E.g. `room_temp < abs(set_temp - 10)`
 - The boolean result of applying your chosen terminal condition to the current state. E.g. `reward < 0`.
 
 Similarly, the Bonsai Block exposes 3 output ports for communicating data back to the enclosing model:
 
-- The prediction to be applied to the enclosing model in response to the given state. That is, the action recommended by the BRAIN given the current state of its associated neural net. This takes the form of a numeric array. If the `Prediction Schema` contains more than one item, you will need a demux to extract them as individual signals.
+- The prediction to be applied to the enclosing model in response to the given state. That is, the action recommended by the BRAIN given the current state of its associated neural net. This takes the form of a numeric array. If the `Prediction Type` contains more than one item, you will need a demux to extract them as individual signals.
 - The configuration parameters. As above, these are emitted as a numeric vector which may or may not need demuxing.
 - The reset signal. This signal goes high either on the iteration following a terminal condition or when a training BRAIN updates configuration parameters as a way to avoid local optima. In practice, the former is the type of reset signal you will see the most frequently. For more information about responding to Reset signals, see the section titled “Resetting Your Model”.
 
@@ -172,7 +172,7 @@ Access the Bonsai S-function parameter dialog by double clicking the correspondi
 
 Block configuration fields should contain valid MATLAB and will be evaluated as such. “Char Array” indicates a native MATLAB type denoted by enclosing a string of characters in *single quotes*. If you use double quotes or leave out the quotes all together, Simulink will complain when Apply your changes.
 
-Schema fields (see below) represent lists of properties, log flags, etc. In order to support the widest possible variety of platforms and MATLAB/Simulink versions, we configure such fields as character arrays with list elements delimited by commas, semicolons, or single spaces (or any combination thereof. For example, any of the following are valid schemas:
+Type fields (see below) represent lists of properties, log flags, etc. In order to support the widest possible variety of platforms and MATLAB/Simulink versions, we configure such fields as character arrays with list elements delimited by commas, semicolons, or single spaces (or any combination thereof. For example, any of the following are valid types:
 
 ```
 ‘field1;field2;field3’
@@ -181,7 +181,7 @@ Schema fields (see below) represent lists of properties, log flags, etc. In orde
 ```
 
 
-NOTE: with the exception of the log schema, which has no analog in Inkling, the schemas you configure here must precisely match those defined in you Inkling file. Failure to maintain a precise match may cause MATLAB to crash.
+NOTE: with the exception of the log type, which has no analog in Inkling, the types you configure here must precisely match those defined in you Inkling file. Failure to maintain a precise match may cause MATLAB to crash.
 
 >![Bonsai Block Parameters](simulink-block-parameters.png)
 
@@ -189,10 +189,10 @@ NOTE: with the exception of the log schema, which has no analog in Inkling, the 
 | --------- | ---- | ----------- |
 | `BRAIN` | Char Array | The name of the BRAIN (as reflected in the Bonsai web interface). |
 | `Simulator Name` | Char Array | As defined in the Inkling file associated with the target BRAIN. |
-| `State Schema` | Char Array | As defined in the Inkling file associated with the target BRAIN. |
-| `Action schema` | Char Array | As defined in the Inkling file associated with the target BRAIN. |
-| `Config Schema` | Char Array | As defined in the Inkling file associated with the target BRAIN. |
-| `Log Schema` | Char Array | A list of log domains to enable. |
+| `State Type` | Char Array | As defined in the Inkling file associated with the target BRAIN. |
+| `Action Type` | Char Array | As defined in the Inkling file associated with the target BRAIN. |
+| `Config Type` | Char Array | As defined in the Inkling file associated with the target BRAIN. |
+| `Log Type` | Char Array | A list of log domains to enable. |
 | `Bonsai profile` | Char Array | Select header from global Bonsai config. If left blank (i.e. empty single quotes, as in `’’`), configuration will reflect whichever profile has been selected in the Bonsai CLI. |
 | `Sample rate` | Numeric | Either use a float to set the sample rate for the block or `-1` for inherited sample time. |
 |`Predict Mode` | Check Box | Indicates whether the block should connect to the BRAIN in predict mode (will fail if BRAIN training is not stopped). |

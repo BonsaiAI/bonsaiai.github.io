@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/bonsaiai/rouge.git
-  revision: 3810879d6189b694d4604d63038efdc56ca41197
+  revision: f9b6b83a21c536144a29f31484e7d29abf347a77
   branch: jgarcia/inkling
   specs:
     rouge (2.0.7)

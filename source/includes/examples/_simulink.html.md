@@ -10,78 +10,67 @@ This example shows how to use Simulink to create the thermal model of a house. T
 
 Inkling is a declarative, strongly typed programming language specifically designed for artificial intelligence (AI). It abstracts away the world of dynamic AI algorithms that require expertise in machine learning and enables more developers to program AI. Please review our [**Inkling Guide**][2] to learn more about these topics.
 
-###### Schema
+###### Types
 
-```inkling
-schema HouseheatState
-    Float32 set_temp,
-    Float32 room_temp,
-    Float32 outside_temp,
-    Float32 dTroom,
-    Float32 heat_output,
-    Float32 dTout
-end
+```inkling2
+type HouseheatState {
+    set_temp: number,
+    room_temp: number,
+    outside_temp: number,
+    dTroom: number,
+    heat_output: number,
+    dTout: number
+}
 ```
 
-The `HouseheatState` schema names six records and assigns a type to them.
+The `HouseheatState` type defines six numeric fields.
 
-```inkling
-schema HouseheatAction
-    Float32{ 0.0:1:1.0 } heater_on
-end
+```inkling2
+type HouseheatAction {
+    heater_on: number<0 .. 1 step 1>
+}
 ```
 
-The `HouseheatAction` schema names a single record — `heater_on` — and assigns a constrained type to it.
+The `HouseheatAction` type defines a single field — `heater_on` with a constrianed numeric range.
 
-```inkling
-schema HouseheatConfig
-    Float32 outside_phase
-end
+```inkling2
+type HouseheatConfig {
+    outside_phase: number
+}
 ```
 
-The `HouseheatConfig` schema names one record — `outside_phase` - and assigns a type to it.
+The `HouseheatConfig` type defines one field — `outside_phase`.
 
-###### Concept
+###### Concept Graph
 
-```inkling
-concept thermostat is classifier
-   predicts (HouseheatAction)
-   follows input(HouseheatState)
-   feeds output
-end
+```inkling2
+graph (input: HouseheatState) {
+    concept thermostat(input): HouseheatAction {
+        curriculum {
+            source simulink_sim
+
+            lesson my_first_lesson {
+                constraint {
+                    outside_phase: 0
+                }
+            }
+        }
+    }
+}
 ```
-The concept, `thermostat`, takes input from the simulation model about the state of the temperature in the house (`HouseheatState` schema). It outputs to the `HouseheatAction` schema. This is the AI's next move in the game.
+
+The concept `thermostat` has an input of type `HouseheatState`. It outputs a value of type `HouseheatAction`. This is the AI's next move in the game.
+
 
 ###### Simulator
 
-```inkling
-simulator simulink_sim(HouseheatConfig)
-    action (HouseheatAction)
-    state (HouseheatState)
-end
+```inkling2
+simulator simulink_sim(action: HouseheatAction, config: HouseheatConfig): HouseheatState {
+}
 ```
 
-The `simulink_sim` gets information from two schemas. The first schema, `action`, specifies the schema for actions within the simulation. The second schema, `state` contains the state of the simulation sent to the lesson.
-
-###### Curriculum
-
-```inkling
-curriculum my_curriculum
-    train thermostat
-    with simulator simulink_sim
-    objective match_set_temp
-        lesson my_first_lesson
-            configure
-	        constrain outside_phase with Float32{0.0}
-            until
-                maximize match_set_temp
-end
-```
-
-The curriculum, `my_curriculum`, trains the `thermostat` concept using the `simulink_sim`. This curriculum contains one lesson, called `my_first_lesson`. It configures the simulation, by setting constraints for the state of the simulator.
-
-The lesson trains until the AI has maximized the objective named `match_set_temp`.
+The `simulink_sim` receives input actions of type `HouseheatAction` and configuration information of type `HouseheatConfig`. It returns values of type `HouseheatState`.
 
 
 [1]: ../tutorials/simulink.html
-[2]: ../guides/inkling-guide.html#overview
+[2]: ../guides/inkling2-guide.html#overview

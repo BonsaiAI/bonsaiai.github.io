@@ -12,77 +12,66 @@ _A car is on a one-dimensional track, positioned between two "mountains". The go
 
 ## Inkling File
 
-###### Schema
+###### Types
 
-```inkling
-schema GameState
-    Float32 x_position,
-    Float32 x_velocity
-end
+```inkling2
+type GameState {
+    x_position: number,
+    x_velocity: number
+}
 ```
 
-The `GameState` schema names two records — `x_position` and `y_position` — and assigns a type to them.
+The `GameState` type defines two fields — `x_position` and `y_position`.
 
-```inkling
-constant Float32 throttleMin = -1.0
-constant Float32 throttleMax = 1.0
-schema Action
-    Float32{throttleMin:throttleMax} command
-end
+```inkling2
+const throttleMin = -1.0
+const throttleMax = 1.0
+type Action {
+    command: number<throttleMin .. throttleMax>
+}
 ```
 
-The `Action` schema names a single record — `command` — and assigns a constrained type to it. We have added constants to this schema to demonstrate how they can be optionally used.
+The `Action` type defines a single field — `command` — and assigns it a constrained type.
 
-```inkling
-schema MountainCarConfig
-    UInt8 deque_size
-end
+```inkling2
+type MountainCarConfig {
+    deque_size: Number.UInt8
+}
 ```
 
-The `MountainCarConfig` schema names a single record - `deque_size` - and assigns an unconstrained type to it.
+The `MountainCarConfig` type defines a single field - `deque_size`.
 
-###### Concept
+###### Concept Graph
 
-```inkling
-concept high_score is classifier
-    predicts (Action)
-    follows input(GameState)
-    feeds output
-end
+```inkling2
+graph (input: GameState): Action {
+    concept high_score(input): Action {
+        curriculum {
+            source mountaincar_continuous_simulator
+            lesson get_high_score {
+                constraint {
+                    deque_size: 1
+                }
+            }
+        }
+    }
+    output high_score
+}
 ```
 
-The concept is named `high_score`, and it takes input from the simulator about the state of the game (`GameState` schema). It outputs to the `Action` schema. This is the AI's next move in the game.
+The output concept is named `high_score`, and it takes input from the simulator about the state of the game (which is of type `GameState`). It outputs a value of type `Action`. This is the AI's next move in the game.
+
+The curriculum uses the simulator `mountaincar_simulator` as its data source. One lesson is specified, and it configures the simulation by constraining the deque_size field to a value of 1.
+
 
 ###### Simulator
 
-```inkling
-simulator mountaincar_continuous_simulator(MountainCarConfig)
-   action  (Action)
-   state  (GameState)
-end
+```inkling2
+simulator mountaincar_continuous_simulator(action: Action, config: MountainCarConfig): GameState {
+}
 ```
 
-The `mountaincar_continuous_simulator` gets information from two schemas. The first schema, `MountainCarConfig`, specifies the schema for configuration of the simulation. The second schema contains the state of the simulator that is sent to the lesson.
-
-###### Curriculum
-
-```inkling
-curriculum high_score_curriculum
-    train high_score
-    with simulator mountaincar_continuous_simulator
-    objective open_ai_gym_default_objective
-
-        lesson get_high_score
-            configure
-                constrain deque_size with UInt8{1}
-            until
-                maximize open_ai_gym_default_objective
-end
-```
-
-The curriculum is named `high_score_curriculum`, and it trains the `high_score` concept using the `mountaincar_simulator`. This curriculum contains one lesson, called `get_high_score`. It configures the simulation, by setting two constraints for the state of the simulator.
-
-The lesson trains until the AI has maximized the objective named `score`.
+The `mountaincar_continuous_simulator` receives actions of type `Action` and configuration information of type `MountainCarConfig`. It outputs values of type `GameState`.
 
 ## Simulator File
 

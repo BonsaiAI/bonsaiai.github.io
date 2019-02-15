@@ -29,11 +29,9 @@ demonstrates how these are called during training. Optionally, one may also over
 
 > Example Inkling:
 
-```inkling
-simulator my_simulator(Config)
-    action (Action)
-    state (State)
-end
+```inkling2
+simulator MySimulator(action: Action, config: Config): State {
+}
 ```
 
 > Example code:
@@ -116,15 +114,15 @@ for prediction and during start up, objective will return an empty string.
 
 > Example Inkling:
 
-```inkling
-schema Config
-    UInt8 start_angle
-end
+```inkling2
+type Config {
+    start_angle: number
+}
 
-schema State
-    Float32 angle,
-    Float32 velocity
-end
+type State {
+    angle: number,
+    velocity: number
+}
 ```
 
 > Example code:
@@ -160,10 +158,10 @@ The default implementation will throw an exception.
 
 > Example Inkling:
 
-```inkling
-schema Action
-    Int8{0, 1} delta
-end
+```inkling2
+type Action {
+    delta: number<0, 1>
+}
 ```
 
 > Example code:

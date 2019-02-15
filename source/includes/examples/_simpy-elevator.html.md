@@ -4,11 +4,11 @@
 
 [**Download the full source code on GitHub**][1] if you want to run this simulator locally.
 
-In this example, [SimPy][2], a process-based discrete-event simulation framework based on standard Python, is used to simulate an elevator effectively transporting people to their desired floor. The simulated elevator gets rewarded by having people wait for the least amount of time. This example includes a simple elevator SimPy simulator, a Python simulation, and the simulation's Inkling file.
+In this example, [SimPy][2], a process-based discrete-event simulation framework based on standard Python, is used to simulate an elevator effectively transporting people to their desired floor. The simulated elevator gets rewarded by having people wait for the least time. This example includes a simple elevator SimPy simulator, a Python simulation, and an Inkling file.
 
 "Processes in SimPy are defined by Python generator functions and may, for example, be used to model active components like customers, vehicles or agents. SimPy also provides various types of shared resources to model limited capacity congestion points (like servers, checkout counters and tunnels)." - SimPy docs
 
-This simulation is to provide actions (up, down, open doors) for an elevator, given floor requests from randomly arriving passengers. SimPy has a great framework for simulating time only when some state changes, which speeds up training for systems that would otherwise be mostly waiting.
+This simulation consumes actions (up, down, open doors) for an elevator given floor requests from randomly-arriving passengers. SimPy has a great framework for simulating time only when state changes occur. This speeds up training for systems that would otherwise be mostly waiting.
 
 In the image to the right, the elevator logs output every 100 seconds, then shows the state of the world, and then a list of recent passengers. The world state is the floor, the number of people waiting, plus the elevator, and the number of people inside.
 
@@ -18,87 +18,59 @@ For more ideas of how SimPy can simulate real world problems see the [SimPy Exam
 
 ## Inkling File
 
-###### Schema
+###### Types
 
-```inkling
-# Position is current location of elevator
-# State of each floor: 1 if the floor is requested, 0 if not
-schema FloorState
-    Int8{0, 1, 2} Position,
-    Int8{0, 1} Floor1,
-    Int8{0, 1} Floor2,
-    Int8{0, 1} Floor3
-end
+```inkling2
+type FloorState {
+    Position: number<0, 1, 2>,
+    Floor1: number<0, 1>,
+    Floor2: number<0, 1>,
+    Floor3: number<0, 1>
+}
 ```
 
-The `FloorState` schema defines the dictionary returned from the Python simulation's `advance` method to the BRAIN.
+The `FloorState` type defines the fields returned by the simulation's `advance` method.
 
-```inkling
-# command options: up, open, down
-constant Int8 up = 0
-constant Int8 open = 1
-constant Int8 down = 2
-schema Action
-    Int8{up, open, down} command
-end
+```inkling2
+type Action {
+    command: number<up = 0, open = 1, down = 2>
+}
 ```
 
-The `Action` schema defines the possible actions the elevator can take. We have added constants to this schema to demonstrate how they can be optionally used. In this case the command given to the elevator is '0' is open, '1' is go up a floor, and '2' is go down a floor.
+The `Action` type defines the possible commands accepted by the elevator. In this case, the command given to the elevator is '0' to open the door, '1' to go up a floor, and '2' to go down a floor.
 
-```inkling
-# Possible option for configuration
-schema ElevatorConfig
-    Int8 episode_length
-end
+```inkling2
+type ElevatorConfig {
+    episode_length: Number.Int8
+}
 ```
 
-The `ElevatorConfig` schema outlines some possible configurations you could give to the elevator if you wanted to tailor its learning in the lessons outlined later.
+###### Concept Graph
 
-###### Concept
+```inkling2
+graph (input: FloorState): Action {
+    concept elevator_plan(input): Action {
+        curriculum {
+            source elevator_simulator
+        }
+    }
 
-```inkling
-# Predicts an Action and follows input from the FloorState schema
-concept elevator_plan is classifier
-    predicts (Action)
-    follows input(FloorState)
-    feeds output
-end
+    output elevator_plan
+}
 ```
 
-This concept is named `elevator_plan`, a classifier, which predicts an `Action` given the current `FloorState`. In this simple example, we are training the concept to make an action (go up a floor, go down a floor, or open the doors) based on the current state of the floor the elevator is on.
+This concept is named `elevator_plan`, and it computes an `Action` given the current `FloorState`. In this simple example, we are training the concept to make an action (go up a floor, go down a floor, or open the doors) based on the current state of the floor.
+
+The curriculum uses simulator `elevator_simulator` as its data source. No lesson is specified, so a single simple lesson is assumed.
 
 ###### Simulator
 
-```inkling
-# Connect to SimPy simulator for training
-simulator elevator_simulator(ElevatorConfig)
-    action (Action)
-    state (FloorState)
-end
+```inkling2
+simulator elevator_simulator(action: Action): FloorState {
+}
 ```
 
-The simulator clause declares that a simulator named `elevator_simulator` will be connecting to the server for training. This `elevator_simulator` expects an action defined in the `Action` schema as input and replies with a state defined in the `FloorState` schema as output.
-
-###### Curriculum
-
-```inkling
-# This trains the concept using a single lesson
-# Maximize the elevator_objective defined in elevator_simulator.py
-curriculum high_score_curriculum
-    train elevator_plan
-    with simulator elevator_simulator
-    objective elevator_objective
-        lesson get_high_score
-            configure
-                constrain episode_length with Int8{-1}
-            until
-                maximize elevator_objective
-end
-```
-
-The curriculum `high_score_curriculum` trains `elevator_plan` using `elevator_simulator`. The BRAIN that runs this Inkling code will try to maximize the value returned from `elevator_objective` until you stop training. The reward function passed to `elevator_objective` is a method in the simulator `elevator_simulator.py` in which it returns the waiting time of the total sum of people as a negative number, in order to maximize it. The code for this can be seen at the end of the simulator excerpt below.
-
-This curriculum contains one simple lesson, called `get_high_score`. It configures the simulation, but in this case the lesson is simply using a dummy variable to not provide the elevator with any starting conditions to learn from. The training starts from random placement and actions.
+The simulator clause declares that a simulator named `elevator_simulator` will be connecting to the server for training. This `elevator_simulator` expects an input action of type `Action` and replies with a value of type `FloorState`.
 
 
 ## Simulator Excerpt

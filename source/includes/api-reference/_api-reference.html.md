@@ -605,8 +605,8 @@ GET, /v1/{userName}/{brainName}/{brainVersion}/sims/1/state/ws'
 The websocket will send JSON messages for each state transition in the simulator.
 The payload will have `action`, `reward`, and `state` keys. The `reward` value
 will be the reward the simulator gives for this state transition. The `action`
-will be JSON with keys which correspond to the Inkling's action schema and the
-`state` will be JSON with keys corresponding to the Inkling's state schema.
+will be JSON with keys which correspond to the Inkling's action type and the
+`state` will be JSON with keys corresponding to the Inkling's state type.
 
 # Training
 

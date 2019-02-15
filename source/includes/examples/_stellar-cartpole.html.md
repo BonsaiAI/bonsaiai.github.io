@@ -12,82 +12,66 @@ _A pole is attached by an un-actuated joint to a cart, which moves along a frict
 
 ## Inkling File
 
-###### Schema
+###### Types
 
-```inkling
-schema GameState
-    Float32 position,
-    Float32 velocity,
-    Float32 angle,
-    Float32 rotation
-end
+```inkling2
+type GameState {
+    position: number,
+    velocity: number,
+    angle: number,
+    rotation: number
+}
 ```
 
-The schema `GameState` names four records — `position`, `velocity`, `angle`, and `rotation` — and assigns a type to them. This information is input from the simulation.
+The type `GameState` defines four fields: `position`, `velocity`, `angle`, and `rotation`. This state information is provided by the simulation.
 
-```inkling
-schema Action
-   Int8{-1,1} command
-end
+```inkling2
+type Action {
+    command: Number.Int8<left = 0, right = 1>
+}
 ```
 
-The schema `Action` names a record — `action` —  and assigns it a constrained type. We have added constants to this schema to demonstrate how they can be optionally used.
+The type `Action` defines a single field `command` and assigns it a constrained type.
 
-```inkling
-schema CartPoleConfig
-    Int8 episode_length,
-    UInt8 deque_size
-end
+```inkling2
+type CartPoleConfig {
+    episode_length: Number.Int8,
+    deque_size: Number.UInt8
+}
 ```
 
- The schema `CartPoleConfig` names two records — `episode_length` and
- `deque_size` — and assigns each of them a type.   `episode_length` is a signed `Int8` because -1 is used for "run until pole drops".
+ The type `CartPoleConfig` defines two fields: `episode_length` and `deque_size`. `episode_length` is a signed `Int8` because -1 is used for "run until pole drops".
 
 
-###### Concept
+###### Concept Graph
 
-```inkling
-concept balance is classifier
-    predicts (Action)
-    follows input(GameState)
-    feeds output
-end
+```inkling2
+graph (input: GameState): Action {
+    concept balance(input): Action {
+        curriculum {
+            source cartpole_simulator
+            lesson balancing {
+                constraint {
+                    episode_length: -1,
+                    deque_size: 1
+                }
+            }
+        }
+    }
+    output balance
+}
 ```
 
-The concept is named `balance`, and it takes input from the simulator. That input is the records in the schema `GameState`. The balance concept outputs the move the AI should make in the simulator. This output is the record in the `Action` schema.
+The concept is named `balance`, and it takes input from the simulator of type `GameState`. The balance concept outputs the move the AI should make in the simulator. The output is of type `Action`.
 
 ###### Simulator
 
-```inkling
-simulator the_simulator(CartPoleConfig)
-   action (Action)
-   state (GameState)
-end
+```inkling2
+simulator cartpole_simulator(action: Action, config: CartPoleConfig): GameState {
+}
 ```
 
-Simulator `the_simulator` gets information from three schemas. The first schema, `CartPoleConfig`, specifies the schema for configuration of the simulation. The second schema `Action` specifies the action that the AI will take in the simulation. The third schema `GameState` contains the state of the simulator that is sent to the lesson.
-
-###### Curriculum
-
-```inkling
-curriculum balance_curriculum
-   train balance
-
-   with simulator the_simulator
-   objective balance_objective
-
-       lesson balancing
-           configure
-               constrain episode_length with Int8{-1},
-               constrain deque_size with UInt8{1}
-           until
-               maximize balance_objective
-end
-```
-
-The curriculum's name is `balance_curriculum`. It trains the `balance` concept with simulator `the_simulator`. The objective for this curriculum is `balance_objective`. The objective measures how long the pole stays upright.
-
-This curriculum contains one lesson, called `balancing`. It configures the simulation, by setting two constraints for the state of the simulator. The lesson trains until the AI has maximized the objective.
+Simulator `cartpole_simulator` receives an action of type `Action` and configuration information of type `CartPoleConfig`. It returns a value of type `GameState` that indicates the state of the game after the action is performed.
 
 ## Simulator File
 

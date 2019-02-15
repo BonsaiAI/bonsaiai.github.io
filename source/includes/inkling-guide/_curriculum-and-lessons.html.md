@@ -60,11 +60,11 @@ In these examples, the objective, or reward, is one of the factors we use to mea
 
 ###### Determining Objectives
 
-There are several factors you can use to determine what your objective should be. Before you even start determining your objectives, you need to know what your concepts and curricula are. A good objective should reward the AI more often and be proportional to the quality of of the behavior.
+There are several factors you can use to determine what your objective should be. Before you even start determining your objectives, you need to know what your concepts and curricula are. A good objective should reward the AI more often and be proportional to the quality of the behavior.
 
 ### Frequency of Feedback
 
-The frequency of feedback affects the speed of training. Ideally, the time between the AI's decision making and whether or not the decision was good needs to be kept short.  For example, if you're teaching an AI to play Pacman, you want to choose an objective like `score` instead of an objective like `beat level`: in Pacman, your score changes often, typically many times during a level, but your level can only change 256 times, and only after many many actions. Your AI would have to beat an entire level to be rewarded, which is difficult to do without getting intermediate feedback about which actions along the way were good ones. 
+The frequency of feedback affects the speed of training. Ideally, the time between the AI's decision making and whether or not the decision was good needs to be kept short.  For example, if you're teaching an AI to play Pacman, you want to choose an objective like `score` instead of an objective like `beat level`: in Pacman, your score changes often, typically many times during a level, but your level can only change 256 times, and only after many actions. Your AI would have to beat an entire level to be rewarded, which is difficult to do without getting intermediate feedback about which actions along the way were good ones. 
 
 ### Proportional Feedback
 

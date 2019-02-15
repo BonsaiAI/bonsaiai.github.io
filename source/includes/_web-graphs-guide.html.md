@@ -68,7 +68,7 @@ In this example the reward will always be 1 during an iteration as the BRAIN is 
 
 > ![Cartpole Debug](../images/graph-cartpole-debug.png)
 
-When your graph isn’t looking quite right, or if your reward isn’t building in the way you’d expect, the Simulator Graph can be a great way to troubleshoot what might be going on in your BRAIN. Graphing your reward against an action schema for example can tell you what is happening every iteration of your simulation.
+When your graph isn’t looking quite right, or if your reward isn’t building in the way you’d expect, the Simulator Graph can be a great way to troubleshoot what might be going on in your BRAIN. For example, graphing your reward against an action can tell you what is happening every iteration of your simulation.
 
 Another way to troubleshoot your BRAIN is to check out the logs down below the code editor window. This can be found below the graphs and is typically used for text output of what’s going on in the simulation. For example, with Cartpole, every single episode’s reward is output to the logs and shown in the code panel here. Since the graph on the Performance tab only displays an average. For simulations with very long episode time lengths this can be a good way to make sure things are working correctly in the beginning, before the first test episode is shown on the graph.
 
@@ -77,7 +77,7 @@ Another way to troubleshoot your BRAIN is to check out the logs down below the c
 
 > ![Cartpole Finished](../images/cartpole-end-training.png)
 
-So you’ve looked around at the different graphs and what the data has to offer, and now you might be wondering “Ok, so when do I hit the stop training button?” The answer to this question varies widely depending on the simulation. You have to know what a sufficient reward looks like for your problem you’re solving.
+You’ve looked around at the different graphs and what the data has to offer, and now you might be wondering “Ok, so when do I hit the stop training button?” The answer to this question varies widely depending on the simulation. You have to know what a sufficient reward looks like for your problem you’re solving.
 
 In the case of Cartpole what we’re looking for is the length of time between test episodes, because this is indicative of how long the AI is able to balance the pole before crashing and terminating that episode. The AI gets pretty good at playing the game after just a few minutes, where it can often reach around 1000 reward. If keeping the pole balanced for longer than that is necessary, then you would continue training and refining the model until you are satisfied with the BRAIN’s performance at the given task.
 
@@ -96,7 +96,7 @@ Automatic termination will take a significant amount of time and it is recommend
 </aside>
 
 
-[1]: http://docs.bons.ai/references/inkling-reference.html#concepts
+[1]: http://docs.bons.ai/references/inkling2-reference.html#concepts
 [2]: https://www.youtube.com/watch?v=0R3PnJEisqk&list=PLAktfMEMCsOY9HUZKIuGI6yqefGBuszAV&index=4
 [3]: http://docs.bons.ai/examples.html#openai-gym-cartpole
 [4]: http://docs.bons.ai/guides/getting-started.html

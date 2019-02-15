@@ -105,6 +105,6 @@ simulator, refer to our [Library Reference][4].
 [5]: #bonsai-brains
 [6]: ./ai-engine-guide.html
 [7]: ./local-dev-guide.html
-[8]: ./inkling-guide.html
+[8]: ./inkling2-guide.html
 [9]: ../references/api-reference.html
 [10]: ../../images/data-flow-simple.png

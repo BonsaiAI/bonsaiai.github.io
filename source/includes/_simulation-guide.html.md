@@ -67,6 +67,6 @@ Now that you’ve reviewed this guide, you can:
 
 [1]: ./sdk-install-guide.html
 [2]: ../references/simulator-reference.html
-[3]: ./inkling-guide.html
+[3]: ./inkling2-guide.html
 [4]: ../examples.html
 

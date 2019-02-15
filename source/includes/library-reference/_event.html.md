@@ -61,7 +61,7 @@ This event is generated when an action (prediction) is ready
 to be fed into the simulator.
 
 Assign values to a `SimulateEvent` by assigning a dictionary whose fields match
-the state schema. You will need to set the values before the next
+the state type. You will need to set the values before the next
 `Simulator.get_next_event` call. The values get sent back to the brain during
 the call to Simulator.get_next_event.
 

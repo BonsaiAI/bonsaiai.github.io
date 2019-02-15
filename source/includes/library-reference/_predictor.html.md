@@ -2,11 +2,9 @@
 
 > Example Inkling:
 
-```inkling
-    simulator my_simulator(Config)
-        action (Action)
-        state (State)
-    end
+```inkling2
+simulator MySimulator(action: Action, config: Config): State {
+}
 ```
 
 > Example code:

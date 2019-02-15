@@ -4,83 +4,58 @@
 
 [**Download the full source code on GitHub**][1] if you want to run this simulator locally.
 
-In this example, we'll walk you through the various statements that are part of the *Find the Center* game, including options for either a Python or C++ simulator file and the Inkling file. This is a very basic example of Inkling and how to connect to a custom simulator and shows the differences between using `libbonsai` (C++) and the `bonsai-ai` (Python) libraries.
+In this example, we'll explore the statements that are part of the *Find the Center* game, including options for either a Python or C++ simulator file and the Inkling file. This is a basic example of Inkling and how to connect to a custom simulator. It demonstrates the differences between using `libbonsai` (C++) and the `bonsai-ai` (Python) libraries.
 
 *Find the Center* is a simple game where the AI seeks the average value between two numbers. In this game, the AI begins at a random value of 0, 1, or 2. The AI then can move to a lower number by outputting -1, a higher number by outputting +1, or staying on the same number by outputting 0. The goal of *Find the Center* is to remain in the center of 0 and 2 (the number 1).
 
 ## Inkling File
 
-###### Schema
+###### Types
 
-```inkling
-schema GameState
-    Int8 value
-end
+```inkling2
+type GameState {
+    value: Number.Int8
+}
 ```
 
-The `GameState` schema has one field, `value`, with type `Int8`.
+The `GameState` type has one field, `value`, with type `Number.Int8`.
 
-```inkling
-constant Int8 dec = -1
-constant Int8 stay = 0
-constant Int8 inc = 1
-schema PlayerMove
-    Int8{dec, stay, inc} delta
-end
+```inkling2
+type PlayerMove {
+    delta: number<Dec = -1, Stay = 0, Inc = 1>
+}
 ```
 
-The `PlayerMove` schema has one field, `delta`, with type `Int8`. The `Int8` type is constrained to three possible values: -1, 0, and 1. We have added constants to this schema to demonstrate how they can be optionally used.
+The `PlayerMove` type has one field, `delta`, with three possible values: -1, 0, and 1.
 
-```inkling
-schema SimConfig
-    Int8 dummy
-end
+###### Concept Graph
+
+```inkling2
+graph (input: GameState): PlayerMove {
+
+    concept find_the_center(input): PlayerMove {
+        curriculum {
+            source find_the_center_sim
+        }
+    }
+
+    output find_the_center
+}
 ```
 
-The `SimConfig` schema has one field, `dummy`, because there is no configuration needed in this particular example.
+The concept is named `find_the_center`, and it expects input about the state of the game (of type `GameState`) and replies with output of type `PlayerMove`. This is the AI's next move in the simulation.
 
-###### Concept
+The curriculum trains the concept using the `find_the_center_sim` simulator. It defines no lessons, so a default lesson is assumed.
 
-```inkling
-concept find_the_center
-    is classifier
-    predicts (PlayerMove)
-    follows input(GameState)
-    feeds output
-end
-```
-
-This concept is named `find_the_center`. `find_the_center` expects input about the state of the game (defined by the `GameState` schema) and replies with output defined by the `PlayerMove` schema. This is the AI's next move in the simulation.
 
 ###### Simulator
 
-```inkling
-simulator find_the_center_sim(SimConfig)
-    action (PlayerMove)
-    state (GameState)
-end
+```inkling2
+simulator find_the_center_sim(action: PlayerMove): GameState {
+}
 ```
 
-The `simulator` is called `find_the_center_sim` (shown in #simulator-file) and takes the schema input of `SimConfig` (even though it isn't configuring anything, it's required by the simulator). The `find_the_center` concept will be trained using the `find_the_center_sim` simulator. To define the training relationship between the simulator and the concept we must begin by defining the simulator. `find_the_center_sim` expects an action defined in the `PlayerMove` schema as input and replies with a state defined in the `GameState` schema as output.
-
-###### Curriculum
-
-```inkling
-curriculum find_the_center_curriculum
-    train find_the_center
-    with simulator find_the_center_sim
-    objective time_at_goal
-        lesson seek_center
-            configure
-                constrain dummy with Int8{-1}
-            until
-                maximize time_at_goal
-end
-```
-
-The curriculum is named `find_the_center_curriculum`, and it trains the `find_the_center` concept using the `find_the_center_sim`.
-
-This curriculum contains one lesson, called `seek_center`. It configures the simulation, by setting a number of constraints for the state of the simulator. The lesson trains until the AI has maximized the objective `time_at_goal`.
+The `simulator` is called `find_the_center_sim` (shown in #simulator-file) and takes an input action of type PlayerMove. It returns the state of type `GameState`.
 
 
 ## Simulator File

@@ -2,62 +2,54 @@
 
 > Inkling code for Househeat
 
-```inkling
-schema HouseheatState
-    Float32 heat_cost,
-    Float32 temperature_difference,
-    Float32 temperature_difference_t1,
-    Float32 temperature_difference_t2,
-    Float32 temperature_difference_t3,
-    Float32 temperature_difference_t4,
-    Float32 temperature_difference_t5,
-    Float32 outside_temp_change
-end
+```inkling2
+inkling "2.0"
 
-schema HouseheatAction
-    Float32{ 0.0:1:1.0 } heater_on
-end
+type HouseheatState {
+    heat_cost: number,
+    temperature_difference: number,
+    temperature_difference_t1: number,
+    temperature_difference_t2: number,
+    temperature_difference_t3: number,
+    temperature_difference_t4: number,
+    temperature_difference_t5: number,
+    outside_temp_change: number
+}
 
-schema HouseheatConfig
-    Float32 outside_phase
-end
+type HouseheatAction {
+    heater_on: number<0 .. 1 step 1>
+}
 
-concept thermostat is classifier
-   predicts (HouseheatAction)
-   follows input(HouseheatState)
-   feeds output
-end
+type HouseheatConfig {
+    outside_phase: number
+}
 
-simulator simulink_sim(HouseheatConfig)
-    action (HouseheatAction)
-    state (HouseheatState)
-end
+simulator simulink_sim(action: HouseheatAction, config: HouseheatConfig): HouseheatState {
+}
 
-curriculum my_curriculum
-    train thermostat
-    with simulator simulink_sim
-    objective match_set_temp
-
-        lesson my_first_lesson
-            configure
-            constrain outside_phase with Float32{0.0:12.0}
-            until
-                maximize match_set_temp
-
-        lesson my_second_lesson
-            configure
-            constrain outside_phase with Float32{0.0:24.0}
-            until
-                maximize match_set_temp
-
-
-        lesson my_third_lesson
-            configure
-            constrain outside_phase with Float32{0.0:48.0}
-            until
-                maximize match_set_temp
-
-end
+graph (input: HouseheatState): HouseheatAction {
+    concept thermostat(input): HouseheatAction {
+        curriculum {
+            source simulink_sim
+            lesson my_first_lesson {
+                constraint {
+                    outside_phase: number<0 .. 12>
+                }
+            }
+            lesson my_second_lesson {
+                constraint {
+                    outside_phase: number<0 .. 24>
+                }
+            }
+            lesson my_third_lesson {
+                constraint {
+                    outside_phase: number<0 .. 48>
+                }
+            }
+        }
+    }
+    output thermostat
+}
 ```
 
 > Python code for Househeat
@@ -215,7 +207,7 @@ class Model:
 
 The rest of this guide will walk through example code and best practices of training a BRAIN to keep the internal temperature of a house as close as possible to a set point temperature. This system models the outdoor environment, the thermal characteristics of the house, and the house heating system. This is simulating the real-world example of a HVAC system in a home.
 
-Before we dive into the STAR components of this system, let’s first look at the Inkling concepts and schemas that describe the problem at hand. These state and action schemas combine with the reward to comprise the feedback loop that the BRAIN will use to learn. We will use the transformations outlined below to reformat the simulator inputs and outputs to match the Inkling schemas that we present to the BRAIN.
+Before we dive into the STAR components of this system, let’s first look at the Inkling concepts and types that describe the problem at hand. These state and action types combine with the reward to comprise the feedback loop that the BRAIN will use to learn. We will use the transformations outlined below to reformat the simulator inputs and outputs to match the Inkling types that we present to the BRAIN.
 
 After you've glanced at the Inkling code you can take a quick look at the Python code. This guide will walk through segments of it and the full code (with more code comments) can be referenced under [Simulink Househeat][1] on GitHub if you want the full context. Specifically, the code snippets describing machine teaching can be found in `simulink_househeat.ink` for Inkling and `bonsai_model.py` for Python.
 
@@ -429,31 +421,31 @@ Going back to the example of simulating temperature in a house, you would want t
 
 # Constructing Lessons for BRAIN Training
 
-Each Inkling file contains a lesson plan that will be used to train the BRAIN.  You can create a phased training plan for your BRAIN by configuring your simulation model at the beginning of each episode.  
+Each Inkling file contains a lesson plan that will be used to train the BRAIN. You can create a phased training plan for your BRAIN by configuring your simulation model at the beginning of each episode.  
 
 ## Initializing Episodes
 
 > Inkling for episode configuration
 
-```inkling
-schema HouseheatConfig
-    Float32 outside_phase
-end
+```inkling2
+type HouseheatConfig {
+    outside_phase: number
+}
 
-curriculum my_curriculum
-    train thermostat
-    with simulator simulink_sim
-    objective match_set_temp
+concept thermostat(input): HouseheatAction {
+    curriculum {
+        source simulink_sim
 
-        lesson my_first_lesson
-            configure
-            constrain outside_phase with Float32{0.0:12.0}
-            until
-                maximize match_set_temp 
-end
+        lesson my_first_lesson {
+            constraint {
+                outside_phase: number<0 .. 12>
+            }
+        }
+    }
+}
 ```
 
-The episode_start call passes in configuration parameters that are specified in Inkling.  In the example shown, a randomized phase of the sinusoidal temperature variations is passed into an HVAC simulation from the Inkling lesson.  You can think of this as the outside temperature at different times of the day. 
+The episode_start call passes in configuration parameters that are specified in Inkling. In the example shown, a randomized phase of the sinusoidal temperature variations is passed into an HVAC simulation from the Inkling lesson.  You can think of this as the outside temperature at different times of the day. 
 
 At the beginning of each episode, the phase is passed into the STAR.py file and you can use it for things like reward calculations. 
 
@@ -469,16 +461,16 @@ def episode_start(self, parameters):
 
 ## Generalizing Training
 
-We can also train more robust policies and better transition from simulation to live equipment using simulator configurations.   Randomizing initial conditions can force the BRAIN to learn the underlying dynamics of systems instead of overfitting to one particular scenario.  This technique can also help to better adapt to live equipment which often experiences much more variation than the simulation model that the BRAIN was trained on.
+We can also train more robust policies and better transition from simulation to live equipment using simulator configurations. Randomizing initial conditions can force the BRAIN to learn the underlying dynamics of systems instead of overfitting to one particular scenario. This technique can also help to better adapt to live equipment which often experiences much more variation than the simulation model that the BRAIN was trained on.
 
 > Temperature variation in Inkling lesson
 
-```inkling
-lesson my_first_lesson
-    configure
-    constrain outside_phase with Float32{0.0:12.0}
-    until
-        maximize match_set_temp
+```inkling2
+lesson my_first_lesson {
+    constraint {
+        outside_phase: number<0 .. 12>
+    }
+}
 ```
 
 For example, if you are training a BRAIN to control an HVAC system to control a chiller valve there may be error in the valve calibration.   When the BRAIN specifies a the valve to be opened to allow 40% of maximum water flow, the valve actually opens to 42% maximum water flow.  One way to mitigate this common miscalibration would be to set a noise variable in Inkling configuration parameter.  At the beginning of each episode, this variable will be set to a random value within a range of possible miscalibration.  This mimics the effect of valves that are miscalibrated and forces the BRAIN to learn to effectively control the HVAC system through a wide variety of miscalibrated valves.
@@ -489,37 +481,35 @@ In our code sample, the outside phase, which represents the temperature variatio
 
 > Inkling curriculum
 
-```inkling
-curriculum my_curriculum
-    train thermostat
-    with simulator simulink_sim
-    objective match_set_temp
+```inkling2
+concept thermostat(input): HouseheatAction {
+    curriculum {
+        source simulink_sim
 
-        lesson my_first_lesson
-            configure
-            constrain outside_phase with Float32{0.0:12.0}
-            until
-                maximize match_set_temp
+        lesson my_first_lesson {
+            constraint {
+                outside_phase: number<0 .. 12>
+            }
+        }
 
-        lesson my_second_lesson
-            configure
-            constrain outside_phase with Float32{0.0:24.0}
-            until
-                maximize match_set_temp
+        lesson my_second_lesson {
+            constraint {
+                outside_phase: number<0 .. 24>
+            }
+        }
 
-
-        lesson my_third_lesson
-            configure
-            constrain outside_phase with Float32{0.0:48.0}
-            until
-                maximize match_set_temp
-
-end
+        lesson my_third_lesson {
+            constraint {
+                outside_phase: number<0 .. 48>
+            }
+        }
+    }
+}
 ```
 
-In this example we want to train a BRAIN to control a residential HVAC system.  We want the BRAIN to successfully respond to a wide variety of initial room temperatures.  We create an Inkling `configure` variable for initial temperature, but we don’t want to vary the initial room temperature randomly because the range of initial temperatures is very wide.  This may take the learning algorithm a long time to explore the solution space. 
+In this example we want to train a BRAIN to control a residential HVAC system.  We want the BRAIN to successfully respond to a wide variety of initial room temperatures.  We create an Inkling configuration for initial temperature, but we don’t want to vary the initial room temperature randomly because the range of initial temperatures is very wide. This may take the learning algorithm a long time to explore the solution space. 
 
-Instead, we use a phased training approach called lessons. In the early episodes, the first lesson, we `constrain` the initial temperature to a narrow range. After the BRAIN learns to control the system well in the first range of initial temperatures, we increase the range of possible initial temperatures in the second lesson. Then we repeat the process for subsequent lessons. 
+Instead, we use a phased training approach called lessons. In the early episodes, the first lesson, we specify a `constraint` such that the initial temperature is within a narrow range. After the BRAIN learns to control the system well in the first range of initial temperatures, we increase the range of possible initial temperatures in the second lesson. Then we repeat the process for subsequent lessons. 
 
 
 # Logging BRAIN Training Progress

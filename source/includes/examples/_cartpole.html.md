@@ -16,83 +16,73 @@ _A pole is attached by an un-actuated joint to a cart, which moves along a frict
 
 ## Inkling File
 
-###### Schema
+###### Types
 
-```inkling
-schema GameState
-    Float32 position,
-    Float32 velocity,
-    Float32 angle,
-    Float32 rotation
-end
+```inkling2
+type GameState {
+    position: number,
+    velocity: number,
+    angle: number,
+    rotation: number
+}
 ```
 
-The schema `GameState` names four records — `position`, `velocity`, `angle`, and `rotation` — and assigns a type to them. This information is input from the simulation.
+The type `GameState` defines four fields - `position`, `velocity`, `angle`, and `rotation` — and assigns a type to each. This information is input from the simulation.
 
-```inkling
-constant Int8 left = 0
-constant Int8 right = 1
-schema Action
-    Int8{left, right} command
-end
+```inkling2
+type Action {
+    command: number<Left = 0, Right = 1>
+}
 ```
 
-The schema `Action` names a record — `action` —  and assigns it a constrained type. We have added constants to this schema to demonstrate how they can be optionally used.
+The type `Action` defines a single flield — `action` —  and assigns it a constrained type.
 
-```inkling
-schema CartPoleConfig
-    Int8 episode_length,
-    UInt8 deque_size
-end
+```inkling2
+type CartPoleConfig {
+    episode_length: Number.Int8,
+    deque_size: Number.UInt8
+}
 ```
 
- The schema `CartPoleConfig` names two records — `episode_length` and
- `deque_size` — and assigns each of them a type.   `episode_length` is a signed `Int8` because -1 is used for "run until pole drops".
+ The type `CartPoleConfig` defines two fields — `episode_length` and
+ `deque_size` — and assigns each of them a type.  `episode_length` is a signed `Int8` because -1 is used for "run until pole drops".
 
 
-###### Concept
+###### Concept Graph
 
-```inkling
-concept balance is classifier
-    predicts (Action)
-    follows input(GameState)
-    feeds output
-end
+```inkling2
+graph (input: GameState): Action {
+
+    concept balance(input): Action {
+        curriculum {
+            source cartpole_simulator
+
+            lesson balancing {
+                constraint {
+                    episode_length: -1,
+                    deque_size: 1
+                }
+            }
+        }
+    }
+    
+    output balance
+}
 ```
 
-The concept is named `balance`, and it takes input from the simulator. That input is the records in the schema `GameState`. The balance concept outputs the move the AI should make in the simulator. This output is the record in the `Action` schema.
+The concept is named `balance`, and it takes input from the simulator. That input is of type `GameState`. The balance concept outputs the move the AI should make in the simulator. This output is of type `Action`.
+
+The curriculum defines one lesson, called `balancing`. It constrains the simulator's configuration such that the `episode_length` is -1 and the `deque_size` is 1 for all episodes.
+
 
 ###### Simulator
 
-```inkling
-simulator cartpole_simulator(CartPoleConfig) 
-    action (Action)
-    state (GameState)
-end
+```inkling2
+simulator cartpole_simulator(action: Action, config: CartPoleConfig): GameState {
+}
 ```
 
-Simulator `cartpole_simulator` gets information from three schemas. The first schema, `CartPoleConfig`, specifies the schema for configuration of the simulation. The second schema `Action` specifies the action that the AI will take in the simulation. The third schema `GameState` contains the state of the simulator that is sent to the lesson.
-
-###### Curriculum
-
-```inkling
-curriculum balance_curriculum
-    train balance
-    with simulator cartpole_simulator
-    objective open_ai_gym_default_objective
-
-        lesson balancing
-            configure
-                constrain episode_length with Int8{-1},
-                constrain deque_size with UInt8{1}
-            until
-                maximize open_ai_gym_default_objective
-end
-```
-
-The curriculum's name is `balance_curriculum`. It trains the `balance` concept with the `cartpole_simulator`. The objective for this curriculum is `up_time`. The objective measures how long the pole stays upright.
-
-This curriculum contains one lesson, called `balancing`. It configures the simulation, by setting two constraints for the state of the simulator. The lesson trains until the AI has maximized the objective.
+Simulator `cartpole_simulator` receives inputs of two types. The first, `Action`, specifies the action that the AI will take in the simulation. The second, `CartPoleConfig`, specifies the configuration of the simulation. The simulator outputs a value of type `GameState` which contains the state of the simulator at each iteration.
 
 ## Simulator File
 
@@ -111,21 +101,9 @@ class CartPole(GymSimulator):
     environment_name = 'CartPole-v0'
 
     # simulator name from Inkling
-    # Example Inkling:
-    #   curriculum balance_curriculum
-    #       train balance
-    #       with simulator cartpole_simulator
-    #       ....
     simulator_name = 'cartpole_simulator'
 
-    # convert openai gym observation to our state schema
-    # Example Inkling:
-    #   schema GameState
-    #       Float32 position,
-    #       Float32 velocity,
-    #       Float32 angle,
-    #       Float32 rotation
-    #   end
+    # convert openai gym observation to our state type
     def gym_to_state(self, observation):
         state = {'position': observation[0],
                  'velocity': observation[1],
@@ -133,11 +111,7 @@ class CartPole(GymSimulator):
                  'rotation': observation[3]}
         return state
 
-    # convert our action schema into openai gym action
-    # Example Inkling:
-    #   schema Action
-    #       Int8{0, 1} command
-    #   end
+    # convert our action type into openai gym action
     def action_to_gym(self, action):
         return action['command']
 

@@ -17,7 +17,6 @@ demonstrates how these are called during training. Optionally, one may also over
 | ---               | ---         |
 | `brain`           |  The simulators Brain object. |
 | `name`            |  The simulators name. |
-| `objective_name`  |  The name of the current objective for an episode. |
 | `episode_reward`  |  Cumulative reward for this episode so far. |
 | `episode_count`   |  Number of completed episodes since sim launch. |
 | `episode_rate`    |  Episodes per second. |
@@ -29,11 +28,9 @@ demonstrates how these are called during training. Optionally, one may also over
 
 > Example Inkling:
 
-```inkling
-simulator my_simulator(Config)
-    action (Action)
-    state (State)
-end
+```inkling2
+simulator my_simulator(action: Action, config: Config): State {
+}
 ```
 
 > Example code:
@@ -102,7 +99,7 @@ Returns the simulator name that was passed in when constructed.
 ```cpp
 void MySimulator::simulate(const bonsai::InklingMessage& action,
                     bonsai::InklingMessage& state, float& reward, bool& terminal) {
-    if (predict() == false) {
+    if (!predict()) {
         // calculate reward...
     }
 
@@ -112,33 +109,19 @@ void MySimulator::simulate(const bonsai::InklingMessage& action,
 
 Returns a value indicating whether the simulation is set up to run in predict mode or training mode.
 
-## string objective_name()
-
-```cpp
-void MySimulator::episode_start(const bonsai::InklingMessage& params,
-                                bonsai::InklingMessage& initial_state) {
-    cout << objective_name() << endl;
-    ...
-}
-```
-
-Property accessor that returns the name of the current objective from Inkling.
-The objective may be updated before `episode_start` is called. When running
-for prediction and during start up, objective will return an empty std::string.
-
 ## episode_start(parameters, initial_state)
 
 > Example Inkling:
 
-```inkling
-schema Config
-    UInt8 start_angle
-end
+```inkling2
+type Config {
+    start_angle: Number.UInt8
+}
 
-schema State
-    Float32 angle,
-    Float32 velocity
-end
+type State {
+    angle: Number.Float32,
+    velocity: Number.Float32
+}
 ```
 
 > Example code:
@@ -147,8 +130,7 @@ end
 void MySimulator::episode_start(const bonsai::InklingMessage& params,
                                 bonsai::InklingMessage& initial_state) {
     // training params are only passed in during training
-    if (predict() == false) {
-        cout << objective_name() << endl;
+    if (!predict()) {
         angle = params.get_float32("start_angle");
     }
 
@@ -163,8 +145,7 @@ void MySimulator::episode_start(const bonsai::InklingMessage& params,
 | `initial_state` | Output InklingMessage. The subclasser should populate this message with the initial state of the simulation. |
 
 This callback passes in a set of initial parameters and expects an initial state in return
-for the simulator. Before this callback is called, the property `objective_name` will be
-updated to reflect the current objective for this episode.
+for the simulator.
 
 This call is where a simulation should be reset for the next round.
 
@@ -174,10 +155,10 @@ The default implementation will throw an exception.
 
 > Example Inkling:
 
-```inkling
-schema Action
-    Int8{0, 1} delta
-end
+```inkling2
+type Action {
+    delta: Number.Int8<0, 1>
+}
 ```
 
 > Example code:
@@ -189,8 +170,8 @@ void MySimulator::simulate(const bonsai::InklingMessage& action,
     terminal = (velocity <= 0.0);
 
     // reward is only needed during training.
-    if (self.predict() == false) {
-        reward = reward_for_objective(objective_name());
+    if (!self.predict()) {
+        reward = get_reward();
     }
 
     state.set_float32("velocity", velocity);
@@ -202,17 +183,13 @@ void MySimulator::simulate(const bonsai::InklingMessage& action,
 | ---        | ---         |
 | `action`   | Input InklingMessage of action to be taken as defined in inkling. |
 | `state`    | Output InklingMessage. Should be populated with the current simulator state. |
-| `reward`   | Output reward value as calculated based upon the objective. |
+| `reward`   | Output calculated reward value. |
 | `terminal` | Output terminal state. Set to true if the simulator is in a terminal state. |
 
 This callback steps the simulation forward by a single step. It passes in
 the `action` to be taken, and expects the resulting `state`, `reward` for the current
-`objective`, and a `terminal` flag used to signal the end of an episode. Note that an
+`curriculum`, and a `terminal` flag used to signal the end of an episode. Note that an
 episode may be reset prematurely by the backend during training.
-
-For a multi-lesson curriculum, the `objective_name` will change from episode to episode.
-In this case ensure that the simulator is returning the correct reward for the
-different lessons.
 
 Returning `true` for the `terminal` flag signals the start of a new episode.
 

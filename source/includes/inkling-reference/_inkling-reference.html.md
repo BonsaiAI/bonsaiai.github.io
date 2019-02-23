@@ -23,6 +23,8 @@ An Inkling file contains the [concepts][1] (what you want to teach the AI), a se
 Training your BRAIN will also require a [simulator][4]. Python simulators are
 introduced in the [Quick Start][5].
 
+**The version of Inkling described below has been replaced by a newer version, which is documented in the [Inkling v2 Reference][5]**
+
 ### Purpose
 
 The purpose of the Inkling Reference is to give you the level of detailed
@@ -41,3 +43,4 @@ into subjects like schema conformance and range expressions.
 [3]: #curriculums
 [4]: #simulators
 [5]: ../guides/getting-started.html#what-is-a-simulator
+[6]: ./../references/inkling2-reference.html

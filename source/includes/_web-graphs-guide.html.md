@@ -33,7 +33,7 @@ Once you’ve created your Cartpole demo you should see a “Start Training” b
 
 > ![Cartpole Performance Graph](../images/cartpole-start-training.png)
 
-On the performance graph at the top there is a display of which concept is currently training, its status, and [what algorithm][6] it's being trained on. Plotted are episode reward and average reward vs. training episodes. There is a drop down menu on the right to switch between y axis of episode rewards and training iterations. The current mean episode reward and the training time per concept for this version of the BRAIN are shown to the right.
+On the performance graph at the top there is a display of which concept is currently training, its status, and [what algorithm][6] it's being trained on. The default view shows episode reward vs. training iterations. You can also choose to view performance (the y axis) in terms of episode length, and view training progress (x axis) in number of training episodes. The current mean episode reward (or episode length) and the training time per concept for this version of the BRAIN are shown below the graph.
 
 This graph shows your BRAIN’s performance during training. Periodically during training, the system runs a set of test episodes -- at least 10, but sometimes more depending on the number of simulators connected. A test episode is the same as running the simulation in prediction mode after training has stopped - it runs without exploration. Each dot on the graph shows the mean of the cumulative episode rewards across this set of test episodes. The smoothed reward is the average of the 10 previous points. The x axis can be set to either the total number of training iterations before each test episode, which is the number of state transitions and rewards that the BRAIN has had to learn from, or the training episode count.
 
@@ -79,13 +79,13 @@ Another way to troubleshoot your BRAIN is to check out the logs down below the c
 
 You’ve looked around at the different graphs and what the data has to offer, and now you might be wondering “Ok, so when do I hit the stop training button?” The answer to this question varies widely depending on the simulation. You have to know what a sufficient reward looks like for your problem you’re solving.
 
-In the case of Cartpole what we’re looking for is the length of time between test episodes, because this is indicative of how long the AI is able to balance the pole before crashing and terminating that episode. The AI gets pretty good at playing the game after just a few minutes, where it can often reach the maximum reward of 200. In general, continue training and refining the model until you are satisfied with the BRAIN’s performance at the given task.
+In the case of Cartpole what we’re looking for is the length of the test episodes, because this is indicative of how long the AI is able to balance the pole before crashing and terminating that episode. With our problem setup, this also corresponds to the reward -- the Brain is given reward 1 for every iteration. The AI gets pretty good at playing the game after just a few minutes, where it can often reach the maximum reward of 200. In general, continue training and refining the model until you are satisfied with the BRAIN’s performance at the given task.
 
 The time it will take to reach this level of training can vary due to many factors. Just because a BRAIN took 5 minutes to train Cartpole one time doesn’t mean it can’t take 15 minutes to reach the same reward another time. There is still a lot of variance in training due to exploration and bandwidth so the shape of the graph is the most reliable method of determining when to stop training.
 
 ## Automatic Termination
 
-Your BRAIN will not train forever. If you don’t choose to stop training yourself, the AI Engine will determine a point in which it has considered to be done training, and then wait a significant time period after that in case the user continues to want the training data. At that point, training will stop and the Brain status will be set to “Complete”.
+Your BRAIN will not train forever. If you don’t choose to stop training yourself, the AI Engine will determine a point in which it has considered to be done training. At that point, training will stop and the Brain status will be set to “Complete”.
 
 <aside class="notice">
 Automatic termination will take a significant amount of time and it is recommended that the user stop training once performance is good enough.

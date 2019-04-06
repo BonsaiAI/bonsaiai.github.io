@@ -70,7 +70,7 @@ In this example the reward will always be 1 during an iteration as the BRAIN is 
 
 When your graph isn’t looking quite right, or if your reward isn’t building in the way you’d expect, the Simulator Graph can be a great way to troubleshoot what might be going on in your BRAIN. For example, graphing your reward against an action can tell you what is happening every iteration of your simulation.
 
-Another way to troubleshoot your BRAIN is to check out the logs down below the code editor window. This can be found below the graphs and is typically used for text output of what’s going on in the simulation. For example, with Cartpole, every single episode’s reward is output to the logs and shown in the code panel here. For simulations with very long episodes this can be a good way to make sure things are working correctly in the beginning, before the first test episode is shown on the graph.
+Another way to troubleshoot your BRAIN is to check out the logs below the code editor window. This can be found below the graphs and is typically used for text output of what’s going on in the simulation. For example, with Cartpole, every episode’s reward is output to the logs and shown in the code panel here. For simulations with very long episodes, this can be a good way to make sure things are working correctly, before the first test episode is shown on the graph.
 
 
 # When to Stop Training

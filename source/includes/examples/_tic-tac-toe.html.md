@@ -43,7 +43,7 @@ graph (input: GameState): PlayerMove {
     concept play_tictactoe(input): PlayerMove {
         curriculum {
             algorithm {
-                Algorithm: "DQN",
+                Algorithm: "APEX",
                 ConvolutionLayers: [{
                     XSize: 3,
                     YSize: 3,
@@ -70,7 +70,7 @@ simulator tictactoe_simulator(action: PlayerMove): GameState {
 
 The simulator clause declares that a simulator named `tictactoe_simulator` will be connecting to the server for training. This `tictactoe_simulator` expects an action of type `PlayerMove` as input and replies with a value of type `GameState`.
 
-The algorithm clause provides a hint to the AI Engine that a `DQN` algorithm should be used. It also sets some parameters for this algorithm. This hint is not required for this example but it will help the example train much faster. For more information on use of the algorithm clause see the [Inkling Reference][2].
+The algorithm clause provides a hint to the AI Engine that a `APEX` algorithm should be used. It also sets some parameters for this algorithm. This hint is not required for this example but it will help the example train much faster. For more information on use of the algorithm clause see the [Inkling Reference][2].
 
 ## Simulator File
 

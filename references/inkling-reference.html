@@ -1924,16 +1924,13 @@ end
 <h3 id="valid-algorithm-identifiers">Valid Algorithm Identifiers</h3>
 
 <ul>
-<li><code class="prettyprint">DQN</code> (Deep Q Learning) - classification only</li>
-<li><code class="prettyprint">DDPG</code> (Deep Deterministic Policy Gradients) - estimation only</li>
-<li><code class="prettyprint">DiscreteDDPG</code> (Deep Deterministic Policy Gradients with Discrete Actions) - classification only</li>
-<li><code class="prettyprint">QTable</code> (Q Learning with Q Table) - classification only</li>
-<li><code class="prettyprint">TRPO</code> (Trust Region Policy Optimization) - estimation only</li>
+<li><code class="prettyprint">APEX</code> (Distributed Deep Q Network) - discrete action spaces only</li>
+<li><code class="prettyprint">PPO</code> (Proximal Policy Optimization) - continuous action spaces only</li>
 </ul>
 
 <h3 id="shared-parameter-details">Shared Parameter Details</h3>
 
-<p>The following parameters all apply to DQN, DDPG, Discrete DDPG, and TRPO. Additional parameter options are shown in subsequent tables below.</p>
+<p>The following parameters all apply to APEX and PPO. Additional parameter options are shown in subsequent tables below.</p>
 
 <table><thead>
 <tr>
@@ -1941,14 +1938,6 @@ end
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>hidden_layer_size_descriptor =&gt; [int, int, int, …] <br><br> (<code class="prettyprint">hidden_layer_size_descriptor =&gt; [400, 300]</code></td>
-<td>The sizes of each hidden layer. One integer size per hidden layer.</td>
-</tr>
-<tr>
-<td>hidden_layer_activation_descriptor =&gt; [string, string, string, …] <br><br> (<code class="prettyprint">hidden_layer_activation_descriptor =&gt; [“relu”, “tanh”]</code>)</td>
-<td>An array of activation functions (corresponding to the hidden layer size descriptor): string is the activation function type. Strings supported: “linear”, “tanh”, “relu”, “logistic”, “softmax”, “elu”. (Using this should be combined with <code class="prettyprint">hidden_layer_size_descriptor</code>, in the given example “relu” is the activation function for the first layer, and “tanh” for the second one.)</td>
-</tr>
 <tr>
 <td>conv_layer_descriptor =&gt; “x_sizexy_size:x_stride:y_stride:filters; …” <br><br> (<code class="prettyprint">conv_layer_descriptor =&gt; “8x8:4:4:32; 3x3:1:1:16”</code>)</td>
 <td>A semicolon delimited string of a convolutional network configuration (filters is number of filters).</td>
@@ -1967,9 +1956,9 @@ end
 </tr>
 </tbody></table>
 
-<h3 id="dqn-specific-parameters">DQN-Specific Parameters</h3>
+<h3 id="apex-specific-parameters">APEX-Specific Parameters</h3>
 
-<p>In addition to the first (shared) table of parameters, DQN also has four additional parameters available.</p>
+<p>In addition to the first (shared) table of parameters, APEX also supports these additional parameters.</p>
 
 <table><thead>
 <tr>
@@ -1978,26 +1967,26 @@ end
 </tr>
 </thead><tbody>
 <tr>
-<td>exploration_decay =&gt; float <br> (<code class="prettyprint">exploration_decay =&gt; 0.00001</code>)</td>
-<td>The exploration decay in DQN.</td>
+<td>hidden_layer_size_descriptor =&gt; [int, int, int, …] <br><br> (<code class="prettyprint">hidden_layer_size_descriptor =&gt; [400, 300]</code></td>
+<td>The sizes of each hidden layer. One integer size per hidden layer.</td>
 </tr>
 <tr>
-<td>samples_per_train =&gt; int <br> (<code class="prettyprint">samples_per_train =&gt; 10</code>)</td>
-<td>The ratio of number of data sampling and training.</td>
+<td>hidden_layer_activation_descriptor =&gt; [string, string, string, …] <br><br> (<code class="prettyprint">hidden_layer_activation_descriptor =&gt; [“relu”, “tanh”]</code>)</td>
+<td>An array of activation functions (corresponding to the hidden layer size descriptor): string is the activation function type. Strings supported: “linear”, “tanh”, “relu”, “logistic”, “softmax”, “elu”. (Using this should be combined with <code class="prettyprint">hidden_layer_size_descriptor</code>, in the given example “relu” is the activation function for the first layer, and “tanh” for the second one.)</td>
+</tr>
+<tr>
+<td>exploration_decay =&gt; float <br> (<code class="prettyprint">exploration_decay =&gt; 0.00001</code>)</td>
+<td>The decay rate for the exploration policy.</td>
 </tr>
 <tr>
 <td>q_learning_rate =&gt; float <br> (<code class="prettyprint">q_learning_rate =&gt; 0.0001</code>)</td>
 <td>The learning rate for training the Q network.</td>
 </tr>
-<tr>
-<td>gamma =&gt; float <br> (<code class="prettyprint">gamma =&gt; 0.99</code>)</td>
-<td>The discount rate for the Bellman Equation.</td>
-</tr>
 </tbody></table>
 
-<h3 id="ddpg-specific-and-discreteddpg-parameters">DDPG-Specific (and DiscreteDDPG) Parameters</h3>
+<h3 id="ppo-specific">PPO-Specific</h3>
 
-<p>In addition to the first (shared) table of parameters, DDPP (and DiscreteDDPG) also has three additional parameters available.</p>
+<p>In addition to the first (shared) table of parameters, PPO supports these additional parameters.</p>
 
 <table><thead>
 <tr>
@@ -2006,56 +1995,8 @@ end
 </tr>
 </thead><tbody>
 <tr>
-<td>mu_learning_rate =&gt; float <br> (<code class="prettyprint">mu_learning_rate =&gt; 0.0001</code>)</td>
-<td>The learning rate for training the Mu network.</td>
-</tr>
-<tr>
-<td>q_learning_rate =&gt; float <br> (<code class="prettyprint">q_learning_rate =&gt; 0.0001</code>)</td>
-<td>The learning rate for training the Q network.</td>
-</tr>
-<tr>
-<td>gamma =&gt; float <br> (<code class="prettyprint">gamma =&gt; 0.99</code>)</td>
-<td>The discount rate for the Bellman Equation.</td>
-</tr>
-</tbody></table>
-
-<h3 id="trpo-specific-parameters">TRPO-Specific Parameters</h3>
-
-<p>In addition to the first (shared) table of parameters, TRPO also has one additional parameter available.</p>
-
-<table><thead>
-<tr>
-<th>Parameter (Example use)</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>samples_per_train =&gt; int <br> (<code class="prettyprint">samples_per_train =&gt; 10</code>)</td>
-<td>The ratio of number of data sampling and training. The default is 10K samples per training.</td>
-</tr>
-</tbody></table>
-
-<h3 id="qtable-parameters">QTable Parameters</h3>
-
-<p>These are the only three parameters available for Q-Tables. They do not share any of the parameters from the first (shared) table.</p>
-
-<table><thead>
-<tr>
-<th>Parameter (Example use)</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>exploration_decay =&gt; float <br> (<code class="prettyprint">exploration_decay =&gt; 0.00001</code>)</td>
-<td>The exploration decay in QTable.</td>
-</tr>
-<tr>
-<td>q_learning_rate =&gt; float <br> (<code class="prettyprint">q_learning_rate =&gt; 0.0001</code>)</td>
-<td>The learning rate for training the Q Table.</td>
-</tr>
-<tr>
-<td>gamma =&gt; float <br> (<code class="prettyprint">gamma =&gt; 0.99</code>)</td>
-<td>The discount rate for the Bellman Equation.</td>
+<td>policy_learning_rate =&gt; float <br> (<code class="prettyprint">policy_learning_rate =&gt; 0.0001</code>)</td>
+<td>The learning rate for training the policy network.</td>
 </tr>
 </tbody></table>
 

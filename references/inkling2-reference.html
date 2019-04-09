@@ -1033,7 +1033,7 @@ The curriculum <code class="prettyprint">source</code> clause specifies <code cl
             <span class="k">source</span> <span class="nx">MySimulator</span>
 
             <span class="k">algorithm</span> <span class="p">{</span>
-                <span class="nx">Algorithm</span><span class="p">:</span> <span class="s2">"TRPO"</span><span class="p">,</span>
+                <span class="nx">Algorithm</span><span class="p">:</span> <span class="s2">"APEX"</span><span class="p">,</span>
                 <span class="nx">HiddenLayers</span><span class="p">:</span> <span class="p">[</span>
                     <span class="p">{</span>
                         <span class="nx">Size</span><span class="p">:</span> <span class="mi">64</span><span class="p">,</span>
@@ -1055,16 +1055,13 @@ The curriculum <code class="prettyprint">source</code> clause specifies <code cl
 <h3 id="valid-algorithm-identifiers">Valid Algorithm Identifiers</h3>
 
 <ul>
-<li><code class="prettyprint">DQN</code> (Deep Q Learning) - classification only</li>
-<li><code class="prettyprint">DDPG</code> (Deep Deterministic Policy Gradients) - estimation only</li>
-<li><code class="prettyprint">DiscreteDDPG</code> (Deep Deterministic Policy Gradients with Discrete Actions) - classification only</li>
-<li><code class="prettyprint">QTable</code> (Q Learning with Q Table) - classification only</li>
-<li><code class="prettyprint">TRPO</code> (Trust Region Policy Optimization) - estimation only</li>
+<li><code class="prettyprint">APEX</code> (Distributed Deep Q Network) - discrete action spaces only</li>
+<li><code class="prettyprint">PPO</code> (Proximal Policy Optimization) - continuous action spaces only</li>
 </ul>
 
 <h3 id="shared-parameter-details">Shared Parameter Details</h3>
 
-<p>The following parameters all apply to DQN, DDPG, Discrete DDPG, and TRPO. Additional parameter options are shown in subsequent tables below.</p>
+<p>The following parameters all apply to APEX and PPO. Additional parameter options are shown in subsequent tables below.</p>
 
 <table><thead>
 <tr>
@@ -1072,10 +1069,6 @@ The curriculum <code class="prettyprint">source</code> clause specifies <code cl
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>HiddenLayers: [HiddenLayerInfo] <br><br> (<code class="prettyprint">HiddenLayers: [{Size: 400, Activation: &quot;relu&quot;}, {Size: 300, Activation: &quot;tanh&quot;}]</code>)</td>
-<td>An array of structures that define the size and (optionally) the activation function for each hidden layer. Sizes must be positive integers, and activation functions must be one of &ldquo;linear&rdquo;, &ldquo;tanh&rdquo;, &ldquo;relu&rdquo;, &ldquo;logistic&rdquo;, &ldquo;softmax&rdquo;, &ldquo;elu&rdquo;, or &ldquo;default&rdquo;.</td>
-</tr>
 <tr>
 <td>ConvolutionLayers: [ConvolutionLayerInfo] <br><br> (<code class="prettyprint">ConvolutionLayers: {XSize: 8, YSize: 8, XStride: 4, YStride: 4 FilterCount: 32}”</code>)</td>
 <td>An array of structures that define the size, stride and (optionally) the filter count for each convolution layer.</td>
@@ -1090,9 +1083,9 @@ The curriculum <code class="prettyprint">source</code> clause specifies <code cl
 </tr>
 </tbody></table>
 
-<h3 id="dqn-specific-parameters">DQN-Specific Parameters</h3>
+<h3 id="apex-specific-parameters">APEX-Specific Parameters</h3>
 
-<p>In addition to the first (shared) table of parameters, DQN also supports four additional parameters.</p>
+<p>In addition to the first (shared) table of parameters, APEX also supports these additional parameters.</p>
 
 <table><thead>
 <tr>
@@ -1100,27 +1093,23 @@ The curriculum <code class="prettyprint">source</code> clause specifies <code cl
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>HiddenLayers: [HiddenLayerInfo] <br><br> (<code class="prettyprint">HiddenLayers: [{Size: 400, Activation: &quot;relu&quot;}, {Size: 300, Activation: &quot;tanh&quot;}]</code>)</td>
+<td>An array of structures that define the size and (optionally) the activation function for each hidden layer. Sizes must be positive integers, and activation functions must be one of &ldquo;linear&rdquo;, &ldquo;tanh&rdquo;, &ldquo;relu&rdquo;, &ldquo;logistic&rdquo;, &ldquo;softmax&rdquo;, &ldquo;elu&rdquo;, or &ldquo;default&rdquo;.</td>
+</tr>
 <tr>
 <td>ExplorationDecay: float <br> (<code class="prettyprint">ExplorationDecay: 0.00001</code>)</td>
-<td>The exploration decay in DQN.</td>
-</tr>
-<tr>
-<td>SamplesPerTrain: int <br> (<code class="prettyprint">SamplesPerTrain: 10</code>)</td>
-<td>The number of samples (iterations) collected before training.</td>
+<td>The decay rate for the exploration policy.</td>
 </tr>
 <tr>
 <td>QLearningRate: float <br> (<code class="prettyprint">QLearningRate: 0.0001</code>)</td>
 <td>The learning rate for training the Q network.</td>
 </tr>
-<tr>
-<td>DiscountRate: float <br> (<code class="prettyprint">DiscountRate: 0.99</code>)</td>
-<td>The discount rate for the Bellman Equation.</td>
-</tr>
 </tbody></table>
 
-<h3 id="ddpg-specific-and-discreteddpg-parameters">DDPG-Specific and DiscreteDDPG Parameters</h3>
+<h3 id="ppo-specific">PPO-Specific</h3>
 
-<p>In addition to the first (shared) table of parameters, DDPP and DiscreteDDPG support three additional parameters.</p>
+<p>In addition to the first (shared) table of parameters, PPO supports these additional parameters.</p>
 
 <table><thead>
 <tr>
@@ -1129,56 +1118,8 @@ The curriculum <code class="prettyprint">source</code> clause specifies <code cl
 </tr>
 </thead><tbody>
 <tr>
-<td>MuLearningRate: float <br> (<code class="prettyprint">MuLearningRate: 0.0001</code>)</td>
-<td>The learning rate for training the Mu network.</td>
-</tr>
-<tr>
-<td>QLearningRate: float <br> (<code class="prettyprint">QLearningRate: 0.0001</code>)</td>
-<td>The learning rate for training the Q network.</td>
-</tr>
-<tr>
-<td>DiscountRate: float <br> (<code class="prettyprint">DiscountRate: 0.99</code>)</td>
-<td>The discount rate for the Bellman Equation.</td>
-</tr>
-</tbody></table>
-
-<h3 id="trpo-specific-parameters">TRPO-Specific Parameters</h3>
-
-<p>In addition to the first (shared) table of parameters, TRPO supports one additional parameter.</p>
-
-<table><thead>
-<tr>
-<th>Parameter (Example use)</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>SamplesPerTrain: int <br> (<code class="prettyprint">SamplesPerTrain: 10</code>)</td>
-<td>The number of samples (iterations) collected before training.</td>
-</tr>
-</tbody></table>
-
-<h3 id="qtable-parameters">QTable Parameters</h3>
-
-<p>QTable supports only three parameters.</p>
-
-<table><thead>
-<tr>
-<th>Parameter (Example use)</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ExplorationDecay: float <br> (<code class="prettyprint">ExplorationDecay: 0.00001</code>)</td>
-<td>The exploration decay in DQN.</td>
-</tr>
-<tr>
-<td>QLearningRate: float <br> (<code class="prettyprint">QLearningRate: 0.0001</code>)</td>
-<td>The learning rate for training the Q network.</td>
-</tr>
-<tr>
-<td>DiscountRate: float <br> (<code class="prettyprint">DiscountRate: 0.99</code>)</td>
-<td>The discount rate for the Bellman Equation.</td>
+<td>PolicyLearningRate: float <br> (<code class="prettyprint">PolicyLearningRate: 0.0001</code>)</td>
+<td>The learning rate for training the policy network.</td>
 </tr>
 </tbody></table>
 

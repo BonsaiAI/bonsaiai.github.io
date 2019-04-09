@@ -191,7 +191,7 @@ GET /v1/{userName}/{brainName}/ws'
     "concepts": [{
         "name": "balance",
         "state": "Not Started",
-        "algorithm": "DQN",
+        "algorithm": "APEX",
         "is_estimator": true
     }],
 }

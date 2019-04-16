@@ -146,6 +146,8 @@ The following parameters all apply to APEX and PPO. Additional parameter options
 
 | Parameter (Example use)      | Description |
 | -                            | -           |
+| hidden_layer_size_descriptor => [int, int, int, …] <br><br> (`hidden_layer_size_descriptor => [400, 300]` | The sizes of each hidden layer. One integer size per hidden layer. |
+| hidden_layer_activation_descriptor => [string, string, string, …] <br><br> (`hidden_layer_activation_descriptor => [“relu”, “tanh”]`) | An array of activation functions (corresponding to the hidden layer size descriptor): string is the activation function type. Strings supported: “linear”, “tanh”, “relu”, “logistic”, “softmax”, “elu”. (Using this should be combined with `hidden_layer_size_descriptor`, in the given example “relu” is the activation function for the first layer, and “tanh” for the second one.) |
 | conv_layer_descriptor => “x_sizexy_size:x_stride:y_stride:filters; …” <br><br> (`conv_layer_descriptor => “8x8:4:4:32; 3x3:1:1:16”`) | A semicolon delimited string of a convolutional network configuration (filters is number of filters). |
 | conv_compression_size_descriptor => [int, int, int, ...] <br><br> (`conv_compression_size_descriptor => [20, 10]`) | An array of convolutional compressed size: int is the hidden layer size. If specified, will add one or more fully connected layers after the convolutional layers to compress the representation before incorporating other features. |
 | conv_compression_activation_descriptor => [string, string, string, …] <br><br> (`conv_compression_activation_descriptor => [“softmax”, “tanh”]`) | An array of activation functions for convolutional network compression: string is the activation function type. Strings supported: “linear”, “tanh”, “relu”, “logistic”, “softmax”, “elu”. (Using this should be combined with `conv_compression_size_descriptor`, in the given example  “softmax” is the activation function for the first layer, and “tanh” for the second one.) |
@@ -158,8 +160,6 @@ In addition to the first (shared) table of parameters, APEX also supports these 
 
 | Parameter (Example use)      | Description |
 | -                            | -           |
-| hidden_layer_size_descriptor => [int, int, int, …] <br><br> (`hidden_layer_size_descriptor => [400, 300]` | The sizes of each hidden layer. One integer size per hidden layer. |
-| hidden_layer_activation_descriptor => [string, string, string, …] <br><br> (`hidden_layer_activation_descriptor => [“relu”, “tanh”]`) | An array of activation functions (corresponding to the hidden layer size descriptor): string is the activation function type. Strings supported: “linear”, “tanh”, “relu”, “logistic”, “softmax”, “elu”. (Using this should be combined with `hidden_layer_size_descriptor`, in the given example “relu” is the activation function for the first layer, and “tanh” for the second one.) |
 | exploration_decay => float <br> (`exploration_decay => 0.00001`) | The decay rate for the exploration policy. |
 | q_learning_rate => float <br> (`q_learning_rate => 0.0001`) | The learning rate for training the Q network. |
 

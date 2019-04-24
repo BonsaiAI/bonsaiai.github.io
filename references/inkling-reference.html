@@ -1939,6 +1939,14 @@ end
 </tr>
 </thead><tbody>
 <tr>
+<td>hidden_layer_size_descriptor =&gt; [int, int, int, …] <br><br> (<code class="prettyprint">hidden_layer_size_descriptor =&gt; [400, 300]</code></td>
+<td>The sizes of each hidden layer. One integer size per hidden layer.</td>
+</tr>
+<tr>
+<td>hidden_layer_activation_descriptor =&gt; [string, string, string, …] <br><br> (<code class="prettyprint">hidden_layer_activation_descriptor =&gt; [“relu”, “tanh”]</code>)</td>
+<td>An array of activation functions (corresponding to the hidden layer size descriptor): string is the activation function type. Strings supported: “linear”, “tanh”, “relu”, “logistic”, “softmax”, “elu”. (Using this should be combined with <code class="prettyprint">hidden_layer_size_descriptor</code>, in the given example “relu” is the activation function for the first layer, and “tanh” for the second one.)</td>
+</tr>
+<tr>
 <td>conv_layer_descriptor =&gt; “x_sizexy_size:x_stride:y_stride:filters; …” <br><br> (<code class="prettyprint">conv_layer_descriptor =&gt; “8x8:4:4:32; 3x3:1:1:16”</code>)</td>
 <td>A semicolon delimited string of a convolutional network configuration (filters is number of filters).</td>
 </tr>
@@ -1966,14 +1974,6 @@ end
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>hidden_layer_size_descriptor =&gt; [int, int, int, …] <br><br> (<code class="prettyprint">hidden_layer_size_descriptor =&gt; [400, 300]</code></td>
-<td>The sizes of each hidden layer. One integer size per hidden layer.</td>
-</tr>
-<tr>
-<td>hidden_layer_activation_descriptor =&gt; [string, string, string, …] <br><br> (<code class="prettyprint">hidden_layer_activation_descriptor =&gt; [“relu”, “tanh”]</code>)</td>
-<td>An array of activation functions (corresponding to the hidden layer size descriptor): string is the activation function type. Strings supported: “linear”, “tanh”, “relu”, “logistic”, “softmax”, “elu”. (Using this should be combined with <code class="prettyprint">hidden_layer_size_descriptor</code>, in the given example “relu” is the activation function for the first layer, and “tanh” for the second one.)</td>
-</tr>
 <tr>
 <td>exploration_decay =&gt; float <br> (<code class="prettyprint">exploration_decay =&gt; 0.00001</code>)</td>
 <td>The decay rate for the exploration policy.</td>

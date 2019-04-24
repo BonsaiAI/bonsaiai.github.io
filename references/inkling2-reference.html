@@ -1070,6 +1070,10 @@ The curriculum <code class="prettyprint">source</code> clause specifies <code cl
 </tr>
 </thead><tbody>
 <tr>
+<td>HiddenLayers: [HiddenLayerInfo] <br><br> (<code class="prettyprint">HiddenLayers: [{Size: 400, Activation: &quot;relu&quot;}, {Size: 300, Activation: &quot;tanh&quot;}]</code>)</td>
+<td>An array of structures that define the size and (optionally) the activation function for each hidden layer. Sizes must be positive integers, and activation functions must be one of &ldquo;linear&rdquo;, &ldquo;tanh&rdquo;, &ldquo;relu&rdquo;, &ldquo;logistic&rdquo;, &ldquo;softmax&rdquo;, &ldquo;elu&rdquo;, or &ldquo;default&rdquo;.</td>
+</tr>
+<tr>
 <td>ConvolutionLayers: [ConvolutionLayerInfo] <br><br> (<code class="prettyprint">ConvolutionLayers: {XSize: 8, YSize: 8, XStride: 4, YStride: 4 FilterCount: 32}”</code>)</td>
 <td>An array of structures that define the size, stride and (optionally) the filter count for each convolution layer.</td>
 </tr>
@@ -1093,10 +1097,6 @@ The curriculum <code class="prettyprint">source</code> clause specifies <code cl
 <th>Description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td>HiddenLayers: [HiddenLayerInfo] <br><br> (<code class="prettyprint">HiddenLayers: [{Size: 400, Activation: &quot;relu&quot;}, {Size: 300, Activation: &quot;tanh&quot;}]</code>)</td>
-<td>An array of structures that define the size and (optionally) the activation function for each hidden layer. Sizes must be positive integers, and activation functions must be one of &ldquo;linear&rdquo;, &ldquo;tanh&rdquo;, &ldquo;relu&rdquo;, &ldquo;logistic&rdquo;, &ldquo;softmax&rdquo;, &ldquo;elu&rdquo;, or &ldquo;default&rdquo;.</td>
-</tr>
 <tr>
 <td>ExplorationDecay: float <br> (<code class="prettyprint">ExplorationDecay: 0.00001</code>)</td>
 <td>The decay rate for the exploration policy.</td>

@@ -333,6 +333,14 @@ custom run loop implementations are possible in user code. Rather than calling
 `Simulator.run` in a loop, communication between simulation code and Bonsai backend
 can be accomplished step by step.
 
+## sim_id
+
+``` python
+print(sim.sim_id)
+```
+Returns "" if this Simulator not yet connected to the MT service. Once a connection is made, this property persists until the next successful connection by this object.
+
+
 ## close()
 
 Close the internal websocket.

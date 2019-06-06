@@ -76,3 +76,44 @@ print(brain.config)
 
 Returns the configuration used to locate this BRAIN.
 
+## Status
+
+```python
+print(brain.status)
+```
+
+Returns the current status of the target BRAIN
+
+## sample_rate
+
+```python
+print(brain.sample_rate)
+```
+
+Returns the sample rate in iterations/second for all simulators connected to the brain
+
+## iteration_metrics
+
+```python
+print(brain.iteration_metrics)
+```
+
+Returns iteration data for a given version of a BRAIN. 
+
+Defaults to configured version if none is given. Iterations contain data for the number of iterations that have occured in a simulation and at what timestamp. This data gets logged about once every 100 iterations. This can be useful for long episodes when other metrics may not be getting data.
+
+| Argument | Description |
+| ---      | ---         |
+| `version` | Returns data about each training episode for a given version of a BRAIN. Defaults to configured version if none is given. |
+
+## training_episode_metrics
+
+```python
+print(brain.training_episode_metrics)
+```
+
+Returns test pass data for a given version of a BRAIN. Defaults to configured version if none is given. Test pass episodes occur once every 20 training episodes during training for a given version of a BRAIN. The value is representative of the AI's performance at a regular interval of training.
+ 
+| Argument | Description |
+| ---      | ---         |
+| `version` | Returns data about each training episode for a given version of a BRAIN. Defaults to configured version if none is given. |

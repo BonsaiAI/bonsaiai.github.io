@@ -358,6 +358,52 @@ Called by default when constructing a new Brain object.</p>
 </code></pre>
 <p>Returns the configuration used to locate this BRAIN.</p>
 
+<h2 id="status">Status</h2>
+<pre class="highlight python tab-python"><code><span class="k">print</span><span class="p">(</span><span class="n">brain</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+</code></pre>
+<p>Returns the current status of the target BRAIN</p>
+
+<h2 id="sample_rate">sample_rate</h2>
+<pre class="highlight python tab-python"><code><span class="k">print</span><span class="p">(</span><span class="n">brain</span><span class="o">.</span><span class="n">sample_rate</span><span class="p">)</span>
+</code></pre>
+<p>Returns the sample rate in iterations/second for all simulators connected to the brain</p>
+
+<h2 id="iteration_metrics">iteration_metrics</h2>
+<pre class="highlight python tab-python"><code><span class="k">print</span><span class="p">(</span><span class="n">brain</span><span class="o">.</span><span class="n">iteration_metrics</span><span class="p">)</span>
+</code></pre>
+<p>Returns iteration data for a given version of a BRAIN. </p>
+
+<p>Defaults to configured version if none is given. Iterations contain data for the number of iterations that have occured in a simulation and at what timestamp. This data gets logged about once every 100 iterations. This can be useful for long episodes when other metrics may not be getting data.</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">version</code></td>
+<td>Returns data about each training episode for a given version of a BRAIN. Defaults to configured version if none is given.</td>
+</tr>
+</tbody></table>
+
+<h2 id="training_episode_metrics">training_episode_metrics</h2>
+<pre class="highlight python tab-python"><code><span class="k">print</span><span class="p">(</span><span class="n">brain</span><span class="o">.</span><span class="n">training_episode_metrics</span><span class="p">)</span>
+</code></pre>
+<p>Returns test pass data for a given version of a BRAIN. Defaults to configured version if none is given. Test pass episodes occur once every 20 training episodes during training for a given version of a BRAIN. The value is representative of the AI&rsquo;s performance at a regular interval of training.</p>
+
+<table><thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">version</code></td>
+<td>Returns data about each training episode for a given version of a BRAIN. Defaults to configured version if none is given.</td>
+</tr>
+</tbody></table>
+
           <h1 id="config-class">Config Class</h1>
 
 <blockquote>
@@ -885,6 +931,11 @@ enabled, those keys will be silently ignored.</p>
 custom run loop implementations are possible in user code. Rather than calling
 <code class="prettyprint">Simulator.run</code> in a loop, communication between simulation code and Bonsai backend
 can be accomplished step by step.</p>
+
+<h2 id="sim_id">sim_id</h2>
+<pre class="highlight python tab-python"><code><span class="k">print</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">sim_id</span><span class="p">)</span>
+</code></pre>
+<p>Returns &ldquo;&rdquo; if this Simulator not yet connected to the MT service. Once a connection is made, this property persists until the next successful connection by this object.</p>
 
 <h2 id="close">close()</h2>
 

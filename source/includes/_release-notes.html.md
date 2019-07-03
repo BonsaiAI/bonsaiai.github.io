@@ -4,10 +4,9 @@ This is a list of Bonsai's currently supported versions of its software packages
 
 | Software               | Package Name | Versions | Last Updated |
 | -                      | -            | -        | -            |
-| Command Line Interface | bonsai-cli   | 0.8.29   | 2018.10.08   |
-| Gym Common             | bonsai-gym   | 2.0.9    | 2018.09.24   |
-| Python Library         | bonsai-ai    | 2.0.14   | 2018.10.08   |
-| C++ Library            | libbonsai    | 2.0.6    | 2018.10.08   |
+| Command Line Interface | bonsai-cli   | 0.8.36   | 2019.05.20   |
+| Gym Common             | bonsai-gym   | 2.0.12   | 2019.05.20   |
+| Python Library         | bonsai-ai    | 2.1.15   | 2019.05.20   |
 
 # Product Release Notes
 
@@ -18,6 +17,18 @@ Release Notes for CLI: <https://github.com/BonsaiAI/bonsai-cli/blob/master/bonsa
 Release Notes for Python SDK (bonsai-ai and bonsai-gym libraries): <https://github.com/BonsaiAI/bonsai-sdk/blob/master/bonsai-ai/CHANGELOG.md>
 
 Release Notes for C++ SDK (libbonsai): <https://github.com/BonsaiAI/libbonsai/blob/master/libbonsai/CHANGELOG.md>
+
+### 2019.06.28
+
+Notable features:
+
+* Performance graph rendering improvement when zooming
+* Removed “Debug Logs” section of brain details page
+* Detected missing brains (from custom URLs) and redirect to dashboard with error
+
+Various bug fixes, including:
+
+* Fixed issue for when a brain version has no data in its training plan
 
 ### 2018.09.25
 

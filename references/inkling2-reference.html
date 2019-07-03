@@ -1118,10 +1118,18 @@ The curriculum <code class="prettyprint">source</code> clause specifies <code cl
 </tr>
 </thead><tbody>
 <tr>
+<td>BatchSize: (1000-2000000) <br> (<code class="prettyprint">BatchSize: 8000</code>)</td>
+<td>See below for details.</td>
+</tr>
+<tr>
 <td>PolicyLearningRate: float <br> (<code class="prettyprint">PolicyLearningRate: 0.0001</code>)</td>
 <td>The learning rate for training the policy network.</td>
 </tr>
 </tbody></table>
+
+<h4 id="batchsize-details">BatchSize Details</h4>
+
+<p>Proximal Policy Optimization works by gathering a large number of complete trajectories and analyzing them in aggregate to obtain a confidence metric for the probability that a given change to the policy will improve performance. With a sufficiently large batch size, this yields monotonic policy improvement, as the algorithm only makes changes its confident will lead to real improvements based on large amounts of data. The BatchSize parameter determines how much data will be aggregated to make this decision. Smaller batches will lead to faster convergence as updates will be computed more frequently, but these updates will be less reliable and the policy may become unstable if this value is too small. We recommend you set this value to be large enough to contain a significant fraction of a complete episode from each of your simulators, as that aids in estimating policy performance. For example, if your episodes are up to 100 steps each and you have 100 simulators, try a value between 5000 and 10000.</p>
 
       </div>
       <div class="dark-box">

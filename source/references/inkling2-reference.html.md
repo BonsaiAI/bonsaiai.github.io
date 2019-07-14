@@ -14,6 +14,7 @@ includes:
 - inkling2-reference/curriculums.html.md
 - inkling2-reference/lessons.html.md
 - inkling2-reference/simulators.html.md
+- inkling2-reference/functions.html.md
 - inkling2-reference/algorithms.html.md
 
   

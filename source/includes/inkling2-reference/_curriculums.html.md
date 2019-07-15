@@ -40,7 +40,7 @@ simulator BreakoutSimulator(action: PlayerMove, config: BreakoutConfig): GameSta
 }
 ```
 
-The `simulator` declaration specifies the simulator name and the types of two input values (the action and configuration). It also specifies the type of the simulator's output (the simulator state). In this instance, the configuration type is `BreakoutConfig`. The lessons initialize the configuration type of `BreakoutConfig`.
+The `simulator` declaration specifies the simulator name and the types of two input values (the action and configuration). It also specifies the type of the simulator's output (the observable state). In this instance, the configuration type is `BreakoutConfig`. The lessons initialize the configuration type of `BreakoutConfig`.
 
 
 ```inkling2--code
@@ -113,7 +113,7 @@ graph (input: GameState) {
 
 Another concept that helps with playing Breakout is `KeepPaddleUnderBall`. In the curriculum for this concept, there are two lessons. One of the lessons, `TrackBallAnyPaddle`, uses a wide paddle and is easier to learn. The second lesson, `TrackBallAnyPaddle`, uses a [range expression][5] to vary the paddle width from 1 to 4. The second lesson is more difficult to learn, but by starting with an easier problem, the overall training time is reduced.
 
-### STAR in Inkling
+### Defining States, Terminals, Actions, and Rewards in Inkling
 When using a simulator as the source of training data, each training iteration involves an input to the simulator (an “action”) and an output from the simulator (the new “state”). In addition, a “reward” value is generated along with a “terminal” flag that indicates whether the training episode should be ended. These four piece of data (state, terminal, action, and reward) are sometimes collectively referred to as “STAR”.
 
 #### Reward Functions
@@ -122,6 +122,8 @@ While it’s possible for the simulator code to compute the reward value, it’s
 If a reward function is specified in Inkling, the reward value passed from the simulator is ignored.
 
 An Inkling reward function takes a single input parameter — the new state that was returned from the simulator. It must return a numeric value indicating the reward associated with that state. The reward function is specified within the curriculum statement using the `reward` keyword.
+
+Reward functions (along with the other functions described below) can be specified as named global functions or inlined, in which case the function name is optional.
 
 ```inkling2--code
 concept Balance(input: SimState): Action {
@@ -165,9 +167,9 @@ concept Balance(input: SimState): Action {
 ```
 
 #### State Transform Functions
-The “state” data returned by a simulator represents the state of the simulated environment, including all observables. In many cases, the simulator is able to produce more observable values than are available in the real world. In such cases, it’s important to train the BRAIN using only the subset of real-world observables. It’s important to distinguish between the “simulator state” and the “training state”.
+The “state” data returned by a simulator represents the state of the simulated environment, including all observables. In many cases, the simulator is able to produce more observable values than are available in the real world. In such cases, it’s important to train the BRAIN using only the subset of real-world observables. It’s important to distinguish between the “observable state” and the “training state”.
 
-If the training state is a proper subset of the simulator state — that is, all of the fields within the training state are present in the simulator state and have compatible types, the inkling compiler will automatically transform the simulator state into the training state. If a more sophisticated transform is required — to translate units, scale values or combine values, this can be done through the use of a “state transform function”. A state transform is specified within the curriculum statement using the `state` keyword.
+If the training state is a proper subset of the observable state — that is, all of the fields within the training state are present in the observable state and have compatible types, the inkling compiler will automatically transform the observable state into the training state. If a more sophisticated transform is required — to translate units, scale values or combine values, this can be done through the use of a “state transform function”. A state transform is specified within the curriculum statement using the `state` keyword.
 
 ```inkling2--code
 type SimState {

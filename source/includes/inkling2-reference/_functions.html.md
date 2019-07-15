@@ -15,7 +15,7 @@ Inkling does _not_ support the following:
 * Recursion
 * Exceptions
 
-These limitations make more sense when considering that programming logic defined in Inkling is meant to be executed in the context of data streams that flow through the concept graph.
+These limitations make sense when considering that programming logic defined in Inkling is meant to be executed in the context of data streams that flow through the concept graph.
 
 ### Function Declarations
 
@@ -25,7 +25,7 @@ Functions are declared using a `function` statement followed by the function’s
 functionDeclaration :==
   function [<functionName>] '(' [<paramName>: <paramType>, ]* ')' [':' <returnType>] '{'
     [functionStatement]*
-  '};
+  '}'
 
 functionStatement :==
   variableDeclaration |
@@ -41,7 +41,7 @@ For more details about the Inkling type system, refer to the [types documentatio
 Here are a few examples of function declarations:
 
 ```inkling2--code
-function RadiansToDegress(Radians: number) {
+function RadiansToDegrees(Radians: number) {
   # Return type is inferred to be 'number'.
   return Radians * 180 / Math.Pi
 }
@@ -83,7 +83,7 @@ For more details about compatible types, refer to the [types documentation][1].
 
 
 #### Runtime Errors & Debugging
-The Inkling compiler attempts to detect and report most errors statically. However, there are certain circumstances where runtime may occur. Examples include undefined mathematical operations like division by zero. Runtime errors are logged and reported during training and may terminate a training session.
+The Inkling compiler attempts to detect and report most errors statically. However, there are certain circumstances where runtime may occur. Examples include undefined mathematical operations like division by zero. Runtime errors are logged and reported during training and will terminate the training session.
 
 
 ### Function Statements

@@ -61,16 +61,16 @@ The inkling compiler will validate that all values assigned to variables or inpu
 ```inkling2--code
 # This is allowed because the value of the
 # expression fits within the constrained type.
-var OneOrTWo: number<1, 2> = 1 + 1
+var OneOrTwo: number<1, 2> = 1 + 1
 
-# This is allowed because the type of "OneOrTWo" always
+# This is allowed because the type of "OneOrTwo" always
 # fits within the range 0..100.
-var ZeroTo100: number<0..100> = OneOrTWo
+var ZeroTo100: number<0..100> = OneOrTwo
 
 # This will generate a compiler error because "ZeroTo100"
 # may not match the values of the enumerated
-# type of "OneOrTWo".
-OneOrTWo = ZeroTo100
+# type of "OneOrTwo".
+OneOrTwo = ZeroTo100
 
 var ZeroTo50: number<0..50 step 1> = 50
 

@@ -801,7 +801,7 @@ is the original input to the concept graph.</p>
 <pre class="highlight inkling2 tab-inkling2--code"><code><span class="k">simulator</span> <span class="nx">BreakoutSimulator</span><span class="p">(</span><span class="k">action</span><span class="p">:</span> <span class="nx">PlayerMove</span><span class="p">,</span> <span class="k">config</span><span class="p">:</span> <span class="nx">BreakoutConfig</span><span class="p">):</span> <span class="nx">GameState</span> <span class="p">{</span>
 <span class="p">}</span>
 </code></pre>
-<p>The <code class="prettyprint">simulator</code> declaration specifies the simulator name and the types of two input values (the action and configuration). It also specifies the type of the simulator&rsquo;s output (the simulator state). In this instance, the configuration type is <code class="prettyprint">BreakoutConfig</code>. The lessons initialize the configuration type of <code class="prettyprint">BreakoutConfig</code>.</p>
+<p>The <code class="prettyprint">simulator</code> declaration specifies the simulator name and the types of two input values (the action and configuration). It also specifies the type of the simulator&rsquo;s output (the observable state). In this instance, the configuration type is <code class="prettyprint">BreakoutConfig</code>. The lessons initialize the configuration type of <code class="prettyprint">BreakoutConfig</code>.</p>
 <pre class="highlight inkling2 tab-inkling2--code"><code><span class="k">type</span> <span class="nx">BreakoutConfig</span> <span class="p">{</span>
   <span class="nx">level</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">UInt16</span><span class="p">,</span>
   <span class="nx">paddle_width</span><span class="p">:</span> <span class="nb">Number</span><span class="p">.</span><span class="nb">UInt8</span><span class="o">&lt;</span><span class="mi">1</span> <span class="p">..</span> <span class="mi">4</span><span class="o">&gt;</span><span class="p">,</span>
@@ -867,6 +867,114 @@ is the original input to the concept graph.</p>
 </code></pre>
 <p>Another concept that helps with playing Breakout is <code class="prettyprint">KeepPaddleUnderBall</code>. In the curriculum for this concept, there are two lessons. One of the lessons, <code class="prettyprint">TrackBallAnyPaddle</code>, uses a wide paddle and is easier to learn. The second lesson, <code class="prettyprint">TrackBallAnyPaddle</code>, uses a <a href="#constrained-types-and-range-expressions">range expression</a> to vary the paddle width from 1 to 4. The second lesson is more difficult to learn, but by starting with an easier problem, the overall training time is reduced.</p>
 
+<h3 id="defining-states-terminals-actions-and-rewards-in-inkling">Defining States, Terminals, Actions, and Rewards in Inkling</h3>
+
+<p>When using a simulator as the source of training data, each training iteration involves an input to the simulator (an “action”) and an output from the simulator (the new “state”). In addition, a “reward” value is generated along with a “terminal” flag that indicates whether the training episode should be ended. These four piece of data (state, terminal, action, and reward) are sometimes collectively referred to as “STAR”.</p>
+
+<h4 id="reward-functions">Reward Functions</h4>
+
+<p>While it’s possible for the simulator code to compute the reward value, it’s often more convenient to implement this reward function in Inkling code. This allows for more rapid experimentation. Simple reward functions can be implemented using the <a href="#functions">function</a> capabilities in Inkling.</p>
+
+<p>If a reward function is specified in Inkling, the reward value passed from the simulator is ignored.</p>
+
+<p>An Inkling reward function takes a single input parameter — the new state that was returned from the simulator. It must return a numeric value indicating the reward associated with that state. The reward function is specified within the curriculum statement using the <code class="prettyprint">reward</code> keyword.</p>
+
+<p>Reward functions (along with the other functions described below) can be specified as named global functions or inlined, in which case the function name is optional.</p>
+<pre class="highlight inkling2 tab-inkling2--code"><code><span class="k">concept</span> <span class="nx">Balance</span><span class="p">(</span><span class="k">input</span><span class="p">:</span> <span class="nx">SimState</span><span class="p">):</span> <span class="nx">Action</span> <span class="p">{</span>
+    <span class="k">curriculum</span> <span class="p">{</span>
+        <span class="k">source</span> <span class="nx">MySimulator</span>
+        <span class="k">reward</span> <span class="nx">GetReward</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">function</span> <span class="nx">IsUpright</span><span class="p">(</span><span class="nx">Angle</span><span class="p">:</span> <span class="k">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">Angle</span> <span class="o">&gt;</span> <span class="mi">85</span> <span class="k">and</span> <span class="nx">Angle</span> <span class="o">&lt;</span> <span class="mi">95</span>
+<span class="p">}</span>
+
+<span class="k">function</span> <span class="nx">GetReward</span><span class="p">(</span><span class="nx">State</span><span class="p">:</span> <span class="nx">SimState</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="nx">IsUpright</span><span class="p">(</span><span class="nx">State</span><span class="p">.</span><span class="nx">Angle</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="mf">1.0</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="o">-</span><span class="mf">0.01</span>
+<span class="p">}</span>
+</code></pre>
+<h4 id="terminal-functions">Terminal Functions</h4>
+
+<p>As with reward functions, terminal functions can be written within Inkling. If a terminal function is specified, the terminal value passed from the simulator is ignored.</p>
+
+<p>An Inkling terminal function takes a single input parameter — the new state that was returned from the simulator. It must return true (1) if the state is a terminal state or false (0) otherwise. The terminal function is specified within the curriculum statement using the <code class="prettyprint">terminal</code> keyword.</p>
+
+<p>Note that a function is specified inline in the provided example code.</p>
+<pre class="highlight inkling2 tab-inkling2--code"><code><span class="k">concept</span> <span class="nx">Balance</span><span class="p">(</span><span class="k">input</span><span class="p">:</span> <span class="nx">SimState</span><span class="p">):</span> <span class="nx">Action</span> <span class="p">{</span>
+    <span class="k">curriculum</span> <span class="p">{</span>
+        <span class="k">source</span> <span class="nx">MySimulator</span>
+        <span class="k">terminal</span> <span class="k">function</span> <span class="p">(</span><span class="nx">State</span><span class="p">:</span> <span class="nx">SimState</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="nx">State</span><span class="p">.</span><span class="nx">IterationCount</span> <span class="o">&gt;</span> <span class="mi">100</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">true</span>
+          <span class="p">}</span>
+          <span class="k">return</span> <span class="nx">State</span><span class="p">.</span><span class="nx">Position</span> <span class="o">&gt;</span> <span class="mi">20</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<h4 id="state-transform-functions">State Transform Functions</h4>
+
+<p>The “state” data returned by a simulator represents the state of the simulated environment, including all observables. In many cases, the simulator is able to produce more observable values than are available in the real world. In such cases, it’s important to train the BRAIN using only the subset of real-world observables. It’s important to distinguish between the “observable state” and the “training state”.</p>
+
+<p>If the training state is a proper subset of the observable state — that is, all of the fields within the training state are present in the observable state and have compatible types, the inkling compiler will automatically transform the observable state into the training state. If a more sophisticated transform is required — to translate units, scale values or combine values, this can be done through the use of a “state transform function”. A state transform is specified within the curriculum statement using the <code class="prettyprint">state</code> keyword.</p>
+<pre class="highlight inkling2 tab-inkling2--code"><code><span class="k">type</span> <span class="nx">SimState</span> <span class="p">{</span>
+  <span class="nx">AngleInRadians</span><span class="p">:</span> <span class="k">number</span>
+<span class="p">}</span>
+
+<span class="k">type</span> <span class="nx">SensorState</span> <span class="p">{</span>
+  <span class="nx">AngleInDegrees</span><span class="p">:</span> <span class="k">number</span>
+<span class="p">}</span>
+
+<span class="k">simulator</span> <span class="nx">MySimulator</span><span class="p">(</span><span class="k">action</span><span class="p">:</span> <span class="nx">Action</span><span class="p">):</span> <span class="nx">SimState</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="k">function</span> <span class="nx">TranslateState</span><span class="p">(</span><span class="nx">State</span><span class="p">:</span> <span class="nx">SimState</span><span class="p">):</span> <span class="nx">SensorState</span> <span class="p">{</span>
+  <span class="c1"># Convert from radians to degrees.</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">AngleInDegrees</span><span class="p">:</span> <span class="nx">State</span><span class="p">.</span><span class="nx">AngleInRadians</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">/</span> <span class="nx">Math</span><span class="p">.</span><span class="nx">Pi</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">concept</span> <span class="nx">MyConcept</span><span class="p">(</span><span class="k">input</span><span class="p">:</span> <span class="nx">SensorState</span><span class="p">):</span> <span class="nx">Action</span> <span class="p">{</span>
+    <span class="k">curriculum</span> <span class="p">{</span>
+        <span class="k">source</span> <span class="nx">MySimulator</span>
+        <span class="k">state</span> <span class="nx">TranslateState</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<h4 id="action-transform-functions">Action Transform Functions</h4>
+
+<p>The “action” input to a simulator is typically specified in a manner that is compatible with the predicted action from the concept being trained. However, there are cases where the action spaces differ. For example, a simulator may encode its accepted actions using different numeric values than the real-world system in which the BRAIN will eventually be used. In such cases, an “action transform function” can be used to translate between the two action spaces. It is specified within the curriculum statement using the <code class="prettyprint">action</code> keyword.</p>
+<pre class="highlight inkling2 tab-inkling2--code"><code><span class="k">type</span> <span class="nx">SimAction</span> <span class="k">number</span><span class="o">&lt;</span><span class="nx">Left</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="nx">Right</span><span class="o">=</span><span class="mi">1</span><span class="o">&gt;</span>
+
+<span class="c1"># Note that the action space for the BRAIN encodes</span>
+<span class="c1"># "left" differently from the action space of the</span>
+<span class="c1"># simulator.</span>
+<span class="k">type</span> <span class="nx">BrainAction</span> <span class="k">number</span><span class="o">&lt;</span><span class="nx">Left</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nx">Right</span><span class="o">=</span><span class="mi">1</span><span class="o">&gt;</span>
+
+<span class="k">simulator</span> <span class="nx">MySimulator</span><span class="p">(</span><span class="k">action</span><span class="p">:</span> <span class="nx">SimAction</span><span class="p">):</span> <span class="nx">SimState</span> <span class="p">{</span>
+<span class="p">}</span>
+
+<span class="k">function</span> <span class="nx">TranslateAction</span><span class="p">(</span><span class="nx">Command</span><span class="p">:</span> <span class="nx">BrainAction</span><span class="p">):</span> <span class="nx">SimAction</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="nx">Command</span> <span class="o">==</span> <span class="nx">BrainAction</span><span class="p">.</span><span class="nx">Left</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">SimAction</span><span class="p">.</span><span class="nx">Left</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">SimAction</span><span class="p">.</span><span class="nx">Right</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">concept</span> <span class="nx">MyConcept</span><span class="p">(</span><span class="k">input</span><span class="p">:</span> <span class="nx">SimState</span><span class="p">):</span> <span class="nx">BrainAction</span> <span class="p">{</span>
+    <span class="k">curriculum</span> <span class="p">{</span>
+        <span class="k">source</span> <span class="nx">MySimulator</span>
+        <span class="k">action</span> <span class="nx">TranslateAction</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
           <h1 id="lessons">Lessons</h1>
 
 <p>Lessons provide a staged way to teach a concept starting with easier tasks and moving to more difficult. This approach can reduce the total time it takes to train a concept.</p>
@@ -1013,6 +1121,270 @@ shows the use of simulator <code class="prettyprint">BreakoutSimulator</code>. <
 <p>In this example we show some of the Inkling code for training the game Breakout.
 The curriculum <code class="prettyprint">source</code> clause specifies <code class="prettyprint">BreakoutSimulator</code>, and the
 <code class="prettyprint">simulator</code> statement specifies the action, state, and configuration types. </p>
+
+          <h1 id="functions">Functions</h1>
+
+<p>Inkling is not a general-purpose programming language, but it does support a few simple functional programming capabilities, including:</p>
+
+<ul>
+<li>Functions with typed input and output parameters</li>
+<li>Constants and variables</li>
+<li>Conditional (if/else) statements</li>
+<li>Standard mathematical and logical operators</li>
+<li>Built-in library functions for mathematical operations</li>
+</ul>
+
+<p>Inkling does <em>not</em> support the following:</p>
+
+<ul>
+<li>Statefulness (values that persist across function invocations)</li>
+<li>Loop constructs</li>
+<li>Recursion</li>
+<li>Exceptions</li>
+</ul>
+
+<p>These limitations make sense when considering that programming logic defined in Inkling is meant to be executed in the context of data streams that flow through the concept graph.</p>
+
+<h3 id="function-declarations">Function Declarations</h3>
+
+<p>Functions are declared using a <code class="prettyprint">function</code> statement followed by the function’s name, a list of zero or more typed input parameters, and an optional output parameter type. The function name can be omitted for inlined functions but must be present for functions defined in the program’s global namespace.</p>
+<pre class="highlight inkling2 tab-inkling2--syntax"><code><span class="nx">functionDeclaration</span> <span class="p">:</span><span class="o">==</span>
+  <span class="k">function</span> <span class="p">[</span><span class="o">&lt;</span><span class="nx">functionName</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">'('</span> <span class="p">[</span><span class="o">&lt;</span><span class="nx">paramName</span><span class="o">&gt;</span><span class="p">:</span> <span class="o">&lt;</span><span class="nx">paramType</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">]</span><span class="o">*</span> <span class="p">')'</span> <span class="p">[':'</span> <span class="o">&lt;</span><span class="nx">returnType</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">'{'</span>
+    <span class="p">[</span><span class="nx">functionStatement</span><span class="p">]</span><span class="o">*</span>
+  <span class="p">'}'</span>
+
+<span class="nx">functionStatement</span> <span class="p">:</span><span class="o">==</span>
+  <span class="nx">variableDeclaration</span> <span class="o">|</span>
+  <span class="nx">variableAssignment</span> <span class="o">|</span>
+  <span class="nx">conditionalStatement</span> <span class="o">|</span>
+  <span class="nx">returnStatement</span>
+</code></pre>
+<p>All functions in Inkling must return a value, but the type of this value can be inferred by the compiler.</p>
+
+<p>For more details about the Inkling type system, refer to the <a href="#types">types documentation</a>.</p>
+
+<p>Here are a few examples of function declarations:</p>
+<pre class="highlight inkling2 tab-inkling2--code"><code><span class="k">function</span> <span class="nx">RadiansToDegrees</span><span class="p">(</span><span class="nx">Radians</span><span class="p">:</span> <span class="k">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1"># Return type is inferred to be 'number'.</span>
+  <span class="k">return</span> <span class="nx">Radians</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">/</span> <span class="nx">Math</span><span class="p">.</span><span class="nx">Pi</span>
+<span class="p">}</span>
+
+<span class="k">function</span> <span class="nx">GetReward</span><span class="p">(</span><span class="nx">State</span><span class="p">:</span> <span class="nx">SimState</span><span class="p">):</span> <span class="k">number</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="nx">IsTerminal</span><span class="p">(</span><span class="nx">State</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mf">10.0</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">Math</span><span class="p">.</span><span class="nx">Abs</span><span class="p">(</span><span class="nx">State</span><span class="p">.</span><span class="nx">Position</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span> <span class="o">/</span> <span class="mf">10.0</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<h4 id="types-implicit-casts">Types &amp; Implicit Casts</h4>
+
+<p>The inkling compiler will validate that all values assigned to variables or input parameters and return parameters are of a compatible type. Note that compatibility doesn’s require an exact type match. Consider the following examples:</p>
+<pre class="highlight inkling2 tab-inkling2--code"><code><span class="c1"># This is allowed because the value of the</span>
+<span class="c1"># expression fits within the constrained type.</span>
+<span class="k">var</span> <span class="nx">OneOrTwo</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">&gt;</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="c1"># This is allowed because the type of "OneOrTwo" always</span>
+<span class="c1"># fits within the range 0..100.</span>
+<span class="k">var</span> <span class="nx">ZeroTo100</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">..</span><span class="mi">100</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nx">OneOrTwo</span>
+
+<span class="c1"># This will generate a compiler error because "ZeroTo100"</span>
+<span class="c1"># may not match the values of the enumerated</span>
+<span class="c1"># type of "OneOrTwo".</span>
+<span class="nx">OneOrTwo</span> <span class="o">=</span> <span class="nx">ZeroTo100</span>
+
+<span class="k">var</span> <span class="nx">ZeroTo50</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">..</span><span class="mi">50</span> <span class="k">step</span> <span class="mi">1</span><span class="o">&gt;</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="c1"># This will generate a compiler warning because "ZeroTo50"</span>
+<span class="c1"># may require clipping to fit within the specified range.</span>
+<span class="nx">ZeroTo50</span> <span class="o">=</span> <span class="nx">ZeroTo100</span>
+</code></pre>
+<p>For more details about compatible types, refer to the <a href="#types">types documentation</a>.</p>
+
+<h4 id="runtime-errors-debugging">Runtime Errors &amp; Debugging</h4>
+
+<p>The Inkling compiler attempts to detect and report most errors statically. However, there are certain circumstances where runtime may occur. Examples include undefined mathematical operations like division by zero. Runtime errors are logged and reported during training and will terminate the training session.</p>
+
+<h3 id="function-statements">Function Statements</h3>
+
+<h4 id="variable-declarations">Variable Declarations</h4>
+
+<p>Variables can be declared within a function. All variables have function-level scope even if they are declared within a sub-scope such as an if/else statement. Each variable within a function must have a unique name and a type. The type can be omitted if it can be inferred from an initial value assigned to the variable.</p>
+<pre class="highlight inkling2 tab-inkling2--syntax"><code><span class="nx">variableDeclaration</span> <span class="p">:</span><span class="o">==</span>
+  <span class="k">var</span> <span class="o">&lt;</span><span class="nx">varName</span><span class="o">&gt;</span> <span class="p">[':'</span> <span class="o">&lt;</span><span class="nx">varType</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">['</span><span class="o">=</span><span class="p">'</span> <span class="o">&lt;</span><span class="nx">expression</span><span class="o">&gt;</span><span class="p">]</span>
+</code></pre>
+<p>A variable that is not assigned an initial value must be assigned a value along all code paths before it is used.</p>
+<pre class="highlight inkling2 tab-inkling2--code"><code><span class="c1"># Variable with no initial assignment.</span>
+<span class="k">var</span> <span class="nx">TwoOrThree</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span>
+
+<span class="k">if</span> <span class="nx">IsCondition</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">TwoOrThree</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="p">}</span>
+
+<span class="c1"># This will generate a compiler error because the</span>
+<span class="c1"># variable may not have a defined value.</span>
+<span class="k">return</span> <span class="nx">TwoOrThree</span>
+</code></pre>
+<h4 id="variable-assignments">Variable Assignments</h4>
+
+<p>A previously-declared variable can be assigned a new value as long as that value matches the type of the variable.</p>
+<pre class="highlight inkling2 tab-inkling2--syntax"><code><span class="nx">variableAssignment</span> <span class="p">:</span><span class="o">==</span>
+  <span class="o">&lt;</span><span class="nx">varName</span><span class="o">&gt;</span> <span class="p">'</span><span class="o">=</span><span class="p">'</span> <span class="o">&lt;</span><span class="nx">expression</span><span class="o">&gt;</span>
+</code></pre>
+<h4 id="conditional-execution">Conditional Execution</h4>
+
+<p>Inkling supports if/else statements, which can be chained together with “else if” clauses. The braces that surround the code blocks within an <code class="prettyprint">if</code> or <code class="prettyprint">else</code> clause are required.</p>
+<pre class="highlight inkling2 tab-inkling2--syntax"><code><span class="nx">conditionalStatement</span> <span class="p">:</span><span class="o">==</span>
+  <span class="k">if</span> <span class="o">&lt;</span><span class="nx">expression</span><span class="o">&gt;</span> <span class="p">'{'</span>
+    <span class="p">[</span><span class="nx">functionStatement</span><span class="p">]</span><span class="o">*</span>
+  <span class="p">'}'</span> <span class="p">[</span><span class="k">else</span> <span class="k">if</span> <span class="o">&lt;</span><span class="nx">expression</span><span class="o">&gt;</span> <span class="p">'{'</span>
+    <span class="p">[</span><span class="nx">functionStatement</span><span class="p">]</span><span class="o">*</span>
+  <span class="p">'}']</span><span class="o">*</span> <span class="p">[</span><span class="k">else</span> <span class="p">'{'</span>
+    <span class="p">[</span><span class="nx">functionStatement</span><span class="p">]</span><span class="o">*</span>
+  <span class="p">'}']</span>
+</code></pre>
+<h4 id="return-statements">Return Statements</h4>
+
+<p>A return statement terminates execution of the function and returns the specified value to its caller. The type of the expression must match the declared return type of the function.</p>
+<pre class="highlight inkling2 tab-inkling2--syntax"><code><span class="nx">returnStatement</span> <span class="p">:</span><span class="o">==</span>
+  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">expression</span><span class="o">&gt;</span>
+</code></pre>
+<h3 id="expressions">Expressions</h3>
+
+<p>Inkling supports basic expressions and a variety of unary and binary operators.</p>
+
+<h4 id="built-in-operators">Built-in Operators</h4>
+
+<table><thead>
+<tr>
+<th>Operation</th>
+<th>Syntax</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Function call</td>
+<td>X()</td>
+<td>Invokes a function with zero or more arguments</td>
+</tr>
+<tr>
+<td>Array index</td>
+<td>X[Y]</td>
+<td>Indexes into an array</td>
+</tr>
+<tr>
+<td>Member access</td>
+<td>X.Y</td>
+<td>References a field within a structure</td>
+</tr>
+<tr>
+<td>Neg/pos</td>
+<td>-, +</td>
+<td>Negate numeric value</td>
+</tr>
+<tr>
+<td>Logical not</td>
+<td>not</td>
+<td>Logical not (produces 0 or 1)</td>
+</tr>
+<tr>
+<td>Exponent</td>
+<td>**</td>
+<td>X raised to the Y power</td>
+</tr>
+<tr>
+<td>Mult/div/mod</td>
+<td>*, /, %</td>
+<td>X times Y, X divided by Y, X mod Y</td>
+</tr>
+<tr>
+<td>Add/subtract</td>
+<td>+, -</td>
+<td>X plus Y, X minus Y</td>
+</tr>
+<tr>
+<td>Relational</td>
+<td>&lt;, &lt;=, &gt;, &gt;=</td>
+<td>Less, less-or-equal, greater, greater-or-equal</td>
+</tr>
+<tr>
+<td>Equality</td>
+<td>==, !=</td>
+<td>Equal, not equal</td>
+</tr>
+<tr>
+<td>Logical and</td>
+<td>and</td>
+<td>Left expression if truthy, else right expression</td>
+</tr>
+<tr>
+<td>Logical or</td>
+<td>or</td>
+<td>Left expression if falsy, else right expression</td>
+</tr>
+</tbody></table>
+
+<p>As in algebra, parentheses can be used to make order of evaluation explicit. If parentheses are omitted, the table above defines the order of operations.</p>
+
+<p>All mathematical, logical and relational operators work only with numerical operands. Operands of other types (strings, arrays, structures, etc.) are flagged as errors by the compiler.</p>
+
+<h3 id="function-calls">Function Calls</h3>
+
+<p>A function call temporarily suspends execution of the current function and resumes execution temporarily in the context of a new function. The caller may specify zero or more arguments to be passed to the function. The types of these arguments must be compatible with the declared types of the target function’s parameters.</p>
+
+<p>Inkling does not support direct or indirect recursion. Recursive calls are flagged as errors by the compiler.</p>
+<pre class="highlight inkling2 tab-inkling2--syntax"><code><span class="o">&lt;</span><span class="nx">subroutine</span><span class="o">&gt;</span><span class="p">'('[</span><span class="o">&lt;</span><span class="nx">expression</span><span class="o">&gt;</span> <span class="p">','</span> <span class="p">]</span> <span class="p">')'</span>
+</code></pre>
+<h4 id="literals">Literals</h4>
+
+<p>Expression may contain literal values. The following code shows examples of literal values of various types.</p>
+<pre class="highlight inkling2 tab-inkling2--code"><code><span class="c1"># Numeric literal</span>
+<span class="k">var</span> <span class="nx">Num</span> <span class="o">=</span> <span class="mf">3.4</span>
+
+<span class="c1"># String literal</span>
+<span class="k">var</span> <span class="nx">Str</span> <span class="o">=</span> <span class="s2">"Hello"</span>
+
+<span class="c1"># Array literal</span>
+<span class="k">var</span> <span class="nx">Array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="c1"># Struct literal</span>
+<span class="k">var</span> <span class="nx">Struct</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">X</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">Y</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">Z</span><span class="p">:</span> <span class="mi">4</span> <span class="p">}</span>
+</code></pre>
+<h3 id="math-namespace">Math Namespace</h3>
+
+<p>Inkling supports a variety of built-in mathematical operators. It also provides a simple math library to access various useful mathematical constants and functions. These are available through the “Math” namespace, which can be accessed by adding the statement “using Math” to the Inkling program.</p>
+
+<h4 id="constants">Constants</h4>
+
+<p><code class="prettyprint">const Math.E: number</code> Base of natural logarithm</p>
+
+<p><code class="prettyprint">const Math.Pi: number</code> Ratio of a circle’s circumference to its diameter</p>
+
+<h4 id="functions">Functions</h4>
+
+<p><code class="prettyprint">function Math.Abs(X: number): number</code> Absolute value</p>
+
+<p><code class="prettyprint">function Math.ArcCos(X: number): number</code> Arccosine of value; return value in radians</p>
+
+<p><code class="prettyprint">function Math.ArcSin(X: number): number</code> Arcsin of value; return value in radians</p>
+
+<p><code class="prettyprint">function Math.ArcTan(X: number): number</code> ArcTan of value; return value in radians</p>
+
+<p><code class="prettyprint">function Math.ArcTan2(X: number, Y: number): number</code> ArcTan2 of ratio of two values</p>
+
+<p><code class="prettyprint">function Math.Ceil(X: number): number</code> Nearest &gt;= integer value</p>
+
+<p><code class="prettyprint">function Math.Cos(X: number): number</code> Cosine of value, specified in radians</p>
+
+<p><code class="prettyprint">function Math.Floor(X: number): number</code> Nearest &lt;= integer value</p>
+
+<p><code class="prettyprint">function Math.Hypot(X: number, Y: number): number</code> Hypotenuse of right triangle with legs of length X and Y</p>
+
+<p><code class="prettyprint">function Math.Log(X: number): number</code> Natural logarithm of value; runtime error if not positive</p>
+
+<p><code class="prettyprint">function Math.Sin(X: number): number</code> Sine of value, specified in radians</p>
+
+<p><code class="prettyprint">function Math.Tan(X: number): number</code> Tangent of value, specified in radians</p>
 
           <h1 id="algorithm-hints">Algorithm Hints</h1>
 

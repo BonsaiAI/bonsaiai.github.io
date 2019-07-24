@@ -37,13 +37,13 @@ Structure literals are denoted with curly braces surrounding a comma-separated l
 
 A `number` type can express any value compatible with a double-precision floating-point representation. Sometimes it's useful to constrain a number type to represent smaller ranges or sets of numbers.
 
-A numeric type with a range constraint specifies a minimum and maximum value plus an optional step value surrounded by angle brackets. For example, number<0..8 step 3> represents a number that can take on the values 0, 4 or 8. If the range does not evenly divide by the step value, the last number in the range will be omitted. In the above example, the range would include the values 0, 3 and 6.
+A numeric type with a range constraint specifies a minimum and maximum value plus an optional step value surrounded by angle brackets. For example, `number<0..8 step 3>` represents a number that can take on the values 0, 4 or 8. If the range does not evenly divide by the step value, the last number in the range will be omitted. In the above example, the range would include the values 0, 3 and 6.
 
-A numeric type with ordinal enumerated constraint specifies discrete, unique values in a comma-separated list. They must be listed in increasing order. For example, number<0, 3.5, 7> is constrained to take on one of those three values.
+A numeric type with ordinal enumerated constraint specifies discrete, unique values in a comma-separated list. They must be listed in increasing order. For example, `number<0, 3.5, 7>` is constrained to take on one of those three values.
 
-If an enumerated constraint contains only one value (e.g. number<200>), it can be represented more tersely using the value alone (e.g. 200).
+If an enumerated constraint contains only one value (e.g. `number<200>`), it can be represented more tersely using the value alone (e.g. 200).
 
-A numeric type with nominal enumerated constraint specifies unordered symbolic identifiers in a comma-separated list. Unique numeric values must be specified for each identifier. For example,  number<Left = 0, Straight = 1, Right = 2> takes on one of three values. Values specified in a nominal enumerated type can be accessed as constants elsewhere in the program by using the type name followed by a dot and the symbolic name of the value -- for example, Direction.Left.
+A numeric type with nominal enumerated constraint specifies unordered symbolic identifiers in a comma-separated list. Unique numeric values must be specified for each identifier. For example, `number<Left = 0, Straight = 1, Right = 2>` takes on one of three values. Values specified in a nominal enumerated type can be accessed as constants elsewhere in the program by using the type name followed by a dot and the symbolic name of the value -- for example, Direction.Left.
 
 A constraint can be applied to an already-constrained type if it further narrows the constraints on the type.
 
@@ -64,10 +64,10 @@ Inkling supports built-in symbolic names for number types that correspond to int
 
 These types make use of the built-in namespace `Number`, which must be referenced somewhere in the program with a `using` statement.
 
-*	Unsigned integers: UInt8, UInt16, UInt32, UInt64
-*	Signed Integers: Int8, Int16, Int32, Int64
-*	Floating-point: Float32, Float64
-*	Boolean: Bool
+*	Unsigned integers: `UInt8`, `UInt16`, `UInt32`, `UInt64`
+*	Signed Integers: `Int8`, `Int16`, `Int32`, `Int64`
+*	Floating-point: `Float32`, `Float64`
+*	Boolean: `Bool`
 
 ### String Constraints
 
@@ -92,7 +92,7 @@ As with numbers, a `string` type can be constrained using an enumerated constrai
   Image.Gray<Height=200, Width=100>
 ```
 
-Currently, the only supported complex type is Image.Gray, which represents a two-dimensional collection of gray-scale pixels. Each pixel is represented as a Number.UInt8 value (0 is black and 255 is white).
+Currently, the only supported complex type is Image.Gray, which represents a two-dimensional collection of gray-scale pixels. Each pixel is represented as a `Number.UInt8` value (0 is black and 255 is white).
 
 The width and height of the image must be specified using a constant expression.
 

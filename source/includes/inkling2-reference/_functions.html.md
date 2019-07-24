@@ -173,11 +173,11 @@ A function call temporarily suspends execution of the current function and resum
 Inkling does not support direct or indirect recursion. Recursive calls are flagged as errors by the compiler.
 
 ```inkling2--syntax
-<subroutine>'('[<expression> ',' ] ')'
+functionCal :== <subroutine>'('[<expression> ',' ] ')'
 ```
 
 #### Literals
-Expression may contain literal values. The following code shows examples of literal values of various types.
+Expression may contain literal values. Examples are provided for literal values of various types.
 
 ```inkling2--code
 # Numeric literal
@@ -195,7 +195,7 @@ var Struct = { X: 3, Y: 4, Z: 4 }
 
 
 ### Math Namespace
-Inkling supports a variety of built-in mathematical operators. It also provides a simple math library to access various useful mathematical constants and functions. These are available through the “Math” namespace, which can be accessed by adding the statement “using Math” to the Inkling program.
+In addition to Inkling's built-in mathematical operators, a simple math library provides access useful mathematical constants and functions. These are available through the “Math” namespace, which can be accessed by adding the statement `using Math` to the Inkling program.
 
 #### Constants
 

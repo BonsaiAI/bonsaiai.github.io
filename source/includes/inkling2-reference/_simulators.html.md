@@ -9,11 +9,9 @@ Curriculum statements reference an associated simulator in the [source clause][3
 
 The `simulator` statement describes the interface to a simulator program. The Inkling program does not contain code for the simulator itself. Instead the Inkling program defines how the simulator is used to train Inkling concepts.
 
-> Simulator Declaration Syntax
-
 ```inkling2--syntax
-simulator <simulatorName>'('action <typeReference>
-  [',' config <ctypeReference>]? ')' ':' <typeReference> '{'
+simulatorDeclaration :== 'simulator' <simulatorName>? '(' 'action' <typeReference>
+  [',' 'config' <ctypeReference>]? ')' ':' <typeReference> '{'
 '}'
 ```
 

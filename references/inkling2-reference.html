@@ -489,13 +489,13 @@ into subjects like type equivalence and range expressions.</p>
 </code></pre>
 <p>A <code class="prettyprint">number</code> type can express any value compatible with a double-precision floating-point representation. Sometimes it&rsquo;s useful to constrain a number type to represent smaller ranges or sets of numbers.</p>
 
-<p>A numeric type with a range constraint specifies a minimum and maximum value plus an optional step value surrounded by angle brackets. For example, number<0..8 step 3> represents a number that can take on the values 0, 4 or 8. If the range does not evenly divide by the step value, the last number in the range will be omitted. In the above example, the range would include the values 0, 3 and 6.</p>
+<p>A numeric type with a range constraint specifies a minimum and maximum value plus an optional step value surrounded by angle brackets. For example, <code class="prettyprint">number&lt;0..8 step 3&gt;</code> represents a number that can take on the values 0, 4 or 8. If the range does not evenly divide by the step value, the last number in the range will be omitted. In the above example, the range would include the values 0, 3 and 6.</p>
 
-<p>A numeric type with ordinal enumerated constraint specifies discrete, unique values in a comma-separated list. They must be listed in increasing order. For example, number<0, 3.5, 7> is constrained to take on one of those three values.</p>
+<p>A numeric type with ordinal enumerated constraint specifies discrete, unique values in a comma-separated list. They must be listed in increasing order. For example, <code class="prettyprint">number&lt;0, 3.5, 7&gt;</code> is constrained to take on one of those three values.</p>
 
-<p>If an enumerated constraint contains only one value (e.g. number<200>), it can be represented more tersely using the value alone (e.g. 200).</p>
+<p>If an enumerated constraint contains only one value (e.g. <code class="prettyprint">number&lt;200&gt;</code>), it can be represented more tersely using the value alone (e.g. 200).</p>
 
-<p>A numeric type with nominal enumerated constraint specifies unordered symbolic identifiers in a comma-separated list. Unique numeric values must be specified for each identifier. For example,  number<Left = 0, Straight = 1, Right = 2> takes on one of three values. Values specified in a nominal enumerated type can be accessed as constants elsewhere in the program by using the type name followed by a dot and the symbolic name of the value &ndash; for example, Direction.Left.</p>
+<p>A numeric type with nominal enumerated constraint specifies unordered symbolic identifiers in a comma-separated list. Unique numeric values must be specified for each identifier. For example, <code class="prettyprint">number&lt;Left = 0, Straight = 1, Right = 2&gt;</code> takes on one of three values. Values specified in a nominal enumerated type can be accessed as constants elsewhere in the program by using the type name followed by a dot and the symbolic name of the value &ndash; for example, Direction.Left.</p>
 
 <p>A constraint can be applied to an already-constrained type if it further narrows the constraints on the type.</p>
 
@@ -511,10 +511,10 @@ into subjects like type equivalence and range expressions.</p>
 <p>These types make use of the built-in namespace <code class="prettyprint">Number</code>, which must be referenced somewhere in the program with a <code class="prettyprint">using</code> statement.</p>
 
 <ul>
-<li>  Unsigned integers: UInt8, UInt16, UInt32, UInt64</li>
-<li>  Signed Integers: Int8, Int16, Int32, Int64</li>
-<li>  Floating-point: Float32, Float64</li>
-<li>  Boolean: Bool</li>
+<li>  Unsigned integers: <code class="prettyprint">UInt8</code>, <code class="prettyprint">UInt16</code>, <code class="prettyprint">UInt32</code>, <code class="prettyprint">UInt64</code></li>
+<li>  Signed Integers: <code class="prettyprint">Int8</code>, <code class="prettyprint">Int16</code>, <code class="prettyprint">Int32</code>, <code class="prettyprint">Int64</code></li>
+<li>  Floating-point: <code class="prettyprint">Float32</code>, <code class="prettyprint">Float64</code></li>
+<li>  Boolean: <code class="prettyprint">Bool</code></li>
 </ul>
 
 <h3 id="string-constraints">String Constraints</h3>
@@ -531,7 +531,7 @@ into subjects like type equivalence and range expressions.</p>
   <span class="nb">Image</span><span class="p">.</span><span class="nb">Gray</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="o">&gt;</span>
   <span class="nb">Image</span><span class="p">.</span><span class="nb">Gray</span><span class="o">&lt;</span><span class="nx">Height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="nx">Width</span><span class="o">=</span><span class="mi">100</span><span class="o">&gt;</span>
 </code></pre>
-<p>Currently, the only supported complex type is Image.Gray, which represents a two-dimensional collection of gray-scale pixels. Each pixel is represented as a Number.UInt8 value (0 is black and 255 is white).</p>
+<p>Currently, the only supported complex type is Image.Gray, which represents a two-dimensional collection of gray-scale pixels. Each pixel is represented as a <code class="prettyprint">Number.UInt8</code> value (0 is black and 255 is white).</p>
 
 <p>The width and height of the image must be specified using a constant expression.</p>
 
@@ -1051,12 +1051,8 @@ is the original input to the concept graph.</p>
 <p>Curriculum statements reference an associated simulator in the <a href="#curriculums">source clause</a>.</p>
 
 <p>The <code class="prettyprint">simulator</code> statement describes the interface to a simulator program. The Inkling program does not contain code for the simulator itself. Instead the Inkling program defines how the simulator is used to train Inkling concepts.</p>
-
-<blockquote>
-<p>Simulator Declaration Syntax</p>
-</blockquote>
-<pre class="highlight inkling2 tab-inkling2--syntax"><code><span class="k">simulator</span> <span class="o">&lt;</span><span class="nx">simulatorName</span><span class="o">&gt;</span><span class="p">'('</span><span class="k">action</span> <span class="o">&lt;</span><span class="nx">typeReference</span><span class="o">&gt;</span>
-  <span class="p">[','</span> <span class="k">config</span> <span class="o">&lt;</span><span class="nx">ctypeReference</span><span class="o">&gt;</span><span class="p">]?</span> <span class="p">')'</span> <span class="p">':'</span> <span class="o">&lt;</span><span class="nx">typeReference</span><span class="o">&gt;</span> <span class="p">'{'</span>
+<pre class="highlight inkling2 tab-inkling2--syntax"><code><span class="nx">simulatorDeclaration</span> <span class="p">:</span><span class="o">==</span> <span class="p">'</span><span class="k">simulator</span><span class="p">'</span> <span class="o">&lt;</span><span class="nx">simulatorName</span><span class="o">&gt;</span><span class="p">?</span> <span class="p">'('</span> <span class="p">'</span><span class="k">action</span><span class="p">'</span> <span class="o">&lt;</span><span class="nx">typeReference</span><span class="o">&gt;</span>
+  <span class="p">[','</span> <span class="p">'</span><span class="k">config</span><span class="p">'</span> <span class="o">&lt;</span><span class="nx">ctypeReference</span><span class="o">&gt;</span><span class="p">]?</span> <span class="p">')'</span> <span class="p">':'</span> <span class="o">&lt;</span><span class="nx">typeReference</span><span class="o">&gt;</span> <span class="p">'{'</span>
 <span class="p">'}'</span>
 </code></pre>
 <p>A <code class="prettyprint">simulator</code> statement defines the interface to the simulator - its input and output parameter types.</p>
@@ -1333,11 +1329,11 @@ The curriculum <code class="prettyprint">source</code> clause specifies <code cl
 <p>A function call temporarily suspends execution of the current function and resumes execution temporarily in the context of a new function. The caller may specify zero or more arguments to be passed to the function. The types of these arguments must be compatible with the declared types of the target function’s parameters.</p>
 
 <p>Inkling does not support direct or indirect recursion. Recursive calls are flagged as errors by the compiler.</p>
-<pre class="highlight inkling2 tab-inkling2--syntax"><code><span class="o">&lt;</span><span class="nx">subroutine</span><span class="o">&gt;</span><span class="p">'('[</span><span class="o">&lt;</span><span class="nx">expression</span><span class="o">&gt;</span> <span class="p">','</span> <span class="p">]</span> <span class="p">')'</span>
+<pre class="highlight inkling2 tab-inkling2--syntax"><code><span class="nx">functionCal</span> <span class="p">:</span><span class="o">==</span> <span class="o">&lt;</span><span class="nx">subroutine</span><span class="o">&gt;</span><span class="p">'('[</span><span class="o">&lt;</span><span class="nx">expression</span><span class="o">&gt;</span> <span class="p">','</span> <span class="p">]</span> <span class="p">')'</span>
 </code></pre>
 <h4 id="literals">Literals</h4>
 
-<p>Expression may contain literal values. The following code shows examples of literal values of various types.</p>
+<p>Expression may contain literal values. Examples are provided for literal values of various types.</p>
 <pre class="highlight inkling2 tab-inkling2--code"><code><span class="c1"># Numeric literal</span>
 <span class="k">var</span> <span class="nx">Num</span> <span class="o">=</span> <span class="mf">3.4</span>
 
@@ -1352,7 +1348,7 @@ The curriculum <code class="prettyprint">source</code> clause specifies <code cl
 </code></pre>
 <h3 id="math-namespace">Math Namespace</h3>
 
-<p>Inkling supports a variety of built-in mathematical operators. It also provides a simple math library to access various useful mathematical constants and functions. These are available through the “Math” namespace, which can be accessed by adding the statement “using Math” to the Inkling program.</p>
+<p>In addition to Inkling&rsquo;s built-in mathematical operators, a simple math library provides access useful mathematical constants and functions. These are available through the “Math” namespace, which can be accessed by adding the statement <code class="prettyprint">using Math</code> to the Inkling program.</p>
 
 <h4 id="constants">Constants</h4>
 

@@ -4,9 +4,9 @@ This is a list of Bonsai's currently supported versions of its software packages
 
 | Software               | Package Name | Versions | Last Updated |
 | -                      | -            | -        | -            |
-| Command Line Interface | bonsai-cli   | 0.8.36   | 2019.05.20   |
-| Gym Common             | bonsai-gym   | 2.0.12   | 2019.05.20   |
-| Python Library         | bonsai-ai    | 2.1.15   | 2019.05.20   |
+| Command Line Interface | bonsai-cli   | 0.8.37   | 2019.08.06   |
+| Gym Common             | bonsai-gym   | 2.0.13   | 2019.08.06   |
+| Python Library         | bonsai-ai    | 2.1.16   | 2019.08.06   |
 
 # Product Release Notes
 
@@ -17,6 +17,15 @@ Release Notes for CLI: <https://github.com/BonsaiAI/bonsai-cli/blob/master/bonsa
 Release Notes for Python SDK (bonsai-ai and bonsai-gym libraries): <https://github.com/BonsaiAI/bonsai-sdk/blob/master/bonsai-ai/CHANGELOG.md>
 
 Release Notes for C++ SDK (libbonsai): <https://github.com/BonsaiAI/libbonsai/blob/master/libbonsai/CHANGELOG.md>
+
+### 2019.08.07
+
+Notable features:
+
+* Action Transformations and State Definitions in Inkling
+* Updated performance graph to average out points
+* Faster points on the performance graph
+
 
 ### 2019.06.28
 

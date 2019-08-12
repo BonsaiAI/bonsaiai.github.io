@@ -441,8 +441,8 @@ It can be used in this case to find the center between two numbers.
     <span class="c"># script with "--record=find_the_center.json".</span>
     <span class="c"># Alternatively, invoking with "--record=find_the_center.csv" enables</span>
     <span class="c"># recording to CSV.</span>
-    <span class="c"># config-&gt;set_record_enabled(true);</span>
-    <span class="c"># config-&gt;set_record_file("find_the_center.json");</span>
+    <span class="c"># config = set_record_enabled(true);</span>
+    <span class="c"># config = set_record_file("find_the_center.json");</span>
 
     <span class="n">brain</span> <span class="o">=</span> <span class="n">bonsai_ai</span><span class="o">.</span><span class="n">Brain</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
     <span class="n">sim</span> <span class="o">=</span> <span class="n">BasicSimulator</span><span class="p">(</span><span class="n">brain</span><span class="p">,</span> <span class="s">"find_the_center_sim"</span><span class="p">)</span>
@@ -556,8 +556,8 @@ It can be used in this case to find the center between two numbers.
 </span>    <span class="c1">// "--record=find_the_center.json".
 </span>    <span class="c1">// Alternatively, invoking with "--record=find_the_center.csv" enables recording
 </span>    <span class="c1">// to CSV.
-</span>    <span class="c1">// config-&gt;set_record_enabled(true);
-</span>    <span class="c1">// config-&gt;set_record_file("find_the_center.json");
+</span>    <span class="c1">// config = set_record_enabled(true);
+</span>    <span class="c1">// config = set_record_file("find_the_center.json");
 </span>
     <span class="k">auto</span> <span class="n">brain</span> <span class="o">=</span> <span class="n">make_shared</span><span class="o">&lt;</span><span class="n">Brain</span><span class="o">&gt;</span><span class="p">(</span><span class="n">config</span><span class="p">);</span>
     <span class="n">BasicSimulator</span> <span class="n">sim</span><span class="p">(</span><span class="n">brain</span><span class="p">,</span> <span class="s">"find_the_center_sim"</span><span class="p">);</span>

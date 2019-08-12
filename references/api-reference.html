@@ -1224,7 +1224,8 @@ will be JSON with keys which correspond to the Inkling&rsquo;s action type and t
 <blockquote>
 <p>Request</p>
 </blockquote>
-<pre class="highlight plaintext"><code>PUT /v1/{userName}/{brainName}/train
+<pre class="highlight plaintext"><code>requests.put(rootUrl + '/v1/' + username + '/' + brainname + '/stop', 
+  headers={'Authorization': AccessKey}
 </code></pre>
 <table><thead>
 <tr>

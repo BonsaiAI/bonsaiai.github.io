@@ -461,8 +461,8 @@ optional arguments:
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
     <span class="n">config</span> <span class="o">=</span> <span class="n">bonsai_ai</span><span class="o">.</span><span class="n">Config</span><span class="p">()</span>
 
-    <span class="n">config</span><span class="o">-&gt;</span><span class="n">set_record_enabled</span><span class="p">(</span><span class="n">true</span><span class="p">);</span>
-    <span class="n">config</span><span class="o">-&gt;</span><span class="n">set_record_file</span><span class="p">(</span><span class="s">"find_the_center.json"</span><span class="p">);</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">set_record_enabled</span><span class="p">(</span><span class="n">true</span><span class="p">);</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">set_record_file</span><span class="p">(</span><span class="s">"find_the_center.json"</span><span class="p">);</span>
 
     <span class="n">brain</span> <span class="o">=</span> <span class="n">bonsai_ai</span><span class="o">.</span><span class="n">Brain</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
     <span class="n">sim</span> <span class="o">=</span> <span class="n">BasicSimulator</span><span class="p">(</span><span class="n">brain</span><span class="p">,</span> <span class="s">"find_the_center_sim"</span><span class="p">)</span>

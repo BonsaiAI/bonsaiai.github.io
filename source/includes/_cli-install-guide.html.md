@@ -158,7 +158,7 @@ If you have already trained a BRAIN on the web and are looking to use the Bonsai
 [5]: local-dev-guide.html
 [6]: http://brew.sh/
 [7]: #install-with-chocolatey-or-homebrew
-[8]: https://beta.bons.ai/accounts/key
+[8]: https://beta.bons.ai/accounts/settings/key
 [9]: #install-with-anaconda
 [10]: https://www.anaconda.com/what-is-anaconda/
 [11]: https://git-for-windows.github.io/

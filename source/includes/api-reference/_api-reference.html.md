@@ -617,7 +617,8 @@ Use PUT to start or stop training.
 > Request
 
 ```text
-PUT /v1/{userName}/{brainName}/train
+requests.put(rootUrl + '/v1/' + username + '/' + brainname + '/stop', 
+  headers={'Authorization': AccessKey}
 ```
 
 | Parameter | Description |

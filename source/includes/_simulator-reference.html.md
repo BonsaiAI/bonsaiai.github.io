@@ -162,8 +162,8 @@ After your BRAIN is finished training it can be used to "predict" or perform in 
 if __name__ == "__main__":
     config = bonsai_ai.Config()
     
-    config->set_record_enabled(true);
-    config->set_record_file("find_the_center.json");
+    config = set_record_enabled(true);
+    config = set_record_file("find_the_center.json");
 
     brain = bonsai_ai.Brain(config)
     sim = BasicSimulator(brain, "find_the_center_sim")

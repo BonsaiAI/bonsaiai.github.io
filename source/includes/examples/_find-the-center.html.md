@@ -129,8 +129,8 @@ if __name__ == "__main__":
     # script with "--record=find_the_center.json".
     # Alternatively, invoking with "--record=find_the_center.csv" enables
     # recording to CSV.
-    # config->set_record_enabled(true);
-    # config->set_record_file("find_the_center.json");
+    # config = set_record_enabled(true);
+    # config = set_record_file("find_the_center.json");
 
     brain = bonsai_ai.Brain(config)
     sim = BasicSimulator(brain, "find_the_center_sim")
@@ -247,8 +247,8 @@ int main(int argc, char** argv) {
     // "--record=find_the_center.json".
     // Alternatively, invoking with "--record=find_the_center.csv" enables recording
     // to CSV.
-    // config->set_record_enabled(true);
-    // config->set_record_file("find_the_center.json");
+    // config = set_record_enabled(true);
+    // config = set_record_file("find_the_center.json");
 
     auto brain = make_shared<Brain>(config);
     BasicSimulator sim(brain, "find_the_center_sim");

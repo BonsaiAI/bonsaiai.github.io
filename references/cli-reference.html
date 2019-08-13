@@ -382,7 +382,11 @@ Options:
 </code></pre>
 <p><code class="prettyprint">bonsai configure</code> sets up authentication between you (as a user) and the server. This enables the server to verify your access to write Inkling code to a specific BRAIN.</p>
 
-<p>You can find your access key at <a href="https://beta.bons.ai">https://beta.bons.ai/accounts/settings/key</a>.</p>
+<p>The fields that are requested for input are:</p>
+
+<p>Username: This is your bonsai portal username, you can find this on https://beta.bons.ai/accounts/settings under &lsquo;profile&rsquo;.</p>
+
+<p>You can find your access key at <a href="https://beta.bons.ai">https://beta.bons.ai/accounts/settings/key</a>. <em>Note: The access key you need to input here is a one-time code generated when you click &ldquo;Create Access Key&rdquo; on the bonsai web portal.</em> For security, you will not be able to view an access key after it has been created. However, you can create as many access keys as you’d like in case you need to install the CLI on multiple devices.</p>
 
 <h2 id="bonsai-create">bonsai create</h2>
 <pre class="highlight plaintext"><code>$ bonsai create --help
@@ -426,6 +430,24 @@ Options:
   -h, --help  Show this message and exit.
 </code></pre>
 <p><code class="prettyprint">bonsai delete</code> deletes a BRAIN and its associated data from the Bonsai platform. Once a BRAIN is deleted, its data cannot be recovered, and its name cannot be reused.</p>
+
+<h2 id="bonsai-diagnose">bonsai diagnose</h2>
+<pre class="highlight plaintext"><code>Usage: bonsai diagnose [OPTIONS]
+
+  Runs several tests to validate that the cli is working correctly
+
+Options:
+  -h, --help  Show this message and exit.
+</code></pre>
+<p><code class="prettyprint">bonsai diagnose</code> runs several tests to ensure your local configuration is set up correctly. These tests are: </p>
+
+<ul>
+<li>Version of the CLI, to check if it is up-to-date.</li>
+<li>Status of http://beta.bons.ai</li>
+<li>Local configuration</li>
+</ul>
+
+<p>If your local configuration is not set up correctly, you will need to use <code class="prettyprint">bonsai configure</code> to change it appropriately. This configuration is listed in <a href="https://docs.bons.ai/references/cli-reference.html#bonsai-configure">bonsai configure</a></p>
 
 <h2 id="bonsai-download">bonsai download</h2>
 <pre class="highlight plaintext"><code>$ bonsai download --help

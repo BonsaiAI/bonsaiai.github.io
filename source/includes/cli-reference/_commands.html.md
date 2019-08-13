@@ -60,7 +60,12 @@ Options:
 
 `bonsai configure` sets up authentication between you (as a user) and the server. This enables the server to verify your access to write Inkling code to a specific BRAIN.
 
-You can find your access key at [https://beta.bons.ai/accounts/settings/key][2].
+The fields that are requested for input are:
+
+Username: This is your bonsai portal username, you can find this on https://beta.bons.ai/accounts/settings under 'profile'.
+
+You can find your access key at [https://beta.bons.ai/accounts/settings/key][2]. *Note: The access key you need to input here is a one-time code generated when you click "Create Access Key" on the bonsai web portal.* For security, you will not be able to view an access key after it has been created. However, you can create as many access keys as you’d like in case you need to install the CLI on multiple devices.
+
 
 ## bonsai create
 
@@ -106,6 +111,27 @@ Options:
 ```
 
 `bonsai delete` deletes a BRAIN and its associated data from the Bonsai platform. Once a BRAIN is deleted, its data cannot be recovered, and its name cannot be reused.
+
+## bonsai diagnose
+
+```
+Usage: bonsai diagnose [OPTIONS]
+
+  Runs several tests to validate that the cli is working correctly
+
+Options:
+  -h, --help  Show this message and exit.
+```
+
+`bonsai diagnose` runs several tests to ensure your local configuration is set up correctly. These tests are: 
+
+* Version of the CLI, to check if it is up-to-date.
+* Status of http://beta.bons.ai
+* Local configuration
+
+If your local configuration is not set up correctly, you will need to use `bonsai configure` to change it appropriately. This configuration is listed in [bonsai configure](https://docs.bons.ai/references/cli-reference.html#bonsai-configure)
+
+
 
 ## bonsai download
 

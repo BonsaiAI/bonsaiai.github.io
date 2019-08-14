@@ -350,10 +350,10 @@ Options:
 
 `bonsai train stop` stops (or pauses) training on the current BRAIN. You can resume training with `bonsai train resume`.
 
-[1]: ../../images/bonsai-cli-authentication.png
-[2]: ../../images/AAD-code.png
-[3]: ../../images/Microsoft-login.png
-[4]: ../../images/Access-Keys.png
+[1]: ../images/bonsai-cli-authentication.png
+[2]: ../images/AAD-code.png
+[3]: ../images/Microsoft-login.png
+[4]: ../images/Access-Keys.png
 [5]: https://beta.bons.ai/accounts/settings/key
 [6]: https://beta.bons.ai
 [7]: ./simulator-reference.html#cloud-hosted-simulators

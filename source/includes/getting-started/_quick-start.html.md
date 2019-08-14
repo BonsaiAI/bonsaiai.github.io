@@ -1,10 +1,9 @@
 # Request Access and Log in
 
-Before you begin, you will need to have access to the Bonsai Platform preview. If you don’t have access yet, request access from your Microsoft representative or navigate to https://bons.ai/sign-up. 
+Before you begin, you will need to have access to the Bonsai Platform preview. If you don’t have access yet, request access from your Microsoft representative or navigate to (https://beta.bons.ai/sign-up). 
 
-Once you have an account e-mail confirmation that your email has been whitelisted into the Beta, you can navigate to [sign in](https://beta.bons.ai/accounts/signin) and this will bring you to your Microsoft organization Azure Active Directory log-in page. If you are already logged in using Azure Active Directory, you will not need to sign in as your authentication will simply pass through and enable you to log into the platform.
+Once you have an account e-mail confirmation that your email has been whitelisted into the Beta, navigate to [sign in](https://beta.bons.ai/accounts/signin) and this will bring you to your Microsoft organization Azure Active Directory [log-in page][15]. If you are already logged in using Azure Active Directory, you will not need to sign in as your login will authenticate you to the Bonsai platform.
 
-**Note:** If you are logging in for the first time with AAD and migrating from Bonsai Legacy Authentication, please navigate to [this page]()
 
 # Create Your BRAIN
 
@@ -179,3 +178,4 @@ file, in predict mode, and `--predict=latest` will use the latest training sessi
 [12]: ../../images/cart-pole-balance.gif
 [13]: ./cli-install-guide.html#install-prerequisites
 [14]: #what-are-brains
+[15]: ../../images/Microsoft-login.png

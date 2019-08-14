@@ -2,25 +2,23 @@
 
 Before you begin, you will need to have access to the Bonsai Platform preview. If you don’t have access yet, request access from your Microsoft representative or navigate to (https://beta.bons.ai/sign-up). 
 
-## Requirement for Bonsai access
-
-You will need an (Azure Active Directory)[https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis](AAD) account to sign up for the Bonsai platform. 
-
-## Don't have an Azure Active Directory Account?
-If you do not have an AAD account, you will have to ask your administrator to add you to your (Azure Active Directory organization)[https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-users-azure-active-directory].
-
-At this time, Bonsai does not accept Microsoft Accounts (MSA Accounts). 
-
-If your organiation does not have a Microsoft AAD Account, please ask your IT Administrator to (create an AD Tenant)[https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-access-create-new-tenant] and add you and other members of your project to it.
+You will need an [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis)or AAD account to sign up for the Bonsai platform. 
 
 ## Logging in
-Once you have an e-mail confirmation that your (Azure Active Directory)[https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis] Account has been whitelisted into the Beta: 
-1. Navigate to [sign in](https://beta.bons.ai/accounts/signin) 
-2. Go to the Azure Active Directory [log-in page][15]. 
-3. Authorize 'Bonsai' for remote connection to your Microsoft account.
+Once you have an e-mail confirmation that your [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis) Account has been whitelisted into the Beta: 
+
+* Navigate to [sign in](https://beta.bons.ai/accounts/signin) 
+* Go to the Azure Active Directory [log-in page][15]. 
+* Authorize 'Bonsai' for remote connection to your Microsoft account.
 
 If you are already logged in using Azure Active Directory, you will not need to sign in as your login will authenticate you to the Bonsai platform.
 
+## Don't have an Azure Active Directory Account?
+If you do not have an AAD account, you will have to ask your administrator to add you to your [Azure Active Directory organization](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-users-azure-active-directory)
+
+At this time, Bonsai does not accept Microsoft Accounts (MSA Accounts). 
+
+If your organiation does not have a Microsoft AAD Account, please ask your IT Administrator to [create an AD Tenant](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-access-create-new-tenant) and add you and other members of your project to it.
 
 # Create Your BRAIN
 

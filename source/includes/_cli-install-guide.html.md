@@ -128,7 +128,7 @@ If you *do not* have Anaconda installed on your system, please go to the [Manual
 
 ```
 pip install bonsai-cli
-bonsai configure # for authentication
+bonsai -a configure # for authentication
 ```
 
 > Python 3
@@ -138,10 +138,10 @@ bonsai configure # for authentication
 ```
 ```shell
 pip3 install bonsai-cli
-bonsai configure # for authentication
+bonsai -a configure # for authentication
 ```
 
-From your command prompt, install the Bonsai Command Line Interface tool and configure (authenticate) it. [`bonsai configure`][17] will ask for your Access Key. You can find your Access Key in your [Bonsai Account Settings][8].
+From your command prompt, install the Bonsai Command Line Interface tool and configure (authenticate) it. [`bonsai -a configure`][17] will log you in using Azure Active Directory and ask for your Access Key. You can find your Access Key in your [Bonsai Account Settings][8].
 
 
 

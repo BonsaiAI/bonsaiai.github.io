@@ -18,9 +18,7 @@ host = api.bons.ai
 usessl = True
 ```
 
-Your user directory contains the `.bonsai` file. This file stores your username and an
-access token for access to the Bonsai servers. The `bonsai configure` CLI command
-will update this file and create it if it does not exist.
+*Note:* the username for "bonsaiuser" is a randomized string that is populated by `bonsai -a configure`. Do not change this value, or you will need to request a new code.
 
 ## .bproj file
 

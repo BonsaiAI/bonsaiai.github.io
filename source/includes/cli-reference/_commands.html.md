@@ -46,7 +46,7 @@ Example:
 ## bonsai configure
 
 ```
-$ bonsai configure --help
+$ bonsai -a configure --help
 Usage: bonsai configure [OPTIONS]
 
   Authenticate with the BRAIN Server.
@@ -58,13 +58,33 @@ Options:
   -h, --help  Show this message and exit.
 ```
 
+`bonsai -a configure` sets up authentication between you (as a user) and the server. This enables the server to verify your access to write Inkling code to a specific BRAIN.
+
+The first time that you use this command, you will see a command prompt [as below][1]:
+
+Navigate to the [hyperlink][https://microsoft.com/devicelogin] on any web-enabled device, and you will see [a prompt][2] to enter the code.
+
+Once you enter the Authentication code, you will be prompted to [log in][3] and authorize "Bonsai" to access your account. Click the account that you were whitelisted with to authenticate and your profile will be automatically configured to access the platform. 
+
+Access Key (typing will be hidden): You can find your [access key][4] at [https://beta.bons.ai/accounts/settings/key][5].
+
+*Note: The access key you need to input here is a one-time code generated when you click "Create Access Key" on the bonsai web portal.* 
+
+For security, you will not be able to view an access key after it has been created. However, you can create as many access keys as you’d like in case you need to install the CLI on multiple devices.
+
+**The below instructions for bonsai configure are deprecated authentication stored for reference. DO NOT USE the below to access the platform.**
 `bonsai configure` sets up authentication between you (as a user) and the server. This enables the server to verify your access to write Inkling code to a specific BRAIN.
+
 
 The fields that are requested for input are:
 
 Username: This is your bonsai portal username, you can find this on https://beta.bons.ai/accounts/settings under 'profile'.
 
-You can find your access key at [https://beta.bons.ai/accounts/settings/key][2]. *Note: The access key you need to input here is a one-time code generated when you click "Create Access Key" on the bonsai web portal.* For security, you will not be able to view an access key after it has been created. However, you can create as many access keys as you’d like in case you need to install the CLI on multiple devices.
+Access Key (typing will be hidden): You can find your [access key][4] at [https://beta.bons.ai/accounts/settings/key][5]. 
+
+*Note: The access key you need to input here is a one-time code generated when you click "Create Access Key" on the bonsai web portal.* 
+
+For security, you will not be able to view an access key after it has been created. However, you can create as many access keys as you’d like in case you need to install the CLI on multiple devices.
 
 
 ## bonsai create
@@ -129,7 +149,7 @@ Options:
 * Status of http://beta.bons.ai
 * Local configuration
 
-If your local configuration is not set up correctly, you will need to use `bonsai configure` to change it appropriately. This configuration is listed in [bonsai configure](https://docs.bons.ai/references/cli-reference.html#bonsai-configure)
+If your local configuration is not set up correctly, you will need to use `bonsai -a configure` to change it appropriately. This configuration is listed in [bonsai -a configure](https://docs.bons.ai/references/cli-reference.html#bonsai-configure)
 
 
 
@@ -160,7 +180,7 @@ Options:
   -h, --help  Show this message and exit.
 ```
 
-`bonsai list` shows you the BRAINs on your account. You must have your Bonsai account configured with `bonsai configure` before you can see this list.
+`bonsai list` shows you the BRAINs on your account. You must have your Bonsai account configured with `bonsai -a configure` before you can see this list.
 
 ## bonsai pull
 
@@ -193,7 +213,7 @@ Options:
   -h, --help      Show this message and exit.
 ```
 
-`bonsai push` uploads the project file contents specified in the .bproj file to the Bonsai AI Engine and can be viewed on [beta.bons.ai][2]. You can override the BRAIN you want to push to or the project directory you want to push.
+`bonsai push` uploads the project file contents specified in the .bproj file to the Bonsai AI Engine and can be viewed on [beta.bons.ai][6]. You can override the BRAIN you want to push to or the project directory you want to push.
 
 You can not push files exceeding 640KB to the server.
 
@@ -275,7 +295,7 @@ Options:
 
 When training locally, if the simulator disconnects, the BRAIN remains in training mode, and it will train again where it left off when the simulator reconnects (up to an hour after being disconnected).
 
-If `bonsai train start --remote` is used, then the simulator will run remotely on Bonsai's servers for [supported simulators][3].
+If `bonsai train start --remote` is used, then the simulator will run remotely on Bonsai's servers for [supported simulators][7].
 
 ## bonsai train resume
 
@@ -329,6 +349,10 @@ Options:
 
 `bonsai train stop` stops (or pauses) training on the current BRAIN. You can resume training with `bonsai train resume`.
 
-[1]: https://beta.bons.ai/accounts/settings/key
-[2]: https://beta.bons.ai
-[3]: ./simulator-reference.html#cloud-hosted-simulators
+[1]: ../../images/bonsai-cli-authentication.png
+[2]: ../../images/AAD-code.png
+[3]: ../../images/Microsoft-login.png
+[4]: ../../images/Access-Keys.png
+[5]: https://beta.bons.ai/accounts/settings/key
+[6]: https://beta.bons.ai
+[7]: ./simulator-reference.html#cloud-hosted-simulators

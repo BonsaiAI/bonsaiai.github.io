@@ -369,7 +369,7 @@ Commands:
 <code class="prettyprint">bonsai list --timeout 10</code></p>
 
 <h2 id="bonsai-configure">bonsai configure</h2>
-<pre class="highlight plaintext"><code>$ bonsai configure --help
+<pre class="highlight plaintext"><code>$ bonsai -a configure --help
 Usage: bonsai configure [OPTIONS]
 
   Authenticate with the BRAIN Server.
@@ -380,13 +380,32 @@ Options:
   --show      Prints active profile information.
   -h, --help  Show this message and exit.
 </code></pre>
-<p><code class="prettyprint">bonsai configure</code> sets up authentication between you (as a user) and the server. This enables the server to verify your access to write Inkling code to a specific BRAIN.</p>
+<p><code class="prettyprint">bonsai -a configure</code> sets up authentication between you (as a user) and the server. This enables the server to verify your access to write Inkling code to a specific BRAIN.</p>
+
+<p>The first time that you use this command, you will see a command prompt <a href="../../images/bonsai-cli-authentication.png">as below</a>:</p>
+
+<p>Navigate to the [hyperlink][https://microsoft.com/devicelogin] on any web-enabled device, and you will see <a href="../../images/AAD-code.png">a prompt</a> to enter the code.</p>
+
+<p>Once you enter the Authentication code, you will be prompted to <a href="../../images/Microsoft-login.png">log in</a> and authorize &ldquo;Bonsai&rdquo; to access your account. Click the account that you were whitelisted with to authenticate and your profile will be automatically configured to access the platform. </p>
+
+<p>Access Key (typing will be hidden): You can find your <a href="../../images/Access-Keys.png">access key</a> at <a href="https://beta.bons.ai/accounts/settings/key">https://beta.bons.ai/accounts/settings/key</a>.</p>
+
+<p><em>Note: The access key you need to input here is a one-time code generated when you click &ldquo;Create Access Key&rdquo; on the bonsai web portal.</em> </p>
+
+<p>For security, you will not be able to view an access key after it has been created. However, you can create as many access keys as you’d like in case you need to install the CLI on multiple devices.</p>
+
+<p><strong>The below instructions for bonsai configure are deprecated authentication stored for reference. DO NOT USE the below to access the platform.</strong>
+<code class="prettyprint">bonsai configure</code> sets up authentication between you (as a user) and the server. This enables the server to verify your access to write Inkling code to a specific BRAIN.</p>
 
 <p>The fields that are requested for input are:</p>
 
 <p>Username: This is your bonsai portal username, you can find this on https://beta.bons.ai/accounts/settings under &lsquo;profile&rsquo;.</p>
 
-<p>You can find your access key at <a href="https://beta.bons.ai">https://beta.bons.ai/accounts/settings/key</a>. <em>Note: The access key you need to input here is a one-time code generated when you click &ldquo;Create Access Key&rdquo; on the bonsai web portal.</em> For security, you will not be able to view an access key after it has been created. However, you can create as many access keys as you’d like in case you need to install the CLI on multiple devices.</p>
+<p>Access Key (typing will be hidden): You can find your <a href="../../images/Access-Keys.png">access key</a> at <a href="https://beta.bons.ai/accounts/settings/key">https://beta.bons.ai/accounts/settings/key</a>. </p>
+
+<p><em>Note: The access key you need to input here is a one-time code generated when you click &ldquo;Create Access Key&rdquo; on the bonsai web portal.</em> </p>
+
+<p>For security, you will not be able to view an access key after it has been created. However, you can create as many access keys as you’d like in case you need to install the CLI on multiple devices.</p>
 
 <h2 id="bonsai-create">bonsai create</h2>
 <pre class="highlight plaintext"><code>$ bonsai create --help
@@ -447,7 +466,7 @@ Options:
 <li>Local configuration</li>
 </ul>
 
-<p>If your local configuration is not set up correctly, you will need to use <code class="prettyprint">bonsai configure</code> to change it appropriately. This configuration is listed in <a href="https://docs.bons.ai/references/cli-reference.html#bonsai-configure">bonsai configure</a></p>
+<p>If your local configuration is not set up correctly, you will need to use <code class="prettyprint">bonsai -a configure</code> to change it appropriately. This configuration is listed in <a href="https://docs.bons.ai/references/cli-reference.html#bonsai-configure">bonsai -a configure</a></p>
 
 <h2 id="bonsai-download">bonsai download</h2>
 <pre class="highlight plaintext"><code>$ bonsai download --help
@@ -470,7 +489,7 @@ Options:
   --json      Output json.
   -h, --help  Show this message and exit.
 </code></pre>
-<p><code class="prettyprint">bonsai list</code> shows you the BRAINs on your account. You must have your Bonsai account configured with <code class="prettyprint">bonsai configure</code> before you can see this list.</p>
+<p><code class="prettyprint">bonsai list</code> shows you the BRAINs on your account. You must have your Bonsai account configured with <code class="prettyprint">bonsai -a configure</code> before you can see this list.</p>
 
 <h2 id="bonsai-pull">bonsai pull</h2>
 <pre class="highlight plaintext"><code>$ bonsai pull --help
@@ -629,9 +648,7 @@ a project file to a BRAIN in the same directory as the project file.</p>
 <span class="py">host</span> <span class="p">=</span> <span class="s">api.bons.ai</span>
 <span class="py">usessl</span> <span class="p">=</span> <span class="s">True</span>
 </code></pre>
-<p>Your user directory contains the <code class="prettyprint">.bonsai</code> file. This file stores your username and an
-access token for access to the Bonsai servers. The <code class="prettyprint">bonsai configure</code> CLI command
-will update this file and create it if it does not exist.</p>
+<p><em>Note:</em> the username for &ldquo;bonsaiuser&rdquo; is a randomized string that is populated by <code class="prettyprint">bonsai -a configure</code>. Do not change this value, or you will need to request a new code.</p>
 
 <h2 id="bproj-file">.bproj file</h2>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">

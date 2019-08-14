@@ -72,7 +72,7 @@ Access Key (typing will be hidden): You can find your [access key][4] at [https:
 
 For security, you will not be able to view an access key after it has been created. However, you can create as many access keys as you’d like in case you need to install the CLI on multiple devices.
 
-**The below instructions for bonsai configure are deprecated authentication stored for reference. DO NOT USE the below to access the platform.**
+**The below instructions for bonsai configure are deprecated and stored for reference. DO NOT USE the below to access the platform.**
 
 `bonsai configure` sets up authentication between you (as a user) and the server. This enables the server to verify your access to write Inkling code to a specific BRAIN.
 
@@ -350,9 +350,9 @@ Options:
 
 `bonsai train stop` stops (or pauses) training on the current BRAIN. You can resume training with `bonsai train resume`.
 
-[1]: ../images/bonsai-cli-authentication.png
+[1]: ../images/bonsai-CLI-authentication.png
 [2]: ../images/AAD-code.png
-[3]: ../images/Microsoft-login.png
+[3]: ../images/Microsoft-Login.png
 [4]: ../images/Access-Keys.png
 [5]: https://beta.bons.ai/accounts/settings/key
 [6]: https://beta.bons.ai

@@ -22,7 +22,7 @@ The root for all Bonsai Platform API requests is *https://api.bons.ai*.
 
 # Authentication
 
-API calls must include an Authorization header. The value of this header is your [Access Key][2].
+API calls must include an Authorization header. To retrieve the appropriate [Access Key][5] to use for Authorization, you must retrieve it using the Microsoft authentication library for Python (MSAL).
 
 #### Headers
 
@@ -897,3 +897,4 @@ message PredictionData {
 [2]: https://beta.bons.ai/accounts/key
 [3]: ../images/training.svg
 [4]: ../images/prediction.svg
+[5]: https://github.com/AzureAD/microsoft-authentication-library-for-python

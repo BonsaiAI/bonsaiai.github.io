@@ -4,9 +4,9 @@ This is a list of Bonsai's currently supported versions of its software packages
 
 | Software               | Package Name | Versions | Last Updated |
 | -                      | -            | -        | -            |
-| Command Line Interface | bonsai-cli   | 0.8.37   | 2019.08.06   |
+| Command Line Interface | bonsai-cli   | 0.9.6    | 2019.09.16   |
 | Gym Common             | bonsai-gym   | 2.0.13   | 2019.08.06   |
-| Python Library         | bonsai-ai    | 2.1.16   | 2019.08.06   |
+| Python Library         | bonsai-ai    | 2.2.5    | 2019.09.16   |
 
 # Product Release Notes
 
@@ -26,6 +26,18 @@ Notable features:
 * Updated performance graph to average out points
 * Faster points on the performance graph
 
+### 2019.06.28
+
+Notable features:
+
+* Changing the representation of the access key to remove confusion
+* Migration to AAD Authentication (Azure Active Directory)
+* Bonsai CLI Commands and reference updated to reflect AAD
+
+Various bug fixes, including:
+
+* Fixed issue for incorrectly storing cache files for .bonsai
+* Hotfix for windows users where bonsai configure was hanging on user input
 
 ### 2019.06.28
 

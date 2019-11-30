@@ -209,7 +209,7 @@ In addition to Inkling's built-in mathematical operators, a simple math library 
 
 `function Math.ArcCos(X: number): number` Arccosine of value; return value in radians
 
-`function Math.ArcSin(X: number): number` Arcsin of value; return value in radians
+`function Math.ArcSin(X: number): number` Arcsine of value; return value in radians
 
 `function Math.ArcTan(X: number): number` ArcTan of value; return value in radians
 
@@ -224,6 +224,10 @@ In addition to Inkling's built-in mathematical operators, a simple math library 
 `function Math.Hypot(X: number, Y: number): number` Hypotenuse of right triangle with legs of length X and Y
 
 `function Math.Log(X: number): number` Natural logarithm of value; runtime error if not positive
+
+`function Math.Max(X: number, y: number): number` Maximum of two numbers
+
+`function Math.Min(X: number, y: number): number` Minimum of two numbers
 
 `function Math.Sin(X: number): number` Sine of value, specified in radians
 

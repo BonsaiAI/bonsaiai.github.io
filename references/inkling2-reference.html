@@ -191,6 +191,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<li class="selected"> <a href="inkling2-reference.html">Inkling Reference</a>  </li>
 				<li class=""> <a href="simulator-reference.html">Simulator Reference</a>
 				<li class=""> <a href="library-reference.html">Python Library</a>  </li>
+				<li class=""> <a href="cpp-library-reference.html">C++ Library</a>  </li>
 
 			</ul>
 		</li>
@@ -505,7 +506,7 @@ into subjects like type equivalence and range expressions.</p>
   <span class="nb">Number</span><span class="p">.</span><span class="nb">Float32</span>
   <span class="nb">Number</span><span class="p">.</span><span class="nb">Bool</span>
 </code></pre>
-<p>Inkling supports built-in symbolic names for number types that correspond to integer and floating-point types commonly found in other typed languages. These are shortands for constrained number types.</p>
+<p>Inkling supports built-in symbolic names for number types that correspond to integer and floating-point types commonly found in other typed languages. These are shorthands for constrained number types.</p>
 
 <p>These types make use of the built-in namespace <code class="prettyprint">Number</code>, which must be referenced somewhere in the program with a <code class="prettyprint">using</code> statement.</p>
 
@@ -876,7 +877,7 @@ is the original input to the concept graph.</p>
 
 <p>If a reward function is specified in Inkling, the reward value passed from the simulator is ignored.</p>
 
-<p>An Inkling reward function takes a single input parameter — the new state that was returned from the simulator. It must return a numeric value indicating the reward associated with that state. The reward function is specified within the curriculum statement using the <code class="prettyprint">reward</code> keyword.</p>
+<p>An Inkling reward function takes one or two input parameters. The first parameter provides the new state that was returned from the simulator. The second parameter (which can be omitted) is the action that was provided by the model. The reward function must return a numeric value indicating the reward associated with that state and action. The reward function is specified within the curriculum statement using the <code class="prettyprint">reward</code> keyword.</p>
 
 <p>Reward functions (along with the other functions described below) can be specified as named global functions or inlined, in which case the function name is optional.</p>
 <pre class="highlight inkling2 tab-inkling2--code"><code><span class="k">concept</span> <span class="nx">Balance</span><span class="p">(</span><span class="k">input</span><span class="p">:</span> <span class="nx">SimState</span><span class="p">):</span> <span class="nx">Action</span> <span class="p">{</span>
@@ -901,7 +902,7 @@ is the original input to the concept graph.</p>
 
 <p>As with reward functions, terminal functions can be written within Inkling. If a terminal function is specified, the terminal value passed from the simulator is ignored.</p>
 
-<p>An Inkling terminal function takes a single input parameter — the new state that was returned from the simulator. It must return true (1) if the state is a terminal state or false (0) otherwise. The terminal function is specified within the curriculum statement using the <code class="prettyprint">terminal</code> keyword.</p>
+<p>An Inkling terminal function takes one or two input parameters. The first is the new state that was returned from the simulator. The second parameter (which can be omitted) is the action that was provided by the model. The terminal function must return true (1) if the state is a terminal state or false (0) otherwise. The terminal function is specified within the curriculum statement using the <code class="prettyprint">terminal</code> keyword.</p>
 
 <p>Note that a function is specified inline in the provided example code.</p>
 <pre class="highlight inkling2 tab-inkling2--code"><code><span class="k">concept</span> <span class="nx">Balance</span><span class="p">(</span><span class="k">input</span><span class="p">:</span> <span class="nx">SimState</span><span class="p">):</span> <span class="nx">Action</span> <span class="p">{</span>
@@ -1072,7 +1073,7 @@ shows the use of simulator <code class="prettyprint">BreakoutSimulator</code>. <
 
 <h3 id="discussion">Discussion</h3>
 
-<p>Simulators are virtual environments designed to simulate the behavior of a real-world pysical environment and the objects or agents within it. Every simulator has &ldquo;observable state&rdquo;, a representation of the world inside the virtual environment. This state changes over time in response to actions taken by an agent. Typically, the observable state represents the inputs received by the simulated agent&rsquo;s sensors (cameras, temperature guages, depth sensors, etc.).</p>
+<p>Simulators are virtual environments designed to simulate the behavior of a real-world physical environment and the objects or agents within it. Every simulator has &ldquo;observable state&rdquo;, a representation of the world inside the virtual environment. This state changes over time in response to actions taken by an agent. Typically, the observable state represents the inputs received by the simulated agent&rsquo;s sensors (cameras, temperature gauges, depth sensors, etc.).</p>
 
 <p>During training, the AI Engine &ldquo;drives&rdquo; the simulator by giving it an action. The simulator then performs the action and returns the resulting state. The AI Engine then selects a new action and sends it to the simulator, and so on. Through this manner, the AI Engine is able to explore the &ldquo;state space&rdquo; of the simulated environment.</p>
 
@@ -1174,7 +1175,7 @@ The curriculum <code class="prettyprint">source</code> clause specifies <code cl
 </code></pre>
 <h4 id="types-implicit-casts">Types &amp; Implicit Casts</h4>
 
-<p>The inkling compiler will validate that all values assigned to variables or input parameters and return parameters are of a compatible type. Note that compatibility doesn’s require an exact type match. Consider the following examples:</p>
+<p>The inkling compiler will validate that all values assigned to variables or input parameters and return parameters are of a compatible type. Note that compatibility doesn’t require an exact type match. Consider the following examples:</p>
 <pre class="highlight inkling2 tab-inkling2--code"><code><span class="c1"># This is allowed because the value of the</span>
 <span class="c1"># expression fits within the constrained type.</span>
 <span class="k">var</span> <span class="nx">OneOrTwo</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">&gt;</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span>
@@ -1361,7 +1362,7 @@ The curriculum <code class="prettyprint">source</code> clause specifies <code cl
 
 <p><code class="prettyprint">function Math.ArcCos(X: number): number</code> Arccosine of value; return value in radians</p>
 
-<p><code class="prettyprint">function Math.ArcSin(X: number): number</code> Arcsin of value; return value in radians</p>
+<p><code class="prettyprint">function Math.ArcSin(X: number): number</code> Arcsine of value; return value in radians</p>
 
 <p><code class="prettyprint">function Math.ArcTan(X: number): number</code> ArcTan of value; return value in radians</p>
 
@@ -1376,6 +1377,10 @@ The curriculum <code class="prettyprint">source</code> clause specifies <code cl
 <p><code class="prettyprint">function Math.Hypot(X: number, Y: number): number</code> Hypotenuse of right triangle with legs of length X and Y</p>
 
 <p><code class="prettyprint">function Math.Log(X: number): number</code> Natural logarithm of value; runtime error if not positive</p>
+
+<p><code class="prettyprint">function Math.Max(X: number, y: number): number</code> Maximum of two numbers</p>
+
+<p><code class="prettyprint">function Math.Min(X: number, y: number): number</code> Minimum of two numbers</p>
 
 <p><code class="prettyprint">function Math.Sin(X: number): number</code> Sine of value, specified in radians</p>
 

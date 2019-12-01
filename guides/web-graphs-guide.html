@@ -191,6 +191,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<li class=""> <a href="../references/inkling2-reference.html">Inkling Reference</a>  </li>
 				<li class=""> <a href="../references/simulator-reference.html">Simulator Reference</a>
 				<li class=""> <a href="../references/library-reference.html">Python Library</a>  </li>
+				<li class=""> <a href="../references/cpp-library-reference.html">C++ Library</a>  </li>
 
 			</ul>
 		</li>
@@ -344,10 +345,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>On the performance graph at the top there is a display of which concept is currently training, its status, and <a href="ai-engine-guide.html#currently-supported-models">what algorithm</a> it&rsquo;s being trained on. The default view shows episode reward vs. training iterations. You can also choose to view performance (the y axis) in terms of episode length, and view training progress (x axis) in number of training episodes. The current mean episode reward (or episode length) and the training time per concept for this version of the BRAIN are shown below the graph.</p>
 
 <p>This graph shows your BRAIN’s performance during training. Periodically during training, the system runs a set of test episodes &ndash; at least 10, but sometimes more depending on the number of simulators connected. A test episode is the same as running the simulation in prediction mode after training has stopped - it runs without exploration. Each dot on the graph shows the mean of the cumulative episode rewards across this set of test episodes. The smoothed reward is the average of the 10 previous points. The x axis can be set to either the total number of training iterations before each test episode, which is the number of state transitions and rewards that the BRAIN has had to learn from, or the training episode count.</p>
-
-<h1 id="concept-graph">Concept Graph</h1>
-
-<p>Next to the performance graph on the &ldquo;Train&rdquo; page, you will see a visual rendered representation of the Inkling Machine Teaching program you have written. The loop represents the concept that you are currently training, along with the </p>
 
 <h1 id="simulation-graph">Simulation Graph</h1>
 

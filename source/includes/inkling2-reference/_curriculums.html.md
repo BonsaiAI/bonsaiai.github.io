@@ -121,7 +121,7 @@ While it’s possible for the simulator code to compute the reward value, it’s
 
 If a reward function is specified in Inkling, the reward value passed from the simulator is ignored.
 
-An Inkling reward function takes a single input parameter — the new state that was returned from the simulator. It must return a numeric value indicating the reward associated with that state. The reward function is specified within the curriculum statement using the `reward` keyword.
+An Inkling reward function takes one or two input parameters. The first parameter provides the new state that was returned from the simulator. The second parameter (which can be omitted) is the action that was provided by the model. The reward function must return a numeric value indicating the reward associated with that state and action. The reward function is specified within the curriculum statement using the `reward` keyword.
 
 Reward functions (along with the other functions described below) can be specified as named global functions or inlined, in which case the function name is optional.
 
@@ -148,7 +148,7 @@ function GetReward(State: SimState) {
 #### Terminal Functions
 As with reward functions, terminal functions can be written within Inkling. If a terminal function is specified, the terminal value passed from the simulator is ignored.
 
-An Inkling terminal function takes a single input parameter — the new state that was returned from the simulator. It must return true (1) if the state is a terminal state or false (0) otherwise. The terminal function is specified within the curriculum statement using the `terminal` keyword.
+An Inkling terminal function takes one or two input parameters. The first is the new state that was returned from the simulator. The second parameter (which can be omitted) is the action that was provided by the model. The terminal function must return true (1) if the state is a terminal state or false (0) otherwise. The terminal function is specified within the curriculum statement using the `terminal` keyword.
 
 Note that a function is specified inline in the provided example code.
 

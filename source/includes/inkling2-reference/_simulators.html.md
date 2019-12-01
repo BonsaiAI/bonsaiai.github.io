@@ -34,7 +34,7 @@ shows the use of simulator `BreakoutSimulator`.
 
 ### Discussion
 
-Simulators are virtual environments designed to simulate the behavior of a real-world pysical environment and the objects or agents within it. Every simulator has "observable state", a representation of the world inside the virtual environment. This state changes over time in response to actions taken by an agent. Typically, the observable state represents the inputs received by the simulated agent's sensors (cameras, temperature guages, depth sensors, etc.).
+Simulators are virtual environments designed to simulate the behavior of a real-world physical environment and the objects or agents within it. Every simulator has "observable state", a representation of the world inside the virtual environment. This state changes over time in response to actions taken by an agent. Typically, the observable state represents the inputs received by the simulated agent's sensors (cameras, temperature gauges, depth sensors, etc.).
 
 During training, the AI Engine "drives" the simulator by giving it an action. The simulator then performs the action and returns the resulting state. The AI Engine then selects a new action and sends it to the simulator, and so on. Through this manner, the AI Engine is able to explore the "state space" of the simulated environment.
 

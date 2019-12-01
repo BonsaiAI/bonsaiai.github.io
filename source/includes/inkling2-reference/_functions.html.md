@@ -56,7 +56,7 @@ function GetReward(State: SimState): number {
 ```
 
 #### Types & Implicit Casts
-The inkling compiler will validate that all values assigned to variables or input parameters and return parameters are of a compatible type. Note that compatibility doesn’s require an exact type match. Consider the following examples:
+The inkling compiler will validate that all values assigned to variables or input parameters and return parameters are of a compatible type. Note that compatibility doesn’t require an exact type match. Consider the following examples:
 
 ```inkling2--code
 # This is allowed because the value of the

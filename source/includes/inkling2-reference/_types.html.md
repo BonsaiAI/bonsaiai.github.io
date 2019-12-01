@@ -60,7 +60,7 @@ A constraint can be applied to an already-constrained type if it further narrows
   Number.Bool
 ```
 
-Inkling supports built-in symbolic names for number types that correspond to integer and floating-point types commonly found in other typed languages. These are shortands for constrained number types.
+Inkling supports built-in symbolic names for number types that correspond to integer and floating-point types commonly found in other typed languages. These are shorthands for constrained number types.
 
 These types make use of the built-in namespace `Number`, which must be referenced somewhere in the program with a `using` statement.
 

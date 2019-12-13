@@ -191,7 +191,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<li class=""> <a href="../references/inkling2-reference.html">Inkling Reference</a>  </li>
 				<li class=""> <a href="../references/simulator-reference.html">Simulator Reference</a>
 				<li class=""> <a href="../references/library-reference.html">Python Library</a>  </li>
-				<li class=""> <a href="../references/cpp-library-reference.html">C++ Library</a>  </li>
 
 			</ul>
 		</li>
@@ -288,6 +287,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="content">
         
           <h1 id="sdk-overview">SDK Overview</h1>
+
+<p>If installing <code class="prettyprint">bonsai-ai</code> it is strongly suggested that you first follow our guide to <a href="cli-install-guide.html">Install the CLI</a> so you can be sure to have any Python prerequisites already installed. </p>
 <pre class="highlight powershell tab-powershell"><code><span class="c1">###########################################################</span>
 <span class="c1"># Windows specific command prompt instructions shown here #</span>
 <span class="c1">###########################################################</span>
@@ -298,9 +299,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="c"># Ubuntu specific command prompt instructions shown here #</span>
 <span class="c">#########################################################</span>
 </code></pre>
-<p>The Bonsai SDK is made up of a command line interface for interacting with and controlling BRAINs, a library for connecting simulations to a brain for training or predictions, and examples of simulators connecting to BRAINs. Bonsai libraries known as <code class="prettyprint">libbonsai</code> (C++) and <code class="prettyprint">bonsai-ai</code> (Python) wrap the Bonsai API to simplify the process of building simulators in C++ and Python programming languages. <code class="prettyprint">bonsai-ai</code> is compatible with Python 2.7+ on Windows 7/10, macOS, and Linux. <code class="prettyprint">libbonsai</code> is compatible with Windows, macOS, and Ubuntu 16.04+.</p>
-
-<p>If installing <code class="prettyprint">bonsai-ai</code> it is strongly suggested that you first follow our guide to <a href="cli-install-guide.html">Install the CLI</a> so you can be sure to have any Python prerequisites already installed. Using <code class="prettyprint">libbonsai</code> requires Microsoft Visual C++ 15 2017.</p>
+<p>The Bonsai SDK is made up of a command line interface for interacting with and controlling BRAINs, a library for connecting simulations to a brain for training or predictions, and examples of simulators connecting to BRAINs. The Bonsai library <code class="prettyprint">bonsai-ai</code> (Python) wraps the Bonsai API to simplify the process of building simulators in the Python programming languages. <code class="prettyprint">bonsai-ai</code> is compatible with Python 3.0+ on Windows 7/10, macOS, and Linux. </p>
 
           <h1 id="install-bonsai-ai-for-python">Install bonsai-ai for Python</h1>
 
@@ -332,16 +331,6 @@ python3 -m venv sdk2
 <span class="nb">source </span>sdk2/bin/activate
 
 pip3 install bonsai-ai bonsai-gym bonsai-cli
-</code></pre>
-<blockquote>
-<p>Python 2.7 Install</p>
-</blockquote>
-<pre class="highlight powershell tab-powershell"><code><span class="c1"># Optional to install within a virtual environment</span>
-virtualenv sdk2
-<span class="nb">cd </span>sdk2/Scripts
-.<span class="se">\a</span>ctivate
-
-pip install bonsai-ai bonsai-gym bonsai-cli
 </code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Optional to install within a virtual environment</span>
 virtualenv sdk2
 <span class="nb">source </span>sdk2/bin/activate
@@ -373,39 +362,6 @@ instructions and skip this section.</p>
 
 <p><code class="prettyprint">conda</code> is a tool for installing and managing Python and R dependencies, as well as virtual python
 environments. For more information, refer to the <a href="https://www.anaconda.com/download/">Anaconda website</a>.</p>
-
-          <h1 id="install-libbonsai-for-c">Install libbonsai for C++</h1>
-<pre class="highlight powershell tab-powershell"><code><span class="c1"># Build VCPKG</span>
-<span class="nb">cd </span>C:<span class="se">\</span>
-git clone https://github.com/BonsaiAI/vcpkg.git
-<span class="nb">cd </span>vcpkg
-.<span class="se">\b</span>ootstrap-vcpkg.bat
-.<span class="se">\v</span>cpkg.exe integrate install
-</code></pre><pre class="highlight powershell tab-powershell"><code><span class="c1"># Build/Install libbonsai (incl dependencies):</span>
-.<span class="se">\v</span>cpkg.exe install bonsai:x64-windows-bns
-</code></pre><pre class="highlight shell tab-shell--macos"><code><span class="gp">$ </span>brew install BonsaiAI/homebrew-bonsai/bonsai
-</code></pre><pre class="highlight shell tab-shell--ubuntu"><code><span class="c"># Add url of libbonsai apt-repo to sources.list</span>
-<span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"deb [trusted=yes] https://libbonsai-debian.s3.amazonaws.com xenial main"</span> &gt;&gt; /etc/apt/sources.list
-<span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"deb-src [trusted=yes] https://libbonsai-debian.s3.amazonaws.com xenial main"</span> &gt;&gt; /etc/apt/sources.list
-
-<span class="c"># Update package lists</span>
-<span class="gp">$ </span>apt-get update
-
-<span class="c"># Install libbonsai</span>
-<span class="gp">$ </span>apt-get install libbonsai
-
-<span class="c"># Get source</span>
-<span class="gp">$ </span>apt-get <span class="nb">source </span>libbonsai
-</code></pre>
-<p>The C++ library <code class="prettyprint">libbonsai</code> can currently be installed via VCPKG on Windows, via Homebrew on macOS, or via APT on Ubuntu.</p>
-
-<p>The VCPKG is hosted on BonsaiAI&rsquo;s GitHub and must be cloned before you can build and install <code class="prettyprint">libbonsai</code>.</p>
-
-<p>The Homebrew formula is hosted on BonsaiAI&rsquo;s GitHub, therefore the full link to the formula must be specified when using <code class="prettyprint">brew</code> while it is in beta.</p>
-
-<p>The APT package is in an apt-repo which is hosted on Amazon S3. The url of the apt-repo must be added to your <code class="prettyprint">sources.list</code> before using <code class="prettyprint">apt-get</code>.</p>
-
-<p>See the <a href="../references/library-reference.html?cpp">C++ Library Reference</a> for full details on usage of this library.</p>
 
           <h1 id="next-steps">Next Steps</h1>
 

@@ -253,7 +253,7 @@ We can give the BRAIN a “memory” of previous states that resulted from its a
 
 The way you would do this is to:
 
-1. Initialize the a deque with average values for the state variables at the beginning of each episode.
+1. Initialize the deque with average values for the state variables at the beginning of each episode.
 2. Then, transform the simulation outputs into a state dictionary for the BRAIN.
 3. Last, update the deque with new state values returned from the simulator.
 

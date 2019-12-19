@@ -70,7 +70,7 @@ type TypeE TypeA<1..7>
 
 ## Enumerated Constraints
 
-Number and string types can be constrained using enumerated constraints, which list the allowed values explicitly. Two forms of enumerated constraints are supported. Ordinal enumerations are assumed to have a meaningful order and must be listed in increasing order. Nominal enumerations have names but no meaninful order. 
+Number and string types can be constrained using enumerated constraints, which list the allowed values explicitly. Two forms of enumerated constraints are supported. Ordinal enumerations are assumed to have a meaningful order and must be listed in increasing order. Nominal enumerations have names but no meaningful order. 
 
 ```inkling2
 # Ordinal enumeration

@@ -375,8 +375,7 @@ Usage: bonsai configure [OPTIONS]
   Authenticate with the BRAIN Server.
 
 Options:
-  --username TEXT    Provide username.
-  --access_key TEXT  Provide an access key.
+  --access-key TEXT  Provide an access key.
   --show      Prints active profile information.
   -h, --help  Show this message and exit.
 </code></pre>
@@ -630,12 +629,11 @@ a project file to a BRAIN in the same directory as the project file.</p>
 <span class="py">port</span> <span class="p">=</span> <span class="s">443</span>
 <span class="py">username</span> <span class="p">=</span> <span class="s">bonsaiuser</span>
 <span class="py">accesskey</span> <span class="p">=</span> <span class="s">55555555-5555-5555-5555-555555555555</span>
-<span class="py">webport</span> <span class="p">=</span> <span class="s">443</span>
-<span class="py">webhost</span> <span class="p">=</span> <span class="s">beta.bons.ai</span>
-<span class="py">host</span> <span class="p">=</span> <span class="s">api.bons.ai</span>
-<span class="py">usessl</span> <span class="p">=</span> <span class="s">True</span>
+<span class="py">url</span> <span class="p">=</span> <span class="s">https://api.bons.ai</span>
+<span class="py">use_color</span> <span class="p">=</span> <span class="s">True</span>
+<span class="py">profile</span> <span class="p">=</span> <span class="s">DEFAULT</span>
 </code></pre>
-<p><em>Note:</em> the username for &ldquo;bonsaiuser&rdquo; is a randomized string that is populated by <code class="prettyprint">bonsai -a configure</code>. Do not change this value, or you will need to request a new code.</p>
+<p><em>Note:</em> the username for &ldquo;bonsaiuser&rdquo; is a randomized string that is populated by <code class="prettyprint">bonsai configure</code>. Do not change this value, or you will need to request a new code.</p>
 
 <h2 id="bproj-file">.bproj file</h2>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">

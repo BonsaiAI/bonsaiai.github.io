@@ -728,9 +728,9 @@ h6:before {
   display: -ms-flexbox;
   display: flex;
   }
-  
-body.index #primary-nav {box-shadow:none;}  
-  
+
+body.index #primary-nav {box-shadow:none;}
+
 #search {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -751,7 +751,12 @@ body{font-size:16px;}
 .cc-bottom {-ms-flex-positive: 1;/* flex-grow: 1; */-ms-flex-item-align: auto;-ms-grid-row-align: auto;align-self: auto;-ms-flex-pack: justify;justify-content: space-between;padding-bottom: 80px;}
 .tocify-wrapper {display:-ms-flexbox;display:flex; -ms-flex-direction:column; flex-direction:column;}
 
-#top {display: -ms-flexbox;display: flex;padding: 40px 30px 0;-ms-flex-direction: column;flex-direction: column;-ms-flex-align: center;align-items: center;/* height: 40vh; */-ms-flex-pack: center;justify-content: center;min-height: 360px;padding-top: 0;}
+#top {background-image: url("/images/mountains.png"); background-size: cover; display: -ms-flexbox;display: flex;padding: 40px 30px 0;-ms-flex-direction: column;flex-direction: column;-ms-flex-align: center;align-items: center;/* height: 40vh; */-ms-flex-pack: center;justify-content: center;min-height: 360px;padding-top: 0;}
+#top > div {position: relative; top: -20px;}
+#top p {max-width: 760px;}
+@media (min-width: $xl-width) {
+  #top {background-position-y: -140px}
+}
 #search {padding-top: 25px;padding-bottom: 120px;}
 #search span {background-color:#fafafa;padding: 13px;border: solid 2px hsla(0,6%,92%,1);/* min-width: 300px; */min-width: 57vw;display: inline-block;margin: 0 auto;border-radius: 4px;color: #928d8d;}
 
@@ -791,12 +796,12 @@ body{font-size:16px;}
 .index #top{
   text-align: center;
   background-color: #47AB48;
-  color: #fff;
+  color: #333;
   .sub-text-1{
-    color: #fff
+    color: #333
   }
   .sub-text-1 a{
-    color: #fff 
+    color: #fff
   }
   .sub-text-1 a:hover{
     color: #edebe8
@@ -806,7 +811,7 @@ body{font-size:16px;}
   #browse, #browse-divs {-ms-flex-direction:column;flex-direction:column;-ms-flex-align: stretch;align-items: stretch;}
   #browse div {margin:20px;width: inherit;/* height: 50px !important; */min-height: inherit;}
   	#___gcse_1 {width: 90vw !important;}
-	
+
 }
 
 
@@ -823,7 +828,7 @@ li.tocify-item {line-height:1.4em !important;}
 // FOOTER
 ////////////////////////////////////////////////////////////////////////////////*/
 
-.toc-footer li {margin-bottom:0;} 
+.toc-footer li {margin-bottom:0;}
 .toc-footer li:first-of-type {padding-top: 12px;}
 .toc-footer.bottom li:first-of-type {padding-top: 0px;}
 
@@ -840,7 +845,7 @@ li.tocify-item {line-height:1.4em !important;}
 	 .bonsai-logo{height: 22px;}
 	/* #primary-nav .selected {    border-bottom: solid 4px #3bb94f; padding-bottom: 22px; margin-top: 22px;}*/
 	li.selected + a {color:#288136 !important}
-	
+
 	li a:hover {color:#288136; text-decoration:none !important;}
   #primary-nav li a:hover {color:#288136}
 
@@ -850,7 +855,7 @@ li.tocify-item {line-height:1.4em !important;}
 
 .p2{font-size: 135%;font-weight: 400;}
 .welcome{font-size: 309%;text-align:center;background-color: transparent;background: none;margin: 0;/* margin-top: 90px; */margin-bottom: 10px;font-weight: 300;letter-spacing: .02em;}
-#browse ul li a:hover {color:#3bb94f;}	
+#browse ul li a:hover {color:#3bb94f;}
 .content h3{
     font-size: 142%;
     margin-top: 2.5em;
@@ -865,7 +870,7 @@ li.tocify-item {line-height:1.4em !important;}
 
 
 
-	
+
 /*///////////////////////////////////////////////////////////////////////////////
 // THE INCREADIBLE EDIBLE HAMBURGER NAV
 ////////////////////////////////////////////////////////////////////////////////*/
@@ -966,18 +971,18 @@ nav ul li ul li a {
 }
 
 @media only screen and (max-width: $tablet-width) {
-	
-	
+
+
 	nav ul li ul li a {
 	  padding: 15px;
 	  line-height: 20px;
 	}
-	
-	
+
+
 	#primary-nav #___gcse_0 .gsc-input .gsc-input-box {height: 48px !important;width: auto;}
 	#primary-nav #___gcse_0 .gsc-search-button .gsc-search-button-v2 {height:50px !important;padding: 16px;/* margin-right: 13px; */}
-	
-	
+
+
 	#primary-nav #___gcse_0 {width:auto !important;margin-left: 0 !important;/* padding-top: 5px !important; */padding-bottom: 9px !important;/* margin-top: 17px !important; *//* margin-bottom: 40px !important; */margin-bottom: -3px !important;background-color: #fff;}
   .nav-mobile {
     display: block;
@@ -1007,11 +1012,11 @@ nav ul li ul li a {
     text-align: center;
     padding: 18px 0;
   }
-  
+
     ul.nav-list li {-ms-flex-order: 2;order: 2;}
-  
+
   ul.nav-list li:last-of-type {-ms-flex-order: 1;order: 1;/* margin-bottom: 30px; */}
-  
+
   nav ul li a {
     /* padding: 15px; */
     line-height: 20px;
@@ -1058,11 +1063,11 @@ nav ul li ul li a {
   }
 }
 @media screen and (min-width: $tablet-width) {
-	
+
 	 #primary-nav .selected.header_menu_item > a {border-bottom: solid 4px #3bb94f;padding-bottom: 12px;margin-top: 18px;}
 
-	
-	
+
+
   .nav-list {
     /* display: block !important; */
     display: -ms-flexbox;
@@ -1140,7 +1145,7 @@ article {
 
 #gs_tti50 #gsc-i-id1 {background-image:none !important;text-indent: 0 !important;}
 #gsc-i-id2 {background-image:none !important;text-indent: 0 !important;}
-.gsc-control-cse {background-color:transparent !important;border:none !important;/* max-width: 730px; */}	
+.gsc-control-cse {background-color:transparent !important;border:none !important;/* max-width: 730px; */}
 .gsc-wrapper > div:first-of-type {display:none !important;}
 .gcsc-branding {display: none !important;}
 #___gcse_1{width: 60Vw;margin: 0 auto;padding: 10px 0;margin-bottom: 85px;margin-top: 16px;}
@@ -1155,15 +1160,15 @@ article {
     align-items: center;
     padding-left: 10px;
     }
-	
+
 	.gsc-search-button .gsc-search-button-v2  {background-color: hsl(0, 0%, 92%);padding: 0;margin-left: 0;box-sizing: border-box;padding: 10px;min-width: 73px;height: 49px !important;border-left: none;margin-left: -5px;}
 	svg path {fill: #fafafa !important;}
-	
+
 	#primary-nav .gsc-search-button .gsc-search-button-v2  {background-color: hsl(0, 0%, 92%);padding: 0;margin-left: 0;box-sizing: border-box;padding: 10px;min-width: 73px;height: 49px !important;border-left: none;margin-left: -5px;}
 	svg path {fill: #fafafa !important;}
-	
+
 input.gsc-search-button {border:solid 2px #ccc !important;/* margin: 0 !important; */height: 45px !important;width: auto !important;margin-left: 0;}
-	
+
 
 
 
@@ -1179,7 +1184,7 @@ input.gsc-search-button {border:solid 2px #ccc !important;/* margin: 0 !importan
     /* width: 100px; */
     margin-bottom: 0;
     }
-	
+
 
 #primary-nav .gsc-input {
 	font-size: 97%;
@@ -1187,18 +1192,18 @@ input.gsc-search-button {border:solid 2px #ccc !important;/* margin: 0 !importan
 
 
  #primary-nav #___gcse_0 {width: 225px;margin:0;padding:0;margin-left: 11px;line-height: initial;}
- 
+
 
 
  #primary-nav .gsc-search-button .gsc-search-button-v2 {height: 36px !important;padding: 10px;background: none;border-left: none !important;background: rgba(255,255,255,.7);border: solid #e3e3e3 1px !important;border-left: none !important;}
 
  #primary-nav .gsc-control-cse {padding:0;}
- 
+
  #primary-nav form.gsc-search-box {margin-bottom:0;}
 
  #primary-nav table.gsc-search-box {margin-bottom:0;}
- 
- 
+
+
 
 .content h1:first-child, .content div:first-child + h1 {
 	/* box-shadow: inset 0px 4px 5px -1px rgba(87,87,87,0.7); */
@@ -1283,7 +1288,7 @@ nav ul {
 	/*-ms-flex:;
 	flex:;*/
 	}
-	
+
 /* Positioning the navigation items inline */
 nav ul li {
 	margin: 0px;
@@ -1314,19 +1319,19 @@ nav a:hover {
  * and giving it a position of absolute */
 nav ul ul {
 	display: none;
-	position: absolute; 
+	position: absolute;
 	/* has to be the same number as the "line-height" of "nav a" */
 	/* top: 48px; */
 	padding-top: 20px;
 	/* box-sizing: border-box; */
 	background-color: #fff;
 }
-	
+
 /* Display Dropdowns on Hover */
 nav ul li:hover > ul {
 	display:inherit;
 }
-	
+
 /* Fisrt Tier Dropdown */
 nav ul ul li {
 	width: 176px;
@@ -1335,21 +1340,21 @@ nav ul ul li {
 	position: relative;
 }
 
-/* Second, Third and more Tiers	
+/* Second, Third and more Tiers
  * We move the 2nd and 3rd etc tier dropdowns to the left
  * by the amount of the width of the first tier.
 */
 nav ul ul ul li {
 	position: relative;
 	top:-32px;
-	/* has to be the same number as the "width" of "nav ul ul li" */ 
-	left:170px; 
+	/* has to be the same number as the "width" of "nav ul ul li" */
+	left:170px;
 }
 
 
 #references a {border:none!important;}
 
-	
+
 /* Change ' +' in order to change the Dropdown symbol */
 nav li > a:after {content:  ' +';}
 nav li > a:only-child:after {content: '';}
@@ -1362,7 +1367,7 @@ nav li > a:only-child:after {content: '';}
 
 	.menu-ham {width:26px;padding-right: 20px;}
 #primary-nav  ul li ul li a {margin-right:0!important;background-color: hsl(52, 48%, 94%);}
-#references  li:last-of-type a  {box-shadow: inset 0px 2px 5px -2px rgba(179,179,179,1);} 
+#references  li:last-of-type a  {box-shadow: inset 0px 2px 5px -2px rgba(179,179,179,1);}
 
 	#logo {
 		/* display: block; */
@@ -1372,9 +1377,9 @@ nav li > a:only-child:after {content: '';}
 		float: none;
 		/* line-height: 0 !important; */
 	}
-	
+
 	#primary-nav #logo a {margin-right:0 !important;}
-	
+
 
 	nav {
 		margin: 0;
@@ -1439,19 +1444,19 @@ nav li > a:only-child:after {content: '';}
  	nav ul ul ul a {
 		/* background-color: #000000; */
 	}
-  
+
 	nav ul li ul li .toggle,
 	nav ul ul a,
   nav ul ul ul a{
-		padding:14px 20px;	
+		padding:14px 20px;
 		color:#FFF;
-		font-size:17px; 
+		font-size:17px;
 	}
-  
-  
+
+
 	nav ul li ul li .toggle,
 	nav ul ul a {
-		background-color: #212121; 
+		background-color: #212121;
 	}
 
 	/* Hide Dropdowns by Default */
@@ -1463,13 +1468,13 @@ nav li > a:only-child:after {content: '';}
 		margin-top: 0 !important;
 		padding-bottom: 0;
 	}
-		
+
 	/* Hide menus on hover */
 	nav ul ul li:hover > ul,
 	nav ul li:hover > ul {
 		display: none;
 	}
-		
+
 	/* Fisrt Tier Dropdown */
 	nav ul ul li {
 		display: block;
@@ -1479,7 +1484,7 @@ nav li > a:only-child:after {content: '';}
 
 	nav ul ul ul li {
 		position: static;
-		/* has to be the same number as the "width" of "nav ul ul li" */ 
+		/* has to be the same number as the "width" of "nav ul ul li" */
 
 	}
 
@@ -1502,7 +1507,7 @@ nav li > a:only-child:after {content: '';}
 	.tocify-wrapper.open {
 	    top: 0 !important;
 		z-index: 99999;
-		
+
 	}
 
 }
@@ -1561,7 +1566,7 @@ nav li > a:only-child:after {content: '';}
     box-shadow: inset 0 -2px 0 0 #3bb94f;
 }
 
-// Since some values are added by Javascript, we have 
+// Since some values are added by Javascript, we have
 // To add the !important option to override these values
 .algolia-autocomplete {
   width: 90%;
@@ -1569,7 +1574,7 @@ nav li > a:only-child:after {content: '';}
   @media (max-width: $phone-width) {
     .ds-dropdown-menu {
       max-width: calc(100vw - 32px) !important;
-      min-width: calc(100vw - 32px) !important;      
+      min-width: calc(100vw - 32px) !important;
       width: calc(100vw - 32px) !important;
       margin-left: 16px !important;
     }
@@ -1631,7 +1636,7 @@ nav li > a:only-child:after {content: '';}
 
 
 /////
-// HOME PAGE 
+// HOME PAGE
 /////
 
 .icon-list {
@@ -1690,7 +1695,7 @@ nav li > a:only-child:after {content: '';}
     background-color: #fff;
     border-radius: 50%;
     opacity: 0;
-    content: ' '; 
+    content: ' ';
     transition: opacity 0.2s linear;
   }
 

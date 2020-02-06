@@ -752,8 +752,12 @@ body{font-size:16px;}
 .tocify-wrapper {display:-ms-flexbox;display:flex; -ms-flex-direction:column; flex-direction:column;}
 
 #top {background-image: url("/images/mountains.png"); background-size: cover; display: -ms-flexbox;display: flex;padding: 40px 30px 0;-ms-flex-direction: column;flex-direction: column;-ms-flex-align: center;align-items: center;/* height: 40vh; */-ms-flex-pack: center;justify-content: center;min-height: 360px;padding-top: 0;}
+#top {background-position-y: -65px;}
 #top > div {position: relative; top: -20px;}
 #top p {max-width: 760px;}
+@media (max-width: $tablet-width) {
+  #top {background-position-y: 0;}
+}
 @media (min-width: $xl-width) {
   #top {background-position-y: -140px}
 }

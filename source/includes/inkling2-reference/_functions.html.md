@@ -231,6 +231,8 @@ In addition to Inkling's built-in mathematical operators, a simple math library 
 
 `function Math.Sin(X: number): number` Sine of value, specified in radians
 
+`function Math.Sqrt(X: number): number` Square root of value (equivalent to X ** 0.5)
+
 `function Math.Tan(X: number): number` Tangent of value, specified in radians
 
 

@@ -14,8 +14,6 @@ If you're interesting in finding out more about what's going on under the hood o
 
 Inkling is a special-purpose language for writing AI programs. The language has a blend of declarative and functional styles. We like to describe Inkling as the world's first machine teaching language.  
 
-**The version of Inkling described below replaces an earlier version, which is documented in the [Inkling v1 Guide][5]**
-
 ### What is Machine Teaching?
 
 Machine teaching is a new programming paradigm. It expresses the solution to a problem in terms of how you teach the computer to find the solution as opposed to how to calculate the solution. Machine teaching focuses on:

@@ -331,7 +331,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h1 id="start-training">Start Training</h1>
 
 <blockquote>
-<p><img src="../images/code_editor.png" alt="Cartpole Start Training" /></p>
+<p><img src="../images/empty-graph.png" alt="Cartpole Start Training" /></p>
 </blockquote>
 
 <p>Once you’ve created your Cartpole demo you should see a “Start Training” button as shown in the image. Clicking that button starts the automatic process of hooking up a web hosted version of the OpenAI Gym environment up to the BRAIN you’ve created, and starts the AI Engine training on this simulation. It should take less than a minute for this connection (depending on how long the first episode takes to log) and you’ll start to see data appearing on the Performance tab graph!</p>
@@ -339,7 +339,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h1 id="performance-graph">Performance Graph</h1>
 
 <blockquote>
-<p><img src="../images/training_in_progress.png" alt="Cartpole Performance Graph" /></p>
+<p><img src="../images/cartpole-start-training.png" alt="Cartpole Performance Graph" /></p>
 </blockquote>
 
 <p>On the performance graph at the top there is a display of which concept is currently training, its status, and <a href="ai-engine-guide.html#currently-supported-models">what algorithm</a> it&rsquo;s being trained on. The default view shows episode reward vs. training iterations. You can also choose to view performance (the y axis) in terms of episode length, and view training progress (x axis) in number of training episodes. The current mean episode reward (or episode length) and the training time per concept for this version of the BRAIN are shown below the graph.</p>
@@ -356,23 +356,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 This graph is only active during BRAIN training. Once training is stopped, it deactivates.
 </aside> 
 
-<h2 id="simulation-streaming-graph">Simulation Streaming Graph</h2>
+<h2 id="data-series">Data Series</h2>
 
 <blockquote>
-<p><img src="../images/simulator_streaming.png" alt="Simulator Streaming Streaming" /></p>
+<p><img src="../images/graph-cartpole-command-position.png" alt="Cartpole Position Command" /></p>
 </blockquote>
 
-<p>By clicking on the &ldquo;Simulator&rdquo; tab on the left, you will be able to see a streaming graph of the <a href="https://docs.bons.ai/tutorials/tutorial1.html#how-reinforcement-learning-works">STAR data</a> for your simulation as it is training. You may find that this information is helpful during the debugging process as it will show you a real time stochastic exploration of your data as it is being trained. You will be able to add data series at the bottom using the &ldquo;+ Add Chart&rdquo; button as well, to cross reference additional data. </p>
+<p>There are two separate drop down menus to display data series. Each data series will scale to its own axis on the simulation graph. For each of these values you can choose from any of the states, actions, or rewards you have defined in Inkling for the BRAIN being trained.</p>
+
+<p>It can be useful to watch how your BRAIN is performing by graphing correlating values against one another and making sure the data makes sense. In the case of Cartpole we can see that <code class="prettyprint">x_position</code> correlates with <code class="prettyprint">command</code> and when we see that a command of <code class="prettyprint">2</code> we see that the sinusoidal curve is closer to <code class="prettyprint">1</code> (the right edge) and when the command is 0 the curve is closer to <code class="prettyprint">-1</code> (the left edge). The AI is giving commands for the cart to move towards where the pole is falling in order to maintain balance.</p>
+
+<blockquote>
+<p><img src="../images/graph-cartpole-position-velocity.png" alt="Cartpole Position Velocity" /></p>
+</blockquote>
+
+<p>You can see in the second graph the relation between <code class="prettyprint">x_position</code> and <code class="prettyprint">x_velocity</code>. The cart is going to be balancing the pole and if a large velocity is needed, the position of the cart is probably farther away from the center position (0). Smaller velocities are generally correlating with the cart staying near the center position. Large velocities are typically seen right before the episode ends, as the cart gives a last try at balancing before the pole drops.</p>
+
+<aside class="notice">
+In this example the reward will always be 1 during an iteration as the BRAIN is rewarded `1` for every iteration it maintains before the episode is terminated. In other simulations reward can be useful to graph.
+</aside>
 
 <h1 id="troubleshooting-your-brain">Troubleshooting Your BRAIN</h1>
 
 <blockquote>
-<p><img src="../images/errors_warnings.png" alt="Errors and Warnings" /></p>
+<p><img src="../images/graph-cartpole-debug.png" alt="Cartpole Debug" /></p>
 </blockquote>
 
 <p>When your graph isn’t looking quite right, or if your reward isn’t building in the way you’d expect, the Simulator Graph can be a great way to troubleshoot what might be going on in your BRAIN. For example, graphing your reward against an action can tell you what is happening every iteration of your simulation.</p>
 
-<p>Another way to troubleshoot your BRAIN is to check out the logs below the code editor window. This can be found below the graphs and is typically used for text output of what’s going on in the simulation. </p>
+<p>Another way to troubleshoot your BRAIN is to check out the logs below the code editor window. This can be found below the graphs and is typically used for text output of what’s going on in the simulation. For example, with Cartpole, every episode’s reward is output to the logs and shown in the code panel here. For simulations with very long episodes, this can be a good way to make sure things are working correctly, before the first test episode is shown on the graph.</p>
 
 <h1 id="when-to-stop-training">When to Stop Training</h1>
 

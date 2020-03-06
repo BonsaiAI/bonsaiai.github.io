@@ -228,6 +228,30 @@ concept MyConcept(input: SimState): BrainAction {
 }
 ```
 
+#### Training Parameters
+Certain training parameters can been adjusted using a “training” clause within the curriculum statement. 
+
+```inkling2--code
+concept MyConcept(input: SimState): BrainAction {
+    curriculum {
+      training {
+        EpisodeIterationLimit: 250,
+        TotalIterationLimit: 100000
+      }
+    }
+}
+```
+
+The following parameters can be specified in a training clause. Any parameter that is unspecified will fall back on a default value provided by the platform.
+
+`EpisodeIterationLimit` controls the maximum number of iterations allowed per training episode. If a terminal condition or goal success condition is not reached before the episode iteration limit is reached, the episode will be terminated, and a new episode will begin. The specified value must be a positive integer. If not specified, a default value of 1000 is assumed.
+
+`TotalIterationLimit` controls the maximum number of iterations allowed for the concept. If this limit is reached before training termination conditions are achieved for the concept, training will stop. The specified value must be a positive integer, and the default value is 50M.
+
+`LessonRewardThreshold` controls training termination for lessons when using a reward function. When the average reward value (over a limited window) exceeds this threshold value, the lesson is considered complete, and training proceeds to the next lesson. If this value is not specified, the platform employs a general convergence test to determine when the lesson is complete. This parameter can be used only if the curriculum specifies a reward function.
+
+`LessonSuccessThreshold` controls training termination for lessons when using a goal. When the episode success rate (over the full lesson) exceeds this threshold value, the lesson is considered complete, and training proceeds to the next lesson. The value must be between 0 and 1. If this value is not specified, a default value of 0.90 (90%) is assumed. This parameter can be used only if the curriculum specifies a goal.
+
 
 [1]: #lessons
 [2]: #concepts

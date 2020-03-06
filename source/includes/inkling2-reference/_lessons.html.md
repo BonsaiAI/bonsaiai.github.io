@@ -17,6 +17,17 @@ The `lesson` declares a lesson within a curriculum. Lessons provide control over
 
 Multiple lessons can be used within a curriculum, and they are used at training time in the same order in which they're declared. The `constraint` clause should configure the simulator in a restricted manner. Subsequent lessons should incrementally reduce the restrictions, making the problem more difficult and the exploration space larger. A range constraint used within a lesson should be less restrictive (or at least not more restrictive) than the corresponding range constraint used in a previous lesson.
 
+#### Training Parameters
+Certain training parameters can been adjusted using a “training” clause within the lesson statement. 
+
+The following parameters can be specified in a training clause. Any parameter that is unspecified will fall back on the value provided in a training statement within the curriculum or (if no such parameter is provided) a default value provided by the platform.
+
+`LessonRewardThreshold` controls training termination for the lesson when using a reward function. When the average reward value (over a limited window) exceeds this threshold value, the lesson is considered complete, and training proceeds to the next lesson. If this value is not specified, the platform employs a general convergence test to determine when the lesson is complete. This parameter can be used only if the curriculum specifies a reward function.
+
+`LessonSuccessThreshold` controls training termination for the lesson when using a goal. When the episode success rate (over the full lesson) exceeds this threshold value, the lesson is considered complete, and training proceeds to the next lesson. The value must be between 0 and 1. If this value is not specified, a default value of 0.90 (90%) is assumed. This parameter can be used only if the curriculum specifies a goal.
+
+
+
 ### Example
 
 ```inkling2--code
@@ -39,12 +50,17 @@ graph (input: GameState) {
   concept HighScore(KeepPaddleUnderBall, input): PlayerMove {
     curriculum {
       source BreakoutSimulator
+      reward BreakoutReward # Function not shown in example
 
       lesson ConstantBreakout {
         constraint {
           level: 1,
           paddle_width: 4,
           bricks_percent: 1
+        }
+
+        training {
+          LessonRewardThreshold: 120
         }
       }
 
@@ -53,6 +69,10 @@ graph (input: GameState) {
           level: Number.UInt16<1 .. 100>,
           paddle_width: Number.UInt8<1 .. 4>,
           bricks_percent: number<0.1 .. 1 step 0.01>
+        }
+
+        training {
+          LessonRewardThreshold: 160
         }
       }
     }

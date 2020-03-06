@@ -17,6 +17,10 @@ The `lesson` declares a lesson within a curriculum. Lessons provide control over
 
 Multiple lessons can be used within a curriculum, and they are used at training time in the same order in which they're declared. The `constraint` clause should configure the simulator in a restricted manner. Subsequent lessons should incrementally reduce the restrictions, making the problem more difficult and the exploration space larger. A range constraint used within a lesson should be less restrictive (or at least not more restrictive) than the corresponding range constraint used in a previous lesson.
 
+#### Training Parameters
+Certain training parameters can been adjusted using a “training” clause within the lesson statement. For a detailed description of the training clause, refer to the [curriculum][1] documentation. The `LessonRewardThreshold` and `LessonSuccessThreshold` parameters can be specified in each lesson, overriding the parameters of the same name at the curriculum level.
+
+
 ### Example
 
 ```inkling2--code
@@ -39,12 +43,17 @@ graph (input: GameState) {
   concept HighScore(KeepPaddleUnderBall, input): PlayerMove {
     curriculum {
       source BreakoutSimulator
+      reward BreakoutReward # Function not shown in example
 
       lesson ConstantBreakout {
         constraint {
           level: 1,
           paddle_width: 4,
           bricks_percent: 1
+        }
+
+        training {
+          LessonRewardThreshold: 120
         }
       }
 
@@ -53,6 +62,10 @@ graph (input: GameState) {
           level: Number.UInt16<1 .. 100>,
           paddle_width: Number.UInt8<1 .. 4>,
           bricks_percent: number<0.1 .. 1 step 0.01>
+        }
+
+        training {
+          LessonRewardThreshold: 160
         }
       }
     }
@@ -69,3 +82,4 @@ In this example, we show lessons that break into stages the task of playing the 
 
 The types specified after the `constraint` keyword in our example specifies a type that must be compatible with the config type defined in the simulator declaration (`BreakoutConfig`).
 
+[1]: #curriculum

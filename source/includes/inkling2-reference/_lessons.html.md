@@ -18,14 +18,7 @@ The `lesson` declares a lesson within a curriculum. Lessons provide control over
 Multiple lessons can be used within a curriculum, and they are used at training time in the same order in which they're declared. The `constraint` clause should configure the simulator in a restricted manner. Subsequent lessons should incrementally reduce the restrictions, making the problem more difficult and the exploration space larger. A range constraint used within a lesson should be less restrictive (or at least not more restrictive) than the corresponding range constraint used in a previous lesson.
 
 #### Training Parameters
-Certain training parameters can been adjusted using a “training” clause within the lesson statement. 
-
-The following parameters can be specified in a training clause. Any parameter that is unspecified will fall back on the value provided in a training statement within the curriculum or (if no such parameter is provided) a default value provided by the platform.
-
-`LessonRewardThreshold` controls training termination for the lesson when using a reward function. When the average reward value (over a limited window) exceeds this threshold value, the lesson is considered complete, and training proceeds to the next lesson. If this value is not specified, the platform employs a general convergence test to determine when the lesson is complete. This parameter can be used only if the curriculum specifies a reward function.
-
-`LessonSuccessThreshold` controls training termination for the lesson when using a goal. When the episode success rate (over the full lesson) exceeds this threshold value, the lesson is considered complete, and training proceeds to the next lesson. The value must be between 0 and 1. If this value is not specified, a default value of 0.90 (90%) is assumed. This parameter can be used only if the curriculum specifies a goal.
-
+Certain training parameters can been adjusted using a “training” clause within the lesson statement. For a detailed description of the training clause, refer to the [curriculum][1] documentation. The `LessonRewardThreshold` and `LessonSuccessThreshold` parameters can be specified in each lesson, overriding the parameters of the same name at the curriculum level.
 
 
 ### Example
@@ -89,3 +82,4 @@ In this example, we show lessons that break into stages the task of playing the 
 
 The types specified after the `constraint` keyword in our example specifies a type that must be compatible with the config type defined in the simulator declaration (`BreakoutConfig`).
 
+[1]: #curriculum

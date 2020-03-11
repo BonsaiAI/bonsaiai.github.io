@@ -47,6 +47,8 @@ Download the `.ipynb` notebook file on Bonsai's GitHub or clone the repo here: <
 
 The comments and instructions inside of the Jupyter Notebook should sufficiently explain the API calls and what to expect from the outputs but if you have any issues with this notebook please [contact support][7].
 
+The [API Reference][6] contains detailed information on the API calls used in this notebook as well as others you might want to use after understanding this notebook.
+
 Videos that will enable you to maximize your AI development experience:
 
 * VIDEO: [Advanced Platform Techniques][8]
@@ -58,6 +60,7 @@ Videos that will enable you to maximize your AI development experience:
 [3]: http://docs.bons.ai/guides/local-dev-guide.html
 [4]: https://jupyter.readthedocs.io/en/latest/install.html
 [5]: https://jupyter.readthedocs.io/en/latest/running.html
+[6]: ../references/api-reference.html
 [7]: https://bons.ai/contact-us#contact-page-form
 [8]: https://www.youtube.com/watch?v=E_JtPzT5-dg&index=3&list=PLAktfMEMCsOY9HUZKIuGI6yqefGBuszAV
 [9]: https://www.youtube.com/watch?v=0R3PnJEisqk&list=PLAktfMEMCsOY9HUZKIuGI6yqefGBuszAV&index=4

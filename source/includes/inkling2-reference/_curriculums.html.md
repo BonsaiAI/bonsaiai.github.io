@@ -252,6 +252,14 @@ The following parameters can be specified in a training clause. Any parameter th
 
 `LessonSuccessThreshold` controls training termination for lessons when using a goal. When the episode success rate (over the full lesson) exceeds this threshold value, the lesson is considered complete, and training proceeds to the next lesson. The value must be between 0 and 1. If this value is not specified, a default value of 0.90 (90%) is assumed. This parameter can be used only if the curriculum specifies a goal.
 
+#### Training termination
+
+Training will stop when the first of these conditions is met:
+
+* Manually stopped by the user.
+* After `TotalIterationLimit` iterations for the concept, described above. 
+* When the final lesson has hit its reward or success threshold (see `LessonRewardThreshold` and `LessonSuccessThreshold` above) and the training process converges, meaning that the policy is no longer improving.
+
 
 [1]: #lessons
 [2]: #concepts

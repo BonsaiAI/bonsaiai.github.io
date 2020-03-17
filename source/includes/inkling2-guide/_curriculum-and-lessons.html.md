@@ -12,15 +12,15 @@ concept Balance
     source CartpoleSimulator
 
     lesson Slow {
-      constraint { MaxSpeed: 10 }
+      scenario { MaxSpeed: 10 }
     }
 
     lesson Medium {
-      constraint { MaxSpeed: 20 }
+      scenario { MaxSpeed: 20 }
     }
 
     lesson Fast {
-      constraint { MaxSpeed: 30 }
+      scenario { MaxSpeed: 30 }
     }
   }
 }
@@ -30,11 +30,11 @@ For more information and examples, refer to the [Curriculum Reference][1].
 
 ## Defining Lessons
 
-### Simulator Configuration Constraints
+### Simulator Configuration Scenarios
 
-Each lesson may specify a **constraint** for the simulator's configuration. Earlier lessons must provide more restrictive constraints, while later lessons loosen the constraints. This allows the AI training to learn a simpler form of the concept before learning a more complex form.
+Each lesson may specify a **scenario** that refers to a part of the simulator's configuration space. Earlier lessons must provide “narrower” scenarios than later scenarios. This allows the AI training to learn a simpler form of the concept before learning a more complex form.
 
-The **constraint** keyword must be followed by a type that constrains the simulator's declared configuration type. For more information and examples, refer to the [Lesson Reference][2].
+The **scenario** keyword must be followed by a type that specifies desired constraints for the simulator's declared configuration type. For more information and examples, refer to the [Lesson Reference][2].
 
 ## Reward
 

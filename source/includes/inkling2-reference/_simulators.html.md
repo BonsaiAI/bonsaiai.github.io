@@ -59,13 +59,13 @@ type GameState {
   pixels: Image.Gray<84, 336>
 }
 
-graph (iput: GameState) {
+graph (input: GameState) {
   concept HighScore(input): PlayerMove {
     curriculum {
       source BreakoutSimulator
 
       lesson ScoreLesson {
-        constraint {
+        scenario {
           level: Number.UInt16<1 .. 100>,
           paddle_width: Number.UInt8<1 .. 4>,
           bricks_percent: 1

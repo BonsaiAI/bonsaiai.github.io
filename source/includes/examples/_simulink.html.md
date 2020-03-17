@@ -50,7 +50,7 @@ graph (input: HouseheatState) {
             source simulink_sim
 
             lesson my_first_lesson {
-                constraint {
+                scenario {
                     outside_phase: 0
                 }
             }

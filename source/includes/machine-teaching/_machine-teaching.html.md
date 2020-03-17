@@ -37,12 +37,12 @@ graph (input: HouseheatState): HouseheatAction {
                 }
             }
             lesson my_second_lesson {
-                constraint {
+                scenario {
                     outside_phase: number<0 .. 24>
                 }
             }
             lesson my_third_lesson {
-                constraint {
+                scenario {
                     outside_phase: number<0 .. 48>
                 }
             }
@@ -437,7 +437,7 @@ concept thermostat(input): HouseheatAction {
         source simulink_sim
 
         lesson my_first_lesson {
-            constraint {
+            scenario {
                 outside_phase: number<0 .. 12>
             }
         }
@@ -487,19 +487,19 @@ concept thermostat(input): HouseheatAction {
         source simulink_sim
 
         lesson my_first_lesson {
-            constraint {
+            scenario {
                 outside_phase: number<0 .. 12>
             }
         }
 
         lesson my_second_lesson {
-            constraint {
+            scenario {
                 outside_phase: number<0 .. 24>
             }
         }
 
         lesson my_third_lesson {
-            constraint {
+            scenario {
                 outside_phase: number<0 .. 48>
             }
         }
@@ -509,7 +509,7 @@ concept thermostat(input): HouseheatAction {
 
 In this example we want to train a BRAIN to control a residential HVAC system.  We want the BRAIN to successfully respond to a wide variety of initial room temperatures.  We create an Inkling configuration for initial temperature, but we don’t want to vary the initial room temperature randomly because the range of initial temperatures is very wide. This may take the learning algorithm a long time to explore the solution space. 
 
-Instead, we use a phased training approach called lessons. In the early episodes, the first lesson, we specify a `constraint` such that the initial temperature is within a narrow range. After the BRAIN learns to control the system well in the first range of initial temperatures, we increase the range of possible initial temperatures in the second lesson. Then we repeat the process for subsequent lessons. 
+Instead, we use a phased training approach with lessons. In the first lesson, we specify a `scenario` such that the initial temperature is within a narrow range. After the brain learns to control the system well in the first range of initial temperatures, we increase the range of possible initial temperatures in the second lesson. Then we repeat the process for subsequent lessons. 
 
 
 # Logging BRAIN Training Progress

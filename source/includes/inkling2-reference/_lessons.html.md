@@ -7,7 +7,7 @@ Lessons provide a staged way to teach a concept starting with easier tasks and m
 ```inkling2--syntax
 lessonStatement ::=
   lesson <lessonName> '{'
-    [constraint <typeReference>]?
+    [scenario <typeReference>]?
   '}'
 ```
 
@@ -15,7 +15,7 @@ The `lesson` declares a lesson within a curriculum. Lessons provide control over
 
 ### Usage
 
-Multiple lessons can be used within a curriculum, and they are used at training time in the same order in which they're declared. The `constraint` clause should configure the simulator in a restricted manner. Subsequent lessons should incrementally reduce the restrictions, making the problem more difficult and the exploration space larger. A range constraint used within a lesson should be less restrictive (or at least not more restrictive) than the corresponding range constraint used in a previous lesson.
+Multiple lessons can be used within a curriculum, and they are used at training time in the same order in which they're declared. The `scenario` clause should configure the simulator in a restricted manner. Subsequent lessons should incrementally reduce the restrictions, making the problem more difficult and the exploration space larger. A range constraint used within a lesson should be less restrictive (or at least not more restrictive) than the corresponding range constraint used in a previous lesson.
 
 #### Training Parameters
 Certain training parameters can been adjusted using a “training” clause within the lesson statement. For a detailed description of the training clause, refer to the [curriculum][1] documentation. The `LessonRewardThreshold` and `LessonSuccessThreshold` parameters can be specified in each lesson, overriding the parameters of the same name at the curriculum level.
@@ -46,7 +46,7 @@ graph (input: GameState) {
       reward BreakoutReward # Function not shown in example
 
       lesson ConstantBreakout {
-        constraint {
+        scenario {
           level: 1,
           paddle_width: 4,
           bricks_percent: 1
@@ -58,7 +58,7 @@ graph (input: GameState) {
       }
 
       lesson VaryBreakout {
-        constraint {
+        scenario {
           level: Number.UInt16<1 .. 100>,
           paddle_width: Number.UInt8<1 .. 4>,
           bricks_percent: number<0.1 .. 1 step 0.01>
@@ -80,6 +80,6 @@ In this example, we show lessons that break into stages the task of playing the 
 * The first lesson, `ConstantBreakout`, trains the AI with a fixed configuration parameter.
 * The second lesson, `VaryBreakout` trains the AI with a configuration parameter that varies.
 
-The types specified after the `constraint` keyword in our example specifies a type that must be compatible with the config type defined in the simulator declaration (`BreakoutConfig`).
+The type specified after the `scenario` keyword in our example must be compatible with the config type defined in the simulator declaration (`BreakoutConfig`).
 
 [1]: #curriculum

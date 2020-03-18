@@ -51,7 +51,7 @@ graph (input: GameState): Action {
         curriculum {
             source cartpole_simulator
             lesson balancing {
-                constraint {
+                scenario {
                     episode_length: -1,
                     deque_size: 1
                 }

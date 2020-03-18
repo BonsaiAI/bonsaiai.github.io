@@ -62,7 +62,7 @@ graph (input: GameState) {
       source BreakoutSimulator
 
       lesson ScoreLesson {
-        constraint {
+        scenario {
           level: Number.UInt16<1 .. 100>,
           paddle_width: Number.UInt8<1 .. 4>,
           bricks_percent: 1
@@ -75,7 +75,7 @@ graph (input: GameState) {
 }
 ```
 
-The configuration type `BreakoutConfig` is constrained in the lesson. When a concept is being trained, a new simulation configuration is passed to the simulator for each new episode. The configuration values are chosen in accordance with the current lesson's constraint. For example, in the lesson above, the `bricks_percent` field is constrained to a value of 1, so the configuration passed to the simulator at the beginning of every episode will contain a value of 1 for this field. The `paddle_width` field is constrained to integers in the range of 1 through 4, so the configuration passed to the simulator at the beginning of each episode will contain a value of 1, 2, 3 or 4 for this field. Values are chosen uniformly at random from the set specified in the constraint.
+This lesson specifies a scenario that defines desired ranges for the `level`, `paddle_width`, and `bricks_percent` fields of the simulator's configuration. When a concept is being trained, a new simulation configuration is passed to the simulator for each new episode. The configuration values are chosen in accordance with the current lesson's scenario. For example, in the lesson above, the `bricks_percent` field is constrained to a value of 1, so the configuration passed to the simulator at the beginning of every episode will contain a value of 1 for this field. The `paddle_width` field is constrained to integers in the range of 1 through 4, so the configuration passed to the simulator at the beginning of each episode will contain a value of 1, 2, 3 or 4 for this field. Values are chosen uniformly at random from the set specified in the scenario.
 
 The `GameState` type describes the data that is passed as an input to the graph. This same data type is provided as an output from the simulator. For Breakout, this data includes a field called `pixels` which refers to an 84x336 grayscale image.
 
@@ -90,7 +90,7 @@ graph (input: GameState) {
       source BreakoutSimulator
 
       lesson TrackBallWidePaddle {
-        constraint {
+        scenario {
           level: Number.UInt16<1 .. 100>,
           paddle_width: 4,
           bricks_percent: 1
@@ -98,7 +98,7 @@ graph (input: GameState) {
       }
 
       lesson TrackBallAnyPaddle {
-        constraint {
+        scenario {
           level: Number.UInt16<1 .. 100>,
           paddle_width: Number.UInt8<1 .. 4>,
           bricks_percent: 1

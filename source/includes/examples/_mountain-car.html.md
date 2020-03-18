@@ -49,7 +49,7 @@ graph (input: GameState): Action {
         curriculum {
             source mountaincar_continuous_simulator
             lesson get_high_score {
-                constraint {
+                scenario {
                     deque_size: 1
                 }
             }

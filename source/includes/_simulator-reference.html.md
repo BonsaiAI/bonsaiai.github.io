@@ -36,7 +36,7 @@ This table describes the colors and connections between the various parts of the
 | -                   | -  |
 | Purple (dark/light) | The Inkling state type field names and types must match the state dictionaries returned from `episode_start` and `simulate` in the simulator. |
 | Blue (dark/light)   | The Inkling action type field names will match the keys in the action dictionary passed to `simulate` in the simulator, and the values will have the types specified in Inkling, and will obey the specified constraints (`<-1, 0, 1>` in the example). |
-| Orange (dark/light) | The simulator's configuration passes as `parameters` to the `episode_start`, and will take values from the `constraint` clause in Inkling. |
+| Orange (dark/light) | The simulator's configuration passes as `parameters` to the `episode_start`, and will take values from the `scenario` clause in Inkling. |
 | Green               | The simulator name must match between the `simulator` clause and the `source` clause in the curriculum. The simulator must pass the same name to the constructor of the `Simulator` class so the AI engine knows which simulator is connected. |
 
 <aside class="notice">

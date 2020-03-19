@@ -65,7 +65,7 @@ The configuration includes the BRAIN name and url, your Bonsai API key, and whet
 
 ## Run Your Simulator
 
-To test the simulator, we can create a `PointSimulator` object and directly call `episode_start()` and `simulate()`, as described above. You can see an example of how to test the simulator before connecting it to the Bonsai Platform in [`test_simulator.ipynb`][1] (requires [Jupyter Notebook][2]), or in the [`test_sim.py`][3] Python script, both of which can be found within the tutorial1 folder.
+To test the simulator, we can create a `PointSimulator` object and directly call `episode_start()` and `simulate()`, as described above. You can see an example of how to test the simulator before connecting it to the Bonsai Platform in [`test_simulator.ipynb`][1] (requires [Jupyter Notebook][2]), or in the [`test_sim.py`][2] Python script, both of which can be found within the tutorial1 folder.
 
 > Episode loop
 
@@ -126,9 +126,8 @@ When making or integrating simulations, it is always a good idea to run some san
 
 #### Exercises
 
-* Run the simulator via the above code, either via `test_sim.py` or, if you have [Jupyter Notebook][2], using `test_simulator.ipynb`, both in the tutorial1 folder.
+* Run the simulator via the above code, either via `test_sim.py`.
 * Write two different policy functions for moving in different directions, and plot their behavior.
 
 [1]: https://github.com/BonsaiAI/bonsai-tutorials/blob/master/tutorial1/test_simulator.ipynb
-[2]: ../guides/jupyter-api-guide.html
-[3]: https://github.com/BonsaiAI/bonsai-tutorials/blob/master/tutorial1/test_sim.py
+[2]: https://github.com/BonsaiAI/bonsai-tutorials/blob/master/tutorial1/test_sim.py

@@ -15,9 +15,7 @@ And we have these other resources that will enable you to maximize your AI devel
 
 * VIDEO: [Advanced Platform Techniques][2]
 * VIDEO: [Writing Great Reward Functions][3]
-* TUTORIAL: [Use Bonsai’s API with Jupyter][4]
 
 [1]: ../tutorials/tutorial1.html
 [2]: https://www.youtube.com/watch?v=E_JtPzT5-dg&index=3&list=PLAktfMEMCsOY9HUZKIuGI6yqefGBuszAV
 [3]: https://www.youtube.com/watch?v=0R3PnJEisqk&list=PLAktfMEMCsOY9HUZKIuGI6yqefGBuszAV&index=4
-[4]: ./jupyter-api-guide.html

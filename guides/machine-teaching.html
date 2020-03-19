@@ -166,7 +166,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<li class=""> <a href="sdk-install-guide.html">Install the SDK</a>  </li>
 				<li class=""> <a href="../tutorials/tutorial1.html">Running Simulations and Writing Inkling</a>  </li>
 				<li class=""> <a href="../tutorials/simulink.html">Train a Simulink Model with Bonsai</a>  </li>
-				<li class=""> <a href="jupyter-api-guide.html">Use Bonsai's API with Jupyter</a>  </li>
 			</ul>
 		</li>
 
@@ -186,7 +185,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<li class="header_menu_item"> <!-- First Tier Drop Down --> <label for="drop-3" class="toggle">References +</label><a  href="#">References</a>
 			<input type="checkbox" id="drop-3"/>
 			<ul id="references">
-				<li class=""> <a href="../references/api-reference.html">API Reference</a>  </li>
 				<li class=""> <a href="../references/cli-reference.html">CLI Reference</a>  </li>
 				<li class=""> <a href="../references/inkling2-reference.html">Inkling Reference</a>  </li>
 				<li class=""> <a href="../references/simulator-reference.html">Simulator Reference</a>
@@ -394,12 +392,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="p">}</span>
             <span class="p">}</span>
             <span class="k">lesson</span> <span class="nx">my_second_lesson</span> <span class="p">{</span>
-                <span class="k">constraint</span> <span class="p">{</span>
+                <span class="nx">scenario</span> <span class="p">{</span>
                     <span class="nx">outside_phase</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span> <span class="p">..</span> <span class="mi">24</span><span class="o">&gt;</span>
                 <span class="p">}</span>
             <span class="p">}</span>
             <span class="k">lesson</span> <span class="nx">my_third_lesson</span> <span class="p">{</span>
-                <span class="k">constraint</span> <span class="p">{</span>
+                <span class="nx">scenario</span> <span class="p">{</span>
                     <span class="nx">outside_phase</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span> <span class="p">..</span> <span class="mi">48</span><span class="o">&gt;</span>
                 <span class="p">}</span>
             <span class="p">}</span>
@@ -785,7 +783,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">source</span> <span class="nx">simulink_sim</span>
 
         <span class="k">lesson</span> <span class="nx">my_first_lesson</span> <span class="p">{</span>
-            <span class="k">constraint</span> <span class="p">{</span>
+            <span class="nx">scenario</span> <span class="p">{</span>
                 <span class="nx">outside_phase</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span> <span class="p">..</span> <span class="mi">12</span><span class="o">&gt;</span>
             <span class="p">}</span>
         <span class="p">}</span>
@@ -832,19 +830,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="k">source</span> <span class="nx">simulink_sim</span>
 
         <span class="k">lesson</span> <span class="nx">my_first_lesson</span> <span class="p">{</span>
-            <span class="k">constraint</span> <span class="p">{</span>
+            <span class="nx">scenario</span> <span class="p">{</span>
                 <span class="nx">outside_phase</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span> <span class="p">..</span> <span class="mi">12</span><span class="o">&gt;</span>
             <span class="p">}</span>
         <span class="p">}</span>
 
         <span class="k">lesson</span> <span class="nx">my_second_lesson</span> <span class="p">{</span>
-            <span class="k">constraint</span> <span class="p">{</span>
+            <span class="nx">scenario</span> <span class="p">{</span>
                 <span class="nx">outside_phase</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span> <span class="p">..</span> <span class="mi">24</span><span class="o">&gt;</span>
             <span class="p">}</span>
         <span class="p">}</span>
 
         <span class="k">lesson</span> <span class="nx">my_third_lesson</span> <span class="p">{</span>
-            <span class="k">constraint</span> <span class="p">{</span>
+            <span class="nx">scenario</span> <span class="p">{</span>
                 <span class="nx">outside_phase</span><span class="p">:</span> <span class="k">number</span><span class="o">&lt;</span><span class="mi">0</span> <span class="p">..</span> <span class="mi">48</span><span class="o">&gt;</span>
             <span class="p">}</span>
         <span class="p">}</span>
@@ -853,7 +851,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </code></pre>
 <p>In this example we want to train a BRAIN to control a residential HVAC system.  We want the BRAIN to successfully respond to a wide variety of initial room temperatures.  We create an Inkling configuration for initial temperature, but we don’t want to vary the initial room temperature randomly because the range of initial temperatures is very wide. This may take the learning algorithm a long time to explore the solution space. </p>
 
-<p>Instead, we use a phased training approach called lessons. In the early episodes, the first lesson, we specify a <code class="prettyprint">constraint</code> such that the initial temperature is within a narrow range. After the BRAIN learns to control the system well in the first range of initial temperatures, we increase the range of possible initial temperatures in the second lesson. Then we repeat the process for subsequent lessons. </p>
+<p>Instead, we use a phased training approach with lessons. In the first lesson, we specify a <code class="prettyprint">scenario</code> such that the initial temperature is within a narrow range. After the brain learns to control the system well in the first range of initial temperatures, we increase the range of possible initial temperatures in the second lesson. Then we repeat the process for subsequent lessons. </p>
 
 <h1 id="logging-brain-training-progress">Logging BRAIN Training Progress</h1>
 
@@ -975,7 +973,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <ul>
 <li>VIDEO: <a href="https://www.youtube.com/watch?v=E_JtPzT5-dg&amp;index=3&amp;list=PLAktfMEMCsOY9HUZKIuGI6yqefGBuszAV">Advanced Platform Techniques</a></li>
 <li>VIDEO: <a href="https://www.youtube.com/watch?v=0R3PnJEisqk&amp;list=PLAktfMEMCsOY9HUZKIuGI6yqefGBuszAV&amp;index=4">Writing Great Reward Functions</a></li>
-<li>TUTORIAL: <a href="jupyter-api-guide.html">Use Bonsai’s API with Jupyter</a></li>
 </ul>
 
       </div>

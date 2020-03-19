@@ -166,7 +166,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<li class=""> <a href="sdk-install-guide.html">Install the SDK</a>  </li>
 				<li class=""> <a href="../tutorials/tutorial1.html">Running Simulations and Writing Inkling</a>  </li>
 				<li class=""> <a href="../tutorials/simulink.html">Train a Simulink Model with Bonsai</a>  </li>
-				<li class=""> <a href="jupyter-api-guide.html">Use Bonsai's API with Jupyter</a>  </li>
 			</ul>
 		</li>
 
@@ -186,7 +185,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<li class="header_menu_item"> <!-- First Tier Drop Down --> <label for="drop-3" class="toggle">References +</label><a  href="#">References</a>
 			<input type="checkbox" id="drop-3"/>
 			<ul id="references">
-				<li class=""> <a href="../references/api-reference.html">API Reference</a>  </li>
 				<li class=""> <a href="../references/cli-reference.html">CLI Reference</a>  </li>
 				<li class=""> <a href="../references/inkling2-reference.html">Inkling Reference</a>  </li>
 				<li class=""> <a href="../references/simulator-reference.html">Simulator Reference</a>
@@ -563,15 +561,15 @@ Machine teaching focuses on how the problem can be taught, not how it can be cal
     <span class="k">source</span> <span class="nx">CartpoleSimulator</span>
 
     <span class="k">lesson</span> <span class="nx">Slow</span> <span class="p">{</span>
-      <span class="k">constraint</span> <span class="p">{</span> <span class="nx">MaxSpeed</span><span class="p">:</span> <span class="mi">10</span> <span class="p">}</span>
+      <span class="nx">scenario</span> <span class="p">{</span> <span class="nx">MaxSpeed</span><span class="p">:</span> <span class="mi">10</span> <span class="p">}</span>
     <span class="p">}</span>
 
     <span class="k">lesson</span> <span class="nx">Medium</span> <span class="p">{</span>
-      <span class="k">constraint</span> <span class="p">{</span> <span class="nx">MaxSpeed</span><span class="p">:</span> <span class="mi">20</span> <span class="p">}</span>
+      <span class="nx">scenario</span> <span class="p">{</span> <span class="nx">MaxSpeed</span><span class="p">:</span> <span class="mi">20</span> <span class="p">}</span>
     <span class="p">}</span>
 
     <span class="k">lesson</span> <span class="nx">Fast</span> <span class="p">{</span>
-      <span class="k">constraint</span> <span class="p">{</span> <span class="nx">MaxSpeed</span><span class="p">:</span> <span class="mi">30</span> <span class="p">}</span>
+      <span class="nx">scenario</span> <span class="p">{</span> <span class="nx">MaxSpeed</span><span class="p">:</span> <span class="mi">30</span> <span class="p">}</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -580,11 +578,11 @@ Machine teaching focuses on how the problem can be taught, not how it can be cal
 
 <h2 id="defining-lessons">Defining Lessons</h2>
 
-<h3 id="simulator-configuration-constraints">Simulator Configuration Constraints</h3>
+<h3 id="simulator-configuration-scenarios">Simulator Configuration Scenarios</h3>
 
-<p>Each lesson may specify a <strong>constraint</strong> for the simulator&rsquo;s configuration. Earlier lessons must provide more restrictive constraints, while later lessons loosen the constraints. This allows the AI training to learn a simpler form of the concept before learning a more complex form.</p>
+<p>Each lesson may specify a <strong>scenario</strong> that refers to a part of the simulator&rsquo;s configuration space. Earlier lessons must provide “narrower” scenarios than later scenarios. This allows the AI training to learn a simpler form of the concept before learning a more complex form.</p>
 
-<p>The <strong>constraint</strong> keyword must be followed by a type that constrains the simulator&rsquo;s declared configuration type. For more information and examples, refer to the <a href="../references/inkling2-reference.html#lessons">Lesson Reference</a>.</p>
+<p>The <strong>scenario</strong> keyword must be followed by a type that specifies desired constraints for the simulator&rsquo;s declared configuration type. For more information and examples, refer to the <a href="../references/inkling2-reference.html#lessons">Lesson Reference</a>.</p>
 
 <h2 id="reward">Reward</h2>
 

@@ -1472,6 +1472,7 @@ The curriculum <code class="prettyprint">source</code> clause specifies <code cl
 <ul>
 <li><code class="prettyprint">APEX</code> (Distributed Deep Q Network) - discrete action spaces only</li>
 <li><code class="prettyprint">PPO</code> (Proximal Policy Optimization) - continuous action spaces only</li>
+<li><code class="prettyprint">SAC</code> (Soft Actor Critic) - continuous action spaces only</li>
 </ul>
 
 <h3 id="shared-parameter-details">Shared Parameter Details</h3>
@@ -1539,6 +1540,26 @@ The curriculum <code class="prettyprint">source</code> clause specifies <code cl
 <tr>
 <td>PolicyLearningRate: float <br> (<code class="prettyprint">PolicyLearningRate: 0.0001</code>)</td>
 <td>The learning rate for training the policy network.</td>
+</tr>
+</tbody></table>
+
+<h3 id="sac-specific">SAC-Specific</h3>
+
+<p>SAC supports these parameters.</p>
+
+<table><thead>
+<tr>
+<th>Parameter (Example use)</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>QHiddenLayers: [HiddenLayerInfo] <br><br> (<code class="prettyprint">QHiddenLayers: [{Size: 400, Activation: &quot;relu&quot;}, {Size: 300, Activation: &quot;tanh&quot;}]</code>)</td>
+<td>An array of structures that define the size and (optionally) the activation function for each hidden layer in the Q network. Sizes must be positive integers, and activation functions must be one of &ldquo;linear&rdquo;, &ldquo;tanh&rdquo;, &ldquo;relu&rdquo;, &ldquo;logistic&rdquo;, &ldquo;softmax&rdquo;, &ldquo;elu&rdquo;, or &ldquo;default&rdquo;.</td>
+</tr>
+<tr>
+<td>PolicyHiddenLayers: [HiddenLayerInfo] <br><br> (<code class="prettyprint">PolicyHiddenLayers: [{Size: 256}]</code>)</td>
+<td>An array of structures that define the size and (optionally) the activation function for each hidden layer in the policy network.</td>
 </tr>
 </tbody></table>
 

@@ -23,7 +23,7 @@ In this section, we outline techniques used by the architect to determine reason
 
 ## Currently Supported Models
 
-At the moment, the Architect chooses from only a small number of solutions. As time goes on, this library of solutions will change. At the moment, we currently support APEX (Distributed Deep Q Network) and PPO (Proximal Policy Optimization). In a multi-concept inkling file, the Architect may mix and match solutions depending on the complexity of subconcepts.
+At the moment, the Architect chooses from only a small number of solutions. As time goes on, this library of solutions will change. At the moment, we currently support APEX (Distributed Deep Q Network), PPO (Proximal Policy Optimization), and SAC (Soft Actor Critic). In a multi-concept inkling file, the Architect may mix and match solutions depending on the complexity of subconcepts.
 
 ## Heuristics
 

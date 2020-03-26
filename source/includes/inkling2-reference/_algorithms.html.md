@@ -42,6 +42,7 @@ The algorithm clause is for advanced users who want to experiment with changing 
 
 * `APEX` (Distributed Deep Q Network) - discrete action spaces only
 * `PPO` (Proximal Policy Optimization) - continuous action spaces only
+* `SAC` (Soft Actor Critic) - continuous action spaces only
 
 
 ### Shared Parameter Details
@@ -73,6 +74,15 @@ In addition to the first (shared) table of parameters, PPO supports these additi
 | -                            | -           |
 | BatchSize: (1000-2000000) <br> (`BatchSize: 8000`) | See below for details. |
 | PolicyLearningRate: float <br> (`PolicyLearningRate: 0.0001`) | The learning rate for training the policy network. |
+
+### SAC-Specific
+
+SAC supports these parameters.
+
+| Parameter (Example use)      | Description |
+| -                            | -           |
+| QHiddenLayers: [HiddenLayerInfo] <br><br> (`QHiddenLayers: [{Size: 400, Activation: "relu"}, {Size: 300, Activation: "tanh"}]`) | An array of structures that define the size and (optionally) the activation function for each hidden layer in the Q network. Sizes must be positive integers, and activation functions must be one of "linear", "tanh", "relu", "logistic", "softmax", "elu", or "default". |
+| PolicyHiddenLayers: [HiddenLayerInfo] <br><br> (`PolicyHiddenLayers: [{Size: 256}]`) | An array of structures that define the size and (optionally) the activation function for each hidden layer in the policy network. |
 
 #### BatchSize Details
 Proximal Policy Optimization works by gathering a large number of complete trajectories and analyzing them in aggregate to obtain a confidence metric for the probability that a given change to the policy will improve performance. With a sufficiently large batch size, this yields monotonic policy improvement, as the algorithm only makes changes its confident will lead to real improvements based on large amounts of data. The BatchSize parameter determines how much data will be aggregated to make this decision. Smaller batches will lead to faster convergence as updates will be computed more frequently, but these updates will be less reliable and the policy may become unstable if this value is too small. We recommend you set this value to be large enough to contain a significant fraction of a complete episode from each of your simulators, as that aids in estimating policy performance. For example, if your episodes are up to 100 steps each and you have 100 simulators, try a value between 5000 and 10000.

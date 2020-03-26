@@ -81,7 +81,7 @@ SAC supports these parameters.
 
 | Parameter (Example use)      | Description |
 | -                            | -           |
-| QHiddenLayers: [HiddenLayerInfo] <br><br> (`QHiddenLayers: [{Size: 400, Activation: "relu"}, {Size: 300, Activation: "tanh"}]`) | An array of structures that define the size and (optionally) the activation function for each hidden layer in the policy network. Sizes must be positive integers, and activation functions must be one of "linear", "tanh", "relu", "logistic", "softmax", "elu", or "default". |
+| QHiddenLayers: [HiddenLayerInfo] <br><br> (`QHiddenLayers: [{Size: 400, Activation: "relu"}, {Size: 300, Activation: "tanh"}]`) | An array of structures that define the size and (optionally) the activation function for each hidden layer in the Q network. Sizes must be positive integers, and activation functions must be one of "linear", "tanh", "relu", "logistic", "softmax", "elu", or "default". |
 | PolicyHiddenLayers: [HiddenLayerInfo] <br><br> (`PolicyHiddenLayers: [{Size: 256}]`) | An array of structures that define the size and (optionally) the activation function for each hidden layer in the policy network. |
 
 #### BatchSize Details

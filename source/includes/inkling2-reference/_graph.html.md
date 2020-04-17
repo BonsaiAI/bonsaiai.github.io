@@ -15,7 +15,7 @@ graph (input: InputType): OutputType {
 ```inkling2--syntax
 graphStatement :=
 graph '(' input ':' inputType ')' [':' outputType]? '{'
-  conceptDeclaration*
+  [output] conceptDeclaration*
 
   output <conceptName>
 '}'
@@ -28,4 +28,4 @@ The inputType specifies the graph's input type.
 
 The outputType specifies the graph's output type. If omitted, it is inferred by the output type of the output concept. If provided, the compiler verifies that the specified type matches that of the output concept.
 
-The `output` clause must refer to one of the declared concepts.
+The `output` clause must refer to one of the declared concepts. This clause can be omitted if the graph includes only one concept.

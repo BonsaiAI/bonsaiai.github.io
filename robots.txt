@@ -1,4 +1,4 @@
 # robots.txt for http://docs.bons.ai/
 
 User-agent: *
-Disallow: /sdk1/ # This is legacy content of sdk1 we don't want in search results
+Disallow: /
